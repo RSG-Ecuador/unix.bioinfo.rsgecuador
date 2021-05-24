@@ -6,7 +6,7 @@
 `false`    | booleano para flasedad
 `$?`       | variable de estado de salida (*exit status*)
 `&&`       | operador lógico binario AND 
-`\|\|`     | operador lógico binario OR 
+\| \|     | operador lógico binario OR 
 `if`       | inicio de una sentencia condicional
 `fi`       | final de una sentencia condicional
 `else`     | siguiente posible decisión condicional en una estructura *if*
