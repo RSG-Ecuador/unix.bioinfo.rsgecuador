@@ -1,26 +1,5 @@
 # Lógica, condicionales y arreglos
 
-**Comando**| **Función**
------------| --------------
-`true`     | booleano para verdad 
-`false`    | booleano para flasedad
-`$?`       | variable de estado de salida (*exit status*)
-`&&`       | operador lógico binario AND 
-`\|\|`     | operador lógico binario OR 
-`if`       | inicio de una sentencia condicional
-`fi`       | final de una sentencia condicional
-`else`     | siguiente posible decisión condicional en una estructura *if*
-\[\[ \]\]  | doble braces
-( )        | declaración de arreglos
-`#`        | longitud de un arreglo
-|<img width=100/>   | |
-
-```{image} ./img/if.png
-:alt: ./img/if.png
-:width: 600px
-:align: center
-```
-
 ## Estructuras de control condicional: `if` `else`
 
 Los programas son capaces de ejecutar lógicas bastante complejas. La forma de hacerlo es concatenando **estructuras de control** o sentecias de control. Estas sentencias permiten controlar el flujo de ejecución de las instrucciones de un programa. La primera estructura que veremos son los condicionales. 
@@ -205,3 +184,27 @@ $ echo ${bichos[*]}
 :class: hint
 Coloca todas las operaciones de la sección de arreglos en un archivo llamado `arreblos.sh` en `~/taller_unix/9_bash`, luego correlo con bash. Toma una captura de pantalla del resultado. Guarda la captura de pantalla en `~/taller_unix/9_bash`, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.
 ```
+
+```{image} ./img/if.png
+:alt: ./img/if.png
+:width: 600px
+:align: center
+```
+
+
+## Tabla de comandos frecuentes
+
+**Comando**| **Función**
+-----------| --------------
+`true`     | booleano para verdad 
+`false`    | booleano para flasedad
+`$?`       | variable de estado de salida (*exit status*)
+`&&`       | operador lógico binario AND 
+\| \|      | operador lógico binario OR 
+`if`       | inicio de una sentencia condicional
+`fi`       | final de una sentencia condicional
+`else`     | siguiente posible decisión condicional en una estructura *if*
+\[\[ \]\]  | doble braces
+( )        | declaración de arreglos
+`#`        | longitud de un arreglo
+|<img width=100/>   | |
