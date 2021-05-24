@@ -56,7 +56,7 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="4. Ciclos y funciones" href="3_bash.html" />
+    <link rel="next" title="4. Bucles y funciones" href="3_bash.html" />
     <link rel="prev" title="2. Scripts en Bash" href="1_bash.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -412,7 +412,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="3_bash.html">
-   4. Ciclos y funciones
+   4. Bucles y funciones
   </a>
  </li>
 </ul>
@@ -515,28 +515,28 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logica">
+   3.1. Lógica
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estructuras-de-control-condicional-if-else">
-   3.1. Estructuras de control condicional:
+   3.2. Estructuras de control condicional:
    <code class="docutils literal notranslate">
     <span class="pre">
-     if
-    </span>
-   </code>
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     else
+     if-else
     </span>
    </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#arreglos">
-   3.2. Arreglos
+   3.3. Arreglos
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tabla-de-comandos-frecuentes">
-   3.3. Tabla de comandos frecuentes
+   3.4. Tabla de comandos frecuentes
   </a>
  </li>
 </ul>
@@ -553,8 +553,8 @@
                 
   <div class="section" id="logica-condicionales-y-arreglos">
 <h1><span class="section-number">3. </span>Lógica, condicionales y arreglos<a class="headerlink" href="#logica-condicionales-y-arreglos" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="estructuras-de-control-condicional-if-else">
-<h2><span class="section-number">3.1. </span>Estructuras de control condicional: <code class="docutils literal notranslate"><span class="pre">if</span></code> <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#estructuras-de-control-condicional-if-else" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="logica">
+<h2><span class="section-number">3.1. </span>Lógica<a class="headerlink" href="#logica" title="Permalink to this headline">¶</a></h2>
 <p>Los programas son capaces de ejecutar lógicas bastante complejas. La forma de hacerlo es concatenando <strong>estructuras de control</strong> o sentecias de control. Estas sentencias permiten controlar el flujo de ejecución de las instrucciones de un programa. La primera estructura que veremos son los condicionales.</p>
 <p>Los condicionales le permiten a un programa decidir en función de la veracidad de una sentencia lógica. Una sentencia lógica puede clasificarse en 2 tipos de acuerdo a su veracidad: <em>verdadera</em> o <em>falsa</em>. Por ejemplo, al procesar un archivo de secuencias de ADN, un script puede analizar de un conjunto de lecturas solo las que cumplan con un criterio de calidad o un script podría decidir si extraer secuencias con un patrón específico. Los tipos de datos que guardan el estado de verdad de una sentencia se llaman <strong>booleanos</strong>.</p>
 <p>En Bash, las variables booleanas se llaman <code class="docutils literal notranslate"><span class="pre">true</span></code> y <code class="docutils literal notranslate"><span class="pre">false</span></code>. Ambas se guardan en memoria como un <code class="docutils literal notranslate"><span class="pre">0</span></code> y un <code class="docutils literal notranslate"><span class="pre">1</span></code>, respectivamente. Esto se puede ver al imprimir la <em>variable de estado de salida</em> <code class="docutils literal notranslate"><span class="pre">$?</span></code>.</p>
@@ -622,7 +622,23 @@ $ <span class="o">[[</span> <span class="nv">$number</span> -gt <span class="m">
 $ <span class="o">[[</span> -e <span class="nv">$number</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> t <span class="o">||</span> <span class="nb">echo</span> f
 </pre></div>
 </div>
-<p>Ahora veamos como funciona un script de Bash utilizando sentencias <code class="docutils literal notranslate"><span class="pre">if</span></code>, para averiguar si un número es par o impar.</p>
+</div>
+<div class="section" id="estructuras-de-control-condicional-if-else">
+<h2><span class="section-number">3.2. </span>Estructuras de control condicional: <code class="docutils literal notranslate"><span class="pre">if-else</span></code><a class="headerlink" href="#estructuras-de-control-condicional-if-else" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../../../_images/if.png"><img alt="./img/if.png" class="align-center" src="../../../_images/if.png" style="width: 600px;" /></a>
+<p>La estructura general de los condicionales <code class="docutils literal notranslate"><span class="pre">if-else</span></code> es la siguente. Siempre inicia con la sentencia <code class="docutils literal notranslate"><span class="pre">if</span></code>, seguida de una operación lógica. Inmediatamente sigue, en la siguiente línea, la sentencia <code class="docutils literal notranslate"><span class="pre">then</span></code>. Esta sentencia inicia la sección de código que se ejecuta solo si la operación lógica anterior es verdad. Se pueden concatenar las secuencias lógicas para armar cada vez más casos de evaluación, con <code class="docutils literal notranslate"><span class="pre">elif</span></code>, que equivale a pensar <em>else if …</em>, para una nueva operación lógica y un <code class="docutils literal notranslate"><span class="pre">then</span></code>. Finalmente, si no hay más operaciones lógicas que evaluar, se incluye la sentencia <code class="docutils literal notranslate"><span class="pre">else</span></code>, seguida de una acción a realizar si ninguna operación lógica previa se cumplió. Se usa mucho para mostrar mensajes de error o mensajes de aviso:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[[</span> operación lógica <span class="m">1</span> <span class="o">]]</span>
+<span class="k">then</span>
+    Acciones si la operación lógica <span class="m">1</span> es verdad
+<span class="k">elif</span> <span class="o">[[</span> operación lógica <span class="m">2</span> <span class="o">]]</span>
+<span class="k">then</span>
+    Acciones si la operación lógica <span class="m">2</span> es verdad
+<span class="k">else</span>
+    Acciones si ninguna operación lógica es verdad
+<span class="k">fi</span> 
+</pre></div>
+</div>
+<p>Ahora veamos como funciona un script de Bash utilizando sentencias <code class="docutils literal notranslate"><span class="pre">if</span></code>, para averiguar si un número es par o impar. Este número será el primer argumento del programa.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1"># File: oddeven.sh</span>
 
@@ -685,7 +701,7 @@ $ bash oddeven.sh <span class="m">30</span>
 </div>
 </div>
 <div class="section" id="arreglos">
-<h2><span class="section-number">3.2. </span>Arreglos<a class="headerlink" href="#arreglos" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>Arreglos<a class="headerlink" href="#arreglos" title="Permalink to this headline">¶</a></h2>
 <p>La información puede ser procesada de manera eficiente en <strong>estructuras de datos</strong>. Las esturcturas de datos son formas de organizar los datos. Pueden ser tan complejas como sea necesario. Varios algoritmos requieren el diseño de estructuras de datos con particularidades para facilitar el procesamiento de datos. La primera estructura de datos se deriva del <em>álgebra lineal</em>, específicamente de las <strong>tuplas</strong>. Una <em>n-tupla</em> es una lista finita con <em>n</em> elementos ordenados. Abajo tenemos una tupla llamada <em>x</em>. El conteo empieza desde 0, hasta <em>n-1</em>.</p>
 <div class="math notranslate nohighlight">
 \[\textbf{x} = (x_0, x_1, x_2, \ldots, x_{n-1})\]</div>
@@ -729,10 +745,9 @@ $ <span class="nb">echo</span> <span class="si">${</span><span class="nv">bichos
 <p class="admonition-title">Deber</p>
 <p>Coloca todas las operaciones de la sección de arreglos en un archivo llamado <code class="docutils literal notranslate"><span class="pre">arreblos.sh</span></code> en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, luego correlo con bash. Toma una captura de pantalla del resultado. Guarda la captura de pantalla en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.</p>
 </div>
-<a class="reference internal image-reference" href="../../../_images/if.png"><img alt="./img/if.png" class="align-center" src="../../../_images/if.png" style="width: 600px;" /></a>
 </div>
 <div class="section" id="tabla-de-comandos-frecuentes">
-<h2><span class="section-number">3.3. </span>Tabla de comandos frecuentes<a class="headerlink" href="#tabla-de-comandos-frecuentes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>Tabla de comandos frecuentes<a class="headerlink" href="#tabla-de-comandos-frecuentes" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Comando</strong></p></th>
@@ -807,7 +822,7 @@ $ <span class="nb">echo</span> <span class="si">${</span><span class="nv">bichos
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="1_bash.html" title="previous page"><span class="section-number">2. </span>Scripts en Bash</a>
-    <a class='right-next' id="next-link" href="3_bash.html" title="next page"><span class="section-number">4. </span>Ciclos y funciones</a>
+    <a class='right-next' id="next-link" href="3_bash.html" title="next page"><span class="section-number">4. </span>Bucles y funciones</a>
 
         </div>
         

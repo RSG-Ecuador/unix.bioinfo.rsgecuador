@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Ciclos y funciones &#8212; GNU/Linux para Bioinformática</title>
+    <title>4. Bucles y funciones &#8212; GNU/Linux para Bioinformática</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -410,7 +410,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Ciclos y funciones
+   4. Bucles y funciones
   </a>
  </li>
 </ul>
@@ -506,6 +506,25 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops-sobre-secuencias-estructuras-de-datos">
+   4.1.
+   <em>
+    For loops
+   </em>
+   sobre secuencias/estructuras de datos
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -514,9 +533,47 @@
         
               <div>
                 
-  <div class="section" id="ciclos-y-funciones">
-<h1><span class="section-number">4. </span>Ciclos y funciones<a class="headerlink" href="#ciclos-y-funciones" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="../../../_images/suc1.gif"><img alt="./img/suc.gif" class="align-center" src="../../../_images/suc1.gif" style="width: 200px;" /></a>
+  <div class="section" id="bucles-y-funciones">
+<h1><span class="section-number">4. </span>Bucles y funciones<a class="headerlink" href="#bucles-y-funciones" title="Permalink to this headline">¶</a></h1>
+<p>Los bucles, o <code class="docutils literal notranslate"><span class="pre">loops</span></code> en inglés, permiten repetir líneas de código iterando sobre una secuencia o estructura de datos, como los arreglos que vimos antes, o en base a condiciones/operaciones lógicas. En bash hay dos tipos de bucles: <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code>. Dentro de los bucles se pueden añadir estructuras de control condicional <code class="docutils literal notranslate"><span class="pre">if-else</span></code>, variables, operaciones aritméticas, funciones de bash, entre otras cosas.</p>
+<div class="section" id="for-loops-sobre-secuencias-estructuras-de-datos">
+<h2><span class="section-number">4.1. </span><em>For loops</em> sobre secuencias/estructuras de datos<a class="headerlink" href="#for-loops-sobre-secuencias-estructuras-de-datos" title="Permalink to this headline">¶</a></h2>
+<p>Se realizan acciones iterativas sobre cada elemento de una <code class="docutils literal notranslate"><span class="pre">secuencia</span> <span class="pre">o</span> <span class="pre">estructura</span> <span class="pre">de</span> <span class="pre">datos</span></code> (braces, arreglos, u otras). La estructura general del for loop es la siguente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> índice <span class="k">in</span> brace o arreglo
+<span class="k">do</span>
+    Acciones que se ejecutan de forma iterativa
+<span class="k">done</span> 
+</pre></div>
+</div>
+<p>La estructura general del for loop sobre estructuras con condicionales if-else es la siguente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> índice <span class="k">in</span> brace o arreglo
+<span class="k">do</span>
+    <span class="k">if</span> <span class="o">[[</span> operación lógica <span class="o">]]</span>
+    <span class="k">then</span>
+        Acciones que se ejecutan de forma iterativa 
+    <span class="k">fi</span>
+<span class="k">done</span> 
+</pre></div>
+</div>
+<p>Creamos un</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash    </span>
+<span class="c1"># File: forloop.sh    </span>
+<span class="nv">min</span><span class="o">=</span><span class="m">1000</span>
+<span class="nb">echo</span> Ingrese la cantidad de numeros:
+<span class="nb">read</span> n
+<span class="k">for</span><span class="o">((</span><span class="nv">i</span><span class="o">=</span><span class="m">1</span><span class="p">;</span>i&lt;<span class="o">=</span>n<span class="p">;</span> i++<span class="o">))</span>
+<span class="k">do</span>    
+    <span class="nb">echo</span> Elemento <span class="nv">$i</span>:
+    <span class="nb">read</span> num
+    <span class="k">if</span> <span class="o">((</span> num &lt; min <span class="o">))</span>
+    <span class="k">then</span>
+        <span class="nb">let</span> <span class="nv">min</span><span class="o">=</span>num
+    <span class="k">fi</span>
+<span class="k">done</span>
+<span class="nb">echo</span>   El menor es: <span class="nv">$min</span>  
+</pre></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
