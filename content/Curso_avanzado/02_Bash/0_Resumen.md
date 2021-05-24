@@ -5,7 +5,7 @@ El propósito de este capítulo es ganar la práctica necesaria para hacer scrip
 0. [Resumen](0_Resumen.md)
 1. [Scripts en Bash](1_bash.md)
 2. [Lógica, condicionales y arreglos](2_bash.md)
-3. [Ciclos y funciones](3_bash.md)
+3. [Bucles y funciones](3_bash.md)
 
 ```{admonition} Deber
 :class: note

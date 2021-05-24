@@ -1,6 +1,6 @@
 # Lógica, condicionales y arreglos
 
-## Estructuras de control condicional: `if` `else`
+## Lógica
 
 Los programas son capaces de ejecutar lógicas bastante complejas. La forma de hacerlo es concatenando **estructuras de control** o sentecias de control. Estas sentencias permiten controlar el flujo de ejecución de las instrucciones de un programa. La primera estructura que veremos son los condicionales. 
 
@@ -71,7 +71,26 @@ $ [[ $number -gt 3 ]] && echo t || echo f
 $ [[ $number -gt 10 ]] && echo t || echo f
 $ [[ -e $number ]] && echo t || echo f
 ```
-Ahora veamos como funciona un script de Bash utilizando sentencias `if`, para averiguar si un número es par o impar.
+
+## Estructuras de control condicional: `if-else`
+```{image} ./img/if.png
+:alt: ./img/if.png
+:width: 600px
+:align: center
+```
+La estructura general de los condicionales `if-else` es la siguente. Siempre inicia con la sentencia `if`, seguida de una operación lógica. Inmediatamente sigue, en la siguiente línea, la sentencia `then`. Esta sentencia inicia la sección de código que se ejecuta solo si la operación lógica anterior es verdad. Se pueden concatenar las secuencias lógicas para armar cada vez más casos de evaluación, con `elif`, que equivale a pensar *else if ...*, para una nueva operación lógica y un `then`. Finalmente, si no hay más operaciones lógicas que evaluar, se incluye la sentencia `else`, seguida de una acción a realizar si ninguna operación lógica previa se cumplió. Se usa mucho para mostrar mensajes de error o mensajes de aviso:
+```bash
+if [[ operación lógica 1 ]]
+then
+    Acciones si la operación lógica 1 es verdad
+elif [[ operación lógica 2 ]]
+then
+    Acciones si la operación lógica 2 es verdad
+else
+    Acciones si ninguna operación lógica es verdad
+fi 
+```
+Ahora veamos como funciona un script de Bash utilizando sentencias `if`, para averiguar si un número es par o impar. Este número será el primer argumento del programa.
 ```bash
 #!/bin/bash
 # File: oddeven.sh
@@ -183,12 +202,6 @@ $ echo ${bichos[*]}
 ```{admonition} Deber
 :class: hint
 Coloca todas las operaciones de la sección de arreglos en un archivo llamado `arreblos.sh` en `~/taller_unix/9_bash`, luego correlo con bash. Toma una captura de pantalla del resultado. Guarda la captura de pantalla en `~/taller_unix/9_bash`, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.
-```
-
-```{image} ./img/if.png
-:alt: ./img/if.png
-:width: 600px
-:align: center
 ```
 
 
