@@ -1,26 +1,5 @@
 # Scripts en Bash
 
-**Comando** | **Función**
------------ | --------------
-`expr`      | Comando para evaluar una expresión de Bash.
-`#!`        | Shebang.
-`+`         | Operador de suma entre dos números.
-`/`         | Operador de división entera entre dos números. Devuelve el entero más cercano al resutado real. 
-`-`         | Operador de resta entre dos números.
-`*`         | Operador de producto entre dos números. Hay que **escapar el caracter `\*` *antes de usarlo en la shell*** como operador de producto o Bash creerá que será usado como expresión regular. Si se usa en *bc* no hay problema.
-`%`         | Operador residuo entre dos números. Retorna el residuo de una división larga entre números.
-`bc`        | Pograma *bench calculator*. Toma strings de operaciones algebraicas y da el resultado.
-`=`         | Operador de asignación
-`$`         | Caracter especial que revela contenido de una variable.
-`let`       | Comando que permite actualizar una variable con una operación algebraica.
-`()`        | Operador para *sustitución de comando*. Corre un comando y guarda el resultado en una variable.
-`@`         | Variable nativa que imprime los nombres de los argumentos dados a un script.
-`1`         | Variable nativa que guarda el primer argumento pasado al script.
-`2`         | Variable nativa que guarda el segundo argumento pasado al script.
-`#`         | Variable nativa que guarda el número de argumentos pasados al scritp.
-`read`      | Comando para guardar un input del usuario desde el teclado.
-|<img width=100/>   | |
-
 ```{image} ./img/b.png
 :alt: ./img/b.png
 :width: 300px
@@ -257,3 +236,26 @@ $ bash demo.sh secuencias_bash.fastq
 :class: hint
 Vas a notar que este script posee el nuevo comando `if`. Lo veremos en la próxima sección. Por ahora, crea el script y córrelo. Toma una captura de pantalla del proceso. Guarda la captura de pantalla en `~/taller_unix/9_bash`, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.
 ```
+
+## Tabla de comandos frecuentes
+
+**Comando** | **Función**
+----------- | --------------
+`expr`      | Comando para evaluar una expresión de Bash.
+`#!`        | Shebang.
+`+`         | Operador de suma entre dos números.
+`/`         | Operador de división entera entre dos números. Devuelve el entero más cercano al resutado real. 
+`-`         | Operador de resta entre dos números.
+`*`         | Operador de producto entre dos números. Hay que **escapar el caracter `\*` *antes de usarlo en la shell*** como operador de producto o Bash creerá que será usado como expresión regular. Si se usa en *bc* no hay problema.
+`%`         | Operador residuo entre dos números. Retorna el residuo de una división larga entre números.
+`bc`        | Pograma *bench calculator*. Toma strings de operaciones algebraicas y da el resultado.
+`=`         | Operador de asignación
+`$`         | Caracter especial que revela contenido de una variable.
+`let`       | Comando que permite actualizar una variable con una operación algebraica.
+`()`        | Operador para *sustitución de comando*. Corre un comando y guarda el resultado en una variable.
+`@`         | Variable nativa que imprime los nombres de los argumentos dados a un script.
+`1`         | Variable nativa que guarda el primer argumento pasado al script.
+`2`         | Variable nativa que guarda el segundo argumento pasado al script.
+`#`         | Variable nativa que guarda el número de argumentos pasados al scritp.
+`read`      | Comando para guardar un input del usuario desde el teclado.
+|<img width=100/>   | |

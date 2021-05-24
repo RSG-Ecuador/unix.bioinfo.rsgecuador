@@ -534,6 +534,11 @@
    2.4. ¿Qué tiene que ver todo esto con bioinformática?
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tabla-de-comandos-frecuentes">
+   2.5. Tabla de comandos frecuentes
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -548,69 +553,6 @@
                 
   <div class="section" id="scripts-en-bash">
 <h1><span class="section-number">2. </span>Scripts en Bash<a class="headerlink" href="#scripts-en-bash" title="Permalink to this headline">¶</a></h1>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Comando</strong></p></th>
-<th class="head"><p><strong>Función</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">expr</span></code></p></td>
-<td><p>Comando para evaluar una expresión de Bash.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">#!</span></code></p></td>
-<td><p>Shebang.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
-<td><p>Operador de suma entre dos números.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
-<td><p>Operador de división entera entre dos números. Devuelve el entero más cercano al resutado real.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
-<td><p>Operador de resta entre dos números.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
-<td><p>Operador de producto entre dos números. Hay que <strong>escapar el caracter <code class="docutils literal notranslate"><span class="pre">\*</span></code> <em>antes de usarlo en la shell</em></strong> como operador de producto o Bash creerá que será usado como expresión regular. Si se usa en <em>bc</em> no hay problema.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
-<td><p>Operador residuo entre dos números. Retorna el residuo de una división larga entre números.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bc</span></code></p></td>
-<td><p>Pograma <em>bench calculator</em>. Toma strings de operaciones algebraicas y da el resultado.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
-<td><p>Operador de asignación</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
-<td><p>Caracter especial que revela contenido de una variable.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">let</span></code></p></td>
-<td><p>Comando que permite actualizar una variable con una operación algebraica.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
-<td><p>Operador para <em>sustitución de comando</em>. Corre un comando y guarda el resultado en una variable.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code></p></td>
-<td><p>Variable nativa que imprime los nombres de los argumentos dados a un script.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
-<td><p>Variable nativa que guarda el primer argumento pasado al script.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
-<td><p>Variable nativa que guarda el segundo argumento pasado al script.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">#</span></code></p></td>
-<td><p>Variable nativa que guarda el número de argumentos pasados al scritp.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">read</span></code></p></td>
-<td><p>Comando para guardar un input del usuario desde el teclado.</p></td>
-</tr>
-<tr class="row-odd"><td><p><img width=100/></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
 <a class="reference internal image-reference" href="../../../_images/b.png"><img alt="./img/b.png" class="align-center" src="../../../_images/b.png" style="width: 300px;" /></a>
 <p>Los <code class="docutils literal notranslate"><span class="pre">scripts</span></code> son archivos de texto que contienen instrucciones ejecutables por un intérprete de un lenguaje de programación para la ejecución de tareas. El formato <code class="docutils literal notranslate"><span class="pre">.sh</span></code> se utiliza para escribir <code class="docutils literal notranslate"><span class="pre">scripts</span> <span class="pre">ejecutables</span></code> por un intérprete como Bash. En esta sección crearemos varios scripts de Bash y usaremos varios comandos y operadores.</p>
 <p>Primero es necesario crear una carpeta para trabajar. Si recuerdas la sección <a class="reference internal" href="../../Curso_basico/02_JupyterLab/0_terminal_primera.html"><span class="doc std std-doc">Jupyter Lab</span></a>, tenemos ya el directorio <code class="docutils literal notranslate"><span class="pre">~/taller_unix</span></code>. Podemos crear una carpeta nueva:</p>
@@ -816,6 +758,72 @@ grep -B1 -A2 NNNNNNNNNN <span class="nv">$@</span> &gt; malas_lecturas.fastq
 <p class="admonition-title">Deber</p>
 <p>Vas a notar que este script posee el nuevo comando <code class="docutils literal notranslate"><span class="pre">if</span></code>. Lo veremos en la próxima sección. Por ahora, crea el script y córrelo. Toma una captura de pantalla del proceso. Guarda la captura de pantalla en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.</p>
 </div>
+</div>
+<div class="section" id="tabla-de-comandos-frecuentes">
+<h2><span class="section-number">2.5. </span>Tabla de comandos frecuentes<a class="headerlink" href="#tabla-de-comandos-frecuentes" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Comando</strong></p></th>
+<th class="head"><p><strong>Función</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">expr</span></code></p></td>
+<td><p>Comando para evaluar una expresión de Bash.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">#!</span></code></p></td>
+<td><p>Shebang.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td><p>Operador de suma entre dos números.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p>Operador de división entera entre dos números. Devuelve el entero más cercano al resutado real.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td><p>Operador de resta entre dos números.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>Operador de producto entre dos números. Hay que <strong>escapar el caracter <code class="docutils literal notranslate"><span class="pre">\*</span></code> <em>antes de usarlo en la shell</em></strong> como operador de producto o Bash creerá que será usado como expresión regular. Si se usa en <em>bc</em> no hay problema.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td><p>Operador residuo entre dos números. Retorna el residuo de una división larga entre números.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bc</span></code></p></td>
+<td><p>Pograma <em>bench calculator</em>. Toma strings de operaciones algebraicas y da el resultado.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
+<td><p>Operador de asignación</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td><p>Caracter especial que revela contenido de una variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">let</span></code></p></td>
+<td><p>Comando que permite actualizar una variable con una operación algebraica.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
+<td><p>Operador para <em>sustitución de comando</em>. Corre un comando y guarda el resultado en una variable.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code></p></td>
+<td><p>Variable nativa que imprime los nombres de los argumentos dados a un script.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p>Variable nativa que guarda el primer argumento pasado al script.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p>Variable nativa que guarda el segundo argumento pasado al script.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">#</span></code></p></td>
+<td><p>Variable nativa que guarda el número de argumentos pasados al scritp.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">read</span></code></p></td>
+<td><p>Comando para guardar un input del usuario desde el teclado.</p></td>
+</tr>
+<tr class="row-odd"><td><p><img width=100/></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 

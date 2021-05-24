@@ -534,6 +534,11 @@
    3.2. Arreglos
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tabla-de-comandos-frecuentes">
+   3.3. Tabla de comandos frecuentes
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -548,52 +553,6 @@
                 
   <div class="section" id="logica-condicionales-y-arreglos">
 <h1><span class="section-number">3. </span>Lógica, condicionales y arreglos<a class="headerlink" href="#logica-condicionales-y-arreglos" title="Permalink to this headline">¶</a></h1>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p><strong>Comando</strong></p></th>
-<th class="head"><p><strong>Función</strong></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
-<td><p>booleano para verdad</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
-<td><p>booleano para flasedad</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$?</span></code></p></td>
-<td><p>variable de estado de salida (<em>exit status</em>)</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code></p></td>
-<td><p>operador lógico binario AND</p></td>
-</tr>
-<tr class="row-even"><td><p>| |</p></td>
-<td><p>operador lógico binario OR</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></td>
-<td><p>inicio de una sentencia condicional</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fi</span></code></p></td>
-<td><p>final de una sentencia condicional</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">else</span></code></p></td>
-<td><p>siguiente posible decisión condicional en una estructura <em>if</em></p></td>
-</tr>
-<tr class="row-even"><td><p>[[ ]]</p></td>
-<td><p>doble braces</p></td>
-</tr>
-<tr class="row-odd"><td><p>( )</p></td>
-<td><p>declaración de arreglos</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">#</span></code></p></td>
-<td><p>longitud de un arreglo</p></td>
-</tr>
-<tr class="row-odd"><td><p><img width=100/></p></td>
-<td><p></p></td>
-</tr>
-</tbody>
-</table>
-<a class="reference internal image-reference" href="../../../_images/if.png"><img alt="./img/if.png" class="align-center" src="../../../_images/if.png" style="width: 600px;" /></a>
 <div class="section" id="estructuras-de-control-condicional-if-else">
 <h2><span class="section-number">3.1. </span>Estructuras de control condicional: <code class="docutils literal notranslate"><span class="pre">if</span></code> <code class="docutils literal notranslate"><span class="pre">else</span></code><a class="headerlink" href="#estructuras-de-control-condicional-if-else" title="Permalink to this headline">¶</a></h2>
 <p>Los programas son capaces de ejecutar lógicas bastante complejas. La forma de hacerlo es concatenando <strong>estructuras de control</strong> o sentecias de control. Estas sentencias permiten controlar el flujo de ejecución de las instrucciones de un programa. La primera estructura que veremos son los condicionales.</p>
@@ -770,6 +729,55 @@ $ <span class="nb">echo</span> <span class="si">${</span><span class="nv">bichos
 <p class="admonition-title">Deber</p>
 <p>Coloca todas las operaciones de la sección de arreglos en un archivo llamado <code class="docutils literal notranslate"><span class="pre">arreblos.sh</span></code> en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, luego correlo con bash. Toma una captura de pantalla del resultado. Guarda la captura de pantalla en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.</p>
 </div>
+<a class="reference internal image-reference" href="../../../_images/if.png"><img alt="./img/if.png" class="align-center" src="../../../_images/if.png" style="width: 600px;" /></a>
+</div>
+<div class="section" id="tabla-de-comandos-frecuentes">
+<h2><span class="section-number">3.3. </span>Tabla de comandos frecuentes<a class="headerlink" href="#tabla-de-comandos-frecuentes" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Comando</strong></p></th>
+<th class="head"><p><strong>Función</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>booleano para verdad</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>booleano para flasedad</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$?</span></code></p></td>
+<td><p>variable de estado de salida (<em>exit status</em>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code></p></td>
+<td><p>operador lógico binario AND</p></td>
+</tr>
+<tr class="row-even"><td><p>| |</p></td>
+<td><p>operador lógico binario OR</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></td>
+<td><p>inicio de una sentencia condicional</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fi</span></code></p></td>
+<td><p>final de una sentencia condicional</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">else</span></code></p></td>
+<td><p>siguiente posible decisión condicional en una estructura <em>if</em></p></td>
+</tr>
+<tr class="row-even"><td><p>[[ ]]</p></td>
+<td><p>doble braces</p></td>
+</tr>
+<tr class="row-odd"><td><p>( )</p></td>
+<td><p>declaración de arreglos</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">#</span></code></p></td>
+<td><p>longitud de un arreglo</p></td>
+</tr>
+<tr class="row-odd"><td><p><img width=100/></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
