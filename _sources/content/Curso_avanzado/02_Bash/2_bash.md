@@ -161,6 +161,11 @@ La información puede ser procesada de manera eficiente en **estructuras de dato
 \textbf{x} = (x_0, x_1, x_2, \ldots, x_{n-1})
 ```
 
+```{admonition} Nota
+:class: note
+Puede ser que en MacOS funcionen los accesos desde 1 y no desde 0. Esto significa que `echo ${bichos[0]}` no arroja nada, pero `echo ${bichos[1]}` arroja el primer elemento. También que `echo ${bichos[10]}` arroja lo que debería `echo ${bichos[9]}`, porque está una posición adelantada. Si corres esto en un Jupyter no debería haber ese problema.
+```
+
 Otros objetos matemáticos similares son los vectores y las matrices. Las tuplas se pueden operar con ciertas reglas algebráicas, e inspiraron varios tipos de estructuras de datos similares en computación. El primero que vamos a aprender son los **arreglos unidimensionales**. Estos contenedores se declaran con paréntesis `()` y cada elemento va separado por espacios, no por comas, como en una tupla. Podemos acceder a cada elmento
 
 ```shell
@@ -188,10 +193,6 @@ Si intentamos utilizar más de los elementos que posee el arreglo, entonces busc
 ```shell
 $ echo ${bichos[10]}
 $ echo ${bichos[9]}
-```
-```{admonition} Nota
-:class: note
-Puede ser que en MacOS funcionen los accesos desde 1 y no desde 0. Esto significa que `echo ${bichos[0]}` no arroja nada, pero `echo ${bichos[1]}` arroja el primer elemento. También que `echo ${bichos[10]}` arroja lo que debería `echo ${bichos[9]}`, porque está una posición adelantada. Si corres esto en un Jupyter no debería haber ese problema.
 ```
 
 Y podemos usar el operador `+=` para concatenar dos arreglos. Concatenamos el anterior creado con *(lombriz escorpion pulga)*

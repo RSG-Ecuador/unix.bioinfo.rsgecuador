@@ -705,6 +705,10 @@ $ bash oddeven.sh <span class="m">30</span>
 <p>La información puede ser procesada de manera eficiente en <strong>estructuras de datos</strong>. Las esturcturas de datos son formas de organizar los datos. Pueden ser tan complejas como sea necesario. Varios algoritmos requieren el diseño de estructuras de datos con particularidades para facilitar el procesamiento de datos. La primera estructura de datos se deriva del <em>álgebra lineal</em>, específicamente de las <strong>tuplas</strong>. Una <em>n-tupla</em> es una lista finita con <em>n</em> elementos ordenados. Abajo tenemos una tupla llamada <em>x</em>. El conteo empieza desde 0, hasta <em>n-1</em>.</p>
 <div class="math notranslate nohighlight">
 \[\textbf{x} = (x_0, x_1, x_2, \ldots, x_{n-1})\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Puede ser que en MacOS funcionen los accesos desde 1 y no desde 0. Esto significa que <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">${bichos[0]}</span></code> no arroja nada, pero <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">${bichos[1]}</span></code> arroja el primer elemento. También que <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">${bichos[10]}</span></code> arroja lo que debería <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">${bichos[9]}</span></code>, porque está una posición adelantada. Si corres esto en un Jupyter no debería haber ese problema.</p>
+</div>
 <p>Otros objetos matemáticos similares son los vectores y las matrices. Las tuplas se pueden operar con ciertas reglas algebráicas, e inspiraron varios tipos de estructuras de datos similares en computación. El primero que vamos a aprender son los <strong>arreglos unidimensionales</strong>. Estos contenedores se declaran con paréntesis <code class="docutils literal notranslate"><span class="pre">()</span></code> y cada elemento va separado por espacios, no por comas, como en una tupla. Podemos acceder a cada elmento</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">bichos</span><span class="o">=(</span>mosca maroposa araña cucaracha saltamontes abeja piojo libelula escarabajo mantis<span class="o">)</span>
 $ <span class="nb">echo</span> <span class="si">${</span><span class="nv">bichos</span><span class="p">[0]</span><span class="si">}</span>
@@ -731,10 +735,6 @@ $ <span class="nb">echo</span> <span class="si">${</span><span class="nv">bichos
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="si">${</span><span class="nv">bichos</span><span class="p">[10]</span><span class="si">}</span>
 $ <span class="nb">echo</span> <span class="si">${</span><span class="nv">bichos</span><span class="p">[9]</span><span class="si">}</span>
 </pre></div>
-</div>
-<div class="note admonition">
-<p class="admonition-title">Nota</p>
-<p>Puede ser que en MacOS funcionen los accesos desde 1 y no desde 0. Esto significa que <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">${bichos[0]}</span></code> no arroja nada, pero <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">${bichos[1]}</span></code> arroja el primer elemento. También que <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">${bichos[10]}</span></code> arroja lo que debería <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">${bichos[9]}</span></code>, porque está una posición adelantada. Si corres esto en un Jupyter no debería haber ese problema.</p>
 </div>
 <p>Y podemos usar el operador <code class="docutils literal notranslate"><span class="pre">+=</span></code> para concatenar dos arreglos. Concatenamos el anterior creado con <em>(lombriz escorpion pulga)</em></p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nv">bichos</span><span class="o">+=(</span>lombriz escorpion pulga<span class="o">)</span>
