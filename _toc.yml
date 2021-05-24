@@ -1,0 +1,84 @@
+- file: README.md
+  numbered: true
+
+- part: Introducción a Unix y GNU/Linux
+  numbered: true
+  chapters:
+  - file: content/Curso_basico/01_Unix_GNU-Linux/0_Resumen.md
+  - file: content/Curso_basico/01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.md
+  - file: content/Curso_basico/01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.md
+  - file: content/Curso_basico/01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.md
+- part: Jupyter Lab
+  numbered: true
+  chapters:
+  - file: content/Curso_basico/02_JupyterLab/0_Resumen.md
+  - file: content/Curso_basico/02_JupyterLab/0_terminal_primera.md
+  - file: content/Curso_basico/02_JupyterLab/1_anaconda.md
+  - file: content/Curso_basico/02_JupyterLab/2_notebooks.md
+  - file: content/Curso_basico/02_JupyterLab/3_vim.md
+- part: Manejo de Terminal
+  numbered: true
+  chapters:
+  - file: content/Curso_basico/03_Manejo_terminal/0_Resumen.md
+  - file: content/Curso_basico/03_Manejo_terminal/1_def.md
+  - file: content/Curso_basico/03_Manejo_terminal/2_terminal.md
+  - file: content/Curso_basico/03_Manejo_terminal/3_comandos.md
+  - file: content/Curso_basico/03_Manejo_terminal/4_directorios.md
+  - file: content/Curso_basico/03_Manejo_terminal/5_wildcards.md
+  - file: content/Curso_basico/03_Manejo_terminal/6_directorios_2.md
+  - file: content/Curso_basico/03_Manejo_terminal/8_variables_amb.md
+- part: Procesamiento de ficheros, regex y pipes
+  numbered: true
+  chapters:
+  - file: content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/0_Resumen.md
+  - file: content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.md
+  - file: content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.md
+  - file: content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.md
+  - file: content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/4_Grep.md
+  - file: content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/5_Sed.md
+  - file: content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.md
+  - file: content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/7_Pipes.md 
+  - file: content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.md
+- part: Ejercicios para procesamiento ficheros en bioinformática
+  numbered: true
+  chapters:
+  - file: content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.md
+  - file: content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.md
+  - file: content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.md
+  - file: content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.md
+  - file: content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.md
+  - file: content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.md
+  - file: content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.md
+  - file: content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.md
+  - file: content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.md
+- part: Make
+  numbered: true
+  chapters:
+  - file: content/Curso_basico/06_Make/0_Resumen.md
+  - file: content/Curso_basico/06_Make/1_Make.md
+- part: SAMTools
+  numbered: true
+  chapters:
+  - file: content/Curso_basico/07_SAM_Tools/0_Resumen.md
+  - file: content/Curso_basico/07_SAM_Tools/1_inst.md
+  - file: content/Curso_basico/07_SAM_Tools/2_dwnl.md
+  - file: content/Curso_basico/07_SAM_Tools/3_impl.md
+- part: AWK
+  numbered: true
+  chapters:
+  - file: content/Curso_avanzado/01_AWK/0_Resumen.md
+  - file: content/Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.md
+  - file: content/Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.md
+  - file: content/Curso_avanzado/01_AWK/3_Ejemplos_awk.md
+  - file: content/Curso_avanzado/01_AWK/4_Respuestas_ejercicios.md
+- part: Bash
+  numbered: true
+  chapters:
+  - file: content/Curso_avanzado/02_Bash/0_Resumen.md
+  - file: content/Curso_avanzado/02_Bash/1_bash.md
+  - file: content/Curso_avanzado/02_Bash/2_bash.md
+  - file: content/Curso_avanzado/02_Bash/3_bash.md
+- part: Git y GitHub
+  numbered: true
+  chapters:
+  - file: content/Curso_avanzado/03_Git_GitHub/0_Resumen.md

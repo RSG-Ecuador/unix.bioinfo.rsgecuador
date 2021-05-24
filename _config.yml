@@ -1,0 +1,43 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: GNU/Linux para Bioinformática
+author: RSG Ecuador
+logo: logo.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git  # Online location of your book
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - deflist
+    - amsmath
+
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+exclude_patterns: [Ejercicios_fines_de_semana/*, README_LIBRO.md, /*./secuencias3.fastq]
