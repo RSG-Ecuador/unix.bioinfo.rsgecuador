@@ -1,0 +1,1263 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Expresiones regulares (regex) &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5. Grep" href="4_Grep.html" />
+    <link rel="prev" title="3. Editores de texto" href="2_Editores_de_texto.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-son-las-regex">
+   4.1. ¿Qué son las regex?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#engine-de-regex-y-texto-para-este-tutorial">
+   4.2.
+   <em>
+    Engine
+   </em>
+   de regex y texto para este tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#flags">
+   4.3. Flags
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#caracteres-literales">
+   4.4. Caracteres literales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metacaracteres">
+     4.4.1. Metacaracteres
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#caracteres-especiales-de-espacios-en-blanco-t-r-n-v">
+     4.4.2. Caracteres especiales de espacios en blanco:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       \t
+      </span>
+      <span class="pre">
+       \r
+      </span>
+      <span class="pre">
+       \n
+      </span>
+      <span class="pre">
+       \v
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conjuntos-o-clases-de-caracteres">
+   4.5. Conjuntos o clases de caracteres
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expresiones-de-corchetes-y-rangos">
+     4.5.1. Expresiones de corchetes y rangos:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       []
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#negacion-de-expresiones-de-corchetes-y-rangos">
+     4.5.2. Negación de expresiones de corchetes y rangos:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       [^]
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metacaracteres-dentro-de-expresiones-de-corchetes-y-rangos">
+     4.5.3. Metacaracteres dentro de expresiones de corchetes y rangos:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ]
+      </span>
+      <span class="pre">
+       \
+      </span>
+      <span class="pre">
+       ^
+      </span>
+      <span class="pre">
+       -
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#abreviaciones-de-expresiones-de-corchetes-y-rangos-d-d-w-w-s-s">
+     4.5.4. Abreviaciones de expresiones de corchetes y rangos:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       \d
+      </span>
+      <span class="pre">
+       \D
+      </span>
+      <span class="pre">
+       \w
+      </span>
+      <span class="pre">
+       \W
+      </span>
+      <span class="pre">
+       \s
+      </span>
+      <span class="pre">
+       \S
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metacaracter-punto-a-name-seccion6-a">
+     4.5.5. Metacaracter punto:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       .
+      </span>
+     </code>
+     <a name="seccion6">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#anclas-y-limites-a-name-seccion7-a">
+   4.6. Anclas y límites
+   <a name="seccion7">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anclas-de-inicio-y-final-de-linea">
+     4.6.1. Anclas de inicio y final de línea:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ^
+      </span>
+      <span class="pre">
+       $
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anclas-de-inicio-y-final-del-texto-a-z">
+     4.6.2. Anclas de inicio y final del texto:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       \A
+      </span>
+      <span class="pre">
+       \Z
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limites-de-palabras-b-b">
+     4.6.3. Límites de palabras:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       \b
+      </span>
+      <span class="pre">
+       \B
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metacaracter-de-alternancia">
+   4.7. Metacaracter de alternancia:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     |
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metacaracteres-de-repeticion-o-cuantificadores">
+   4.8. Metacaracteres de repetición o cuantificadores:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ?
+    </span>
+    <span class="pre">
+     +
+    </span>
+    <span class="pre">
+     *
+    </span>
+    <span class="pre">
+     {}
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metacaracter-de-cero-o-una-repeticion">
+     4.8.1. Metacaracter de cero-o-una repetición:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ?
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metacaracteres-de-cero-o-mas-y-una-o-mas-repeticiones">
+     4.8.2. Metacaracteres de cero-o-más y una-o-más repeticiones:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       *
+      </span>
+      <span class="pre">
+       +
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metacaracteres-de-intervalos-de-repeticiones">
+     4.8.3. Metacaracteres de intervalos de repeticiones:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       {}
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metacaracteres-de-agrupamiento">
+   4.9. Metacaracteres de agrupamiento:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     ()
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   4.10. Material suplementario
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="expresiones-regulares-regex">
+<h1><span class="section-number">4. </span>Expresiones regulares (<em>regex</em>)<a class="headerlink" href="#expresiones-regulares-regex" title="Permalink to this headline">¶</a></h1>
+<p>En esta parte del curso veremos el tema de regex. Este tutorial tiene un enfoque general, sin aplicaciones en Bioinformática (lo que veremos más adelante), pero si entiendes bien los fundamentos y ejercicios que te presentamos en esta parte, no tendrás problemas con aplicar luego en los ejercicios de Bioinformática que te presentaremos más adelante.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota importante</p>
+<p>En la mayoría de secciones existen preguntas y pequeños ejercicios, maracados con la etiqueta <code class="docutils literal notranslate"><span class="pre">Pregunta</span></code>, cuyas respuestas deben ser realizadas como deber de esta parte del curso. Debes guardar las respuestas en una celda del <strong>Jupuyer notebook</strong> (en formato <strong>Markdown</strong>) que debes entregar en este capítulo. A continuación te dejamos un ejemplo de cómo esperamos que realices esto:</p>
+</div>
+<p><strong>Respuestas de os ejercicios de expresiones regulares</strong><br />
+<strong>4.4</strong></p>
+<ol class="simple">
+<li></li>
+<li></li>
+<li></li>
+</ol>
+<p><strong>4.5</strong></p>
+<ol class="simple">
+<li></li>
+<li></li>
+</ol>
+<p>…</p>
+<p>Luego de la fecha de entrega del deber enviaremos las respuestas a los ejercicios de todas las secciones.</p>
+<div id="seccion4_3_1"/>
+<div class="section" id="que-son-las-regex">
+<h2><span class="section-number">4.1. </span>¿Qué son las regex?<a class="headerlink" href="#que-son-las-regex" title="Permalink to this headline">¶</a></h2>
+<p>Una regex es una cadena de caracteres (string) especial que describe patrones de búsqueda sobre otros strings. Para el procesamiento de las regex se utilizan diferentes <em>engines</em>, que tienen pequeñas variaciones de una a plicación a otra. Generalmente, se usan para extraer información de texto en muchos de lenguajes de programación, editores de texto y herramientas de procesamiento de texto de terminal como grep y sed (lo que veremos en temas posteriores).</p>
+<div id="seccion4_3_2"/>
+</div>
+<div class="section" id="engine-de-regex-y-texto-para-este-tutorial">
+<h2><span class="section-number">4.2. </span><em>Engine</em> de regex y texto para este tutorial<a class="headerlink" href="#engine-de-regex-y-texto-para-este-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>En este tutorial usaremos este <a class="reference external" href="https://regex101.com/">servidor en línea</a> para probar los regex que crearemos. Existen varias <em>engines</em> disponibles, en este caso usaremos la <strong>PCRE2 (PHP &gt;=7.3)</strong>, que se selecciona en la sección <em>flavor</em>. El texto con el que vamos a trabajar es parte de la letra de la canción <em>Contrapunto para Humano y Computadora</em> de la banda <em>El Cuarteto de Nos</em>:</p>
+<p>Fecha:15/03/20<br />
+Código: 00112233<br />
+[Verso 1:Roberto]++++<br />
+La primera es la vencida<br />
+La tercera es la tercera<br />
+Así que reto a cualquiera<br />
+Que conmigo aquí se mida<br />
+Quien acepte es un suicida<br />
+Que se sobrevalora<br />
+Porque nadie me vence ahora<br />
+Ni el coplero campeón mundial<br />
+Ni un rapero de freestyle<br />
+Ni<br />
+Ni la mejor computadora</p>
+<p>[Verso 2:computadora]***<br />
+¿Ni la mejor computadora?<br />
+¿Ni la mejor Computadora?<br />
+¿Lo dice usted que es un simple humano?<br />
+Se muestra tan ufano<br />
+Pero le llegó la hora<br />
+Porque su ego lo devora<br />
+Y se cree superior a ultranza<br />
+Pero con una muestra alcanza<br />
+Hoy las bombas que crearon sus mentes<br />
+Son más inteligentes<br />
+Que los idiotas que las lansan</p>
+<p>[Verso 3:Roberto]++**<br />
+Los idiotas que las lanzan<br />
+A mí no me representan<br />
+Pero a los que las inventan<br />
+Quizás debas tu confianza
+Y aunque parezca chanza<br />
+Tu vida es por su invención<br />
+Y digo vida con compasión<br />
+A un rejunte irrazonable<br />
+De circuitos, chips y cables<br />
+Sin alma ni corazón</p>
+<p>Entonces, el primer paso es copiar el texto de la canción en la sección <em>TEST STRING</em> del <a class="reference external" href="https://regex101.com/">servidor en línea</a>, verificar que la <em>engine</em> de regex sea la <strong>PCRE2 (PHP &gt;=7.3)</strong> y que en la sección <em>FUNCTION</em> esté seleccionada la opción <em>Match</em>, como se muestra en la siguiente captura de pantalla:</p>
+<a class="reference internal image-reference" href="../../../_images/regex1.png"><img alt="./img/regex1.png" class="align-center" src="../../../_images/regex1.png" style="width: 300px;" /></a>
+<div id="seccion4_3_3"/>
+</div>
+<div class="section" id="flags">
+<h2><span class="section-number">4.3. </span>Flags<a class="headerlink" href="#flags" title="Permalink to this headline">¶</a></h2>
+<p>De forma general, las regex se representan de la siguiente forma <code class="docutils literal notranslate"><span class="pre">/patrón_de_búsqueda/</span></code>, en la que el patrón de búsqueda está delimitado por barras invertidas <code class="docutils literal notranslate"><span class="pre">/</span></code>. Luego de la regex escrita de esta forma se pueden añadir <em>flags</em>, que son modos en los que se buscan las coincidencias de las regex. En la mayoría de de <em>engines</em> están disponibles los siguientes modos:</p>
+<ul class="simple">
+<li><p>g (global): No termina luego de la primera coincidencia, reiniciando las búsquedas posteriores desde el final de la coincidencia anterior</p></li>
+<li><p>m (multi-line): Los símbolos <code class="docutils literal notranslate"><span class="pre">^</span></code> y <code class="docutils literal notranslate"><span class="pre">s</span></code> coinciden con el inicio y fin de línea respectivamente.</p></li>
+<li><p>s (single-line): El símbolo punto <code class="docutils literal notranslate"><span class="pre">.</span></code> coincide con el caracter de inicio de línea <code class="docutils literal notranslate"><span class="pre">\n</span></code></p></li>
+<li><p>i (case-insensitive): Hace que la regex no sea sensible a mayúsculas o minúsnuclas. La regex <code class="docutils literal notranslate"><span class="pre">\abc\i</span></code> coincide con el patrón AbC.</p></li>
+</ul>
+<p>Se pueden activar varios <em>flags</em> a la vez. Se debe considerar que existen otras <em>flags</em>, pero estas son específicas de diferentes <em>engines</em>. En el <a class="reference external" href="https://regex101.com/">servidor en línea</a> que usaremos en este tutorial pueden configurar las <em>flags</em> en la sección <em>REGEX FLAGS</em>, que se encuentra a la derecha del buscador de regex. Para realizar los ejercicios de este tutorial deben activar las <em>flags</em> <strong>g</strong> y <strong>m</strong>, como se muestra a continuación:</p>
+<a class="reference internal image-reference" href="../../../_images/regex2.png"><img alt="./img/regex2.png" class="align-center" src="../../../_images/regex2.png" style="width: 700px;" /></a>
+<div id="seccion4_3_4"/>
+</div>
+<div class="section" id="caracteres-literales">
+<h2><span class="section-number">4.4. </span>Caracteres literales<a class="headerlink" href="#caracteres-literales" title="Permalink to this headline">¶</a></h2>
+<p>Las regex más simples son aquellas que buscan caracteres de forma literal, por ejemplo busquemos la palabra <strong>computadora</strong> en el texto de trabajo.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Cuántas coincidencias encontraste con esta palabra?</p>
+</div>
+<p>Se debe considerar que la mayoría de <em>engines</em> de regex son sensibles a mayúsculas (<em>case-sensitive</em>) por defecto. Por tanto, en el ejemplo no se identificó la palabra <strong>Computadora</strong>.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Cómo puedes hacer para que la <em>engine</em> de regex no sea sensible a mayúsculas?</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Noten que luego de añadir una expresión regular, en la parte derecha del <a class="reference external" href="https://regex101.com/">servidor en línea</a> se presenta una explicación sobre la regex, y las posiciones del texto que coincidieron con la regex, com se muestra a continuación:</p>
+</div>
+<a class="reference internal image-reference" href="../../../_images/regex3.png"><img alt="./img/regex3.png" class="align-center" src="../../../_images/regex3.png" style="width: 800px;" /></a>
+<div id="seccion4_3_4_1"/>
+<div class="section" id="metacaracteres">
+<h3><span class="section-number">4.4.1. </span>Metacaracteres<a class="headerlink" href="#metacaracteres" title="Permalink to this headline">¶</a></h3>
+<p>El mayor potencial de las regex está dado por el uso de caracteres especiales que permiten buscar expresiones que no son literales, que se conocen como <strong>metacaracteres</strong> y se utilizan para respresentar otros caracteres. Los metacaracteres más usados incluyen:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Metacaracter</strong></p></th>
+<th class="text-align:center head"><p><strong>Símbolo</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>Corchete de apertura</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">[</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Paréntesis de apertura y cierre</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">()</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Barrra invertida</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Símbolo de potencia</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Signo de dolar</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Punto</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Pipe</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\|</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Símbolo de pregunta de cierre</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Asterisco</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Símbolo de suma</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Y qué pasa si queremos buscar un patrón que incluya un metacaracter como <code class="docutils literal notranslate"><span class="pre">computadora?</span></code>.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Esta regex funciona?</p>
+</div>
+<p>Se observa que no se incluye el símbolo <code class="docutils literal notranslate"><span class="pre">?</span></code>. Si se desea buscar alguno de los metacaracteres de forma literal se deben escapar, para lo que se emplea la barra invertida <code class="docutils literal notranslate"><span class="pre">\</span></code>. Entonces, para encontrar el patrón que queremos debemos usar la regex <code class="docutils literal notranslate"><span class="pre">computadora\?</span></code>. Esto aplica con todos los metacaracteres mencionados.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Noten que tres de los metacaracteres de regex (<code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">?</span> <span class="pre">[]</span></code>) tabién se usan como wilcards generales en comandos de <em>Bash</em>, pero debemos tener en cuenta que sus aplicaciones son diferentes. En este <a class="reference external" href="https://unix.stackexchange.com/questions/57957/how-do-regular-expressions-differ-from-wildcards-used-to-filter-files">blog</a> hay una discusión sobre sus diferencias.</p>
+</div>
+<div id="seccion4_3_4_2"/>
+</div>
+<div class="section" id="caracteres-especiales-de-espacios-en-blanco-t-r-n-v">
+<h3><span class="section-number">4.4.2. </span>Caracteres especiales de espacios en blanco: <code class="docutils literal notranslate"><span class="pre">\t</span> <span class="pre">\r</span> <span class="pre">\n</span> <span class="pre">\v</span></code><a class="headerlink" href="#caracteres-especiales-de-espacios-en-blanco-t-r-n-v" title="Permalink to this headline">¶</a></h3>
+<p>En las regex se pueden añadir secuencias de caracteres especiales para colocar espacios en blanco, que no se imprimen y sirven para dar formato al texto. Algunos de estos caracteres más usados son:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Metacaracter espacios en blanco</strong></p></th>
+<th class="text-align:center head"><p><strong>Símbolo</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>Tabulador</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\t</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Retorno de carro</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\r</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Nueva línea</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\n</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Tabulador vertical</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\v</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div id="seccion4_3_5"/>
+</div>
+</div>
+<div class="section" id="conjuntos-o-clases-de-caracteres">
+<h2><span class="section-number">4.5. </span>Conjuntos o clases de caracteres<a class="headerlink" href="#conjuntos-o-clases-de-caracteres" title="Permalink to this headline">¶</a></h2>
+<div id="seccion4_3_5_1"/>
+<div class="section" id="expresiones-de-corchetes-y-rangos">
+<h3><span class="section-number">4.5.1. </span>Expresiones de corchetes y rangos: <code class="docutils literal notranslate"><span class="pre">[]</span></code><a class="headerlink" href="#expresiones-de-corchetes-y-rangos" title="Permalink to this headline">¶</a></h3>
+<p>Se usan para buscar ciertos caracteres de interés. Para esto se deben poner los caracteres de interés entre corchetes <code class="docutils literal notranslate"><span class="pre">[]</span></code>. Por ejemplo, si queremos buscar los caracteres <code class="docutils literal notranslate"><span class="pre">a</span></code> o <code class="docutils literal notranslate"><span class="pre">e</span></code> usamos la regex <code class="docutils literal notranslate"><span class="pre">[ae]</span></code>. Además, si queremos encontrar las palabras que tengan los caracteres <code class="docutils literal notranslate"><span class="pre">an</span></code> seguido de una letra <code class="docutils literal notranslate"><span class="pre">o</span></code> o <code class="docutils literal notranslate"><span class="pre">z</span></code> como <code class="docutils literal notranslate"><span class="pre">humano</span></code>, <code class="docutils literal notranslate"><span class="pre">ufano</span></code>, <code class="docutils literal notranslate"><span class="pre">ultranza</span></code>, o <code class="docutils literal notranslate"><span class="pre">confianza</span></code>; usamos la regex <code class="docutils literal notranslate"><span class="pre">an[oz]</span></code>.</p>
+<p>Un punto importante es que el orden de de los caracteres dentro de la clase de caracteres no importa, por lo que en el anterior ejercicio da lo mismo si usamos la regex <code class="docutils literal notranslate"><span class="pre">an[zo]</span></code>. Esto puede ser útil para encontrar palabras con faltas ortográficas.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Cuál regex podrías usar para mapear las palabras <code class="docutils literal notranslate"><span class="pre">lanzan</span></code> y <code class="docutils literal notranslate"><span class="pre">lansan</span></code> en el texto?</p>
+</div>
+<p>Dentro de las clases de caracteres es posible definir rangos, para lo que se usa un guión <code class="docutils literal notranslate"><span class="pre">-</span></code>. Por ejemplo, si queremos encontrar los caracteres numéricos del texto podemos usar la regex <code class="docutils literal notranslate"><span class="pre">[0-9]</span></code>. Se debe considerar que la regex <code class="docutils literal notranslate"><span class="pre">[0-9]</span></code> busca dígitos simples entre 0 y 9.</p>
+<p>Es posible buscar más de un rango dentro de clases de caracteres. Por ejemplo, si se quieren encontrar caracteres alfanuméricos que incluyan mayúsculas, podemos usar la regex <code class="docutils literal notranslate"><span class="pre">[0-9a-zA-Z]</span></code>.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Qué regex se puede usar para encontrar las letras minúsculas de la d a p, mayúsuculas de la Q a W, y los números de 1 a 3?</p>
+</div>
+<div id="seccion4_3_5_2"/>
+</div>
+<div class="section" id="negacion-de-expresiones-de-corchetes-y-rangos">
+<h3><span class="section-number">4.5.2. </span>Negación de expresiones de corchetes y rangos: <code class="docutils literal notranslate"><span class="pre">[^]</span></code><a class="headerlink" href="#negacion-de-expresiones-de-corchetes-y-rangos" title="Permalink to this headline">¶</a></h3>
+<p>Para negar la expresiones de corchetes se añade el símbolo de potencia <code class="docutils literal notranslate"><span class="pre">^</span></code> después del corchete de apertura <code class="docutils literal notranslate"><span class="pre">[</span></code>. Esto permite buscar cualquier caracter que no esté en la clase de caracteres. Se debe considerar que esta operación va a seguir buscando un caracter. Por ejemplo, la regex <code class="docutils literal notranslate"><span class="pre">an[^oz]</span></code> busca los caracteres <code class="docutils literal notranslate"><span class="pre">an</span></code> seguido de un caracter que no sea la letra <code class="docutils literal notranslate"><span class="pre">o</span></code> o <code class="docutils literal notranslate"><span class="pre">z</span></code>,</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Cuáles palabras coinciden con este patrón?
+¿Cuáles caracteres se están identificando en estas palabras con la negación de clase de caracteres empleada?</p>
+</div>
+<div id="seccion4_3_5_3"/>
+</div>
+<div class="section" id="metacaracteres-dentro-de-expresiones-de-corchetes-y-rangos">
+<h3><span class="section-number">4.5.3. </span>Metacaracteres dentro de expresiones de corchetes y rangos: <code class="docutils literal notranslate"><span class="pre">]</span> <span class="pre">\</span> <span class="pre">^</span> <span class="pre">-</span></code><a class="headerlink" href="#metacaracteres-dentro-de-expresiones-de-corchetes-y-rangos" title="Permalink to this headline">¶</a></h3>
+<p>Los metacaracteres que son válidos dentro de expresiones de corchetes son:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Metacaracter dentro de expresiones</strong></p></th>
+<th class="text-align:center head"><p><strong>Símbolo</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>Corchete de cierre</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Barrra invertida</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Símbolo de potencia</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Guión</p></td>
+<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>El resto de metacaracteres se comportan como caracteres normales, por lo que no es necesario usar el caracter de escape <code class="docutils literal notranslate"><span class="pre">\</span></code> para buscarlos dentro de las expresiones de corchetes.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Si queremos buscamos los símbolos asterisco <code class="docutils literal notranslate"><span class="pre">*</span></code> o suma <code class="docutils literal notranslate"><span class="pre">+</span></code>, ¿Cuál regex podríamos usar?</p>
+</div>
+<div id="seccion4_3_5_4"/>
+</div>
+<div class="section" id="abreviaciones-de-expresiones-de-corchetes-y-rangos-d-d-w-w-s-s">
+<h3><span class="section-number">4.5.4. </span>Abreviaciones de expresiones de corchetes y rangos: <code class="docutils literal notranslate"><span class="pre">\d</span> <span class="pre">\D</span> <span class="pre">\w</span> <span class="pre">\W</span> <span class="pre">\s</span> <span class="pre">\S</span></code><a class="headerlink" href="#abreviaciones-de-expresiones-de-corchetes-y-rangos-d-d-w-w-s-s" title="Permalink to this headline">¶</a></h3>
+<p>Debido a que muchas clases de caracteres se usan de forma frecuente, existen algunas abreviaciones de estas:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Abreviación expresión de corchetes</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\d</span></code></p></td>
+<td class="text-align:center"><p>Números<code class="docutils literal notranslate"><span class="pre">[0-9]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\D</span></code></p></td>
+<td class="text-align:center"><p>Negación de números<code class="docutils literal notranslate"><span class="pre">[^\d]</span></code> o <code class="docutils literal notranslate"><span class="pre">[^0-9]</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\w</span></code></p></td>
+<td class="text-align:center"><p>Caracteres de palabras<code class="docutils literal notranslate"><span class="pre">[a-zA-Z]</span></code>, y otros caracteres dependiendo de la <em>engine</em> de regex</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\W</span></code></p></td>
+<td class="text-align:center"><p>Negación de caracteres de palabras <code class="docutils literal notranslate"><span class="pre">[^\w]</span></code> o <code class="docutils literal notranslate"><span class="pre">[^a-zA-Z]</span></code>, y otros caracteres dependiendo de la <em>engine</em> de regex</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\s</span></code></p></td>
+<td class="text-align:center"><p>Caracteres de espacios <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">\t]</span></code>, es decir que incluye un espacio o un tabulador, pero también pueden incluir más caracteres dependiendo de la <em>engine</em> de regex</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\S</span></code></p></td>
+<td class="text-align:center"><p>Negación de caracteres de espacios <code class="docutils literal notranslate"><span class="pre">[^\s]</span></code> o <code class="docutils literal notranslate"><span class="pre">[^</span> <span class="pre">\t]</span></code>, es decir que incluye un caracter que no sea un espacio o tabulador, pero también pueden incluir más caracteres dependiendo de la <em>engine</em> de regex</p></td>
+</tr>
+</tbody>
+</table>
+<p>Se debe consdierar que las abreviaciones de clases de caracteres se pueden usar dentro de corchetes o fuera de estos.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Con los conocimientos que tienes hasta ahora, ¿Cómo buscarías con una sola regex los strings <code class="docutils literal notranslate"><span class="pre">Verso</span> <span class="pre">1:Roberto</span></code> y <code class="docutils literal notranslate"><span class="pre">Verso</span> <span class="pre">2:computa</span></code> en el texto?</p>
+</div>
+<div id="seccion4_3_6"/>
+</div>
+<div class="section" id="metacaracter-punto-a-name-seccion6-a">
+<h3><span class="section-number">4.5.5. </span>Metacaracter punto: <code class="docutils literal notranslate"><span class="pre">.</span></code><a name="seccion6"></a><a class="headerlink" href="#metacaracter-punto-a-name-seccion6-a" title="Permalink to this headline">¶</a></h3>
+<p>El metacaracter punto <code class="docutils literal notranslate"><span class="pre">.</span></code> coincide con un caracter simple, cualquiera que este sea. La única excepción que el punto no busca es el caracter de inicio de nueva línea <code class="docutils literal notranslate"><span class="pre">\n</span></code>,</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Qué flag podríamos usar para modificar este comportamiento?</p>
+</div>
+<p>El metacaracter punto debe ser usado con cautela, ya que puede crear coincidencias con errores. Por ejemplo, si queremos buscar fechas escritas en formato <strong>mm\dd\yy</strong>, pero con cualquier separador (guiones, espacioes, etc), podríamos usar la regex <code class="docutils literal notranslate"><span class="pre">\d\d.\d\d.\d\d</span></code>. Si pruebas esta regex se observa que encontró la fecha de modificación del texto, pero también el código <strong>00112233</strong>, lo que es un resultado no deseado.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Se te ocurre una forma de mejorar esta regex para mapear solamente las fechas en formato **mm\dd\yy?</p>
+</div>
+<div id="seccion4_3_7"/>
+</div>
+</div>
+<div class="section" id="anclas-y-limites-a-name-seccion7-a">
+<h2><span class="section-number">4.6. </span>Anclas y límites <a name="seccion7"></a><a class="headerlink" href="#anclas-y-limites-a-name-seccion7-a" title="Permalink to this headline">¶</a></h2>
+<p>Las anclas y límites permiten identificar strings considerando su posición en el texto (antes, después o entre caracteres), en lugar de caracteres específicos como los temas vistos antes.</p>
+<div id="seccion4_3_7_1"/>
+<div class="section" id="anclas-de-inicio-y-final-de-linea">
+<h3><span class="section-number">4.6.1. </span>Anclas de inicio y final de línea: <code class="docutils literal notranslate"><span class="pre">^</span> <span class="pre">$</span></code><a class="headerlink" href="#anclas-de-inicio-y-final-de-linea" title="Permalink to this headline">¶</a></h3>
+<p>Permiten identificar texto al inicio (<code class="docutils literal notranslate"><span class="pre">^</span></code>) o al final (<code class="docutils literal notranslate"><span class="pre">$</span></code>) de las líneas de un texto.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Cuál flag debe estar habilitada para que funcionen las anclas al inicio y final de todas las líneas?</p>
+</div>
+<p>Por ejemplo, si queremos buscar todas las líneas que empiecen con la palabra <strong>Ni</strong>, debemos usar la regex <code class="docutils literal notranslate"><span class="pre">^Ni</span></code>.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Por otra parte, si queremos buscar las líneas que terminen con la palabra <strong>computadora</strong>, debemos usar la regex <code class="docutils literal notranslate"><span class="pre">computadora$</span></code>, ¿Usando esta regex, es identificada la línea que termina con <code class="docutils literal notranslate"><span class="pre">computadora?</span></code>?</p>
+<p>Si queremos buscar líneas que empiecen con la palabra <strong>Ni</strong> y terminen con la palabra <strong>computadora</strong>, sería lógico usar la regex <code class="docutils literal notranslate"><span class="pre">^Ni</span> <span class="pre">computadora$</span></code>, <strong>¿Esta regex funciona?</strong></p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Para realizar esta búsqueda debemos usar cuantificadores y otros caracteres especiales, lo que revisaremos en las siguientes secciones.</p>
+</div>
+<div id="seccion4_3_7_2"/>
+</div>
+<div class="section" id="anclas-de-inicio-y-final-del-texto-a-z">
+<h3><span class="section-number">4.6.2. </span>Anclas de inicio y final del texto: <code class="docutils literal notranslate"><span class="pre">\A</span> <span class="pre">\Z</span></code><a class="headerlink" href="#anclas-de-inicio-y-final-del-texto-a-z" title="Permalink to this headline">¶</a></h3>
+<p>Permiten buscar texto solamente al inicio (<code class="docutils literal notranslate"><span class="pre">\A</span></code>) o al final del texto (<code class="docutils literal notranslate"><span class="pre">\Z</span></code>).</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Por ejemplo, si queremos buscar la fecha del texto incluyendo la palabra <code class="docutils literal notranslate"><span class="pre">Fecha</span></code>, que esta solamente al inicio, ¿Cuál regex podríamos usar?</p>
+<p>Si queremos verificar si al final del texto está la palabra <strong>corazón</strong>, ¿Cuál regex deberíamos usar?.</p>
+</div>
+<div id="seccion4_3_7_3"/>
+</div>
+<div class="section" id="limites-de-palabras-b-b">
+<h3><span class="section-number">4.6.3. </span>Límites de palabras: <code class="docutils literal notranslate"><span class="pre">\b</span> <span class="pre">\B</span></code><a class="headerlink" href="#limites-de-palabras-b-b" title="Permalink to this headline">¶</a></h3>
+<p>El metacaracter <code class="docutils literal notranslate"><span class="pre">\b</span></code> permite buscar posiciones que se conocen como <em>límites de palabras</em>. Hay cuatro posiciones que califican como límites de palabras:</p>
+<ol class="simple">
+<li><p>Antes del primer caracter en un string, si el primer caracter es un caracter de palabra.</p></li>
+<li><p>Después del último caracter en un string, si el último caracter es un caracter de palabra.</p></li>
+<li><p>Entre un caracter de palabra y un caracter que no es palabra seguido por la derecha de un caracter de palabra.</p></li>
+<li><p>Entre un caracter que no es palabra y un caracter de palabra seguido por la derecha de un caracter que no es de palabra.</p></li>
+</ol>
+<p>En términos simples, <code class="docutils literal notranslate"><span class="pre">\b</span></code> permite buscar palabras que comiencen y terminen con ciertos caracteres con las regex <code class="docutils literal notranslate"><span class="pre">\bpalabra</span></code> y <code class="docutils literal notranslate"><span class="pre">palabra\b</span></code> respectivamente, o que busquen solamente una palabra determinada con <code class="docutils literal notranslate"><span class="pre">\bpalabra\b</span></code>. Los caracteres de palabras son identificados con la regex <code class="docutils literal notranslate"><span class="pre">\w</span></code> y los de no palabras con <code class="docutils literal notranslate"><span class="pre">\W</span></code>, pero se pueden añadir otros caracteres dependiendo de la <em>engine</em> de regex que se utilice.</p>
+<p>Por ejemplo, si queremos buscar las palabras que empiecen con <strong>ra</strong> podemos usar la regex <code class="docutils literal notranslate"><span class="pre">\bra</span></code>, aquellas que terminen con <strong>or</strong> coincidirán con <code class="docutils literal notranslate"><span class="pre">or\b</span></code>, y si queremos buscar solamente la palabra <strong>se</strong> funcionará <code class="docutils literal notranslate"><span class="pre">\bse\b</span></code>. Prueben estas regex y observen las diferencias al buscar estas expresiones de forma literal como <code class="docutils literal notranslate"><span class="pre">ra</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, y <code class="docutils literal notranslate"><span class="pre">se</span></code>. <strong>¿Cuáles son ejemplos de palabras no se incluyen al usar los límites de palabras comparado con la búsqueda literal?</strong></p>
+<p>La negación de los límites de palabras es <code class="docutils literal notranslate"><span class="pre">\B</span></code>, que busca todas las posiciones que no coincidan con <code class="docutils literal notranslate"><span class="pre">\b</span></code>. Por tanto, la negación permite buscar palabras que <strong>NO</strong> empiecen, terminen o sean ciertos caracteres con las regex <code class="docutils literal notranslate"><span class="pre">\Bpalabra</span></code>, <code class="docutils literal notranslate"><span class="pre">palabra\B</span></code> y <code class="docutils literal notranslate"><span class="pre">\Bpalabra\B</span></code> respectivamente.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Realiza las mismas búsquedas que hiciste antes pero usando la negación, ¿Los resultados coinciden con lo que esperabas?</p>
+</div>
+<div id="seccion4_3_8"/>
+</div>
+</div>
+<div class="section" id="metacaracter-de-alternancia">
+<h2><span class="section-number">4.7. </span>Metacaracter de alternancia: <code class="docutils literal notranslate"><span class="pre">|</span></code><a class="headerlink" href="#metacaracter-de-alternancia" title="Permalink to this headline">¶</a></h2>
+<p>Al igual que las expresiones de corchetes de las clases de caracteres, el metacaracter pipe <code class="docutils literal notranslate"><span class="pre">|</span></code> sirve para buscar una regex de un conjunto de opciones posibles. Si replicamos los ejemplos de la sección de expresiones de corchetes, para buscar los caracteres <strong>a</strong> o <strong>e</strong> debemos usar la regex <code class="docutils literal notranslate"><span class="pre">a|e</span></code>.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Prueba esta regex y comparala con el resultado obtenido con la expresión de corchetes <code class="docutils literal notranslate"><span class="pre">[ae]</span></code>. <strong>¿Coinciden ambos resultados?</strong></p>
+<p>Ahora, para replicar el ejemplo en el que buscamos las palabras que tengan los caracteres <strong>an</strong> seguido de una una letra <strong>z</strong> u <strong>o</strong>, sería lógico usar la expresión <code class="docutils literal notranslate"><span class="pre">anz|o</span></code>. <strong>¿El resultado de esta regex coincide con lo que se obtuvo usando la regex <code class="docutils literal notranslate"><span class="pre">an[zo]</span></code>?</strong></p>
+</div>
+<p>Si lo comprobaste, estás de acuerdo con nosotros en que los resultados no coinciden, ¿Qué pasó?. Esto ocurrió porque este operador posee el más bajo nivel de precedencia de los operadores de regex, por lo que busca todo lo que esté a la izquierda o todo lo que esté a la derecha del pipe.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Para corregir esto debemos usar metacaracteres de agrupación, lo que veremos con más detalle en la última sección.</p>
+</div>
+<div id="seccion4_3_9"/>
+</div>
+<div class="section" id="metacaracteres-de-repeticion-o-cuantificadores">
+<h2><span class="section-number">4.8. </span>Metacaracteres de repetición o cuantificadores: <code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">+</span> <span class="pre">*</span> <span class="pre">{}</span></code><a class="headerlink" href="#metacaracteres-de-repeticion-o-cuantificadores" title="Permalink to this headline">¶</a></h2>
+<p>Permiten especificar el nÚmero de veces que un caracter o caracteres de una regex debe aparecer en un string.</p>
+<div id="seccion4_3_9_1"/>
+<div class="section" id="metacaracter-de-cero-o-una-repeticion">
+<h3><span class="section-number">4.8.1. </span>Metacaracter de cero-o-una repetición: <code class="docutils literal notranslate"><span class="pre">?</span></code><a class="headerlink" href="#metacaracter-de-cero-o-una-repeticion" title="Permalink to this headline">¶</a></h3>
+<p>El metacaracter <code class="docutils literal notranslate"><span class="pre">?</span></code> hace que el caracter o caracteres previos se repitan cero o una vez, o que este sea opcional.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Por ejemplo, si usamos la regex <code class="docutils literal notranslate"><span class="pre">compu?</span></code>, <strong>¿Cuál palabra del texto que no sea compuatora que coincide con la búsuqeda?</strong></p>
+</div>
+<div id="seccion4_3_9_2"/>
+</div>
+<div class="section" id="metacaracteres-de-cero-o-mas-y-una-o-mas-repeticiones">
+<h3><span class="section-number">4.8.2. </span>Metacaracteres de cero-o-más y una-o-más repeticiones: <code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">+</span></code><a class="headerlink" href="#metacaracteres-de-cero-o-mas-y-una-o-mas-repeticiones" title="Permalink to this headline">¶</a></h3>
+<p>El metacaracter <code class="docutils literal notranslate"><span class="pre">*</span></code> hace que el caracter o caracteres previos se repitan cero o más veces; mientras que el <code class="docutils literal notranslate"><span class="pre">+</span></code> hace que se repitan una o más veces.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Por ejemplo, si queremos buscar el contenido de todas las líneas que empiecen con <strong>Ni</strong> podemos usar las regex <code class="docutils literal notranslate"><span class="pre">^Ni[\w</span> <span class="pre">]*</span></code> o <code class="docutils literal notranslate"><span class="pre">^Ni[\w</span> <span class="pre">]+</span></code>. Verifica los dos casos e identifica cuál es la diferencia entre ambas, <strong>¿Hay alguna línea que se identifica con una regex pero no con la otra?</strong></p>
+<p>Con los conocimientos que hemos adquirido hasta ahora, ya podemos resolver el problema que dejamos pendiente en la sección <strong>4.6.1</strong>, en el que queríamos buscar todas las líneas que empiecen con <strong>Ni</strong> y terminen con <strong>computadora</strong>. <strong>¿Cuál sería la regex para este caso?</strong></p>
+<p><strong>¿Cómo modificarías la regex de la pregunta anterior para incluir las líneas que empiezan con un caracter como <code class="docutils literal notranslate"><span class="pre">¿</span></code> u otro, seguido de <code class="docutils literal notranslate"><span class="pre">Ni</span></code>, y que terminen con <code class="docutils literal notranslate"><span class="pre">computadora</span></code> seguido de <code class="docutils literal notranslate"><span class="pre">?</span></code> u otro caracter?</strong></p>
+</div>
+<div id="seccion4_3_9_3"/>
+</div>
+<div class="section" id="metacaracteres-de-intervalos-de-repeticiones">
+<h3><span class="section-number">4.8.3. </span>Metacaracteres de intervalos de repeticiones: <code class="docutils literal notranslate"><span class="pre">{}</span></code><a class="headerlink" href="#metacaracteres-de-intervalos-de-repeticiones" title="Permalink to this headline">¶</a></h3>
+<p>Si queremos especificar el número de repeticiones del caracter o caracteres previos que se repiten en la regex podemos usar los metacaracteres <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Su uso es de la siguiente forma <code class="docutils literal notranslate"><span class="pre">{min,</span> <span class="pre">max}</span></code>, donde <strong>min</strong> un número entero positivo que indica el número mínimo de coincidencias, y <strong>max</strong> es un entero igual o mayor que min e indica el número máximo de coincidencias. Los metacaracteres <code class="docutils literal notranslate"><span class="pre">*</span></code> y <code class="docutils literal notranslate"><span class="pre">+</span></code> serían equivalentes a <code class="docutils literal notranslate"><span class="pre">{0,</span> <span class="pre">}</span></code> y <code class="docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">}</span></code> respectivamente.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Por ejemplo, podríamos usar esta estrategia para encontrar en el texto todos los números que estén entre 10 y 999. <strong>¿Cómo crearías la regex que permita realizar esta búsqueda?</strong></p>
+</div>
+<div id="seccion4_3_10"/>
+</div>
+</div>
+<div class="section" id="metacaracteres-de-agrupamiento">
+<h2><span class="section-number">4.9. </span>Metacaracteres de agrupamiento: <code class="docutils literal notranslate"><span class="pre">()</span></code><a class="headerlink" href="#metacaracteres-de-agrupamiento" title="Permalink to this headline">¶</a></h2>
+<p>Los metacaracteres <code class="docutils literal notranslate"><span class="pre">()</span></code> permiten agrupar partes de una regex, lo que permiete aplicar diferentes operaciones al grupo.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>En la sección <strong>4.7</strong> observamos que la regex <code class="docutils literal notranslate"><span class="pre">anz|o</span></code> no funcionó igual que <code class="docutils literal notranslate"><span class="pre">an[zo]</span></code>, y se mencionó que esto se puede solucionar usando metacaracteres de agrupación; con lo que la regex quedaría así <code class="docutils literal notranslate"><span class="pre">an(z|o)</span></code>. Realiza de nuevo la verificación, <strong>¿Ahora si coincidieron los resultados entre <code class="docutils literal notranslate"><span class="pre">an[zo]</span></code> y <code class="docutils literal notranslate"><span class="pre">an(z|o)</span></code>?</strong></p>
+<p>Los cuantificadores también se aplican a grupos de caracteres. Por ejemplo, si usamos la regex <code class="docutils literal notranslate"><span class="pre">an(z|o)</span></code> incluyendo el operador cero-o-una repetición <code class="docutils literal notranslate"><span class="pre">an(a|z)?</span></code>, <strong>¿Cambian los resultados previos?</strong></p>
+<p><strong>¿Cuáles palabras nuevas que incluyen este patrón  aparecen?</strong></p>
+</div>
+<p>Puedes probar este concepto con los otros cuantificadores y verificar su funcionamiento. Los metacaracteres de agrupamiento permiten realizar operaciones más complejas como <em>backreferences</em>, lo que no vamos a explicar en este tutorial pero pueden revisar en el material suplementario de la siguiente sección.</p>
+<div id="seccion4_3_11"/>
+</div>
+<div class="section" id="material-suplementario">
+<h2><span class="section-number">4.10. </span>Material suplementario<a class="headerlink" href="#material-suplementario" title="Permalink to this headline">¶</a></h2>
+<p>Si quieren aprender temas más especializados sobre regex pueden usar el libro <em>Regular Expressions: The Complete Tutorial</em>, que se puede obetener de forma libre usando el siguiente <a class="reference external" href="https://www.princeton.edu/~mlovett/reference/Regular-Expressions.pdf">link</a>. La mayoría de los contenidos de esta parte se obtuvieron de este libro.</p>
+<p>Otras páginas web útiles sobre este tema:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285">https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285</a></p></li>
+<li><p><a class="reference external" href="https://www.computerhope.com/unix/regex-quickref.htm">https://www.computerhope.com/unix/regex-quickref.htm</a></p></li>
+<li><p><a class="reference external" href="https://www.computerhope.com/jargon/r/regex.htm">https://www.computerhope.com/jargon/r/regex.htm</a></p></li>
+<li><p><a class="reference external" href="http://web.mit.edu/gnu/doc/html/regex_3.html">http://web.mit.edu/gnu/doc/html/regex_3.html</a></p></li>
+<li><p><a class="reference external" href="https://www.regular-expressions.info/tutorial.html">https://www.regular-expressions.info/tutorial.html</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/04_Procesamiento_ficheros_regex_pipes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="2_Editores_de_texto.html" title="previous page"><span class="section-number">3. </span>Editores de texto</a>
+    <a class='right-next' id="next-link" href="4_Grep.html" title="next page"><span class="section-number">5. </span>Grep</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

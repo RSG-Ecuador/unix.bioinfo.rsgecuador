@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Archivos y formatos comunes en Bioinformática &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="3. Editores de texto" href="2_Editores_de_texto.html" />
+    <link rel="prev" title="1. Resumen" href="0_Resumen.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-un-archivo-de-texto">
+   2.1. ¿Qué es un archivo de texto?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#formatos-de-archivos-de-texto-comunes-en-bioinformatica">
+   2.2. Formatos de archivos de texto comunes en Bioinformática
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fasta">
+     2.2.1. FASTA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bed">
+     2.2.2. BED
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fastq">
+     2.2.3. FASTQ
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pdb">
+     2.2.4. PDB
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   2.3. Material suplementario
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="archivos-y-formatos-comunes-en-bioinformatica">
+<h1><span class="section-number">2. </span>Archivos y formatos comunes en Bioinformática<a class="headerlink" href="#archivos-y-formatos-comunes-en-bioinformatica" title="Permalink to this headline">¶</a></h1>
+<div id="seccion4_1_1"/>
+<div class="section" id="que-es-un-archivo-de-texto">
+<h2><span class="section-number">2.1. </span>¿Qué es un archivo de texto?<a class="headerlink" href="#que-es-un-archivo-de-texto" title="Permalink to this headline">¶</a></h2>
+<p>Son documentos de texto plano o sin formato, ya que solmente contienen caracteres de tipo alfanuméricos que carecen de un formato tipográfico.</p>
+<p>Un archivo de texto contiene información que puede ser tan simple como letras, palabras y oraciones; o más compleja como un registro de coordenadas de una estructura proteica o los resultados de secuenciación de varias muestras biológicas, en los que la información estará en diferentes columnas divididas por caracteres de separación o delimitadores.</p>
+<a class="reference internal image-reference" href="../../../_images/ejemplo.jpg"><img alt="./img/ejemplo.jpg" class="align-center" src="../../../_images/ejemplo.jpg" style="width: 400px;" /></a>
+<div id="seccion4_1_2"/>
+</div>
+<div class="section" id="formatos-de-archivos-de-texto-comunes-en-bioinformatica">
+<h2><span class="section-number">2.2. </span>Formatos de archivos de texto comunes en Bioinformática<a class="headerlink" href="#formatos-de-archivos-de-texto-comunes-en-bioinformatica" title="Permalink to this headline">¶</a></h2>
+<p>Existen muchos archivos de texto que se utilizan en Bioinformática, en este caso veremos algunos de los más comunes.</p>
+<div id="seccion4_1_2_1"/>
+<div class="section" id="fasta">
+<h3><span class="section-number">2.2.1. </span>FASTA<a class="headerlink" href="#fasta" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Es un archivo de texto plano que contiene información de secuencias de DNA, RNA o proteínas</p></li>
+<li><p>Puede contener una o más secuencias (multifasta)</p></li>
+<li><p>Este archivo consiste de:</p>
+<ul>
+<li><p>Una o varias líneas que empiezan con el símbolo “&gt;” y es seguido por un código de identificación de la secuencia.</p></li>
+<li><p>Una o más líneas que contienen la secuencia, cada línea debe contener menos de 80 caracteres.</p></li>
+</ul>
+</li>
+</ul>
+<p>Ejemplo de un archivo FASTA de secuencias de proteínas:</p>
+<a class="reference internal image-reference" href="../../../_images/fasta.jpg"><img alt="./img/fasta.jpg" class="align-center" src="../../../_images/fasta.jpg" style="width: 600px;" /></a>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Puedes encontrar más información sobre este tipo de archivo en el siguiente <a class="reference external" href="https://zhanglab.ccmb.med.umich.edu/FASTA/">link</a>.</p>
+</div>
+<div id="seccion4_1_2_2"/>
+</div>
+<div class="section" id="bed">
+<h3><span class="section-number">2.2.2. </span>BED<a class="headerlink" href="#bed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Archivo de texto plano tabular</p></li>
+<li><p>Contiene información de contexto genómico: coordenadas y características asociadas al genoma</p></li>
+<li><p>Existen varias versiones: BED3, BED6, BED12</p></li>
+<li><p>Actualmente se usan otros formatos como el GFF</p></li>
+</ul>
+<p>Ejemplo de un archivo BED y su interpretación:</p>
+<a class="reference internal image-reference" href="../../../_images/bed.jpg"><img alt="./img/bed.jpg" class="align-center" src="../../../_images/bed.jpg" style="width: 600px;" /></a>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Puedes encontrar más información sobre este tipo de archivo en el siguiente <a class="reference external" href="https://m.ensembl.org/info/website/upload/bed.html">link</a>.</p>
+</div>
+<div id="seccion4_1_2_3"/>
+</div>
+<div class="section" id="fastq">
+<h3><span class="section-number">2.2.3. </span>FASTQ<a class="headerlink" href="#fastq" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Archivo de texto plano que contiene información relacionada a la secuenciación de nucleótidos con su score de calidad</p></li>
+<li><p>Este score corresponde a un carácter ASCII e indica qué tan confiable es que la base haya sido secuenciada e identificada correctamente, lo que se conoce como <a class="reference external" href="https://en.wikipedia.org/wiki/Phred_quality_score">Phred score</a></p></li>
+<li><p>El formato consiste en:</p>
+<ul>
+<li><p>Línea 1 inicia con “&#64;” seguido por la identificación de la secuencia</p></li>
+<li><p>Línea 2 es la secuencia.</p></li>
+<li><p>Línea 3 contiene el símbolo “+” que indica el término de la secuencia</p></li>
+<li><p>Línea 4 la codificación para el score de calidad, debe contener el mismo número de símbolos que de letras en la secuencia.</p></li>
+</ul>
+</li>
+</ul>
+<p>Ejemplo de un archivo Fastq y su interpretación:</p>
+<a class="reference internal image-reference" href="../../../_images/fastq.jpg"><img alt="./img/fastq.jpg" class="align-center" src="../../../_images/fastq.jpg" style="width: 600px;" /></a>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Puedes encontrar más información sobre este tipo de archivo en el siguiente <a class="reference external" href="https://learn.gencore.bio.nyu.edu/ngs-file-formats/fastq-format/">link</a>.</p>
+</div>
+<div id="seccion4_1_2_4"/>
+</div>
+<div class="section" id="pdb">
+<h3><span class="section-number">2.2.4. </span>PDB<a class="headerlink" href="#pdb" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Es un archivo de texto plano que contiene las coordenadas atómicas de los aminoácidos que componen una proteína, ADN, ARN, u otra biomolécula.</p></li>
+<li><p>Estas coordenadas se obtienen a partir de experimentos de resonancia magnética nuclear, cristalografía de rayos X, Cryo-EM, u otros métodos.</p></li>
+</ul>
+<p>Ejemplo de un archivo PDB y su interpretación:</p>
+<a class="reference internal image-reference" href="../../../_images/pdb.jpg"><img alt="./img/pdb.jpg" class="align-center" src="../../../_images/pdb.jpg" style="width: 600px;" /></a>
+<p>Para visualizar la estructura 3D de las biomoléculas en base a las coordenadas del archivo PDB se necesitan programas especializados como Pymol, Chimera, VMD, u otros. Esto se observaría de la siguiente forma:</p>
+<a class="reference internal image-reference" href="../../../_images/pdb2.jpg"><img alt="./img/pdb2.jpg" class="align-center" src="../../../_images/pdb2.jpg" style="width: 600px;" /></a>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Puedes encontrar más información sobre este tipo de archivo en el siguiente <a class="reference external" href="https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html">link</a>.</p>
+</div>
+<div id="seccion4_1_3"/>
+</div>
+</div>
+<div class="section" id="material-suplementario">
+<h2><span class="section-number">2.3. </span>Material suplementario<a class="headerlink" href="#material-suplementario" title="Permalink to this headline">¶</a></h2>
+<p>Existen otros formatos de archivos de texto usandos en Bioinformática, que son específicos de cada área. En los siguientes links hay una revisión más detallada sobre el tema:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://bioinformatics.uconn.edu/resources-and-events/tutorials-2/file-formats-tutorial/">https://bioinformatics.uconn.edu/resources-and-events/tutorials-2/file-formats-tutorial/</a></p></li>
+<li><p><a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra/docs/submitformats/">https://www.ncbi.nlm.nih.gov/sra/docs/submitformats/</a></p></li>
+<li><p><a class="reference external" href="https://lorenzogatti.me/2017-ACGT-Tutorials/docs/howto_Format_Data/">https://lorenzogatti.me/2017-ACGT-Tutorials/docs/howto_Format_Data/</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/04_Procesamiento_ficheros_regex_pipes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="0_Resumen.html" title="previous page"><span class="section-number">1. </span>Resumen</a>
+    <a class='right-next' id="next-link" href="2_Editores_de_texto.html" title="next page"><span class="section-number">3. </span>Editores de texto</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

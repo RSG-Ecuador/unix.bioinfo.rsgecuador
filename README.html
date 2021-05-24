@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Resumen" href="content/Curso_basico/01_Unix_GNU-Linux/0_Resumen.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="#">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_basico/07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/README.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#descripcion-y-objetivo-del-boot-camp">
+   Descripción y objetivo del Boot Camp
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contenidos">
+   Contenidos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#audiencia-y-requerimientos">
+   Audiencia y requerimientos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-de-referencia">
+   Material de referencia
+  </a>
+  <ul class="nav section-nav flex-column">
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="inicio">
+<h1>Inicio<a class="headerlink" href="#inicio" title="Permalink to this headline">¶</a></h1>
+<p>El equipo de <a class="reference external" href="https://www.facebook.com/iGEMECUADOR">iGEM Ecuador</a> en colaboración con el Grupo de Estudiantes de Biología Computacional del Ecuador, <a class="reference external" href="https://rsg-ecuador.iscbsc.org/">RSG Ecuador</a>, hemos elaborado el taller teórico-práctico:</p>
+<a class="reference internal image-reference" href="_images/Linux_BashAwk_scripting_BootCampt_RSG_iGEM_Ecuador_portada.png"><img alt="Linux_BashAwk_scripting_BootCampt_RSG_iGEM_Ecuador_portada.png" class="align-left" src="_images/Linux_BashAwk_scripting_BootCampt_RSG_iGEM_Ecuador_portada.png" style="width: 800px;" /></a>
+<p><strong>Autores:</strong> Juan Zurita, <a class="reference external" href="https://asar1245.github.io/Sebastian-AyalaRuano/">Sebastián Ayala</a></p>
+<p>Pueden acceder al libro de la clase en el siguiente link: https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/README.html</p>
+<div class="section" id="descripcion-y-objetivo-del-boot-camp">
+<h2>Descripción y objetivo del Boot Camp<a class="headerlink" href="#descripcion-y-objetivo-del-boot-camp" title="Permalink to this headline">¶</a></h2>
+<p>Este Boot Camp tiene como objetivo aprender sobre sistemas operativos basados en UNIX (con énfasis en GNU/Linux), manejo de Terminal, procesamiento de archivos y AWK/Bash con enfoque en Bioinformática. El taller se realizará de forma virtual y tendrá una combinación de clases sincrónicas y asincrónicas, con un componente práctico para aplicar todos los conocimientos adquiridos.</p>
+</div>
+<div class="section" id="contenidos">
+<h2>Contenidos<a class="headerlink" href="#contenidos" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference internal" href="content/Curso_basico/01_Unix_GNU-Linux/0_Resumen.html"><span class="doc std std-doc">Introducción a Unix y GNU/Linux</span></a></p></li>
+<li><p><a class="reference internal" href="content/Curso_basico/02_JupyterLab/0_Resumen.html"><span class="doc std std-doc">Jupyter Lab</span></a></p></li>
+<li><p><a class="reference internal" href="content/Curso_basico/03_Manejo_terminal/0_Resumen.html"><span class="doc std std-doc">Manejo terminal</span></a></p></li>
+<li><p><a class="reference internal" href="content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/0_Resumen.html"><span class="doc std std-doc">Procesamiento de ficheros, regex y pipes</span></a></p></li>
+<li><p><a class="reference internal" href="content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html"><span class="doc std std-doc">Ejercicios de procesamiento ficheros con enfoque en Bioinformática</span></a></p></li>
+<li><p><a class="reference internal" href="content/Curso_basico/06_Make/0_Resumen.html"><span class="doc std std-doc">Comando Make para instalar programas</span></a></p></li>
+<li><p><a class="reference internal" href="content/Curso_basico/07_SAM_Tools/0_Resumen.html"><span class="doc std std-doc">SAM Tools: conjunto de programas útiles en Bioinformática</span></a></p></li>
+<li><p><a class="reference internal" href="content/Curso_avanzado/01_AWK/0_Resumen.html"><span class="doc std std-doc">AWK: Lenguaje de programación para procesamiento de archivos de texto</span></a></p></li>
+<li><p><a class="reference internal" href="content/Curso_avanzado/02_Bash/0_Resumen.html"><span class="doc std std-doc">Bash: Shell y lenguaje de programación</span></a></p></li>
+<li><p><a class="reference internal" href="content/Curso_avanzado/03_Git_GitHub/0_Resumen.html"><span class="doc std std-doc">Git y GitHub</span></a></p></li>
+</ol>
+<p>El curso básico comenzará el 26 de Abril y terminará el 9 de Mayo. Se tendrán clases pregrabadas enviadas por Google Classrom, foros de discusión de los temas del curso, y clases presenciales los Sábados en dos horarios elegibles: 9:00-12:00 y 15:00-18:00 (GMT-5). El material escrito lo iremos subiendo semanalmente a este repositorio.</p>
+</div>
+<div class="section" id="audiencia-y-requerimientos">
+<h2>Audiencia y requerimientos<a class="headerlink" href="#audiencia-y-requerimientos" title="Permalink to this headline">¶</a></h2>
+<p>El curso está orientado a estudiantes de grado y posgrado e investigadores que quieran aprender sobre GNU/Linux, manejo de terminal, y AWK/Bash con enfoque en Bioinformática. Para el curso básico no se necesita tener acceso a una terminal de Bash, es parte del contenido del curso; mientras que para el curso avanzado asumimos que los estudiantes ya tienen acceso a un emulador de terminal de Bash por alguno de los métodos disponibles (máquina virtual, subsistema de Windows 10 para Linux, Dual boot, etc).</p>
+</div>
+<div class="section" id="material-de-referencia">
+<h2>Material de referencia<a class="headerlink" href="#material-de-referencia" title="Permalink to this headline">¶</a></h2>
+<p>El contenido de  este curso se realizó en base al <a class="reference external" href="https://github.com/RSG-Ecuador/Grupo-De-Estudio-Linux-Bash">material de un grupo de estudio</a> realizado por el RSG Ecuador, y al libro de acceso libre <a class="reference external" href="https://leanpub.com/unix">The Unix Workbench</a> de Sean Kross. La literatura adicional se especifica en cada tema de forma pertinente.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='right-next' id="next-link" href="content/Curso_basico/01_Unix_GNU-Linux/0_Resumen.html" title="next page"><span class="section-number">1. </span>Resumen</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

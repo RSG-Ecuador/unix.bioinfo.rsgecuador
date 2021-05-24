@@ -1,0 +1,694 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9. Respuestas ejercicios deber &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="1. Resumen" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html" />
+    <link rel="prev" title="8. Pipes" href="7_Pipes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="respuestas-ejercicios-deber">
+<h1><span class="section-number">9. </span>Respuestas ejercicios deber<a class="headerlink" href="#respuestas-ejercicios-deber" title="Permalink to this headline">¶</a></h1>
+<p><strong>4.4</strong></p>
+<ol class="simple">
+<li><p>3</p></li>
+<li><p>Usar flag i</p></li>
+<li><p>No</p></li>
+</ol>
+<p><strong>4.5</strong></p>
+<ol class="simple">
+<li><p>lan[sz]an</p></li>
+<li><p>[d-pQ-W1-3]</p></li>
+<li><p>tan, lansan, representan, lanzan</p></li>
+<li><p>caracter de espacio, s, z</p></li>
+<li><p>[+*]</p></li>
+<li><p>Verso [\d]:[Rc]o[mb][pe][ur][to][ao]</p></li>
+<li><p>s (single-line)</p></li>
+<li><p>\d\d[-/.]\d\d[-/.]\d\d</p></li>
+</ol>
+<p><strong>4.6</strong></p>
+<ol class="simple">
+<li><p>Flag m (multiple line)</p></li>
+<li><p>No</p></li>
+<li><p>No</p></li>
+<li><p>\AFecha:\d\d[-/.]\d\d[-/.]\d\d</p></li>
+<li><p>corazón \Z</p></li>
+<li><p>tercera, primera, computadora, Porque, representan</p></li>
+</ol>
+<p><strong>4.7</strong></p>
+<ol class="simple">
+<li><p>Si</p></li>
+<li><p>No</p></li>
+</ol>
+<p><strong>4.8</strong></p>
+<ol class="simple">
+<li><p>compasión</p></li>
+<li><p>La línea que posee solo Ni se identifica con el metacaracter *, pero no con +</p></li>
+<li><p>^Ni[\w ]*computadora$ (es solo un símbolo de ancla de final de línea) o ^Ni[\w ]+computadora$</p></li>
+<li><p>\bNi[\w ]*computadora\b o \bNi[\w ]+computadora\b</p></li>
+<li><p>[1-9][0-9]{1,2}</p></li>
+</ol>
+<p><strong>4.9</strong></p>
+<ol class="simple">
+<li><p>Si</p></li>
+<li><p>Si</p></li>
+<li><p>tan, ufano</p></li>
+</ol>
+<p><strong>5.3</strong></p>
+<ol class="simple">
+<li><p>Si, el metacaracter | fue reconocido de forma adecuada</p></li>
+</ol>
+<p><strong>5.4</strong></p>
+<ol class="simple">
+<li><p>No hay una sola respuesta, depende de tu SO</p></li>
+<li><p>grep -i “computadora” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>echo “computadora” &gt; palabras.txt
+echo “Roberto” &gt;&gt; palabras.txt 	
+grep -i -f palabras.txt Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>Los comandos coincidieron</p></li>
+<li><p>Si hay diferencia, la opción <code class="docutils literal notranslate"><span class="pre">-w</span></code> busca solo palabras completas</p></li>
+<li><p>Si hay diferencia, la opción <code class="docutils literal notranslate"><span class="pre">-x</span></code> busca líneas enteras que coincidan con el patrón.</p></li>
+<li><p>grep -E -i -v “computadora|Roberto” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>grep -E -c “^[” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+grep -E -c “[[A-Z a-Z0-9:]*]” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>grep -E -i -c “[0-9]:computadora” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+grep -E -i -c “[0-9]:Roberto” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+grep -E -i -c “[0-9]:Roberto y ” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>¿Sin alma ni corazón?</p></li>
+<li><p>grep -E -n “(ión|ono|ando)$” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>3 con <code class="docutils literal notranslate"><span class="pre">ión</span></code>, 2 con <code class="docutils literal notranslate"><span class="pre">ono</span></code>, y 2 con <code class="docutils literal notranslate"><span class="pre">ando</span></code></p></li>
+<li><p>Si, se coloca un tab antes de cada línea</p></li>
+<li><p>3: 9, 5: , 10: , 12:</p></li>
+<li><p>grep -E -n -A 9 “Verso 3” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt &gt; verso3.txt</p></li>
+<li><p>Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt, verso10.txt, verso12.txt</p></li>
+<li><p>alumnos.txt, notas.txt, verso3.txt, verso5.txt</p></li>
+<li><p>La opción <code class="docutils literal notranslate"><span class="pre">-H</span></code> imprime el nombre de los archivos y <code class="docutils literal notranslate"><span class="pre">-h</span></code> no imprime esto</p></li>
+</ol>
+<p><strong>6.3</strong></p>
+<ol class="simple">
+<li><p>No hay una sola respuesta, depende de tu SO</p></li>
+</ol>
+<p><strong>6.5</strong></p>
+<ol class="simple">
+<li><p>sed -r ‘s!([0-9]){2}<span class="xref myst">-/.</span>{2}<span class="xref myst">-/.</span>{2}!20/04/20!g’ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r ‘s/^O[a-zA-Z ]*ver$/Quizá no quiere observar/m’ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r ‘s/\bVerso/Estrofa/g’ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r ‘s|/|-|2’ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+</ol>
+<p><strong>6.6</strong></p>
+<ol class="simple">
+<li><p>sed -r ‘/:Roberto/d’ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r -n ‘/^¿/p’ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r ‘/^[/a \ ‘ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+</ol>
+<p><strong>6.7</strong></p>
+<ol class="simple">
+<li><p>sed -r ‘20i \ ‘ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+<li><p>sed -r ‘$c FIN’ Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</p></li>
+</ol>
+<p><strong>7.3</strong></p>
+<ol class="simple">
+<li><p>No hay una sola respuesta, depende de tu SO</p></li>
+<li><p>cut -f 2-4 notasfinal.txt</p></li>
+<li><p>cut -f 1 -d “,” notasfinal.txt</p></li>
+<li><p>cut -f 1 -d “,” –complement notasfinal.txt</p></li>
+<li><p>–output-delimiter “,”</p></li>
+<li><p>No se cumple la predicción, el resultado es el caracter <em>ñ</em>, que se representa con dos bytes</p></li>
+</ol>
+<p><strong>7.5</strong></p>
+<ol class="simple">
+<li><p>sort -k 3 -u alumnos.txt</p></li>
+<li><p>sort -g -k 7 -r  notasfinal.txt</p></li>
+</ol>
+<p><strong>8.3</strong></p>
+<ol class="simple">
+<li><p>ls -l img | grep “png”</p></li>
+<li><p>cut -f 1 -d “,” alumnos.txt | sort -u</p></li>
+<li><p>paste alumnos.txt notas.txt | cut -f 1-2,4 | sort -u | sort -g -k 6 -r</p></li>
+<li><p>paste alumnos.txt notas.txt | sort -u | grep “Moore”</p></li>
+<li><p>grep “^[” Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt | sed -r ‘/computadora|Computadora/d’ &gt; versos.txt</p></li>
+</ol>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/04_Procesamiento_ficheros_regex_pipes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="7_Pipes.html" title="previous page"><span class="section-number">8. </span>Pipes</a>
+    <a class='right-next' id="next-link" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html" title="next page"><span class="section-number">1. </span>Resumen</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

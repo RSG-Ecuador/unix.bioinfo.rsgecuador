@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Pipes &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="9. Respuestas ejercicios deber" href="8_Respuestas_ejercicios.html" />
+    <link rel="prev" title="7. Cut, sort" href="6_Cut_sort.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/7_Pipes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/04_Procesamiento_ficheros_regex_pipes/7_Pipes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#archivos-para-este-tutorial">
+   8.1. Archivos para este tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-son-los-pipes">
+   8.2. ¿Qué son los pipes?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos-del-uso-de-pipes">
+   8.3. Ejemplos del uso de pipes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   8.4. Material suplementario
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pipes">
+<h1><span class="section-number">8. </span>Pipes<a class="headerlink" href="#pipes" title="Permalink to this headline">¶</a></h1>
+<p>En esta parte del curso estudiaremos los pipes. Al igual que las anteriores partes, este tutorial tiene un enfoque general, sin aplicaciones en Bioinformática (lo que veremos más adelante).</p>
+<div class="note admonition">
+<p class="admonition-title">Nota importante</p>
+<p>En la mayoría de secciones existen preguntas y pequeños ejercicios, maracados con la etiqueta <code class="docutils literal notranslate"><span class="pre">Pregunta</span></code>, cuyas respuestas deben ser realizadas como deber de esta parte del curso. Debes guardar las respuestas en el <strong>Jupuyer notebook</strong> que debes entrengar en este capítulo y correr los comandos en las preguntas que esto sea posible.</p>
+</div>
+<p>Luego de la fecha de entrega del deber enviaremos las respuestas a los ejercicios de todas las secciones.</p>
+<div id="seccion4_7_0"/>
+<div class="section" id="archivos-para-este-tutorial">
+<h2><span class="section-number">8.1. </span>Archivos para este tutorial<a class="headerlink" href="#archivos-para-este-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>En este tutorial usaremos los tres archivos que hemos usado en los temas anteriores: <code class="docutils literal notranslate"><span class="pre">Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">alumnos.txt</span></code> y <code class="docutils literal notranslate"><span class="pre">notas.txt</span></code>, que se encuentran en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del repositorio de Github.</p>
+<div id="seccion4_7_1"/>
+</div>
+<div class="section" id="que-son-los-pipes">
+<h2><span class="section-number">8.2. </span>¿Qué son los pipes?<a class="headerlink" href="#que-son-los-pipes" title="Permalink to this headline">¶</a></h2>
+<p>Los pipes (<code class="docutils literal notranslate"><span class="pre">|</span></code>) son una herramienta de interfaz de línea de comandos (CLI) de SO basados en Unix, que permite redireccionar el <a class="reference external" href="https://www.computerhope.com/jargon/s/stdout.htm"><em>stdout</em></a> de un comnando/programa/proceso al <a class="reference external" href="https://www.computerhope.com/jargon/s/stdin.htm"><em>stdin</em></a> de otro comnando/programa/proceso. De esta forma, se pueden usar dos o más comandos de forma que el resultado de un comando sirva como la entrada del siguiente, lo que se puede repetir de acuerdo a la cantidad de pipes.</p>
+<p>De esta forma, se crea una conexión directa entre los comandos/programas/procesos, lo que permite que los datos se transfieran entre estos de forma continua en lugar de tener que guardar esta información en archivos de texto temporales o imprimir en pantalla.</p>
+<p>La sintaxis general de esta herramienta es de la siguiente forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>comando1 <span class="p">|</span> comando2 <span class="p">|</span> ... <span class="p">|</span> comandoN
+</pre></div>
+</div>
+<p>Para entender mejor este concepto, usaremos dos programas sencillos de Linux, <code class="docutils literal notranslate"><span class="pre">fortune</span></code> que imprime en pantalla frases aleatorias de personas famosas, y <code class="docutils literal notranslate"><span class="pre">cowsay</span></code> que imprime en pantalla una vaca con un mensaje que escriba el usuario. La ejecución de los dos programas de forma independiente se observa de la siguiente forma:</p>
+<a class="reference internal image-reference" href="../../../_images/pipes1.png"><img alt="./img/pipes1.png" class="align-center" src="../../../_images/pipes1.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/pipes2.png"><img alt="./img/pipes2.png" class="align-center" src="../../../_images/pipes2.png" style="width: 600px;" /></a>
+<p>Ahora, utilicemos la herramienta pipe con estos dos comandos:</p>
+<a class="reference internal image-reference" href="../../../_images/pipes3.png"><img alt="./img/pipes3.png" class="align-center" src="../../../_images/pipes3.png" style="width: 600px;" /></a>
+<p>Se observa que el resultado del comando <code class="docutils literal notranslate"><span class="pre">fortune</span></code> es asignado como la entrada de <code class="docutils literal notranslate"><span class="pre">cowsay</span></code>. Esta herramienta es muy poderosa y se puede usar para optimizar muchos flujos de trabajo en CLI. Verifica si tienes instalad estos dos programas en tu SO, sino trata de instalarlos y observa los resultados en tu equipo.</p>
+<div id="seccion4_7_2"/>
+</div>
+<div class="section" id="ejemplos-del-uso-de-pipes">
+<h2><span class="section-number">8.3. </span>Ejemplos del uso de pipes<a class="headerlink" href="#ejemplos-del-uso-de-pipes" title="Permalink to this headline">¶</a></h2>
+<p>Primero, usaremos algunos ejemplos sencillos del comando <code class="docutils literal notranslate"><span class="pre">echo</span></code> usando pipes con <code class="docutils literal notranslate"><span class="pre">grep</span></code> y <code class="docutils literal notranslate"><span class="pre">sed</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;abcdef12345&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;[0-9]&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Hola mundo !!&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;mundo&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Hola mundo Hola mundo Hola mundo&quot;</span> <span class="p">|</span> sed -e <span class="s1">&#39;s/Hola/Hi/2&#39;</span> -e <span class="s1">&#39;s/mundo/world/2&#39;</span>
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p><strong>¿Qué pipeline podría emplear usando <code class="docutils literal notranslate"><span class="pre">ls</span></code> y <code class="docutils literal notranslate"><span class="pre">grep</span></code> para encontrar los archivos de la carptea <code class="docutils literal notranslate"><span class="pre">img</span></code> que tenga extensión png, incluyendo información de sus permisos y fecha de modificación?</strong></p>
+</div>
+<p>Ahora, vamos a trabajar con los archivos <code class="docutils literal notranslate"><span class="pre">alumnos.txt</span></code> y <code class="docutils literal notranslate"><span class="pre">notas.txt</span></code>. Usaremos el comando <code class="docutils literal notranslate"><span class="pre">paste</span></code> para juntar la información de los dos archivos, y luego seleccionaremos los <strong>Apellidos y Nombres</strong> de los estudiantes y la columna de <strong>Notas1</strong>, lo que podemos hacer en una sola línea de código usando pipes de la siguiente forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>paste alumnos.txt notas.txt <span class="p">|</span> cut -f <span class="m">1</span>-2
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Siguiendo esta misma lógica, <strong>¿Que pipeline podrías usar para seleccionar solamente los apellidos de los estudiantes del archivo <code class="docutils literal notranslate"><span class="pre">alumnos.txt</span></code>, ordenralos alfabéticemnte y eliminar los duplicados?</strong></p>
+<p><strong>¿Qué pipeline se puede usar para juntar los archivos <code class="docutils literal notranslate"><span class="pre">alumnos.txt</span></code> y <code class="docutils literal notranslate"><span class="pre">notas.txt</span></code>, seleccionar los Nombres y Apellidos de los estudiantes y las Notas 1 y 3; eliminar los duplicados y ordenar los datos de mayor a menor considerando la Nota 3?</strong></p>
+<p><strong>¿Qué pipeline se podría usar para juntar los archivos <code class="docutils literal notranslate"><span class="pre">alumnos.txt</span></code> y <code class="docutils literal notranslate"><span class="pre">notas.txt</span></code>, eliminar los duplicados, e imprimir la línea que posee las notas de la estudiante que tiene apellido Moore?</strong></p>
+<p>Ahora, usaremos el archivo <code class="docutils literal notranslate"><span class="pre">Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</span></code>. <strong>¿Qué pipeline puedo usar para seleccionar todas las líneas que contengan el título del verso, eliminar los que correspondan a la computadora; y guardar esta información en un nuevo archivo llamado <code class="docutils literal notranslate"><span class="pre">versos.txt</span></code>?</strong></p>
+</div>
+<div id="seccion4_7_3"/>
+</div>
+<div class="section" id="material-suplementario">
+<h2><span class="section-number">8.4. </span>Material suplementario<a class="headerlink" href="#material-suplementario" title="Permalink to this headline">¶</a></h2>
+<p>En los siguientes enlaces pueden encontrar información adicional sobre este tema:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org/piping-in-unix-or-linux/">https://www.geeksforgeeks.org/piping-in-unix-or-linux/</a></p></li>
+<li><p><a class="reference external" href="https://www.guru99.com/linux-pipe-grep.html">https://www.guru99.com/linux-pipe-grep.html</a></p></li>
+<li><p><a class="reference external" href="https://www.howtogeek.com/438882/how-to-use-pipes-on-linux/">https://www.howtogeek.com/438882/how-to-use-pipes-on-linux/</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/04_Procesamiento_ficheros_regex_pipes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="6_Cut_sort.html" title="previous page"><span class="section-number">7. </span>Cut, sort</a>
+    <a class='right-next' id="next-link" href="8_Respuestas_ejercicios.html" title="next page"><span class="section-number">9. </span>Respuestas ejercicios deber</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

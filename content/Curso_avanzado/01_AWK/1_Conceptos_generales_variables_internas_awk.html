@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Conceptos generales, instalación y variables internas AWK &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="3. Estructura de scripts y sintaxis AWK" href="2_Estructura_programas_sintax_awk.html" />
+    <link rel="prev" title="1. Resumen" href="0_Resumen.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#archivos-para-este-tutorial">
+   2.1. Archivos para este tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-awk">
+   2.2. ¿Qué es AWK?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instalacion-gawk">
+   2.3. Instalación gawk
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elementos-y-esructura-del-comando-gawk">
+   2.4. Elementos y esructura del comando gawk
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-internas-de-archivos-y-registros">
+   2.5. Variables internas de archivos y registros
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables-internas-de-campos">
+   2.6. Variables internas de campos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen-de-las-variables-internas-de-awk-mas-comunes">
+   2.7. Resumen de las variables internas de AWK más comunes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   2.8. Material suplementario
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="conceptos-generales-instalacion-y-variables-internas-awk">
+<h1><span class="section-number">2. </span>Conceptos generales, instalación y variables internas AWK<a class="headerlink" href="#conceptos-generales-instalacion-y-variables-internas-awk" title="Permalink to this headline">¶</a></h1>
+<p>En esta parte estudiaremos la parte introductoria del lenguaje de programación AWK, y presentamos algunos ejemplos sencillos con enfoque en Bioinformática.</p>
+<div class="warning admonition">
+<p class="admonition-title">Advertencia</p>
+<p>En este tutorial usaremos la herramienta <em>gawk</em>, que viene instalada por defecto en la mayoría de distribuciones de GNU/Linux. Puede que algunos de los comandos usados con esta herramienta no sean compatibles con otras versiones del programa usadas en MacOS, por lo que les recomendamos instalar <em>gawk</em> usando el gestor de paquetes <em>brew</em>, cuyas indicaciones de instalación se encuentran en el siguiente <a class="reference external" href="https://formulae.brew.sh/formula/gawk">link</a>.</p>
+</div>
+<div class="section" id="archivos-para-este-tutorial">
+<h2><span class="section-number">2.1. </span>Archivos para este tutorial<a class="headerlink" href="#archivos-para-este-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>En este tutorial usaremos algunos de los archivos que se encuentran en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del <a class="reference external" href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador">repositorio de Github</a>, por lo que si no poseen este directorio, descarguen el repositorio de GitHub y copien la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> a su directorio de trabajo. En todos los ejercicios asumiremos que están trabajando dentro de la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>, por lo que no usamos ningún path relativo para trabajar con los archivos.</p>
+</div>
+<div class="section" id="que-es-awk">
+<h2><span class="section-number">2.2. </span>¿Qué es AWK?<a class="headerlink" href="#que-es-awk" title="Permalink to this headline">¶</a></h2>
+<p>AWK es un lenguaje de programación diseñado para procesamiento de archivos de texto que fue implementado por primera vez en el SO UNIX. Se debe considerar que <em>awk</em> es el programa de UNIX que permite correr scripts escritos en AWK, o en oras palabras AWK es un lenguaje interpretado por el intérprete <em>awk</em>.</p>
+<p>Se debe considerar que <em>awk</em> fue implementado en GNU/Linux con el nombre de <em>gawk</em>, del que actualmente hay mucha <a class="reference external" href="https://www.gnu.org/software/gawk/manual/gawk.html">documentación</a>.</p>
+</div>
+<div class="section" id="instalacion-gawk">
+<h2><span class="section-number">2.3. </span>Instalación gawk<a class="headerlink" href="#instalacion-gawk" title="Permalink to this headline">¶</a></h2>
+<p>Para verificar si poseen <em>gawk</em> en su SO deben abrir una terminal y escribir:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ gawk --version
+</pre></div>
+</div>
+<p>En caso de que no tengan esta herramienta, deben instalarla usando el gestor de paquetes apt para los usuarios de GNU/Linux, de la siguiente manera:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt install gawk
+</pre></div>
+</div>
+<p>Los usarios de MacOS deben usar el gestor brew, como se muestra a continuación:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ brew install gawk
+</pre></div>
+</div>
+</div>
+<div class="section" id="elementos-y-esructura-del-comando-gawk">
+<h2><span class="section-number">2.4. </span>Elementos y esructura del comando gawk<a class="headerlink" href="#elementos-y-esructura-del-comando-gawk" title="Permalink to this headline">¶</a></h2>
+<p>El intérprete <em>gawk</em> necesita dos elementos:</p>
+<ol class="simple">
+<li><p>Una o más opciones (no es obligatorio)</p></li>
+<li><p>Script de AWK o archivo con script de AWK.</p></li>
+<li><p>Uno o más archivos de entrada.</p></li>
+</ol>
+<p>Las principales opciones de <em>gawk</em> son las siguientes:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Opción</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-F</span></code> o <code class="docutils literal notranslate"><span class="pre">--field-separator</span></code></p></td>
+<td class="text-align:center"><p>Sirve para especificar un separador de campos. Funciona igual que la variable interna <code class="docutils literal notranslate"><span class="pre">FS</span></code> que se revisa más adelante</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-f</span></code> o <code class="docutils literal notranslate"><span class="pre">--file</span></code></p></td>
+<td class="text-align:center"><p>Se usa para especificar un archivo que contiene un script de AWK</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> o <code class="docutils literal notranslate"><span class="pre">--assign</span></code></p></td>
+<td class="text-align:center"><p>Sirve para declarar una variable</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-h</span></code> o <code class="docutils literal notranslate"><span class="pre">--help</span></code></p></td>
+<td class="text-align:center"><p>Imprime un mensaje de uso que resume las opciones que acepta <em>gawk</em></p></td>
+</tr>
+</tbody>
+</table>
+<p>La estructura del comando sería de la siguiente forma:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ gawk -<span class="o">[</span>opción<span class="o">]</span> ‘script_AWK’ archivo1 archivo2 …
+</pre></div>
+</div>
+<p>Para encadenar otro programa de GNU/Linux con <em>awk</em> se emplea lo siguiente sintaxis:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ programa_GNU/Linux <span class="p">|</span> gawk -<span class="o">[</span>opción<span class="o">]</span> ‘script_AWK’ archivo1 archivo2 …
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables-internas-de-archivos-y-registros">
+<h2><span class="section-number">2.5. </span>Variables internas de archivos y registros<a class="headerlink" href="#variables-internas-de-archivos-y-registros" title="Permalink to this headline">¶</a></h2>
+<p>El nombre del archivo que se procesa por <em>gawk</em> se guarda en la variable interna (vi) <code class="docutils literal notranslate"><span class="pre">FILENAME</span></code>. Además, este lenguaje procesa los archivos usando elementos llamados <strong>registros</strong> o <strong>filas</strong>, que siguen las instrucciones del script de AWK de forma independiente. Para identificar los <strong>registros</strong> dentro del archivo se usa un <strong>separador de registros</strong>, que se almacena en la vi <code class="docutils literal notranslate"><span class="pre">RS</span></code>. Por defecto, los <strong>registros</strong> se separan por saltos de línea (RS = “\n”), pero esto se puede cambiar. Además, para almacenar el <strong>número de registros en procesamiento y procesados</strong> se emplean las vi <code class="docutils literal notranslate"><span class="pre">FNR</span></code> y <code class="docutils literal notranslate"><span class="pre">NR</span></code> respectivamente.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>En los archivos multifasta el separador de registros sería el caracter <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, que se encuentra al inicio de los headers de todas las secuencias; mientras que en los archivos PDB se puede usar el string <code class="docutils literal notranslate"><span class="pre">ATOM</span></code>, que se encuentra al inicio de todas las líneas que tienen información de los átomos de la biomolécula.</p>
+</div>
+<p>Para mostrar el funcionamiento de <em>gawk</em> y algunas de sus vi, realizaremos un ejemplo con el archivo multifasta <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;{print FILENAME, FNR, NR}&#39;</span> sul_genomas.fasta
+</pre></div>
+</div>
+<p>En la siguiente captura se observa la parte final del resultado de este comando:</p>
+<a class="reference internal image-reference" href="../../../_images/awk1.png"><img alt="./img/awk1.png" class="align-center" src="../../../_images/awk1.png" style="width: 650px;" /></a>
+<p>Como se observa, en cada línea se imprimió el nombre del archivo, seguido del número de línea dos veces. Esto se debe a que se usó el separador de registros por defecto (salto de línea) y a que las vi <code class="docutils literal notranslate"><span class="pre">FNR</span></code> y <code class="docutils literal notranslate"><span class="pre">NR</span></code> fueron iguales en todos los casos.</p>
+<p>Ahora, si queremos que los registros sean las secuencias y no todas las líneas del archivo, podemos especificar que el separador de registros sea el caracter <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> en el script de AWK de la siguiente forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;{RS= &quot;&gt;&quot;} {print FILENAME, FNR, NR}&#39;</span> sul_genomas.fasta
+</pre></div>
+</div>
+<p>Ahora, apliquemos el script de AWK anterior a los archivos multifasta <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code> y <code class="docutils literal notranslate"><span class="pre">S_clavuligerus_proteome.fasta</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;{RS= &quot;&gt;&quot;} {print FILENAME, FNR, NR}&#39;</span> sul_genomas.fasta S_clavuligerus_proteome.fasta
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Son iguales los valores <code class="docutils literal notranslate"><span class="pre">FNR</span></code> y <code class="docutils literal notranslate"><span class="pre">NR</span></code> en todas las líneas en este caso?. Con este análisis ya podrías deducir de forma adecuada la diferencia entre estas dos vi.</p>
+</div>
+</div>
+<div class="section" id="variables-internas-de-campos">
+<h2><span class="section-number">2.6. </span>Variables internas de campos<a class="headerlink" href="#variables-internas-de-campos" title="Permalink to this headline">¶</a></h2>
+<p>Además, cada <strong>registro</strong> procesado por <em>gawk</em> se divide en <strong>campos</strong> separados por espacios, tabuladores o saltos de línea. El <strong>separador de campo</strong> se almacena en la vi <code class="docutils literal notranslate"><span class="pre">FS</span></code>. Por defecto, el separador de campo es un espacio (FS = ” “). Cada campo del registro se guarda en variables internas entre <code class="docutils literal notranslate"><span class="pre">$1</span></code> y <code class="docutils literal notranslate"><span class="pre">$n</span></code>; mientras que el contenido completo del registro se almacena en <code class="docutils literal notranslate"><span class="pre">$0</span></code>, y el <strong>número total de campos</strong> en la vi <code class="docutils literal notranslate"><span class="pre">NF</span></code>.</p>
+<p>Con los siguientes ejemplos se explican mejor estos conceptos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> -e  <span class="s2">&quot; campo1  campo2\tcampo3,-#%...  &quot;</span> <span class="p">|</span> gawk <span class="s1">&#39;{print NF, &quot;[&quot;$1&quot;]&quot;, &quot;[&quot;$2&quot;]&quot;}&#39;</span>
+$ <span class="nb">echo</span> -e  <span class="s2">&quot; campo1  campo2\tcampo3,-#%...  &quot;</span> <span class="p">|</span> gawk <span class="s1">&#39;{print NF, &quot;[&quot;$3&quot;]&quot;, &quot;[&quot;$1&quot;]&quot;}&#39;</span>
+$ <span class="nb">echo</span> -e  <span class="s2">&quot; campo1  campo2\tcampo3,-#%...  &quot;</span> <span class="p">|</span> gawk <span class="s1">&#39;{print NF, &quot;[&quot;$0&quot;]&quot;}&#39;</span>
+$ <span class="nb">echo</span> -e  <span class="s2">&quot; campo1  campo2\tcampo3,-#%...  &quot;</span> <span class="p">|</span> gawk <span class="s1">&#39;{print NF, $NF}&#39;</span>
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>¿Porqué al poner $NF se imprime el campo 3?</p>
+</div>
+<p>Algunos puntos importantes que se deben considerar sobre estos ejercicios son los siguientes:</p>
+<ol class="simple">
+<li><p>Múltiples espacios en blanco (incluyendo tabuladores) separando campos de texto se ignoran, colapsándose, por lo que NF vale 3.</p></li>
+<li><p>Por lo explicado en 1, las variables <code class="docutils literal notranslate"><span class="pre">$1-$n</span></code> sólo llevan el valor del campo delimitado por los espacios, como muestran las salidas de las líneas 1 a 3.</p></li>
+<li><p>En cambio, la variable <code class="docutils literal notranslate"><span class="pre">$0</span></code>, que lleva un registro completo, imprime los separadores de campo del mismo, como muestra la línea 4 de la salida mostrada arriba.
+4.Print imprime los argumentos que se le pasan separados por comas, dejando por defecto un espacio sencillo entre ellos (OFS=” “).</p></li>
+</ol>
+</div>
+<div class="section" id="resumen-de-las-variables-internas-de-awk-mas-comunes">
+<h2><span class="section-number">2.7. </span>Resumen de las variables internas de AWK más comunes<a class="headerlink" href="#resumen-de-las-variables-internas-de-awk-mas-comunes" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Variable interna</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">$0</span></code></p></td>
+<td class="text-align:center"><p>Guarda el valor del registro completo actual de un archivo de entrada</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">$1-$n</span></code></p></td>
+<td class="text-align:center"><p>Guarda los contenidos de los campos de un registro</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">NF</span></code> (Number or Records)</p></td>
+<td class="text-align:center"><p>Guarda el número total de campos</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">ARGC</span></code></p></td>
+<td class="text-align:center"><p>Guarda el número de argumentos (+1) pasados al comando desde la terminal, después del script</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">ARGV</span></code></p></td>
+<td class="text-align:center"><p>Guarda los argumentos pasados al comando desde la terminal, después del script. ARGV[0] contiene gawk</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">FILENAME</span></code></p></td>
+<td class="text-align:center"><p>Nombre del archivo de entrada actualmente en procesamiento</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">FS</span></code> (Field Separator)</p></td>
+<td class="text-align:center"><p>Separador de campos (por defecto SPACE or TAB)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">FNR</span></code> (Number or Records)</p></td>
+<td class="text-align:center"><p>Guarda el número de registros en procesamiento</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">NR</span></code> (Number or Records)</p></td>
+<td class="text-align:center"><p>Guarda el número de registros procesados</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">OFS</span></code> (Output Field Separator)</p></td>
+<td class="text-align:center"><p>Separador de campo de la salida (SPACE por defecto)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">ORS</span></code> (Output Return Separator)</p></td>
+<td class="text-align:center"><p>Separador de registro de la salida (\n por defecto)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="material-suplementario">
+<h2><span class="section-number">2.8. </span>Material suplementario<a class="headerlink" href="#material-suplementario" title="Permalink to this headline">¶</a></h2>
+<p>La mayoría de los contenidos de esta parte se obtuvieron de la documentación oficial de <em>GNU</em>, que pueden acceder con el siguiente <a class="reference external" href="https://www.gnu.org/software/gawk/manual/gawk.html">link</a> y del manual del Curso avanzado de programación AWK y Bash para bioinformática y biocómputo en sistemas GNU/Linux del profesor Pablo Vinuesa de la UNAM, que pueden encontrar en este <a class="reference external" href="https://vinuesa.github.io/intro2linux/index.html">link</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_avanzado/01_AWK"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="0_Resumen.html" title="previous page"><span class="section-number">1. </span>Resumen</a>
+    <a class='right-next' id="next-link" href="2_Estructura_programas_sintax_awk.html" title="next page"><span class="section-number">3. </span>Estructura de scripts y sintaxis AWK</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

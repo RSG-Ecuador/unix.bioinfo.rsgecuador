@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Instalación de Anaconda, Jupyter Lab y Bash Kernel &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="4. Creación de Jupyter Notebooks" href="2_notebooks.html" />
+    <link rel="prev" title="2. Organización de archivos duante el taller" href="0_terminal_primera.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/02_JupyterLab/1_anaconda.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/02_JupyterLab/1_anaconda.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#anaconda">
+   3.1. Anaconda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-y-jupyter">
+   3.2. Python y Jupyter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instalacion">
+   3.3. Instalación
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="instalacion-de-anaconda-jupyter-lab-y-bash-kernel">
+<h1><span class="section-number">3. </span>Instalación de Anaconda, Jupyter Lab y Bash Kernel<a class="headerlink" href="#instalacion-de-anaconda-jupyter-lab-y-bash-kernel" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="../../../_images/anaconda.png"><img alt="./img/anaconda.png" class="align-center" src="../../../_images/anaconda.png" style="width: 650px;" /></a>
+<div class="section" id="anaconda">
+<h2><span class="section-number">3.1. </span>Anaconda<a class="headerlink" href="#anaconda" title="Permalink to this headline">¶</a></h2>
+<p>En la documentación de <a class="reference external" href="https://docs.anaconda.com/anaconda/index.html"><code class="docutils literal notranslate"><span class="pre">Anaconda</span></code></a> se puede ver que es muchas cosas: un administrador de paquetes, un administrador de ambientes de programación y también una distribución de Python y R. <code class="docutils literal notranslate"><span class="pre">Anaconda</span></code> es una herramienta muy útil que en sus inicios tuvo el propósito de proveer herramientas de ciencia de datos a usuarios de software open source. Hoy en día Anaconda se usa en muchos tipos de aplicaciones, ya que el software open source no tiene límite de aplicación. Además hay variaciones de Anaconda que son comerciales.</p>
+<p>En este taller necesitamos Anaconda porque vamos a trabajar con <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebooks</span></code>, una herramienta habilitada a través del intérprete de Python, un lenguaje de programación hermoso y muy popular hoy en día. Anaconda es una herramienta conveniente para instalar Python en nuestro computador si somos usuarios inexperimentados. La curva de aprendizaje de los ambientes de programación en Anaconda es un poco más baja que la de Python. Además, la instalación de Anaconda es bastante estándar y funciona bien en todos los sistemas operativos. Es un buen punto de partida para maenjar usuarios con diferente experiencia en computación.</p>
+<p>Anaconda crea ambientes para instalar paquetes con los que podamos trabajar. Por <code class="docutils literal notranslate"><span class="pre">paquetes</span></code> se entiende a archivos binarios o programas compilados que se pueden ejecutar, o también son librerías con <code class="docutils literal notranslate"><span class="pre">clases</span></code> y <code class="docutils literal notranslate"><span class="pre">funciones</span></code> específicas. Por <code class="docutils literal notranslate"><span class="pre">ambiente</span> <span class="pre">de</span> <span class="pre">programación</span></code> se entiende un espacio de memoria del computador dedicado específciamente para la instalación de varios paquetes con el propósito de encapsular versiones específicas del software instalado. A veces, al programar, es necesario tener un mismo software en varias versiones (i.e. <em>release 1.1</em>, <em>release 1.2</em>, <em>release 1.3</em>, <em>…</em>). El software open source se caracteriza por evolucionar rápidamente, ya que todos los usuarios son potenciales editores del software y siempre hay actualizaciones. Es muy común que, al no trabajar con ambientes de programación, cuando un usuario actualiza el software, los paquetes tienen conflictos de dependencias. Esto pasa porque las versiones actualizadas de los paquetes pueden tener cambios drásticos que pueden dañar el código del usuario. Por esta razón, para este taller vamos a instalar Anaconda pero además crearemos un ambiente específico que nos sirva solamente para el taller. Así, en el futuro, para cada uno de tus proyectos, es altamente recomendable que dediques un ambiente exclusivo y evites conflictos de dependencia de software.</p>
+<p>Anaconda tiene un administrador de ambientes de programación y paquetes llamado <code class="docutils literal notranslate"><span class="pre">conda</span></code>. Se lo usa por línea de comando. Lo usaremos para crear los ambientes e instalar los paquetes necesarios para este taller.</p>
+</div>
+<div class="section" id="python-y-jupyter">
+<h2><span class="section-number">3.2. </span>Python y Jupyter<a class="headerlink" href="#python-y-jupyter" title="Permalink to this headline">¶</a></h2>
+<p>Python es un lenguaje de programación interpretado construido en C, uno de los lenguajes más importantes en el mundo de la programación. Python es muy versatil y tiene herramientas muy poderosas para programadores. <a class="reference external" href="https://jupyter.org"><code class="docutils literal notranslate"><span class="pre">Project</span> <span class="pre">Jupyter</span></code></a> es un proyecto que se dedica a mantener paquetes para programación interactiva llamados <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code>, <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebooks</span></code>, <code class="docutils literal notranslate"><span class="pre">voila</span></code>, entre otros. En este taller usaremos <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> porque es lo que más se acerca a un Integrated Development Environment (<code class="docutils literal notranslate"><span class="pre">IDE</span></code>). Esta herramienta será súper útil para que puedas hacer los deberes y entregarlos de una manera muy ordenada y entendible.</p>
+<p><code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> puede trabajar con varios lenguajes de programación mediante <code class="docutils literal notranslate"><span class="pre">kernels</span></code>, que son paquetes diseñados para que los usuarios de <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> puedan no solamente programar en Python, sino también en C, Perl, Ruby, Julia, Bash o varias otras opciones.</p>
+<p>Los archivos sobre los que trabajaremos son <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> con extensión <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>. Lo más importante de los <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> es que se puede mezclar código con anotaciones como texto, imágenes, instrucciones, fórmulas matemáticas, entre otras. Esta maravillosa cualidad está habilidada por <code class="docutils literal notranslate"><span class="pre">Markdown</span></code>, un lenguaje similar a <code class="docutils literal notranslate"><span class="pre">HTML</span></code> que permite. A los usuarios editar texto con estilo sin necesidad de que sepan programación web. Todo este libro está hecho con <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">books</span></code>, otra herramienta de Jupyter Project, y usamos Markdown extensivamente. Aquí hay algunos snippets de código que pueden usar para editar las celdas Markdown en sus jupyter notebooks (<a class="reference external" href="https://jupyterbook.org/reference/cheatsheet.html">https://jupyterbook.org/reference/cheatsheet.html</a>). Pronto veremos ejemplos concretos de uso de jupyter notebooks y Markdown.</p>
+</div>
+<div class="section" id="instalacion">
+<h2><span class="section-number">3.3. </span>Instalación<a class="headerlink" href="#instalacion" title="Permalink to this headline">¶</a></h2>
+<p>Para instalar Anaconda pueden revisar los requisitos específicos para su sistema operativo en la página oficial <a class="reference external" href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a>. El procedimiento general que vamos a usar es: <code class="docutils literal notranslate"><span class="pre">crear</span> <span class="pre">un</span> <span class="pre">ambiente</span></code> usando conda e <code class="docutils literal notranslate"><span class="pre">instalar</span></code> jupyter lab y el kernell de Bash en el ambiente creado. Debes por favor descargar el archivo <strong>Anaconda3-2020.11-Linux-x86_64.sh</strong> desde <a class="reference external" href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a>. Yo lo descargué en mi carpeta de descargas <code class="docutils literal notranslate"><span class="pre">~/Downloads/</span></code>. Para que puedas replicar el siguiente proceso de instalación, coloca el archivo en la misma carpeta. Ahora, abre Terminal y sigue estos pasos.</p>
+<ol>
+<li><p>Luego, actualizar módulos en Linux. En MacOS no es necesario.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update
+</pre></div>
+</div>
+</li>
+<li><p>Comprobar la integridad del archivo de instalación. Este comando va a arrojar un número que es un código hash que se puede comparar con el oficial emitido por Anaconda en <a class="reference external" href="https://docs.anaconda.com/anaconda/install/hashes/">https://docs.anaconda.com/anaconda/install/hashes/</a>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sha256sum ~/Downloads/Anaconda3-2020.11-Linux-x86_64.sh
+</pre></div>
+</div>
+</li>
+<li><p>Empezar la instalación. Aceptamos todas las condiciones de instalación hasta que salga el mensaje <code class="docutils literal notranslate"><span class="pre">Thank</span> <span class="pre">you</span> <span class="pre">for</span> <span class="pre">installing</span> <span class="pre">Anaconda</span> <span class="pre">3!</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ bash ~/Downloads/Anaconda3-2020.11-Linux-x86_64.sh
+</pre></div>
+</div>
+</li>
+<li><p>Ahora, puedes actualizar Terminal al abrir una nueva ventana, pero si no deseas cerrar la ventana puedes leer el archivo <code class="docutils literal notranslate"><span class="pre">~/bashsc</span></code>, donde se guardan cambios importantes sobre cómo la Terminal trabaja. El instalador de Anaconda debí haber hecho cambios en este archivo y Bash debe saberlo para que puedas llamar a <code class="docutils literal notranslate"><span class="pre">conda</span></code> desde Terminal.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> ~/.bashrc
+</pre></div>
+</div>
+</li>
+<li><p>Verificar la instalación de Anaconda. Vas a ver entre paréntesis en la línea del prompt del Terminal está escrito <code class="docutils literal notranslate"><span class="pre">(base)</span></code>. En mi computador es así <code class="docutils literal notranslate"><span class="pre">(base)</span> <span class="pre">ju&#64;JU:~$</span></code>. Puede que sea diferente si tienes otra configuración visual de tu shell. Esto indica que la shell tiene activa la versión de Python que vino con su versión de Anaconda, la versión “base”. Esto causa que siempre esté disponible primero esta versión de Python  en Terminal, por default.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ conda info
+</pre></div>
+</div>
+</li>
+<li><p>En caso de que no quisieran esto porque tienen más versiones de Python instaladas en su computador pueden usar el siguiente comando. Yo si lo usé porque tengo una verisón de Python y no quiero dañar mis configuraciones. Si nunca has instalado Python antes no debes preocuparte.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ conda config --set auto_activate_base False
+</pre></div>
+</div>
+</li>
+<li><p>Crear un ambiente de nombre <code class="docutils literal notranslate"><span class="pre">bash</span></code>. Ese es el nombre que escogí para el ambiente porque ahí solo planeo tener cosas relacionadas a Bash, pero puedes darle otro nombre si gustas. Es importante indicar a <code class="docutils literal notranslate"><span class="pre">conda</span></code> la versión de Python con la que vas a instalar los paquetes porque al dejar vacío ese campo automáticamente se crea un ambiente para Python 2.7, pero esta versión está descontinuada. Usé la versión Python 3.8 porque, aunque no es la más reciente, es muy buena y estamos seguros de que no va a fallar por nuevas actualizaciones.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ conda create --name bash <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8
+</pre></div>
+</div>
+</li>
+<li><p>Ver todos los ambientes creados. Debería estar en la lista <code class="docutils literal notranslate"><span class="pre">bash</span></code> o con el nombre que le hayas puesto.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ conda env list
+</pre></div>
+</div>
+</li>
+<li><p>Ahora vamos a acceder a nuestra carpeta para el taller. Usa el siguiente comando</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/taller_unix
+</pre></div>
+</div>
+</li>
+<li><p>Activa el ambiente <code class="docutils literal notranslate"><span class="pre">bash</span></code> dentro de la carpeta que acabamos de crear. Para desactivar el ambiente dentro de la carpeta que creamos solo basta con <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">conda</span> <span class="pre">deactivate</span></code>. Lo importante de usar amientes de Python es que se modulariza el uso del software. Es importante porque ya que Python es un lenguaje de programación open source, siempre hay actualizaciones al software y a veces es necesario usar una versión no tan actualizada. Así, cada ambiente contiene lo estrictamente necesario para algún proyecto en particular y se evita dañar los proyectos por conflictos de versiones. Podríamos no haber creado un ambiente para instalar todo directamente en el ambiente base. En mi experiencia es mejor siempre crear un nuevo ambiente para cada proyecto y eitar topar el ambiente base porque así se evitan conflictos que pueden ser complicados de resolver debido a dependencias.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ conda activate bash
+</pre></div>
+</div>
+</li>
+<li><p>Instalar Jupyter Lab, una versión moderna de jupyter notebooks que se parece más a un IDE. El comando -n bash especifica que vamos a instalar el paquete de jupyterlab en el ambiente que creamos antes. El comando -c conda-forge indica de qué channel conda va a obtener el paquete jupyterlab. En este caso es conda-forge, como se especifica en <a class="reference external" href="https://jupyter.org/install">https://jupyter.org/install</a>. Daba lo mismo usar el comando <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">conda</span> <span class="pre">install</span> <span class="pre">--name</span> <span class="pre">bash</span> <span class="pre">--channel</span> <span class="pre">conda-forge</span> <span class="pre">jupyterlab</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ conda install -n bash -c conda-forge jupyterlab
+</pre></div>
+</div>
+</li>
+<li><p>Instalar el kernel de Bash en el ambiente que creamos, como se indica en <a class="reference external" href="https://anaconda.org/conda-forge/bash_kernel">https://anaconda.org/conda-forge/bash_kernel</a></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ conda install -n bash -c conda-forge bash_kernel
+</pre></div>
+</div>
+</li>
+<li><p>Llamar a <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Lab</span></code> dentro de la carpeta donde hayan activado el ambiente en donde instalaron jupyter. También pueden intentar <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">jupyter</span> <span class="pre">notebook</span></code>. Se va a abrir una ventana de tu explorador web predeterminado.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ jupyter lab
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Al activar Jupyter Lab la terminal lucirá de esta manera:</p>
+<a class="reference internal image-reference" href="../../../_images/j_1.png"><img alt="./img/j_1.png" class="align-center" src="../../../_images/j_1.png" style="width: 800px;" /></a>
+<div class="warning admonition">
+<p class="admonition-title">Aviso</p>
+<p>¡Nunca cierres la ventana de Terminal hasta que termines de trabajar en Jupyter Lab! Si cierras se puede dañar tu progreso.</p>
+</div>
+<p>Es claro que, en esta captura de pantalla, hay una dirección de servidor y 2 URLs. Es posible usar cualesquiera de estos para abrir una pestaña de Jupyter Lab y acceder al editor de texto.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">file:///Users/j/Library/Jupyter/runtime/jpserver-89610-open.html</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">http://localhost:8888/lab?token=6af3d8e1f82101cd00555152e38f7d0d225a7e665ab43af9</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8888/lab?token=6af3d8e1f82101cd00555152e38f7d0d225a7e665ab43af9</span></code></p></li>
+</ul>
+<p>Jupyter Lab aparecerá en una pestaña del explorador así:</p>
+<a class="reference internal image-reference" href="../../../_images/j_2.png"><img alt="./img/j_2.png" class="align-center" src="../../../_images/j_2.png" style="width: 800px;" /></a>
+<p>Hay varios íconos en el lado derecho de esta captura de pantalla. Estos representan los kernels de Jupyter Lab instalados en la computadora. Hay más que solo el kernel de Bash, pero eso no importa. En el futuro has de instalar el kernel que quieras de acuerdo a tus necesidades.</p>
+<p>Para salir de Jupyter Lab debes seleccionar <em>File → Shut Down</em>.</p>
+<a class="reference internal image-reference" href="../../../_images/j_10.png"><img alt="./img/j_10.png" class="align-center" src="../../../_images/j_10.png" style="width: 400px;" /></a>
+<p>Ahora ya podemos crear jupyter notebooks.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/02_JupyterLab"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="0_terminal_primera.html" title="previous page"><span class="section-number">2. </span>Organización de archivos duante el taller</a>
+    <a class='right-next' id="next-link" href="2_notebooks.html" title="next page"><span class="section-number">4. </span>Creación de Jupyter Notebooks</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

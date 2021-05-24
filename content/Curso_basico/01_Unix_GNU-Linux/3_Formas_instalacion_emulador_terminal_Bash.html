@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Formas de instalar emulador de terminal de Bash &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="1. Resumen" href="../02_JupyterLab/0_Resumen.html" />
+    <link rel="prev" title="3. Shell, bash, y emulador de terminal" href="2_Shell_bash_emulador_terminal.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#maquina-virtual-mv">
+   4.1. Máquina virtual (MV)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pasos">
+     4.1.1. Pasos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subsistema-de-windows-10-para-linux-wsl">
+   4.2. Subsistema de Windows 10 para Linux (WSL)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wsl1-vs-wsl2">
+     4.2.1. WSL1 vs WSL2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pasos-instalacion-wsl2">
+     4.2.2. Pasos instalación WSL2
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mv-vs-wsl">
+     4.2.3. MV vs WSL
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dual-boot">
+   4.3. Dual boot
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-funciona-el-dual-boot">
+     4.3.1. ¿Cómo funciona el Dual-boot?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pasos-instalacion-windows-ubuntu-dual-boot">
+     4.3.2. Pasos instalación Windows-Ubuntu Dual boot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dual-boot-vs-wsl">
+     4.3.3. Dual boot vs WSL
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#live-usb-linux-con-persistencia-de-datos">
+   4.4. Live USB Linux con persistencia de datos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pasos-instalacion-live-usb-linux-con-persistencia-de-datos">
+     4.4.1. Pasos instalación Live USB Linux con persistencia de datos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instalacion-de-so-en-usb-o-disco-externo">
+   4.5. Instalación de SO en USB o disco externo
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   4.6. Material suplementario
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="formas-de-instalar-emulador-de-terminal-de-bash">
+<h1><span class="section-number">4. </span>Formas de instalar emulador de terminal de Bash<a class="headerlink" href="#formas-de-instalar-emulador-de-terminal-de-bash" title="Permalink to this headline">¶</a></h1>
+<p>En este curso les presentamos 5 de las formas más comunes para acceder a un emulador de terminal de Bash.</p>
+<div class="warning admonition">
+<p class="admonition-title">Advertencia</p>
+<p>Cada participante es libre de escoger la alternativa que le parezca mejor, considerando las ventajas y desventajas de cada opción que se explican en este tutorial.</p>
+</div>
+<div id="seccion1_3_1"/>
+<div class="section" id="maquina-virtual-mv">
+<h2><span class="section-number">4.1. </span>Máquina virtual (MV)<a class="headerlink" href="#maquina-virtual-mv" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Permite ejecutar un <strong>SO (invitado)</strong> dentro de otro <strong>SO (host)</strong>.</p></li>
+<li><p>Memoria RAM y almacenamiento en disco se comparten entre SO invitado y host.</p></li>
+<li><p>El SO se instala en una <strong>partición virtual del disco duro</strong>.</p></li>
+<li><p>Funciona bien para ejecutar programas y comandos sencillos, pero tiene limitaciones por el consumo de recursos del SO, memoria RAM y otros. Además, la transferencia de archivos puede ser complicada.</p></li>
+<li><p>Existen varios programas para crear MVs como <strong>Hyper-V, VirtualBox, Parallels, WMware, Vagrant</strong>, entre otros. En este caso mostraremos cómo se realiza este proceso con VirtualBox.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../../_images/virtB.png"><img alt="./img/virtB.png" class="align-center" src="../../../_images/virtB.png" style="width: 450px;" /></a>
+<div id="seccion1_3_1_1"/>
+<div class="section" id="pasos">
+<h3><span class="section-number">4.1.1. </span>Pasos<a class="headerlink" href="#pasos" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Descargar <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a>, disponible para Windows, Linux, y Macintosh.</p></li>
+<li><p>Descargar <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">VirtualBox Extension Pack</a>. Una vez instalado VirtualBox, añadir el <strong>Extension-pack</strong>.</p></li>
+<li><p>Descargar una <strong>imagen ISO</strong> del SO deseado, en este caso de <a class="reference external" href="https://ubuntu.com/download/desktop">Ubuntu 20.04</a>. En esta <a class="reference external" href="https://www.linuxlookup.com/linux_iso">página</a> hay imágenes de otros SO si están interesados.</p></li>
+<li><p>Crear una MV de Ubuntu 20.04 con VirtualBox. Se debe especificar la <strong>memoria RAM, almacenamiento de disco, número de procesadores</strong> y otras características.</p></li>
+</ol>
+<p>En este <a class="reference external" href="https://www.youtube.com/watch?v=x5MhydijWmc">video</a> hay una explicación en detalle de todo el proceso.</p>
+<div id="seccion1_3_2"/>
+</div>
+</div>
+<div class="section" id="subsistema-de-windows-10-para-linux-wsl">
+<h2><span class="section-number">4.2. </span>Subsistema de Windows 10 para Linux (WSL)<a class="headerlink" href="#subsistema-de-windows-10-para-linux-wsl" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Se instala <strong>SO Linux como aplicación de Windows 10</strong>.</p></li>
+<li><p>Permite ejecutar comandos de Linux usando <strong>bash</strong>.</p></li>
+<li><p>Es posible instalar <strong>aplicaciones de línea de comandos GNU/Linux</strong> en Windows 10</p></li>
+<li><p>Se puede acceder y manejar el sistema de archivos y las unidades de almacenamiento de Windows 10 dentro del emulador de terminal de WSL.</p></li>
+<li><p>No se puede trabajar con <strong>aplicaciones de interfaz gráfica de usuario (GUI)</strong>.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../../_images/wsl.png"><img alt="./img/wsl.png" class="align-center" src="../../../_images/wsl.png" style="width: 450px;" /></a>
+<div id="seccion1_3_2_1"/>
+<div class="section" id="wsl1-vs-wsl2">
+<h3><span class="section-number">4.2.1. </span>WSL1 vs WSL2<a class="headerlink" href="#wsl1-vs-wsl2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>En <strong>WSL1</strong> los comandos se corren en <strong>kernel de Windows</strong>, mientras que en <strong>WSL2</strong> hay un <strong>kernel de Linux virtualizado</strong>.</p></li>
+<li><p>Para la virtualización WSL2 utiliza la tecnología de <strong>Hyper-V</strong>.</p></li>
+<li><p>WSL1 tiene limitaciones en la compatibilidad con aplicaciones basadas en kernel de Linux como Docker y otras, lo que es posible realizar con WSL2.</p></li>
+<li><p>En WSL2 la transferencia y acceso de archivos es hasta 20 veces más rápido que con WSL1.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>En este <a class="reference external" href="https://fossbytes.com/what-is-windows-subsystem-for-linux-wsl/">artículo</a> se explican en detalle las diferencias entre WSL1 y WSL2.</p>
+</div>
+<a class="reference internal image-reference" href="../../../_images/wsl1_wsl2.png"><img alt="./img/wsl1_wsl2.png" class="align-center" src="../../../_images/wsl1_wsl2.png" style="width: 450px;" /></a>
+<div id="seccion1_3_2_2"/>
+</div>
+<div class="section" id="pasos-instalacion-wsl2">
+<h3><span class="section-number">4.2.2. </span>Pasos instalación WSL2<a class="headerlink" href="#pasos-instalacion-wsl2" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p>Habilitar el <strong>subsistema de Windows para Linux</strong>. Correr en la <em>powershell</em> el siguiente código:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+</pre></div>
+</div>
+</li>
+<li><p>Actualizar SO para correr WSL2.</p>
+<ul class="simple">
+<li><p>Para <strong>sistemas x64</strong>: versión 1903 o superior, con compilación 18362 o superior.</p></li>
+<li><p>Para <strong>sistemas ARM64</strong>: versión 2004 o superior, con compilación 19041 o superior.</p></li>
+<li><p>Las <strong>versiones anteriores a 18362</strong> no admiten WSL 2. Utilice el Asistente de actualización de Windows para actualizar su versión de Windows.</p></li>
+</ul>
+</li>
+<li><p>Habilitar la <strong>función de máquina virtual</strong>. Correr en la <em>powershell</em> el siguiente código:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+</pre></div>
+</div>
+</li>
+<li><p>Descargar el <a class="reference external" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">paquete del kernel de Linux</a> y correr el programa.</p></li>
+<li><p>Establezcer <strong>WSL2 como versión predeterminada</strong>. Correr en la <em>powershell</em> el siguiente código:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>wsl --set-default-version <span class="m">2</span>
+</pre></div>
+</div>
+</li>
+<li><p>Instalar la <strong>distribución de Linux de preferencia</strong> mediante la <strong>tienda de Windows</strong> (Ubuntu, openSUSU, Kali, entre otros). Para este curso se utilizará <a class="reference external" href="https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71?rtc=1&amp;activetab=pivot:overviewtab">Ubuntu 20.04</a>.</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>En esta <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">página</a> de <strong>Microsoft</strong> hay una explicación en detalle de todo el proceso y cómo solucionar posibles errores.</p>
+</div>
+<div id="seccion1_3_2_3"/>
+</div>
+<div class="section" id="mv-vs-wsl">
+<h3><span class="section-number">4.2.3. </span>MV vs WSL<a class="headerlink" href="#mv-vs-wsl" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Una máquina virtual está <strong>aislada</strong>. Lo que esto significa es que no podrá acceder a archivos fuera del sistema virtual.</p></li>
+<li><p><strong>Rendimiento y arranque:</strong> En MV se accede al hardware real solo a través del SO, lo que genera problemas de rendimiento. Las MVs son tan poderosas como su hardware se lo permita.</p></li>
+<li><p><strong>Uso de memoria:</strong> siempre que se use una MV se debe dedicar una gran parte de la memoria en todo momento.</p></li>
+<li><p><strong>Gestión:</strong> MV tiene SO que requiere gestión.</p></li>
+<li><p><strong>GUI</strong>: MV permiten GUI y WSL no.</p></li>
+</ul>
+<div id="seccion1_3_3"/>
+</div>
+</div>
+<div class="section" id="dual-boot">
+<h2><span class="section-number">4.3. </span>Dual boot<a class="headerlink" href="#dual-boot" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Instalación de dos <strong>SO diferentes en una misma computadora</strong>.</p></li>
+<li><p>Los dos SO ocupan un <strong>espació físico en el disco duro</strong>.</p></li>
+<li><p>El hardware (memoria RAM, procesadores, tarjetas gráficas, entre otros) se usa completamente por el SO en el que se inicia el equipo.</p></li>
+<li><p>Solo se puede <strong>usar uno de los SO a la vez</strong>.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../../_images/dual_boot.jpg"><img alt="./img/dual_boot.jpg" class="align-center" src="../../../_images/dual_boot.jpg" style="width: 450px;" /></a>
+<div id="seccion1_3_3_1"/>
+<div class="section" id="como-funciona-el-dual-boot">
+<h3><span class="section-number">4.3.1. </span>¿Cómo funciona el Dual-boot?<a class="headerlink" href="#como-funciona-el-dual-boot" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Un SO es un programa que ocupa un espacio físico en memoria. Si se instala más de un SO se debe <strong>particionar el disco duro</strong>, de forma que a cada uno tenga una partición independiente.</p></li>
+<li><p>La <a class="reference external" href="https://www.lifewire.com/bios-basic-input-output-system-2625820">BIOS</a> es un conjunto de programas que están almacenados en la <strong>placa madre</strong>, que controlan las <strong>instrucciones de inicio de la PC</strong>.</p></li>
+<li><p>Cuando se inicia una PC la BIOS carga el <em>boot loader</em> desde el disco duro y esto permite que se muestren los SO instalados. Este programa es diferente para cada SO (<a class="reference external" href="https://www.lifewire.com/windows-boot-manager-bootmgr-2625813">Windows Boot Manager</a> para Windows, <a class="reference external" href="https://www.computerhope.com/jargon/b/bootcamp.htm">Apple boot camp</a> para Mac, y <a class="reference external" href="https://www.computerhope.com/jargon/g/grub.htm">GRUB</a> para Linux).</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../../_images/BIOS.png"><img alt="./img/BIOS.png" class="align-center" src="../../../_images/BIOS.png" style="width: 450px;" /></a>
+<div id="seccion1_3_3_2"/>
+</div>
+<div class="section" id="pasos-instalacion-windows-ubuntu-dual-boot">
+<h3><span class="section-number">4.3.2. </span>Pasos instalación Windows-Ubuntu Dual boot<a class="headerlink" href="#pasos-instalacion-windows-ubuntu-dual-boot" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Hacer un <strong>respaldo de tu información</strong> en un disco duro externo o en la nube.</p></li>
+<li><p>Realizar <strong>particiones del disco duro para cada SO</strong> (En Windows se puede usar el <strong>administrador de discos</strong> por defecto o en Linux <a class="reference external" href="https://gparted.org/">GParted</a>). Se recomienda un tamaño de <strong>al menos 100 GB para Ubuntu</strong>.</p></li>
+<li><p>Descargar una <strong>imagen ISO</strong> del SO deseado, en este caso de <a class="reference external" href="https://ubuntu.com/download/desktop">Ubuntu 20.04</a>. En esta <a class="reference external" href="https://www.linuxlookup.com/linux_iso">página</a> hay imágenes de otros SO si están interesados.</p></li>
+<li><p>Hacer un <strong>USB de arranque</strong> de Ubuntu en Windows, lo que se puede realizar con el programa <a class="reference external" href="http://www.linuxliveusb.com/en/home">Linux Live USB Creator</a> u <a class="reference external" href="https://fossbytes.com/top-5-bootable-usb-tools-for-windows-os/">otros programas</a> para este fin.</p></li>
+<li><p>Reiniciar la PC con la USB de arranque conectada, presionar la tecla (F2, F12 u otra dependiendo del equipo) para mostrar el <em>boot menu</em> y seleccionar <strong>almacenamiento USB</strong>.</p></li>
+<li><p>Seleccionar <strong>instalar Ubuntu</strong> en el menú de instalación y seguir los pasos correspondientes.</p></li>
+<li><p>Crear un <strong>esquema de partición para Ubuntu</strong></p>
+<ul class="simple">
+<li><p>Las <strong>particiones NTFS</strong> son propias de Windows.</p></li>
+<li><p>Particiones <strong>root (ext4), home (ext4) y swap</strong> de Ubuntu (puede variar).</p></li>
+</ul>
+</li>
+<li><p>Realizar configuraciones finales y está listo !</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>En este <a class="reference external" href="https://fossbytes.com/install-ubuntu-20-04-with-windows-10-dual-boot/">artículo</a> pueden encontrar información detallada del proceso <strong>dual boot Windows-Ubuntu</strong>, y <a class="reference external" href="https://linuxnewbieguide.org/how-to-install-linux-on-a-macintosh-computer/">aquí</a> sobre <strong>dual boot macOS-Ubuntu</strong>.</p>
+</div>
+<div id="seccion1_3_3_3"/>
+</div>
+<div class="section" id="dual-boot-vs-wsl">
+<h3><span class="section-number">4.3.3. </span>Dual boot vs WSL<a class="headerlink" href="#dual-boot-vs-wsl" title="Permalink to this headline">¶</a></h3>
+<a class="reference internal image-reference" href="../../../_images/wsl_vs_gnulin.jpg"><img alt="./img/wsl_vs_gnulin.jpg" class="align-center" src="../../../_images/wsl_vs_gnulin.jpg" style="width: 450px;" /></a>
+<div id="seccion1_3_4"/>
+</div>
+</div>
+<div class="section" id="live-usb-linux-con-persistencia-de-datos">
+<h2><span class="section-number">4.4. </span>Live USB Linux con persistencia de datos<a class="headerlink" href="#live-usb-linux-con-persistencia-de-datos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>SO Linux portátil en una USB</strong>, que se puede utilizar en diferentes computadoras.</p></li>
+<li><p><strong>No se instala SO</strong> como tal, sirve como una versión de prueba para <strong>probar distribuciones</strong>.</p></li>
+<li><p>Es posible almacenar archivos e instalar programas, que son almacenados en la USB.</p></li>
+<li><p>No se recomienda esta alternativa como un <strong>SO de producción</strong>, solo de prueba.</p></li>
+</ul>
+<div id="seccion1_3_4_1"/>
+<div class="section" id="pasos-instalacion-live-usb-linux-con-persistencia-de-datos">
+<h3><span class="section-number">4.4.1. </span>Pasos instalación Live USB Linux con persistencia de datos<a class="headerlink" href="#pasos-instalacion-live-usb-linux-con-persistencia-de-datos" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Descargar una <strong>imagen ISO</strong> del SO deseado, en este caso de <a class="reference external" href="https://ubuntu.com/download/desktop">Ubuntu 20.04</a>. En esta <a class="reference external" href="https://www.linuxlookup.com/linux_iso">página</a> hay imágenes de otros SO si están interesados.</p></li>
+<li><p>Hacer un <strong>USB de arranque</strong> de Ubuntu en Windows, lo que se puede realizar con el programa <a class="reference external" href="http://www.linuxliveusb.com/en/home">Linux Live USB Creator</a> u <a class="reference external" href="https://fossbytes.com/top-5-bootable-usb-tools-for-windows-os/">otros programas</a> para este fin. Se debe establecer el <strong>espacio de almacenamiento persistente</strong> en la USB.</p></li>
+<li><p>Reiniciar la PC con la USB de arranque conectada, presionar la tecla (F2, F12 u otra dependiendo del equipo) para mostrar el <em>boot menu</em> y seleccionar <strong>almacenamiento USB</strong>.</p></li>
+<li><p>Seleccionar <strong>probar Ubuntu</strong> en el menú de instalación y seguir los pasos correspondientes.</p></li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>En este <a class="reference external" href="https://www.howtogeek.com/howto/14912/create-a-persistent-bootable-ubuntu-usb-flash-drive/">artículo</a> pueden encontrar una guía detallada del proceso.</p>
+</div>
+<div id="seccion1_3_5"/>
+</div>
+</div>
+<div class="section" id="instalacion-de-so-en-usb-o-disco-externo">
+<h2><span class="section-number">4.5. </span>Instalación de SO en USB o disco externo<a class="headerlink" href="#instalacion-de-so-en-usb-o-disco-externo" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>SO Linux portátil</strong> en una USB o disco externo, que se puede utilizar en diferentes computadoras.</p></li>
+<li><p><strong>Se instala SO</strong> en la USB o disco externo.</p></li>
+<li><p>Es posible almacenar archivos e instalar programas, que son almacenados en la USB o disco externo.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>En este <a class="reference external" href="https://www.58bits.com/blog/2020/02/28/how-create-truly-portable-ubuntu-installation-external-usb-hdd-or-ssd">artículo</a> pueden encontrar una guía detallada del proceso. Además, en esta <a class="reference external" href="https://www.maketecheasier.com/persistent-live-usb-vs-full-install-usb/">página</a> se explica las diferencias entre las alternativas 4 y 5.</p>
+</div>
+<div id="seccion1_3_6"/>
+</div>
+<div class="section" id="material-suplementario">
+<h2><span class="section-number">4.6. </span>Material suplementario<a class="headerlink" href="#material-suplementario" title="Permalink to this headline">¶</a></h2>
+<p>Si quieren conocer más detalles sobre la instalación de GNI/Linux por las diferentes alternativas que les presentamos, les dejamos los siguientes links:</p>
+<ul class="simple">
+<li><p>Mithran, A (2020). What is Windows Subsystem for Linux (WSL and WSL2)? — Linux in Windows. <a class="reference external" href="https://fossbytes.com/what-is-windows-subsystem-for-linux-wsl/">https://fossbytes.com/what-is-windows-subsystem-for-linux-wsl/</a></p></li>
+<li><p>Buckler, C (2020). Windows Subsystem for Linux 2: The Complete Guide. <a class="reference external" href="https://www.sitepoint.com/wsl2/">https://www.sitepoint.com/wsl2/</a></p></li>
+<li><p>Microsoft. (2020). Windows Subsystem for Linux Installation Guide for Windows 10. <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p></li>
+<li><p>Hoffman, C (2020). How to Create a Live Ubuntu USB Drive With Persistent Storage. <a class="reference external" href="https://www.howtogeek.com/howto/14912/create-a-persistent-bootable-ubuntu-usb-flash-drive/">https://www.howtogeek.com/howto/14912/create-a-persistent-bootable-ubuntu-usb-flash-drive/</a></p></li>
+<li><p>Hoffman, C (2017). Dual Booting Explained: How You Can Have Multiple Operating Systems on Your Computer. <a class="reference external" href="https://www.howtogeek.com/187789/dual-booting-explained-how-you-can-have-multiple-operating-systems-on-your-computer/">https://www.howtogeek.com/187789/dual-booting-explained-how-you-can-have-multiple-operating-systems-on-your-computer/</a></p></li>
+<li><p>Kumar, S (2020). How To Dual Boot Ubuntu 20.04 With Windows 10? [Using Bootable USB]. <a class="reference external" href="https://fossbytes.com/install-ubuntu-20-04-with-windows-10-dual-boot/">https://fossbytes.com/install-ubuntu-20-04-with-windows-10-dual-boot/</a></p></li>
+<li><p>Oh, D. (2013). The Differences Between Persistent Live USB and Full Linux Install on USB. <a class="reference external" href="https://www.maketecheasier.com/persistent-live-usb-vs-full-install-usb/">https://www.maketecheasier.com/persistent-live-usb-vs-full-install-usb/</a></p></li>
+<li><p>Bouch, A. (2020). How to Create a Live Ubuntu USB Drive With Persistent Storage. <a class="reference external" href="https://www.howtogeek.com/howto/14912/create-a-persistent-bootable-ubuntu-usb-flash-drive/">https://www.howtogeek.com/howto/14912/create-a-persistent-bootable-ubuntu-usb-flash-drive/</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/01_Unix_GNU-Linux"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="2_Shell_bash_emulador_terminal.html" title="previous page"><span class="section-number">3. </span>Shell, bash, y emulador de terminal</a>
+    <a class='right-next' id="next-link" href="../02_JupyterLab/0_Resumen.html" title="next page"><span class="section-number">1. </span>Resumen</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

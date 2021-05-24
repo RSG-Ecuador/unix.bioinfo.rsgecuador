@@ -1,0 +1,892 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9. Respuestas ejercicios deber &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="1. Resumen" href="../06_Make/0_Resumen.html" />
+    <link rel="prev" title="8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos" href="7_Sitios_restric.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="respuestas-ejercicios-deber">
+<h1><span class="section-number">9. </span>Respuestas ejercicios deber<a class="headerlink" href="#respuestas-ejercicios-deber" title="Permalink to this headline">¶</a></h1>
+<p>A continuación se presentan algunos ejercicios sobre el tema de <a class="reference external" href="https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">procesamiento de ficheros, regex y pipes</a> aplicados a Bioinformática.</p>
+<p><strong>Nota:</strong> Para resolver estos ejercicios se necesita que hayan entenido de forma adecuada los temas de <a class="reference external" href="https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/01_Unix_GNU-Linux/0_Resumen.html">Introducción a Unix y GNU/Linux</a>, <a class="reference external" href="https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/02_JupyterLab/0_Resumen.html">Jupyter Lab</a>, y <a class="reference external" href="https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/03_Manejo_terminal/0_Resumen.html">Manejo terminal</a>.</p>
+<p>El primer paso para realizar los ejercicios será descargar el repositorio de GitHub del curso, que lo pueden encontrar en el siguiente <a class="reference external" href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador">link</a>. Después, deben abrir una terminal y moverse a la carpeta en la que está el archivo del notebook, como se muestra a continuación:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Downloads/unix.bioinfo.rsgecuador-gh-pages/Ejercicios_fines_de_semana/Curso_basico
+</pre></div>
+</div>
+<p>Después, deben activar su ambiente de conda en el que instalaron Jupyter-Lab con kernel de Bash, e iniciar un servidor de Jupyter-Lab, como se muestra a continuación:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate bash 
+jupyter-lab
+</pre></div>
+</div>
+<p>Finalmente, deben abrir una celda del notebook y moverse al directorio <code class="docutils literal notranslate"><span class="pre">_files</span></code> con el comando <code class="docutils literal notranslate"><span class="pre">cd</span></code>, como se muestra a continuación:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ../../_files
+</pre></div>
+</div>
+<p>Pueden verificar que están en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> con el comando <code class="docutils literal notranslate"><span class="pre">ls</span></code>.</p>
+<p><strong>Nota:</strong> Para todos los ejercicios asumimos que están trabajando dentro del directorio <code class="docutils literal notranslate"><span class="pre">_files</span></code>, por lo que comprueben que est se cumpla siempre que corran un comando.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls
+</pre></div>
+</div>
+<p><strong>1. Vamos a realizar una simulación de dinámica molecular de la proteína prM del virus del Dengue (PDB ID: 3c5x) para replicar las condiciones biológicas en las que esta proteína se encuentra y obtener una estructura estable. Para esto usaremos el archivo <code class="docutils literal notranslate"><span class="pre">3c5x.pdb</span></code> que se encuentra en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del repositorio de GitHub</strong></p>
+<p><strong>1.1.</strong> Los archivos del Protein Data Bank (PDB) tienen una nomenclatura por defecto para los aminoácidos. En esta nomenclatura, la cysteína se nombra como <em>CYS</em>. Sin embargo, en algunos programas de simulación como <em>Amber</em> la nomenclatura de los aminoácidos es diferente. Para que el programa pueda reconocer los aminoácidos de cisteína, estos se deben nombrar como <em>CYX</em> en lugar de <em>CYS</em>. Usando los conocimientos adquiridos en el curso, transformar el nombre de todos los aminoácidos de cisteína del archivo <code class="docutils literal notranslate"><span class="pre">3c5x.pdb</span></code> de <em>CYS</em> a <em>CYX</em> y guardar el nuevo archivo como <code class="docutils literal notranslate"><span class="pre">3c5x_cyx.pdb</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed <span class="s1">&#39;s/CYS/CYX/g&#39;</span> 3c5x.pdb &gt; 3c5x_cyx.pdb
+</pre></div>
+</div>
+<p><strong>1.2.</strong> Las primeras 579 líneas del archivo <em>3c5x.pdb</em> son informativas y no son parte de la secuencia que necesita el programa para realizar la simulación. Por tanto, queremos reemplazar el nombre <em>CYX</em> por <em>CYS</em> de las primeras 579 líneas del archivo <code class="docutils literal notranslate"><span class="pre">3c5x_cyx.pdb</span></code> creado previamente, y guardar el nuevo archivo como <code class="docutils literal notranslate"><span class="pre">3c5x_cyx_cys.pdb</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed <span class="s1">&#39;1,579 s/CYX/CYS/g&#39;</span> 3c5x_cyx.pdb &gt; 3c5x_cyx_cys.pdb
+</pre></div>
+</div>
+<p><strong>1.3.</strong> Las primeras 579 líneas son solamente informativas y no influyen en la simulación de la proteína. Por tanto, queremos eliminar las líneas 4-579 del archivo <code class="docutils literal notranslate"><span class="pre">3c5x_cyx_cys.pdb</span></code> y guardar el nuevo archivo como <code class="docutils literal notranslate"><span class="pre">3c5x_cyx_cys_clean.pdb</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed <span class="s1">&#39;4,579d&#39;</span> 3c5x_cyx_cys.pdb  &gt; 3c5x_cyx_cys_clean.pdb
+</pre></div>
+</div>
+<p><strong>1.4.</strong> Además de la información de los aminoácidos de las proteínas, los archivos PDB suelen tener información sobre átomos especiales como metales o puentes de hidrógeno, que se identifican con el código <em>HETATM</em> al inicio de las líneas. Supongamos que en nuestra simulación no nos interesan estos átomos y queremos eliminarlos del archivo <code class="docutils literal notranslate"><span class="pre">3c5x_cyx_cys_clean.pdb</span></code> y guardar el nuevo archivo como <code class="docutils literal notranslate"><span class="pre">3c5x_no_HETATM.pdb</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Primero buscamos las líneas que poseen el código HETATM </span>
+grep -E -n <span class="s2">&quot;^HETATM&quot;</span> 3c5x_cyx_cys_clean.pdb
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ahora eliminamos estas líneas</span>
+sed <span class="s1">&#39;3693,3776d&#39;</span> 3c5x_cyx_cys_clean.pdb &gt;  3c5x_no_HETATM.pdb
+</pre></div>
+</div>
+<p><strong>1.5.</strong> Otros datos que se muestran en los archivos PDB  son los puentes disulfuro entre átomos S de los aminoácidos de cisteína, que se identifican con el código <em>CONECT</em> al inicio de las líneas. Supongamos que también queremos eliminar esta información del archivo <code class="docutils literal notranslate"><span class="pre">3c5x_no_HETATM.pdb</span></code> y guardar el nuevo archivo como <code class="docutils literal notranslate"><span class="pre">3c5x_no_HETATM_CONN.pdb</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Primero buscamos las líneas que poseen el código CONECT </span>
+grep -E -n <span class="s2">&quot;^CONECT&quot;</span> 3c5x_no_HETATM.pdb
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ahora eliminamos estas líneas</span>
+sed <span class="s1">&#39;3693,3710d&#39;</span> 3c5x_no_HETATM.pdb &gt; 3c5x_no_HETATM_CONN.pdb
+</pre></div>
+</div>
+<p><strong>1.6.</strong> Los archivos PDB suelen tener más de una cadena en su estructura proteica. Para establecer el fin de una cadena y el inicio de otra, en estos archivos se usa el código <em>TER</em>. Busca el número de línea en el que finaliza la cadena A y empieza la cadena C del  del archivo <code class="docutils literal notranslate"><span class="pre">3c5x_no_HETATM_CONN.pdb</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+grep -n <span class="s2">&quot;TER&quot;</span>  3c5x_no_HETATM_CONN.pdb
+</pre></div>
+</div>
+<p><strong>1.7.</strong> Ahora que conocemos el número de línea en la que termina la cadena A y empieza la cadena C del archivo <code class="docutils literal notranslate"><span class="pre">3c5x_no_HETATM_CONN.pdb</span></code>, queremos separar las dos cadenas y colocar su información en dos archivos diferentes llamados  <code class="docutils literal notranslate"><span class="pre">3c5x_cadA.pdb</span></code> y <code class="docutils literal notranslate"><span class="pre">3c5x_cadB.pdb</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1 sed</span>
+<span class="c1"># Cadena A</span>
+sed -n <span class="s1">&#39;1,3051p&#39;</span>  3c5x_no_HETATM_CONN.pdb &gt;  3c5x_cadA.pdb
+<span class="c1"># Cadena B </span>
+sed -n <span class="s1">&#39;3052,3692p&#39;</span>  3c5x_no_HETATM_CONN.pdb&gt;  3c5x_cadC.pdb
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 2 sed</span>
+<span class="c1"># Cadena A</span>
+sed <span class="s1">&#39;3052,3692d&#39;</span>  3c5x_cyx_clean.pdb &gt;  3c5x_cadA.pdb
+<span class="c1"># Cadena B </span>
+sed <span class="s1">&#39;1,3051d&#39;</span>  3c5x_cyx_clean.pdb &gt;  3c5x_cadC.pdb
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 3 split</span>
+split -l <span class="m">3051</span>  3c5x.pdb
+</pre></div>
+</div>
+<p><strong>1.8.</strong> Intenta juntar los comandos de los ejercicios 1.1 a 1.5 usando piping y aplica esta secuencia de comandos al archivo  <code class="docutils literal notranslate"><span class="pre">3c5x.pdb</span></code>. Guarda el archivo final en un fichero llamado <code class="docutils literal notranslate"><span class="pre">3c5x_procesado.pdb</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>. Usa el comando <code class="docutils literal notranslate"><span class="pre">diff</span></code> para verificar que los archivos <code class="docutils literal notranslate"><span class="pre">3c5x_procesado.pdb</span></code> y <code class="docutils literal notranslate"><span class="pre">3c5x_no_HETATM_CONN.pdb</span></code> son iguales.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed <span class="s1">&#39;s/CYS/CYX/g&#39;</span>  3c5x.pdb <span class="p">|</span> sed <span class="s1">&#39;1,579 s/CYX/CYS/g&#39;</span> <span class="p">|</span> sed <span class="s1">&#39;4,579d&#39;</span> <span class="p">|</span> sed <span class="s1">&#39;3693,3776d&#39;</span> <span class="p">|</span> sed <span class="s1">&#39;3693,3710d&#39;</span> &gt; <span class="m">3</span> c5x_procesado.pdb
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>diff  3c5x_no_HETATM_CONN.pdb  3c5x_procesado.pdb
+</pre></div>
+</div>
+<p><strong>2. En este ejercicio se obtendrá información de un archivo fasta, que contiene la secuencia de nucleótidos de un gen de un microorganismo.  Para esto usaremos el archivo <code class="docutils literal notranslate"><span class="pre">secuencia1.fasta</span></code> que se encuentra en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del repositorio de GitHub</strong></p>
+<p><strong>2.1.</strong> En las secuencias de ADN se encuentran varios motivos (secuencias pequeñas muy conservadas) como los que dan inicio y término a los procesos de replicación, transcripción y traducción. La señal para el inicio de la transcripción es dada por la presencia de la TATA box (<em>TATAAA</em> o <em>TATAAT</em>) y la señal para el término de la transcripción es la presencia de varias Adeninas (5 o más), con lo que se obtiene un transcrito (ARN mensajero). Determinar el número de señales de inicio y de terminación del archivo <code class="docutils literal notranslate"><span class="pre">secuencia1.fasta</span></code> y establecer si hay igual número de señales de inicio y terminación.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+<span class="c1"># Señales de inicio </span>
+grep -E -c <span class="s2">&quot;TATAAA|TATAAT&quot;</span>  secuencia1.fasta
+<span class="c1"># Señales de terminación </span>
+grep -E -c <span class="s2">&quot;A{5,}&quot;</span>  secuencia1.fasta
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 2</span>
+<span class="c1"># Señales de inicio </span>
+grep -E <span class="s2">&quot;TATAAA|TATAAT&quot;</span>  secuencia1.fasta <span class="p">|</span> wc -l
+<span class="c1"># Señales de terminación </span>
+grep -E  <span class="s2">&quot;A{5,}&quot;</span>  secuencia1.fasta <span class="p">|</span> wc -l
+</pre></div>
+</div>
+<p><strong>2.2.</strong> Otros motivos importantes son los de unión para factores de transcripción (FT). Se conoce que un FT se puede unir específicamente a los motivos <em>ATXXTC</em>, <em>ACAXTT</em>, o <em>TTTCXXA</em> en donde la X puede corresponder a cualquier nucleótido. Determine si la secuencia del archivo <code class="docutils literal notranslate"><span class="pre">secuencia1.fasta</span></code> posee motivos de unión a FTs, y en caso de tenerlos cuántos de estos motivos posee.</p>
+<p><strong>Nota:</strong> Considera que en una misma línea puede haber más de una coincidencia.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+grep -E -o <span class="s2">&quot;AT..TC|ACA.TT|TTC..A&quot;</span>  secuencia1.fasta <span class="p">|</span> wc
+</pre></div>
+</div>
+<p><strong>2.3.</strong> Determinar la o las sub-secuencias del archivo <code class="docutils literal notranslate"><span class="pre">secuencia1.fasta</span></code> que empiezan con el motivo <em>TACA</em> y terminan con <em>AAAAAT</em>.</p>
+<p><strong>Nota:</strong> Las sub-secuencias pueden estar en cualquier parte del texto, no necesariamente al inicio de la línea.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -E <span class="s2">&quot;TACA.+AAAAAT&quot;</span>  secuencia1.fasta
+</pre></div>
+</div>
+<p><strong>2.4.</strong> Determinar si la secuencia del archivo <code class="docutils literal notranslate"><span class="pre">secuencia1.fasta</span></code> termina con el motivo <em>TATACAATGA</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -E <span class="s2">&quot;TATACAATGA</span>$<span class="s2">&quot;</span>  secuencia1.fasta
+</pre></div>
+</div>
+<p><strong>3. En este ejercicio se obtendrá información de un archivo multifasta, compuestos por varias secuencias de nucleótidos, en el que cada secuencia es un genoma completo de diferentes cepas o muestras de <em>Sulcia muelleri</em> (un endosimbionte de insectos). Para esto usaremos el archivo <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code> que se encuentra en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del repositorio de GitHub</strong></p>
+<p><strong>3.1.</strong> Se debe considerar que en un archivo multifasta cada secuencia posee un header que empieza con el caracter <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>. Determinar cuántos genomas en total se encuentran en el archivo <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+grep -E -c <span class="s2">&quot;&gt;&quot;</span>  sul_genomas.fasta
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 2</span>
+grep <span class="s2">&quot;&gt;&quot;</span>  sul_genomas.fasta <span class="p">|</span> wc -l
+</pre></div>
+</div>
+<p><strong>3.2.</strong> Se desea identificar los códigos de todas las secuencias del archivo <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code>, que se encuentran en los headers junto al caracter <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> (por ejemplo <code class="docutils literal notranslate"><span class="pre">CP006060.1</span></code>), y exportar estos códigos a un nuevo archivo llamado <code class="docutils literal notranslate"><span class="pre">codigos_sul_genomas.txt</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>. Se deben eliminar los caracteres <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> en el archivo de salida.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+grep -E -o <span class="s2">&quot;^&gt;[A-Z]{1,2}_?[A-Z0-9]{1,8}\.[0-9]&quot;</span>  sul_genomas.fasta <span class="p">|</span> sed -r <span class="s1">&#39;s/&gt;/ /g&#39;</span> &gt;  codigos_sul_genomas.txt
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 2</span>
+grep -E <span class="s2">&quot;&gt;&quot;</span>  sul_genomas.fasta <span class="p">|</span> cut -f1 -d <span class="s1">&#39; &#39;</span> <span class="p">|</span> sed -r <span class="s1">&#39;s/&gt;/ /g&#39;</span> &gt;  sul_genomas_codigos.txt
+</pre></div>
+</div>
+<p><strong>3.3.</strong> Se desea identificar el nombre completo de las cepas o muestras de todas las secuencias del archivo <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code> y exportar estos códigos a un nuevo archivo llamado <code class="docutils literal notranslate"><span class="pre">nombres_sul_genomas.txt</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>. Por ejemplo, el nombre completo de una de las secuncias sería: <code class="docutils literal notranslate"><span class="pre">Candidatus</span> <span class="pre">Sulcia</span> <span class="pre">muelleri</span> <span class="pre">isolate</span> <span class="pre">SMAURBIH</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -E -o <span class="s2">&quot;(Candidatus Sulcia muelleri|Blattabacterium cuenoti)( str.| strain| | isolate) ?[A-Za-z-]{2,10}&quot;</span>  sul_genomas.fasta &gt;  nombres_sul_genomas.txt
+</pre></div>
+</div>
+<p><strong>3.4</strong> Se desea buscar la secuencia <em>TTTATTCCTAAAATAAAAGAAGATGAA</em> en el genoma de <em>Candidatus Sulcia muelleri CARI</em> del archivo <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -n <span class="s2">&quot;&gt;&quot;</span>  sul_genomas.fasta
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -n <span class="s1">&#39;5446,8903p&#39;</span>  sul_genomas.fasta <span class="p">|</span> grep -n <span class="s2">&quot;TTTATTCCTAAAATAAAAGAAGATGAA&quot;</span>
+</pre></div>
+</div>
+<p><strong>4. En este ejercicio se obtendrá información de un archivo multifasta, compuestos por varias secuencias de proteínas, en el que cada secuencia es una proteína de la bacteria <em>Streptomyces calvuligerus</em>. Para esto usaremos el archivo <code class="docutils literal notranslate"><span class="pre">S_clavuligerus_proteome.fasta</span></code> que se encuentra en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del repositorio de GitHub</strong></p>
+<p><strong>4.1.</strong> Determinar cuántas proteínas posee el proteoma de <em>Streptomyces calvuligerus</em> en base al archivo <code class="docutils literal notranslate"><span class="pre">S_clavuligerus_proteome.fasta</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+grep -E -c <span class="s2">&quot;&gt;&quot;</span>  S_clavuligerus_proteome.fasta
+<span class="c1"># Opción 2 </span>
+grep -E <span class="s2">&quot;&gt;&quot;</span>  S_clavuligerus_proteome.fasta <span class="p">|</span> wc -l
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ../../_files
+</pre></div>
+</div>
+<p><strong>4.2.</strong> Listar los headers de las secuencias de todas las proteínas y colocar esta información en una archivo llamado <code class="docutils literal notranslate"><span class="pre">headers_S_clavuligerus_proteome.txt</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -E <span class="s2">&quot;&gt;&quot;</span>  S_clavuligerus_proteome.fasta &gt;  headers_S_clavuligerus_proteome.txt
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat headers_S_clavuligerus_proteome.txt
+</pre></div>
+</div>
+<p><strong>4.3.</strong> Obtener solamente el código Uniprot (que está entre | |, por ejemplo B5H048) de los headers de todas las secuencias de proteínas y añadir esta información en un archivo llamado <code class="docutils literal notranslate"><span class="pre">codigosUniptot_S_clavuligerus_proteome.txt</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>. Para realizar esto se puede tomar como input el archivo generado en el anterior literal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+grep -E -o <span class="s2">&quot;\|[A-Za-z0-9]{1,6}\|&quot;</span>  headers_S_clavuligerus_proteome.txt <span class="p">|</span> sed -r <span class="s1">&#39;s/\|/ /g&#39;</span> &gt;  codigosUniptot_S_clavuligerus_proteome.txt
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 2</span>
+cut -d <span class="s1">&#39;|&#39;</span> -f2  headers_S_clavuligerus_proteome.txt &gt;  codigosUniptot_S_clavuligerus_proteome.txt
+</pre></div>
+</div>
+<p><strong>4.4.</strong> Obtener solamente el nombre de los organismos (caracteres que están luego de OS=) de los headers de todas las secuencias de proteínas y añadir esta información en un archivo llamado <code class="docutils literal notranslate"><span class="pre">organismos_S_clavuligerus_proteome.txt</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>. Para realizar esto se puede tomar como input el archivo del literal <strong>1.3</strong>.</p>
+<p><strong>Nota:</strong> En este caso todos los nombres serán los mismos, pero en archivos fasta con información de varios organismos sería muy útil.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+grep -E -o <span class="s2">&quot;OS=[A-Z a-z]+&quot;</span>  headers_S_clavuligerus_proteome.txt <span class="p">|</span> sed -r <span class="s1">&#39;s/OS=/ /g&#39;</span> &gt;  organismos_S_clavuligerus_proteome.txt 
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 2</span>
+cut -d<span class="s1">&#39;=&#39;</span> -f2  headers_S_clavuligerus_proteome.txt <span class="p">|</span> grep -E -o <span class="s2">&quot;[A-Z a-z]+ \(&quot;</span> <span class="p">|</span> sed -r <span class="s1">&#39;s/\(/ /g&#39;</span> &gt;  Organismos_S_clavuligerus_proteome.txt
+</pre></div>
+</div>
+<p><strong>4.5.</strong> Obtener solamente el nombre de las proteínas (caracteres antes de OS=) de los headers de todas las secuencias de proteínas y añadir esta información en un archivo llamado <code class="docutils literal notranslate"><span class="pre">proteinas_S_clavuligerus_proteome.txt</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>. Para realizar esto se puede tomar como input el archivo generado en el literal <strong>1.3</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+grep -P -o <span class="s2">&quot;\|[A-Z0-9]{1,6}_[A-Z0-9]{1,5}[A-Za-z0-9 \[\]()+,.&#39;/:_\-]+ OS&quot;</span>  headers_S_clavuligerus_proteome.txt <span class="p">|</span> sed -r <span class="s1">&#39;s/\|[A-Z0-9]{1,6}_[A-Z0-9]{1,5}/ /g&#39;</span> <span class="p">|</span> sed -r <span class="s1">&#39;s/OS/ /g&#39;</span> &gt;  proteinas_S_clavuligerus_proteome.txt
+</pre></div>
+</div>
+<p><strong>4.6.</strong> Separar los headers y las secuencias de aminoácidos de las proteínas que tienen los siguientes códigos: <code class="docutils literal notranslate"><span class="pre">B5GNS8</span></code>, <code class="docutils literal notranslate"><span class="pre">B5H296</span></code>, <code class="docutils literal notranslate"><span class="pre">B5GRF2</span></code> y <code class="docutils literal notranslate"><span class="pre">B5GTR3</span></code> (para esto debes usar el archivo fasta inicial: <code class="docutils literal notranslate"><span class="pre">S_clavuligerus_proteome.fasta</span></code>). Colocar esta información en un archivo llamado <code class="docutils literal notranslate"><span class="pre">4seq_S_clavuligerus_proteome.fasta</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -E -A10 -n -e <span class="s1">&#39;B5GNS8&#39;</span> -e <span class="s1">&#39;B5H296&#39;</span> -e <span class="s1">&#39;B5GRF2&#39;</span> -e <span class="s1">&#39;B5GTR3&#39;</span>  S_clavuligerus_proteome.fasta
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -n <span class="s1">&#39;12114,12118p&#39;</span>  S_clavuligerus_proteome.fasta &gt;  4seq_S_clavuligerus_proteome.fasta
+sed -n <span class="s1">&#39;27251,27256p&#39;</span>  S_clavuligerus_proteome.fasta &gt;&gt;  4seq_S_clavuligerus_proteome.fasta
+sed -n <span class="s1">&#39;27310,27317p&#39;</span>  S_clavuligerus_proteome.fasta &gt;&gt;  4seq_S_clavuligerus_proteome.fasta
+sed -n <span class="s1">&#39;40706,40712p&#39;</span>  S_clavuligerus_proteome.fasta &gt;&gt;  4seq_S_clavuligerus_proteome.fasta
+</pre></div>
+</div>
+<p><strong>4.7.</strong> Determinar si en la secuencia de la proteína con código Uniprot <code class="docutils literal notranslate"><span class="pre">B5H296</span></code> existe un aminoácido de serina (S), seguido de una prolina (P), con tres alaninas (A) en medio de los dos aminoácidos (S y P). El patrón a buscar sería <code class="docutils literal notranslate"><span class="pre">SAAAP</span></code>. Puedes usar la información de la ubicación de la secuencia obtenida en el anterior literal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -n <span class="s1">&#39;27251,27256p&#39;</span>  S_clavuligerus_proteome.fasta <span class="p">|</span> grep -E -n <span class="s2">&quot;SA{3}P&quot;</span>
+</pre></div>
+</div>
+<p><strong>5. En este ejercicio se obtendrá información de archivos fastq, que cotienen secuencias de nucleótidos y la calidad de su proceso de secuenciación. Para esto usaremos los archivos <code class="docutils literal notranslate"><span class="pre">secuencias1.fastq</span></code>, <code class="docutils literal notranslate"><span class="pre">secuencias2.fastq</span></code> y <code class="docutils literal notranslate"><span class="pre">secuencias3.fastq</span></code> que se encuentra en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del repositorio de GitHub</strong></p>
+<p><strong>5.1.</strong> La letra <code class="docutils literal notranslate"><span class="pre">N</span></code> representa un nucleótido que no pudo ser leído correctamente, y se reporta como ninguno, o <code class="docutils literal notranslate"><span class="pre">missing</span> <span class="pre">data</span></code>. Imprime el número de secuencias que tenga diez <code class="docutils literal notranslate"><span class="pre">N</span></code> seguidas por cada uno de los archivos <code class="docutils literal notranslate"><span class="pre">fastq</span></code> de la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<p><strong>Nota:</strong> Es posible realizar esto con un comando de una sola líne, intenta resolverlo de esta forma.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -E -c <span class="s2">&quot;NNNNNNNNNN&quot;</span>  *.fastq
+</pre></div>
+</div>
+<p><strong>5.2.</strong> Ahora, determina el número de secuencias de cada archivo <code class="docutils literal notranslate"><span class="pre">.fastq</span></code> por separado. Se conoce que los títulos de las corridas de las secuencias en cada archivo <code class="docutils literal notranslate"><span class="pre">.fastq</span></code> empiezan con el string <code class="docutils literal notranslate"><span class="pre">&#64;SRR098026</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -E -c <span class="s1">&#39;^@SRR098026&#39;</span> *.fastq
+</pre></div>
+</div>
+<p><strong>5.3.</strong> Pero esta información está muy desordenada. No sabemos a qué corrida le petenece esta secuencia (identificador) ni la calidad de la secuencia con diez <strong>N</strong> seguidas. Entonces, podríamos incluir las 4 líneas de cada corrida. ¿Cómo incluirías las 4 lineas de información de cada corrida que contenga la secuencia <code class="docutils literal notranslate"><span class="pre">NNNNNNNNNN</span></code> del archivo <code class="docutils literal notranslate"><span class="pre">secuencias1.fastq</span></code>?</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -A2 -B1 <span class="s2">&quot;NNNNNNNNNN&quot;</span> secuencias1.fastq
+</pre></div>
+</div>
+<p><strong>5.4.</strong> Pero esta información nos podría servir mucho más si está en un archivo <code class="docutils literal notranslate"><span class="pre">fastq</span></code> y no solo en la pantalla del <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> o de la <code class="docutils literal notranslate"><span class="pre">terminal</span></code>. Qué tal si exportamos la información de todas las secuencias que contienen diez <strong>N</strong> seguidas, de todos los archivos <code class="docutils literal notranslate"><span class="pre">.fastq</span></code>, a un archivo llamado <code class="docutils literal notranslate"><span class="pre">malas_lecturas.fastq</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -A2 -B1 <span class="s2">&quot;NNNNNNNNNN&quot;</span> *.fastq &gt; malas_lecturas.fastq
+</pre></div>
+</div>
+<p><strong>5.5.</strong> ¿Cuántas líneas de las secuencias de cada uno de los tres archivos <code class="docutils literal notranslate"><span class="pre">fastq</span></code> contienen el motivo <code class="docutils literal notranslate"><span class="pre">ACG</span></code>?</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -E -c <span class="s2">&quot;ACG&quot;</span> *.fastq 
+</pre></div>
+</div>
+<p><strong>5.6.</strong> Ahora, coloca las anteriores secuencias que contienen <code class="docutils literal notranslate"><span class="pre">ACG</span></code> en el archivo <code class="docutils literal notranslate"><span class="pre">malas_lecturas.fastq</span></code> <strong>sin sobre escribir el archivo</strong>. Luego imprime las últimas 40 líneas del archivo <code class="docutils literal notranslate"><span class="pre">malas_lecturas.fastq</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep <span class="s2">&quot;ACG&quot;</span>  *.fastq &gt;&gt; malas_lecturas.fastq
+tail -n <span class="m">40</span> malas_lecturas.fastq
+</pre></div>
+</div>
+<p><strong>5.7.</strong> Ahora vamos a buscar patrones en el archivo <code class="docutils literal notranslate"><span class="pre">malas_lecturas.fastq</span></code>. Antes creamos un archivo llamado<code class="docutils literal notranslate"><span class="pre">patrones.txt</span></code>, donde imprimirás estos motivos <em>ACTG, CCCCC, NNNCNNN, NNNGNNN, TTTT, TATA, AAA</em>. Luego, usa este archivo para buscar estos patrones en el arcvhio <code class="docutils literal notranslate"><span class="pre">malas_lecturas.fastq</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> -e <span class="s1">&#39;ACTG\nCCCCC\nNNNCNNN\nNNNGNNN\nTTTT\nTATA\nAAA&#39;</span> &gt;  patrones.txt
+grep -f  patrones.txt  malas_lecturas.fastq
+</pre></div>
+</div>
+<p><strong>5.8.</strong> Tomando el archivo <code class="docutils literal notranslate"><span class="pre">acg.txt</span></code>, convierte los fragmentos <code class="docutils literal notranslate"><span class="pre">ACG</span></code> en secuencias de ARN. Recuerda que se puede hacer eso cambiando las timinas por uracilos (Reemplzar T por U).<strong>5.8.</strong> Tomando el archivo <code class="docutils literal notranslate"><span class="pre">acg.txt</span></code>, convierte los fragmentos <code class="docutils literal notranslate"><span class="pre">ACG</span></code> en secuencias de ARN. Recuerda que se puede hacer eso cambiando las timinas por uracilos (Reemplzar T por U).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#sed -i &#39;&#39; -e &#39;s/T/U/&#39; acg.txt # macOS</span>
+sed -i -e <span class="s1">&#39;s/T/U/&#39;</span> acg.txt <span class="c1"># Linux</span>
+</pre></div>
+</div>
+<p><strong>6. En este ejercicio se obtendrá información de un archivo obtenido de un experimento de microarray, en el que se calcula la expresión génica de una muestra. Para esto usaremos el archivo <code class="docutils literal notranslate"><span class="pre">microarray.txt</span></code> que se encuentra en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del repositorio de GitHub</strong></p>
+<p><strong>6.1.</strong> Determinar el número genes relacionados con la leucemia (en el documento se encuentra como <code class="docutils literal notranslate"><span class="pre">leukemia</span></code>). En este caso esto se determinará por la presencia del nombre de la enfermedad en los nombres de los genes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+grep -E -c <span class="s1">&#39;leukemia&#39;</span> microarray.txt
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 2</span>
+grep -E <span class="s1">&#39;leukemia&#39;</span> microarray.txt <span class="p">|</span> wc
+</pre></div>
+</div>
+<p><strong>6.2.</strong> De todo el registro, solo queremos el nombre y la descripción de los genes relacionados con leucemia (campos/columnas 3 y 4 del archivo), lo que se desea copiar a un archivo llamado <code class="docutils literal notranslate"><span class="pre">genes_leucemia.txt</span></code> en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando comandos como grep, set, cut, etc</span>
+grep <span class="s1">&#39;leukemia&#39;</span> microarray.txt <span class="p">|</span> cut -f3,4 &gt; genes_leucemia.txt
+</pre></div>
+</div>
+<p><strong>6.3.</strong> Se desea eliminar las comillas de los nombres y descripción de los genes relacionados con leucemia, obtenidos en el archivo del literal anterior, y guardar los cambios en el mismo archivo <code class="docutils literal notranslate"><span class="pre">genes_leucemia.txt</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Usando comandos como grep, set, cut, etc</span>
+sed -i <span class="s1">&#39;s/\&quot;//g&#39;</span> genes_leucemia.txt
+</pre></div>
+</div>
+<p><strong>6.4.</strong> Ahora, se desea ordenar alfabéticamente los genes del archivo <code class="docutils literal notranslate"><span class="pre">genes_leucemia.txt</span></code> y eliminar los genes repetidos. Con estos cambios, guardar el resultado en un archivo llamado <code class="docutils literal notranslate"><span class="pre">genes_leucemia_ord_uniq.txt</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sort -u genes_leucemia.txt &gt; genes_leucemia_ord_uniq.txt
+</pre></div>
+</div>
+<p><strong>6.5.</strong> Finalmente, se desea dterminar el número de genes que estaban repetidos</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Los repetidos serían la diferencia de ambos números </span>
+wc -l genes_leucemia.txt
+sort -u genes_leucemia.txt <span class="p">|</span> wc -l
+</pre></div>
+</div>
+<p><strong>7. En este ejercicio se buscarán sitios d reconocimiento de enzimas de restricción en secuencias ITS de hongos. Para esto usaremos los archivos <code class="docutils literal notranslate"><span class="pre">.fasta</span></code> de la carpeta <code class="docutils literal notranslate"><span class="pre">ITS_region</span></code> que se encuentra en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del repositorio de GitHub</strong></p>
+<p>Para este ejercicio se debe conocer lo que es un mapa de restricción, que es un gráfico en el que se representan los sitios en los que diferentes enzimas de restricción poseen dianas en una molecula particular de ADN</p>
+<a class="reference internal image-reference" href="../../../_images/map_plasmid.png"><img alt="./img/map_plasmid.png" class="align-center" src="../../../_images/map_plasmid.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="../../../_images/lineal_map.png"><img alt="./img/lineal_map.png" class="align-center" src="../../../_images/lineal_map.png" style="width: 600px;" /></a>
+<p>En este ejemplo se seleccionaron las siguientes enzimas de restricción:</p>
+<a class="reference internal image-reference" href="../../../_images/enz_restriccion.png"><img alt="./img/enz_restriccion.png" class="align-center" src="../../../_images/enz_restriccion.png" style="width: 500px;" /></a>
+<p>En los siguientes ejercicios se buscarán los sitios de reconocimiento de estas enzimas en la región ITS de diferentes especies de hongos.</p>
+<p><strong>7.1.</strong> Determinar qué archivo(s) poseen la secuencia de reconocimiento de la enzima <code class="docutils literal notranslate"><span class="pre">EcoRI</span></code> y cuántas de estas secuencias existen en cada uno de los archivos.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -c <span class="s2">&quot;GAATTC&quot;</span> ITS_region/*.fasta
+</pre></div>
+</div>
+<p><strong>7.2.</strong> Determinar qué archivo posee doble o triple secuencia de reconocimiento de las enzimas <code class="docutils literal notranslate"><span class="pre">SmaI</span></code> y <code class="docutils literal notranslate"><span class="pre">TaiI</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -c <span class="s2">&quot;CCCGGG&quot;</span> ITS_region/*.fasta
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -c <span class="s2">&quot;ACGT&quot;</span> ITS_region/*.fasta
+</pre></div>
+</div>
+<p><strong>7.3.</strong> Especificar el número de la línea donde hubo la o las coincidencias del sitio de reconocimiento de la enzima <code class="docutils literal notranslate"><span class="pre">TaiI</span></code> del archivo <code class="docutils literal notranslate"><span class="pre">T_delbrueckii.fasta</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -n <span class="s2">&quot;ACGT&quot;</span> ITS_region/T_delbrueckii.fasta
+</pre></div>
+</div>
+<p><strong>7.4.</strong> La enzima <code class="docutils literal notranslate"><span class="pre">HincII</span></code> presenta una secuencia de reconocimiento “degenerada”, en la que la letra Y puede ser los nucleótidos C o T y la letra R puede ser G o A. Buscar la cantidad de estas secuencias en todos los archivos <code class="docutils literal notranslate"><span class="pre">.fasta</span></code> de las secuencias ITS.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1</span>
+grep -E -c <span class="s2">&quot;GTCAAC|GTCGAC|GTTAAC|GTTGAC&quot;</span> ITS_region/*.fasta
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 2</span>
+grep -E -c <span class="s2">&quot;GT[CT][AG]AC&quot;</span> ITS_region/*.fasta
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esto se puede verificar mediante la etiqueta -o de egrep</span>
+grep -E -o <span class="s2">&quot;GTCAAC|GTCGAC|GTTAAC|GTTGAC&quot;</span> ITS_region/*.fasta
+</pre></div>
+</div>
+<p><strong>7.5.</strong> Buscar las 10 lineas posteriores y 10 anteriores donde hubo la coincidencia de la enzima <code class="docutils literal notranslate"><span class="pre">EcoRI</span></code> de todas las secuencias <code class="docutils literal notranslate"><span class="pre">.fasta</span></code> y almcacenar los resultados en un archivo llamado <code class="docutils literal notranslate"><span class="pre">sitios_rec_EcoRI.fasta</span></code>. Intenta evitar imprimir el nombre del archivo del que provienen las secuencias.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -B10 -A10 -h <span class="s2">&quot;GAATTC&quot;</span> ITS_region/*.fasta &gt; sitios_rec_EcoRI.fasta
+</pre></div>
+</div>
+<p><strong>7.6.</strong> Verifica si la secuencia del archivo <code class="docutils literal notranslate"><span class="pre">secuencia.txt</span></code> está presente en el archivo <code class="docutils literal notranslate"><span class="pre">secuencias.txt</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -f ITS_region/secuencia.txt ITS_region/secuencias.fasta
+</pre></div>
+</div>
+<p><strong>7.7.</strong> Utiliza la información del archivo <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> para buscar si estos sitios de restricción estań presentes en los archivos fasta de la carpeta <code class="docutils literal notranslate"><span class="pre">ITS_region</span></code> y cuántos existen.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -c -f ITS_region/sites.txt ITS_region/*.fasta
+</pre></div>
+</div>
+<p><strong>7.8.</strong> Utilizar la información del archivo <code class="docutils literal notranslate"><span class="pre">sites.txt</span></code> para buscar todos los sitios de restricción únicos presentes en los archivos fasta de la carpeta <code class="docutils literal notranslate"><span class="pre">ITS_region</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep -h -o -f  ITS_region/sites.txt ITS_region/*.fasta <span class="p">|</span> sort -u
+</pre></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="7_Sitios_restric.html" title="previous page"><span class="section-number">8. </span>Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos</a>
+    <a class='right-next' id="next-link" href="../06_Make/0_Resumen.html" title="next page"><span class="section-number">1. </span>Resumen</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,921 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. Directorios y archivos en UNIX: Parte 1 &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="6. Wildcards y Streams" href="5_wildcards.html" />
+    <link rel="prev" title="4. Comandos en la shell" href="3_comandos.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/03_Manejo_terminal/4_directorios.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/03_Manejo_terminal/4_directorios.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arquitectura-unix">
+   5.1. Arquitectura UNIX
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#algunos-comandos-para-operar-con-directorios-y-archivos">
+   5.2.
+   <em>
+    Algunos comandos para operar con directorios y archivos
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#directorio-de-inicio-home-directory">
+   5.3. Directorio de inicio / Home directory
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-crear-y-elminiar-directorios-crear-mover-y-elminiar-archivos">
+   5.4.
+   <em>
+    Ejercicio: Crear y elminiar directorios. Crear, mover y elminiar archivos.
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rutas-absolutas-y-relativas">
+   5.5. Rutas absolutas y relativas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-directorios-absolutos-y-relativos">
+   5.6.
+   <em>
+    Ejercicio: Directorios absolutos y relativos
+   </em>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-renombrar-archivos-y-copiar-archivos">
+   5.7.
+   <em>
+    Ejercicio: Renombrar archivos y copiar archivos
+   </em>
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="directorios-y-archivos-en-unix-parte-1">
+<h1><span class="section-number">5. </span>Directorios y archivos en UNIX: Parte 1<a class="headerlink" href="#directorios-y-archivos-en-unix-parte-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="arquitectura-unix">
+<h2><span class="section-number">5.1. </span>Arquitectura UNIX<a class="headerlink" href="#arquitectura-unix" title="Permalink to this headline">¶</a></h2>
+<p>Un <strong>directorio</strong> es una carpeta. Los sistemas operativos en general se organizan en directorios, subdirectorios y archivos. Entonces los directorios también son <strong>ubicaciones dentro de la memoria del computador</strong>, como ubicaciones en un mapa. Un <strong>archivo</strong> o <em>fichero</em> es un conjunto de <strong>información digital</strong> (bytes guardados en memoria) en algun formato como texto plano, PNG, markdown y miles de otros formatos.</p>
+<p>UNIX se organiza por un <strong>sistema de archivos</strong> en estructura de árbol invertido. Todo en Linux y sistemas UNIX es un archivo o un directorio. Esta jerarquía comienza con el directorio raíz (<em>root diectory</em>), indicado por <code class="docutils literal notranslate"><span class="pre">/</span></code>. Este directorio contine subdirectorios y archivos importantes con sotfware escencial para el funcionamiento del sistema operativo y software instalado o creado por el usuario. Para información detallada visita http://www.linfo.org/filesystem.html o también http://www.linfo.org/index.html. Un resumen rápido de los subdirectorios en <code class="docutils literal notranslate"><span class="pre">/</span></code> es:</p>
+<center>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Directorio</p></th>
+<th class="head"><p>Funcnión de archivos y subdirectorios</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/bin</span>&#160; </code></p></td>
+<td><p>Ejecutables para funcionamiento mínimo escencial del sistema operativo como arrancar, reparar, las shell como <code class="docutils literal notranslate"><span class="pre">Bash</span></code> o <code class="docutils literal notranslate"><span class="pre">ZSH</span></code> y comandos UNIX como <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">echo</span></code>, <code class="docutils literal notranslate"><span class="pre">mv</span></code>, <code class="docutils literal notranslate"><span class="pre">tar</span></code>, <code class="docutils literal notranslate"><span class="pre">vi</span></code> y varios otros.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/boot</span> </code></p></td>
+<td><p>Ejectuables necesarios para arracncar el sistema operativo.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/dev</span>&#160; </code></p></td>
+<td><p>Dispositivos hardware y controladores.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/etc</span>&#160; </code></p></td>
+<td><p>Configuración adicional de sistema.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/home</span>&#160; </code></p></td>
+<td><p>Datos de usuario.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/lib</span>&#160; </code></p></td>
+<td><p>Librerías y módulos de kernel.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/media</span></code></p></td>
+<td><p>Puntos de montaje para dispositivos removibles.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/mnt</span>&#160; </code></p></td>
+<td><p>Puntos de montaje para sistemas de archivos temporales (particiones).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/opt</span>&#160; </code></p></td>
+<td><p>Paquetes opcionales de software.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/sbin</span> </code></p></td>
+<td><p>Executables para administación del sistema operativo disponibles para el usuario principal del computador o <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">user</span></code>. Es similar a <code class="docutils literal notranslate"><span class="pre">/bin</span></code>, pero un <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bin</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/srv</span>&#160; </code></p></td>
+<td><p>Datos para servicios del sistema, como data de servidores HTTP, entre otros.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/tmp</span>&#160; </code></p></td>
+<td><p>Archivos temporales. Los archivos se borran cuando el sistema reinicia.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/usr</span>&#160; </code></p></td>
+<td><p>Jerarquía secundaria. Actúa como root <code class="docutils literal notranslate"><span class="pre">/</span></code>, pero se usa más para customización creada por el usuario e instalación de software, para prevenir dañar los archivos en las otras carpetas del directorio raíz. Esta conitiene directios <code class="docutils literal notranslate"><span class="pre">/bin</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbin</span></code>, <code class="docutils literal notranslate"><span class="pre">/lib</span></code>, <code class="docutils literal notranslate"><span class="pre">/share</span></code> y otros.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/var</span>&#160; </code></p></td>
+<td><p>Datos variables, especialmente archivos generados en tiempo de ejecución. Esta información no se borra de manera automática.</p></td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Para <strong>acceder</strong> a un directorio se usa el comando <code class="docutils literal notranslate"><span class="pre">cd</span></code>. El argumento de este comando es un <code class="docutils literal notranslate"><span class="pre">directorio</span></code>. Miremos un ejemplo. Ejecuta los comandos:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /
+$ ls
+</pre></div>
+</div>
+<p>Hay varios otros directorios importantes como se podrá ver. Estos deberán ser revsados por tu cuenta. Vamos a acceder al directorio <code class="docutils literal notranslate"><span class="pre">/</span></code> y vamos a mostrar su contenido. En el sistema operativo Linux se peude ver de esta manera:</p>
+<a class="reference internal image-reference" href="../../../_images/root_ubuntu.png"><img alt="./img/root_ubuntu.png" class="align-center" src="../../../_images/root_ubuntu.png" style="width: 620px;" /></a>
+<p>En el sistema operativo MacOS varía un poco, debido a que Apple ha aplicado algunas adaptaciones para su sistema operativo, sin embargo, conserva los directorios escenciales como <code class="docutils literal notranslate"><span class="pre">/bin</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbin</span></code> y <code class="docutils literal notranslate"><span class="pre">/usr</span></code>. Se peude ver de esta manera:</p>
+<a class="reference internal image-reference" href="../../../_images/root_mac.png"><img alt="./img/root_mac.png" class="align-center" src="../../../_images/root_mac.png" style="width: 700px;" /></a>
+</div>
+<div class="section" id="algunos-comandos-para-operar-con-directorios-y-archivos">
+<h2><span class="section-number">5.2. </span><em>Algunos comandos para operar con directorios y archivos</em><a class="headerlink" href="#algunos-comandos-para-operar-con-directorios-y-archivos" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Comando</strong></p></th>
+<th class="head"><p><strong>Función</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pwd</span></code></p></td>
+<td><p>Imprime el directorio de trabajo actual.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code></p></td>
+<td><p>Dirigirse 1 directorio atrás.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../..</span></code></p></td>
+<td><p>Dirigirse 2 directorios atrás.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">clear</span></code></p></td>
+<td><p>Limpia la terminal</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">[nombre</span> <span class="pre">de</span> <span class="pre">directorio]</span></code></p></td>
+<td><p>Crear un directorio</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">[nombre</span> <span class="pre">de</span> <span class="pre">archivo]</span></code></p></td>
+<td><p>Crear un archivo</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">[archivos]</span></code></p></td>
+<td><p>Remover un archivo. No se puede usar para elminiar directorios.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-</span> <span class="pre">r</span> <span class="pre">[directorio]</span></code></p></td>
+<td><p>Remover recursivamente. Se usa para remover directorios y subdirectorios.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-</span> <span class="pre">rf</span> <span class="pre">[directorio]</span></code></p></td>
+<td><p>Remover recursivamente de manera forzada. Se usa para evitar que el sistema evite elminiar un directorio.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">[desde]</span> <span class="pre">[hacia]</span></code></p></td>
+<td><p>Mover un archivo a un directorio.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">[desde]</span> <span class="pre">[hacia]</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><img width=500/></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="directorio-de-inicio-home-directory">
+<h2><span class="section-number">5.3. </span>Directorio de inicio / Home directory<a class="headerlink" href="#directorio-de-inicio-home-directory" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
+</pre></div>
+</div>
+<p>El directorio de inicio o home, nombrado por el caracter tilde <code class="docutils literal notranslate"><span class="pre">~</span></code>. Al abrir Terminal este automáticamente se dirige a <code class="docutils literal notranslate"><span class="pre">~</span></code>. Contiene todos los directorios con contenido creado por el usuario y software específico. Algunos directorios son <code class="docutils literal notranslate"><span class="pre">~/Desktop</span></code> para el escritorio, <code class="docutils literal notranslate"><span class="pre">~/Documents</span></code> para los documentos, etc.</p>
+<div id="ejercicio2_terminal"/>
+</div>
+<div class="section" id="ejercicio-crear-y-elminiar-directorios-crear-mover-y-elminiar-archivos">
+<h2><span class="section-number">5.4. </span><em>Ejercicio: Crear y elminiar directorios. Crear, mover y elminiar archivos.</em><a class="headerlink" href="#ejercicio-crear-y-elminiar-directorios-crear-mover-y-elminiar-archivos" title="Permalink to this headline">¶</a></h2>
+<p>Vamos a crear directorios, subdirectorios y un archivo de texto. Luego veremos el resultado. Después borraremos el directorio de manera recursiva.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Notemos que cuando queremos nombrar un archivo o un directorio con dos palabras, en lugar de usar un espacio entre ellos usamos un <strong>guión bajo</strong>, porque así nos evitamos problemas para acceder a estos directorios desde Terminal. <strong>Procura dar nombres que no tengan espacios en blanco a los archivos y carpetas</strong>.</p>
+<p>Por ejemplo: <code class="docutils literal notranslate"><span class="pre">asi</span> <span class="pre">no.png</span></code>, <code class="docutils literal notranslate"><span class="pre">asi_si.png</span></code>.</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/taller_unix/3_manejo_terminal 
+$ mkdir prueba
+$ <span class="nb">cd</span> prueba
+$ mkdir directorio_publico
+$ mkdir .directorio_secreto
+$ touch README.txt
+$ ls
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir1.png"><img alt="./img/mkdir1.png" class="align-center" src="../../../_images/mkdir1.png" style="width: 700px;" /></a>
+<p>Como se puede ver en la captura de pantalla de Terminal, el directorio <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code> que se creó contiene un directorio escondido <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba/.directorio_secreto</span></code>, un directorio público <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba/.directorio_secreto</span></code> y un archivo de texto <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba/README.txt</span></code>. Cuando usamos el comando <code class="docutils literal notranslate"><span class="pre">ls</span></code> <strong>dentro del directorio</strong> <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba/</span></code>, vemos todo menos el directorio secreto. Para revelarlo usamos la opción <code class="docutils literal notranslate"><span class="pre">-a</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls -a
+</pre></div>
+</div>
+<p>Además podemos revelar el directorio completo hacia la carpeta <code class="docutils literal notranslate"><span class="pre">~/prueba</span></code> con el comando <code class="docutils literal notranslate"><span class="pre">pwd</span></code>, que significa <em>print working directory</em>. Como se ve en la imagen abajo, el directorio completo es <code class="docutils literal notranslate"><span class="pre">/Users/j/taller_unix/3_manejo_terminal/prueba</span></code> y no <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Primero hay que notar que son el mismo directorio. Segundo, esto ocurre porque el caracter <code class="docutils literal notranslate"><span class="pre">~</span></code> es un alias al directorio <code class="docutils literal notranslate"><span class="pre">/Users/j/</span></code>, entonces significa lo mismo que <code class="docutils literal notranslate"><span class="pre">~</span></code>. Los <strong>alias</strong> son útiles para acortar directorios o comandos.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">pwd</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir2.png"><img alt="./img/mkdir2.png" class="align-center" src="../../../_images/mkdir2.png" style="width: 700px;" /></a>
+<p>En esta imagen, el comando <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code> revela, además del directorio escondido, dos nuveos directorios extra muy importantes: <code class="docutils literal notranslate"><span class="pre">./</span></code> y <code class="docutils literal notranslate"><span class="pre">../</span></code>. Estos directorios significan <em>directorio actual</em> y <em>directorio anterior</em>, respectivamente. Sirven para poder operar dentro del directorio actual o para salir del directorio actual, respectivamente. Salgamos del directorio hacia <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal</span></code> y creemos un archivo que vamos a mover hacia <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Será un archivo ejecutable de Python:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ..
+$ touch archivo_para_mover.py
+$ ls -l
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir3.png"><img alt="./img/mkdir3.png" class="align-center" src="../../../_images/mkdir3.png" style="width: 700px;" /></a>
+<p>Para moverlo podemos usar dos estrategias:</p>
+<ol class="simple">
+<li><p>Desde <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/</span></code> especificar que quiero mover el archivo <code class="docutils literal notranslate"><span class="pre">archivo_para_mover.py</span></code> hacia <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code></p></li>
+<li><p>Desde <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code> especificar que quiero mover el archivo <code class="docutils literal notranslate"><span class="pre">archivo_para_mover.py</span></code> hacia <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code></p></li>
+</ol>
+<p>Si usamos la estrategia 1, operamos dentro de <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal</span></code> y luego verificamos con <code class="docutils literal notranslate"><span class="pre">ls</span></code> que este se haya movido correctamente hacia <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mv archivo_para_mover.py prueba/
+$ ls prueba
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir4.png"><img alt="./img/mkdir4.png" class="align-center" src="../../../_images/mkdir4.png" style="width: 700px;" /></a>
+<p>Si usamos la estrategia 2, primero devolvamos el archivo <code class="docutils literal notranslate"><span class="pre">archivo_para_mover.py</span></code> de nuevo a <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal</span></code> y después lo retornamos a <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Operamos dentro de <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> prueba
+$ mv archivo_para_mover.py ..
+$ mv ../archivo_para_mover.py ./
+$ ls
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir5.png"><img alt="./img/mkdir5.png" class="align-center" src="../../../_images/mkdir5.png" style="width: 700px;" /></a>
+<p>Ahora, vamos a eliminar el directorio <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code> porque ya no nos va a servir. Usamos el comando <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span></code>. Operamos desde <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ..
+$ rm -r prueba
+$ ls -l
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir6.png"><img alt="./img/mkdir6.png" class="align-center" src="../../../_images/mkdir6.png" style="width: 700px;" /></a>
+<p>Nota cómo el directorio <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code> ya no existe dentro de <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal</span></code>. Ya que hemos visto como elminiar directorios, ahora veremos como eliminar archivos. Creemos nuevamente el directorio <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Operamos desde <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal</span></code>. Creamos un archivo ejecutable de C++.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir prueba
+$ touch prueba/borrar.cpp
+$ <span class="nb">cd</span> prueba
+$ ls
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir7.png"><img alt="./img/mkdir7.png" class="align-center" src="../../../_images/mkdir7.png" style="width: 700px;" /></a>
+<p>Ahora usamos el comando <code class="docutils literal notranslate"><span class="pre">rm</span></code> sin ninguna opción. El argumento es <code class="docutils literal notranslate"><span class="pre">borrar.cpp</span></code>. Vemos que ya no quedan más que los directorios <code class="docutils literal notranslate"><span class="pre">../</span></code> y <code class="docutils literal notranslate"><span class="pre">/.</span></code> en la carpeta.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ rm borrar.cpp
+$ ls -a
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir8.png"><img alt="./img/mkdir8.png" class="align-center" src="../../../_images/mkdir8.png" style="width: 700px;" /></a>
+</div>
+<div class="section" id="rutas-absolutas-y-relativas">
+<h2><span class="section-number">5.5. </span>Rutas absolutas y relativas<a class="headerlink" href="#rutas-absolutas-y-relativas" title="Permalink to this headline">¶</a></h2>
+<p>En el ejemplo anterior hemos usado rutas absolutas y relativas de manera satisfactoria. ¿Cómo? Una <strong>ruta absoluta</strong> es un directorio completo, desde el <em>root directory</em>. Una <strong>ruta relativa</strong> es un directorio incompleto y se especifica la dirección desde cualquier directorio actual de trabajo, sin necesidad que sea desde el <em>root directory</em>. Por ejemplo, si recordamos el ejemplo anterior, el archivo <code class="docutils literal notranslate"><span class="pre">archivo_para_mover.py</span></code> debía moverse hacia <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code> y operamos dentro de <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Lo logramos con el comando:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mv ../archivo_para_mover.py ./
+</pre></div>
+</div>
+<p>Este comando significa: desde el directorio <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>, mover el archivo <code class="docutils literal notranslate"><span class="pre">archivo_para_mover.py</span></code> que se encontraba en una carpeta anterior a <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code> (es decir, en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal</span></code>) y moverlo al directorio actual. Para especificar el directorio anterior se usó <code class="docutils literal notranslate"><span class="pre">../</span></code> y para especificar el directorio actual se usó <code class="docutils literal notranslate"><span class="pre">./</span></code>.</p>
+<p>Podíamos usar rutas absolutas para hacer la misma operación. En mi computador, el comando hubiera cambiado a:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mv /Users/j/taller_unix/3_manejo_terminal/archivo_para_mover.py /Users/j/taller_unix/3_manejo_terminal/prueba
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Significan lo mismo, ya que especifican el directorio de inicio y el final, pero la ruta relativa es más abreviada. Hay que identificar las cuándo es conveninete trabajar con uno de ellos en particular. Se usan los directorios absolutos usualmente cuando se quiere revelar la locación de un archivo, o cuando se necesita rastrear cambios de ubicación. Los directorios relativos son fáciles de ejecutar y evitan la necesidad de usar nuestra memoria al escribir comandos.</p>
+</div>
+<div id="ejercicio3_terminal"/>
+</div>
+<div class="section" id="ejercicio-directorios-absolutos-y-relativos">
+<h2><span class="section-number">5.6. </span><em>Ejercicio: Directorios absolutos y relativos</em><a class="headerlink" href="#ejercicio-directorios-absolutos-y-relativos" title="Permalink to this headline">¶</a></h2>
+<p>Creemos varios subdirectorios dentro de <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Operamos desde <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal</span></code> con los comandos:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/taller_unix/3_manejo_terminal
+$ mkdir prueba/p1
+$ mkdir prueba/p1/p2
+$ mkdir prueba/p1/p2/p3
+$ mkdir prueba/p1/p2/p3/p4
+$ mkdir prueba/p1/p2/p3/p4/p5
+$ <span class="nb">cd</span> prueba
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir9.png"><img alt="./img/mkdir9.png" class="align-center" src="../../../_images/mkdir9.png" style="width: 700px;" /></a>
+<p>Para ver nuestra jerajrquía de carpetas podemos usar el comando. Operamos desde <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Usamos <code class="docutils literal notranslate"><span class="pre">pwd</span></code> para descubrir la ruta actual:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls -R
+$ <span class="nb">pwd</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir10.png"><img alt="./img/mkdir10.png" class="align-center" src="../../../_images/mkdir10.png" style="width: 700px;" /></a>
+<p>El directorio <code class="docutils literal notranslate"><span class="pre">./p1/p2/p3/p4/p5</span></code> es relativo porque usa <code class="docutils literal notranslate"><span class="pre">./</span></code> para especificar que se trabaja desde <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>, el directorio actual. Podemos entrar en <code class="docutils literal notranslate"><span class="pre">./p1/p2/p3/p4/p5</span></code> desde <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code> y usar <code class="docutils literal notranslate"><span class="pre">pwd</span></code> para revelar la ruta absoluta:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ./p1/p2/p3/p4/p5
+$ <span class="nb">pwd</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir11.png"><img alt="./img/mkdir11.png" class="align-center" src="../../../_images/mkdir11.png" style="width: 700px;" /></a>
+<p>Es evidente que <code class="docutils literal notranslate"><span class="pre">./p1/p2/p3/p4/p5</span></code> también significa <code class="docutils literal notranslate"><span class="pre">/Users/j/taller_unix/3_manejo_terminal/prueba/p1/p2/p3/p4/p5</span></code>, ya que solo son dos formas de especificar un directorio: realtiva y absoluta. Ahora, regresemos a <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code> de manera relativa. Usamos 5 veces <code class="docutils literal notranslate"><span class="pre">../</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ../../../../..
+$ <span class="nb">pwd</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir12.png"><img alt="./img/mkdir12.png" class="align-center" src="../../../_images/mkdir12.png" style="width: 700px;" /></a>
+<p>Podemos borrar toda esta colección así:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ rm -r p1
+</pre></div>
+</div>
+<div id="ejercicio4_terminal"/>
+</div>
+<div class="section" id="ejercicio-renombrar-archivos-y-copiar-archivos">
+<h2><span class="section-number">5.7. </span><em>Ejercicio: Renombrar archivos y copiar archivos</em><a class="headerlink" href="#ejercicio-renombrar-archivos-y-copiar-archivos" title="Permalink to this headline">¶</a></h2>
+<p>A veces solo queremos renombrar un archivo. Esto se puede lograr mediante el comando</p>
+<p><code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">[nombre</span> <span class="pre">viejo]</span> <span class="pre">[nombre</span> <span class="pre">nuevo]</span></code></p>
+<p>Es importante usar directorios, porque <code class="docutils literal notranslate"><span class="pre">mv</span></code> trabaja con directorios. Usemos relativos porque es más fácil. Creemos un archivo Markdown renombrémoslo con un nombre bonito:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ touch nombre_feo.md
+$ ls -la
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir13.png"><img alt="./img/mkdir13.png" class="align-center" src="../../../_images/mkdir13.png" style="width: 700px;" /></a>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mv ./nombre_feo.md ./nombre_bonito.md 
+$ ls -la
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir14.png"><img alt="./img/mkdir14.png" class="align-center" src="../../../_images/mkdir14.png" style="width: 700px;" /></a>
+<p>Ahora, usemos el comando <code class="docutils literal notranslate"><span class="pre">cp</span></code> para crear una copia de este archivo. Este comando es similar a <code class="docutils literal notranslate"><span class="pre">mv</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">[nombre</span> <span class="pre">viejo]</span> <span class="pre">[nombre</span> <span class="pre">nuevo]</span></code></p>
+<p>Primero lo copiamos en la misma carpeta. <strong>Hay que renombrarlo</strong>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ cp nombre_bonito.md ./nombre_bonito_2.md
+$ ls -la
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir15.png"><img alt="./img/mkdir15.png" class="align-center" src="../../../_images/mkdir15.png" style="width: 700px;" /></a>
+<p>Podemos copiarlo incluso dentro de una carpeta. Si no vamos a generar un duplicado en la misma carpeta no es necesario cambiar el nombre. Podemos solo especificar el directorio de destino.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir nueva_carpeta
+$ ls
+$ cp nombre_bonito.md ./nueva_carpeta
+$ ls ./nueva_carpeta
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/mkdir16.png"><img alt="./img/mkdir16.png" class="align-center" src="../../../_images/mkdir16.png" style="width: 700px;" /></a>
+<p>Podemos borrar todo el contenido de <code class="docutils literal notranslate"><span class="pre">./prueba</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ rm *.md
+$ rm -r nueva_carpeta
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/03_Manejo_terminal"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="3_comandos.html" title="previous page"><span class="section-number">4. </span>Comandos en la <code class="docutils literal notranslate"><span class="pre">shell</span></code></a>
+    <a class='right-next' id="next-link" href="5_wildcards.html" title="next page"><span class="section-number">6. </span>Wildcards y Streams</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

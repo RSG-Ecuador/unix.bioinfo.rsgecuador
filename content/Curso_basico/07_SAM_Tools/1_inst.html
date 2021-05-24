@@ -1,0 +1,770 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Instalación de herramientas &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="3. Descarga de secuencias" href="2_dwnl.html" />
+    <link rel="prev" title="1. Resumen" href="0_Resumen.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/07_SAM_Tools/1_inst.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/07_SAM_Tools/1_inst.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#samtools-bcftools-htslib">
+   2.1. samtools, bcftools, htslib
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bwa">
+   2.2. BWA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sra-command-line-tools">
+   2.3. SRA Command Line Tools
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comentarios-finales">
+   2.4. Comentarios finales
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="instalacion-de-herramientas">
+<h1><span class="section-number">2. </span>Instalación de herramientas<a class="headerlink" href="#instalacion-de-herramientas" title="Permalink to this headline">¶</a></h1>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Antes asegurate de tener un compilador como <code class="docutils literal notranslate"><span class="pre">gcc</span></code> y librerías del lenguaje de programación C.</p>
+</div>
+<p>Para Ubuntu debes usar los comandos:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ sudo apt update
+$ sudo apt install build-essential
+$ sudo apt-get install autoconf automake make gcc perl zlib1g-dev libbz2-dev liblzma-dev libcurl4-gnutls-dev libssl-dev libncurses5-dev libncursesw5-dev
+$ gcc --version
+</pre></div>
+</div>
+<p>Si estás usando una MacOS instala las herramientas de línea de comandos sin instalar XCode:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ xcode-select --install
+$ gcc --version
+</pre></div>
+</div>
+<div class="section" id="samtools-bcftools-htslib">
+<h2><span class="section-number">2.1. </span>samtools, bcftools, htslib<a class="headerlink" href="#samtools-bcftools-htslib" title="Permalink to this headline">¶</a></h2>
+<p>Estas 3 herramientas permiten a los usuarios manipular datos producidos por métodos de scuenciación de ADN de alto rendimiento. Son librerías de funciones escritas en C que pueden utilizarse desde línea de comandos. Hay muchas opciones posibles para analizar la data. En esta unidad daremos como ejemplo un protocolo estándar de alineamiento de ADN y variant calling. Para descargar los 3 archivos ve a este url <a class="reference external" href="http://www.htslib.org/download/">htslib</a>. Si prefieres</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ wget https://github.com/samtools/samtools/releases/download/1.12/samtools-1.12.tar.bz2
+$ wget https://github.com/samtools/bcftools/releases/download/1.12/bcftools-1.12.tar.bz2
+$ wget https://github.com/samtools/htslib/releases/download/1.12/htslib-1.12.tar.bz2
+</pre></div>
+</div>
+<p>Nota que están comprimidas por <code class="docutils literal notranslate"><span class="pre">bz2</span></code>. Descomprímelas en tu directorio <code class="docutils literal notranslate"><span class="pre">~/Downloads</span></code> y mira cómo se llaman las carpetas resultantes:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/Downloads
+$ tar -xf samtools-1.12.tar.bz2
+$ tar -xf bcftools-1.12.tar.bz2
+$ tar -xf htslib-1.12.tar.bz2
+$ ls -l
+</pre></div>
+</div>
+<p>Si deseas puedes ver las instrucciones de instalación en la página web. De todas maneras las colocamos aquí. Mostramos el ejemplo con samtools, pero debes hacer lo mismo para el resto en una nueva carpeta dentro de <code class="docutils literal notranslate"><span class="pre">/usr/local/</span></code>. Por ejemplo, abajo verás que hemos instalado samtools en <code class="docutils literal notranslate"><span class="pre">/usr/local/samtools</span></code>. Podrías instalar bcftools en <code class="docutils literal notranslate"><span class="pre">/usr/local/bcftools</span></code> y htslib en <code class="docutils literal notranslate"><span class="pre">/usr/local/htslib</span></code>. Usaremos make, que recién aprendimos.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> samtools-1.12
+$ ./configure --prefix<span class="o">=</span>/usr/local/samtools
+$ make
+$ sudo make install
+</pre></div>
+</div>
+<p>Ahora hay que especificar donde se encuentra nuestro software utilizando la variable de ambiente <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. Abre tu archivo <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> si eres Linux o <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> si eres MacOS con <code class="docutils literal notranslate"><span class="pre">vim</span></code> y escribe <strong>la ubicación de la carpeta con binarios, donde están todas las funciones</strong>. Como ejemplo lo haremos para samtools, pero debes hacerlo para las otras igualmente. Abre con <code class="docutils literal notranslate"><span class="pre">vim</span></code> o <code class="docutils literal notranslate"><span class="pre">nano</span></code> el archivo <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> en Ubuntu o <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> en MacOS y escribe este texto al final del archivo (lo mismo para los otros programas). Guarda antes de salir:</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span># SAMTOOLS
+export PATH<span class="p">=</span><span class="s2">&quot;/usr/local/samtools/bin:$PATH&quot;</span>
+</pre></div>
+</div>
+<p>En <code class="docutils literal notranslate"><span class="pre">vim</span></code> se ve de esta manera.</p>
+<a class="reference internal image-reference" href="../../../_images/vim.png"><img alt="./img/vim.png" class="align-center" src="../../../_images/vim.png" style="width: 650px;" /></a>
+<p>Prueba que todo lo que has instalado funcione llamando a cada herramienta. Samtools por ejemplo mostrará este resultado. <strong>Puedes usar cualquier programa dentro del directorio <code class="docutils literal notranslate"><span class="pre">/usr/local/samtools/bin</span></code>. Nosotros usamos <em>samtools</em></strong>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls /usr/local/samtools/bin
+$ which samtools
+$ samtools
+
+Program: samtools <span class="o">(</span>Tools <span class="k">for</span> alignments <span class="k">in</span> the SAM format<span class="o">)</span>
+Version: <span class="m">1</span>.12 <span class="o">(</span>using htslib <span class="m">1</span>.12<span class="o">)</span>
+
+Usage:   samtools &lt;command&gt; <span class="o">[</span>options<span class="o">]</span>
+
+Commands:
+  -- Indexing
+     dict           create a sequence dictionary file
+     faidx          index/extract FASTA
+     fqidx          index/extract FASTQ
+     index          index alignment
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="bwa">
+<h2><span class="section-number">2.2. </span>BWA<a class="headerlink" href="#bwa" title="Permalink to this headline">¶</a></h2>
+<p>BWA es un alineador de secuencias que permite tomar un genoma de referencia y mapear varias secuencias fastq. Si deseas ver las instrucciones por tu cuenta, el link es <a class="reference external" href="http://bio-bwa.sourceforge.net">este</a>, pero igual las colocamos resumidas aquí. Las aplicaciones son muchas, pero trataremos de usar lecturas fastq que no sean muy pesadas, como el genoma del SARS-CoV-2. La instalación de BWA es similar, lo que debes hacer es descargar el instalador, descromprimirlo, correr <code class="docutils literal notranslate"><span class="pre">make</span></code> y actualizar <code class="docutils literal notranslate"><span class="pre">PATH</span></code>. Si eres MacOS actualiza <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code>. S</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /usr/local
+$ sudo wget -O bwa-0.7.17.tar.bz2 https://sourceforge.net/projects/bio-bwa/files/latest/download
+$ sudo tar -xf bwa-0.7.17.tar.bz2
+$ sudo rm bwa-0.7.17.tar.bz2
+$ <span class="nb">cd</span> bwa-0.7.17 
+$ sudo make
+</pre></div>
+</div>
+<p>Abre con <code class="docutils literal notranslate"><span class="pre">vim</span></code> o <code class="docutils literal notranslate"><span class="pre">nano</span></code> el archivo <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> en Ubuntu o <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> en MacOS y escribe este texto (lo mismo para los otros programas). Guarda antes de salir:</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span># BWA PATH
+export PATH<span class="p">=</span><span class="s2">&quot;/usr/local/bwa-0.7.17:$PATH&quot;</span>
+</pre></div>
+</div>
+<p>Ahora ejecuta esto:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> ~/.bashrc
+$ which bwa
+$ bwa 
+
+Program: bwa <span class="o">(</span>alignment via Burrows-Wheeler transformation<span class="o">)</span>
+Version: <span class="m">0</span>.7.17-r1188
+Contact: Heng Li &lt;lh3@sanger.ac.uk&gt;
+
+Usage:   bwa &lt;command&gt; <span class="o">[</span>options<span class="o">]</span>
+
+Command: index         index sequences <span class="k">in</span> the FASTA format
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="sra-command-line-tools">
+<h2><span class="section-number">2.3. </span>SRA Command Line Tools<a class="headerlink" href="#sra-command-line-tools" title="Permalink to this headline">¶</a></h2>
+<p>Sequence Read Archive (SRA) es una base de datos de secuenciación de nueva generación. La usaremos para hacer queries a la base de datos y descargar secuencias fastq. La instalación puede ser un poco larga. El sotfware es precompilado, entonces solo es necesario descargarlo y estará listo para usar. La documentación se encuentra <a class="reference external" href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software">aquí</a>, pero puedes seguir los pasos resumidos de este libro también.</p>
+<p>Si usas <em>Ubuntu</em>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /usr/local
+$ sudo wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.11.0/sratoolkit.2.11.0-ubuntu64.tar.gz 
+$ sudo tar -xzvf sratoolkit.2.11.0-ubuntu64.tar.gz
+$ sudo rm sratoolkit.2.11.0-ubuntu64.tar.gz
+</pre></div>
+</div>
+<p>Ahora abre con <code class="docutils literal notranslate"><span class="pre">vim</span></code> o <code class="docutils literal notranslate"><span class="pre">nano</span></code> el archivo <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> y escribe este texto al final del archivo. Guarda  antes de salir:</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span># SRA TOOLKIT
+export PATH<span class="p">=</span><span class="s2">&quot;/usr/local/sratoolkit.2.11.0-ubuntu64/bin:$PATH&quot;</span>
+</pre></div>
+</div>
+<p>Si usas <em>MacOS</em>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /usr/local
+$ sudo wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.11.0/sratoolkit.2.11.0-mac64.tar.gz
+$ sudo tar -xzvf sratoolkit.2.11.0-mac64.tar.gz
+$ sudo rm sratoolkit.2.11.0-mac64.tar.gz
+</pre></div>
+</div>
+<p>Ahora abre con <code class="docutils literal notranslate"><span class="pre">vim</span></code> o <code class="docutils literal notranslate"><span class="pre">nano</span></code> el archivo <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> y escribe este texto al final del archivo. Guarda antes de salir:</p>
+<div class="highlight-vim notranslate"><div class="highlight"><pre><span></span># SRA TOOLKIT
+export PATH<span class="p">=</span><span class="s2">&quot;/usr/local/sratoolkit.2.11.0-mac64/bin:$PATH&quot;</span>
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>No olvides de actualizar la Terminal</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> ~/.zshrc
+</pre></div>
+</div>
+<p>Ahora deberás configurar este software. Lo que te pedirá es ubicar el directorio de descarga para tus secuencias. Puedes ver las instrucciones de la configuración <a class="reference external" href="https://github.com/ncbi/sra-tools/wiki/03.-Quick-Toolkit-Configuration">aquí</a>, pero también recomendamos que hagas lo siguiente. Copia la dirección que sale después del comando <code class="docutils literal notranslate"><span class="pre">pwd</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ mkdir ~/Documents/ncbi_sra
+$ <span class="nb">cd</span> ~/Documents/ncbi_sra
+$ <span class="nb">pwd</span>
+$ vdb-config -i
+</pre></div>
+</div>
+<p>Ahora saldrá esta ventana. Como puedes ver debes navegar hacia la pestaña <code class="docutils literal notranslate"><span class="pre">CACHE</span></code> y en el campo <code class="docutils literal notranslate"><span class="pre">select</span> <span class="pre">directory</span></code> debes pegar la dirección que acabaste de copiar. Luego guarda los cambios. El campo <code class="docutils literal notranslate"><span class="pre">process-local</span></code> debería agregarse solo luego de agregar el primer directorio.</p>
+<a class="reference internal image-reference" href="../../../_images/warning3.png"><img alt="./img/warning3.png" class="align-center" src="../../../_images/warning3.png" style="width: 750px;" /></a>
+<p>Ahora verifica que esté instalado.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ fastq-dump --help
+
+Usage: fastq-dump <span class="o">[</span> options <span class="o">]</span> <span class="o">[</span> accessions<span class="o">(</span>s<span class="o">)</span>... <span class="o">]</span>
+
+Parameters:
+
+  accessions<span class="o">(</span>s<span class="o">)</span>                    list of accessions to process
+
+
+Options:
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="comentarios-finales">
+<h2><span class="section-number">2.4. </span>Comentarios finales<a class="headerlink" href="#comentarios-finales" title="Permalink to this headline">¶</a></h2>
+<p>Si tienes MacOS es posible que debas usar comandos en directorios protegidos, para lo cual es necesario usar el comando <code class="docutils literal notranslate"><span class="pre">sudo</span></code>, como lo hicimos arriba. En Ubuntu no suele ser un problema. Luego, cuando uses los comandos en MacOS, puede ser que la computadora te pida permisos de seguridad de sistema porque MacOS es un sistema operativo bastante seguro y evita que el usuario instale malware o software de desarrolladores no autorizados oficialmente. La ventana puede lucir como esta:</p>
+<a class="reference internal image-reference" href="../../../_images/warning1.png"><img alt="./img/warning1.png" class="align-center" src="../../../_images/warning1.png" style="width: 350px;" /></a>
+<p>Para arreglarlo solamente debes ir a preferencias del sistema y en la pestaña de Seguridad y Privacidad, desbloquear el Firewall y permitir la ejecución del software. Probablemente debas hacerlo varias veces, pero esta bien.</p>
+<a class="reference internal image-reference" href="../../../_images/warning2.png"><img alt="./img/warning2.png" class="align-center" src="../../../_images/warning2.png" style="width: 650px;" /></a>
+<p>¡Hemos utilizado varios de los comandos previamente estudiados como <code class="docutils literal notranslate"><span class="pre">make</span></code>, <code class="docutils literal notranslate"><span class="pre">wget</span></code>, <code class="docutils literal notranslate"><span class="pre">cd</span></code>, <code class="docutils literal notranslate"><span class="pre">tar</span></code> y <code class="docutils literal notranslate"><span class="pre">echo</span></code> para hacer muchas cosas sencillas! Ya entiendes mejor cómo manejar la línea de comandos.</p>
+<a class="reference internal image-reference" href="../../../_images/gb.jpeg"><img alt="./img/gb.jpeg" class="align-center" src="../../../_images/gb.jpeg" style="width: 350px;" /></a>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/07_SAM_Tools"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="0_Resumen.html" title="previous page"><span class="section-number">1. </span>Resumen</a>
+    <a class='right-next' id="next-link" href="2_dwnl.html" title="next page"><span class="section-number">3. </span>Descarga de secuencias</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

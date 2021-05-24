@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Ejemplos generales y con enfoque en Bioinformática &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="5. Respuestas ejercicios deber" href="4_Respuestas_ejercicios.html" />
+    <link rel="prev" title="3. Estructura de scripts y sintaxis AWK" href="2_Estructura_programas_sintax_awk.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_avanzado/01_AWK/3_Ejemplos_awk.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_avanzado/01_AWK/3_Ejemplos_awk.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#archivos-para-este-tutorial">
+   4.1. Archivos para este tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos-de-scripts-de-awk-solo-con-patrones">
+   4.2. Ejemplos de scripts de AWK solo con patrones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos-de-scripts-de-awk-solo-con-acciones">
+   4.3. Ejemplos de scripts de AWK solo con acciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos-de-scripts-de-awk-con-patrones-acciones-y-bloques-begin">
+   4.4. Ejemplos de scripts de AWK con patrones, acciones y bloques BEGIN
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos-de-scripts-de-awk-con-patrones-acciones-y-bloques-begin-y-end">
+   4.5. Ejemplos de scripts de AWK con patrones, acciones, y bloques BEGIN y END
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   4.6. Material suplementario
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="ejemplos-generales-y-con-enfoque-en-bioinformatica">
+<h1><span class="section-number">4. </span>Ejemplos generales y con enfoque en Bioinformática<a class="headerlink" href="#ejemplos-generales-y-con-enfoque-en-bioinformatica" title="Permalink to this headline">¶</a></h1>
+<p>En esta parte veremos algunos ejemplos generales y otros con enfoque en Bioinformática aplicando las estructuras y sintaxis de AWK.</p>
+<div class="warning admonition">
+<p class="admonition-title">Advertencia</p>
+<p>En este tutorial usaremos la herramienta <em>gawk</em>, que viene instalada por defecto en la mayoría de distribuciones de GNU/Linux. Puede que algunos de los comandos usados con esta herramienta no sean compatibles con otras versiones del programa usadas en MacOS, por lo que les recomendamos instalar <em>gawk</em> usando el gestor de paquetes <em>brew</em>, cuyas indicaciones de instalación se encuentran en el siguiente <a class="reference external" href="https://formulae.brew.sh/formula/gawk">link</a>.</p>
+</div>
+<div class="section" id="archivos-para-este-tutorial">
+<h2><span class="section-number">4.1. </span>Archivos para este tutorial<a class="headerlink" href="#archivos-para-este-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>En este tutorial usaremos algunos de los archivos que se encuentran en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del <a class="reference external" href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador">repositorio de Github</a>, por lo que si no poseen este directorio, descarguen el repositorio de GitHub y copien la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> a su directorio de trabajo. En todos los ejercicios asumiremos que están trabajando dentro de la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code>, por lo que no usamos ningún path relativo para trabajar con los archivos.</p>
+</div>
+<div class="section" id="ejemplos-de-scripts-de-awk-solo-con-patrones">
+<h2><span class="section-number">4.2. </span>Ejemplos de scripts de AWK solo con patrones<a class="headerlink" href="#ejemplos-de-scripts-de-awk-solo-con-patrones" title="Permalink to this headline">¶</a></h2>
+<p>Utilizando la estructura de scripts de AWK solo con patrones, su funcionamiento es similar al comando <a class="reference external" href="https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/4_Grep.html">grep</a>, que vimos en un tema anterior.</p>
+<p>Por ejemplo, si queremos imprimir todos los headers de las secuencias del archivo <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code> con AWK podemos usar el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;/&gt;/&#39;</span> sul_genomas.fasta
+</pre></div>
+</div>
+<p>Por otra parte, si queremos imprimir las líneas que contienen información del aminoácido CYS del archivo <code class="docutils literal notranslate"><span class="pre">3c5x.pdb</span></code> con AWK, usaríamos el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;/CYS/&#39;</span> 3c5x.pdb
+</pre></div>
+</div>
+<p>En el resultado del comando anterior se observa se imprimen líneas que no corresponden a la información de las coordenadas de los átomos, que sería lo deseado. Para obtener la información solamente de los átomos podemos modificar la regex de la siguiente forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;/^ATOM.*CYS/&#39;</span> 3c5x.pdb
+</pre></div>
+</div>
+<p>En lugar de patrones, también se pueden definir operaciones lógicas con las variables internas de AWK. Por ejemplo, para imprimir la línea 1000 del archivo <code class="docutils literal notranslate"><span class="pre">3c5x.pdb</span></code> podemos usar el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;NR == 1000&#39;</span> 3c5x.pdb
+</pre></div>
+</div>
+<p>O si queremos imprimir las líneas del archivo <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code> que tengan más de 3 espacios funcionaría el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;NF &gt; 3&#39;</span> sul_genomas.fasta
+</pre></div>
+</div>
+<p>Además, podemos usar un comando de AWK añadiendo algunos operadores <code class="docutils literal notranslate"><span class="pre">OR</span></code> para eliminar la información extra de un archivo pdb, como <code class="docutils literal notranslate"><span class="pre">3c5x.pdb</span></code>, de la siguiqnete forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;$1==&quot;ATOM&quot; || $1==&quot;HETATM&quot; || $1==&quot;TER&quot; || $1==&quot;END&quot;&#39;</span> 3c5x.pdb &gt; 3c5x_clean.pdb
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplos-de-scripts-de-awk-solo-con-acciones">
+<h2><span class="section-number">4.3. </span>Ejemplos de scripts de AWK solo con acciones<a class="headerlink" href="#ejemplos-de-scripts-de-awk-solo-con-acciones" title="Permalink to this headline">¶</a></h2>
+<p>También es posible definir un script de AWK solamente con acciones. Por ejemplo, podemos escribir el típico script de <strong>Hola mundo</strong> en AWK de la siguiente forma:</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Para ver el resultado debes pulsar la tecla <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, y para terminar la ejecución <code class="docutils literal notranslate"><span class="pre">Control+C</span></code>.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;{print &quot;Hola mundo!&quot;}&#39;</span> 
+</pre></div>
+</div>
+<p>Ahora les presentamos un ejemplo de piping usando el comando echo y AWK:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;Hola Sebastián&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{$2=&quot;reemplaza aquí tu nombre&quot;; print $0}&#39;</span>
+</pre></div>
+</div>
+<p>Para imprimir todas las líneas del archivo <code class="docutils literal notranslate"><span class="pre">secuencia1.fasta</span></code> con información del nombre de archivo, registro y número de registro, se puede usar el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;{print FILENAME, $0, NR}&#39;</span> secuencia1.fasta
+</pre></div>
+</div>
+<p>Finalmente, les presentamos un ejemplo para conocer la ubicación de todas las cuentas de usuario registradas en su SO, información disponible en el archivo <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code>:</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>El archivo <code class="docutils literal notranslate"><span class="pre">/etc/passwd</span></code> está disponible en SO GNU/Linux, por lo que es posible que para usuarios de MacOS el comando no funcione.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk -F: <span class="s1">&#39;{print $1 &quot; home at &quot; $6}&#39;</span> /etc/passwd
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplos-de-scripts-de-awk-con-patrones-acciones-y-bloques-begin">
+<h2><span class="section-number">4.4. </span>Ejemplos de scripts de AWK con patrones, acciones y bloques BEGIN<a class="headerlink" href="#ejemplos-de-scripts-de-awk-con-patrones-acciones-y-bloques-begin" title="Permalink to this headline">¶</a></h2>
+<p>Otra forma de imprimir la información de los headers de las secuencias del archivo <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code> con AWK sería especificando el separador de registros (<code class="docutils literal notranslate"><span class="pre">RS</span></code>) en un bloque <code class="docutils literal notranslate"><span class="pre">BEGIN</span></code>, de la siguiente forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;BEGIN {RS=&quot;&gt;&quot;} {print $1, $2, NR}&#39;</span> sul_genomas.fasta
+</pre></div>
+</div>
+<p>De esta forma, podemos trabajar de forma más eficiente con la información de este archivo. Por ejemplo, para imprimir el ID de la cepa <code class="docutils literal notranslate"><span class="pre">OLIH</span></code> de Candidatus Sulcia muelleri podría usar los siguientes comandos:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;BEGIN{RS=&quot;&gt;&quot;} /OLIH/ {print $1}&#39;</span> sul_genomas.fasta
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;BEGIN{RS=&quot;&gt;&quot;} $6 == &quot;OLIH&quot; {print $1}&#39;</span> sul_genomas.fasta
+</pre></div>
+</div>
+<p>Por otra parte, si quisiera obtener la secuencia solamente de la cepa <code class="docutils literal notranslate"><span class="pre">TETUND</span></code> de Candidatus Sulcia muelleri se aplicaría el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;BEGIN{RS=&quot;&gt;&quot;} $6 ==&quot;TETUND,&quot; {print $0}&#39;</span> sul_genomas.fasta
+</pre></div>
+</div>
+<p>Ahora, si queremos verifcar el número de veces que se repite el motivo <strong>CXXXAAA</strong> en la secuencia de la cepa <code class="docutils literal notranslate"><span class="pre">OLIH</span></code> de Candidatus Sulcia muelleri podemos usar el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;BEGIN{RS=&quot;&gt;&quot;} $6 == &quot;OLIH&quot;&#39;</span> sul_genomas.fasta <span class="p">|</span> gawk <span class="s1">&#39;/C...AAA/{x++}END{print x}&#39;</span>
+</pre></div>
+</div>
+<p>Y si queremos conocer el número de línea y los nucleótidos de las líneas que coinciden con el motivo <strong>CXXXAAA</strong>, usamos el siguien código:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;BEGIN{RS=&quot;&gt;&quot;} $6 == &quot;OLIH&quot;&#39;</span> sul_genomas.fasta <span class="p">|</span> gawk <span class="s1">&#39;/C...AAA/{print NR, $0}&#39;</span>
+</pre></div>
+</div>
+<p>También podemos especificar los caracteres <code class="docutils literal notranslate"><span class="pre">ATOM</span></code> como separador de registros para imprimir información específica sobre los átomos del archivo <code class="docutils literal notranslate"><span class="pre">3c5x.pdb</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;BEGIN {RS=&quot;ATOM&quot;} {print $1, $2, NR}&#39;</span> 3c5x.pdb
+</pre></div>
+</div>
+<p>Por ejemplo, para imprimir el nombre del aminoácido, la cadena proteica, y la inicial del elemento de todos los átomos del archivo <code class="docutils literal notranslate"><span class="pre">3c5x.pdb</span></code>, podemos usar el siguien código:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;BEGIN {RS=&quot;ATOM&quot;} {print $3, $4, $11}&#39;</span> 3c5x.pdb
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplos-de-scripts-de-awk-con-patrones-acciones-y-bloques-begin-y-end">
+<h2><span class="section-number">4.5. </span>Ejemplos de scripts de AWK con patrones, acciones, y bloques BEGIN y END<a class="headerlink" href="#ejemplos-de-scripts-de-awk-con-patrones-acciones-y-bloques-begin-y-end" title="Permalink to this headline">¶</a></h2>
+<p>Para determinar la longitud de una secuencia de nucleótidos con AWK, a partir de un string excrito con el comando echo, podemos usar el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s1">&#39;atattGAATTCTAGCACATACTAACGGACC&#39;</span> <span class="p">|</span> awk <span class="s1">&#39;END{print $0, &quot;tiene&quot;, length($0), &quot;nt de longitud&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>Podemos usar una idea similar para determinar el tamaño de la secuencia de la cepa <code class="docutils literal notranslate"><span class="pre">OLIH</span></code> de Candidatus Sulcia muelleri del archivo <code class="docutils literal notranslate"><span class="pre">sul_genomas.fasta</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;BEGIN{RS=&quot;&gt;&quot;} $6 == &quot;OLIH&quot;&#39;</span> sul_genomas.fasta <span class="p">|</span> sed <span class="s1">&#39;1d&#39;</span> <span class="p">|</span> gawk <span class="s1">&#39;{sum=sum+length($0)} END{print &quot;Secuencia de cepa OLIH de Candidatus Sulcia muelleri tiene&quot;, sum, &quot;nt de longitud&quot;}&#39;</span>
+</pre></div>
+</div>
+<p>Además, podemos usar un comando de AWK para verificar el número de procesadores de nuestra computadora, usando la información del archivo <code class="docutils literal notranslate"><span class="pre">/proc/cpuinfo</span></code>, de la isguiente forma:</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>El archivo <code class="docutils literal notranslate"><span class="pre">/proc/cpuinfo</span></code> está disponible en SO GNU/Linux, por lo que es posible que para usuarios de MacOS este comando no funcione.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gawk <span class="s1">&#39;/^processor/ {n++} END{ print &quot;Esta computadora tiene&quot;, n, &quot;procesadores&quot;}&#39;</span> /proc/cpuinfo 
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota importante</p>
+<p>En los ejemplos presentados en este capítulo no usamos algunas estructuras de programación importantes como condicionales, bucles, y funciones, ya que esto lo veremos en detalle en el tema de Bash. Luego de revisar los temas de estructuras de programación en Bash ustedes podrán aplicarlos sin problemas en AWK.</p>
+</div>
+</div>
+<div class="section" id="material-suplementario">
+<h2><span class="section-number">4.6. </span>Material suplementario<a class="headerlink" href="#material-suplementario" title="Permalink to this headline">¶</a></h2>
+<p>La mayoría de los contenidos de esta parte se obtuvieron de la documentación oficial de <em>GNU</em>, que pueden acceder con el siguiente <a class="reference external" href="https://www.gnu.org/software/gawk/manual/gawk.html">link</a> y del manual del Curso avanzado de programación AWK y Bash para bioinformática y biocómputo en sistemas GNU/Linux del profesor Pablo Vinuesa de la UNAM, que pueden encontrar en este <a class="reference external" href="https://vinuesa.github.io/intro2linux/index.html">link</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_avanzado/01_AWK"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="2_Estructura_programas_sintax_awk.html" title="previous page"><span class="section-number">3. </span>Estructura de scripts y sintaxis AWK</a>
+    <a class='right-next' id="next-link" href="4_Respuestas_ejercicios.html" title="next page"><span class="section-number">5. </span>Respuestas ejercicios deber</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

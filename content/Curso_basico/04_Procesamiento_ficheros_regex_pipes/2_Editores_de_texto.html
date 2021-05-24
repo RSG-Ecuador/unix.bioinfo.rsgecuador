@@ -1,0 +1,789 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. Editores de texto &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="4. Expresiones regulares (regex)" href="3_Expresiones_regulares.html" />
+    <link rel="prev" title="2. Archivos y formatos comunes en Bioinformática" href="1_Archivos_formatos_comunes_Bioinformatica.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-un-editor-de-texto">
+   3.1. ¿Qué es un editor de texto?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#editores-de-texto-de-cli">
+   3.2. Editores de texto de CLI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gnu-nano">
+     3.2.1. GNU Nano
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vi-vim-neovim-u-otra-variacion">
+     3.2.2. Vi/vim/neovim u otra variación
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#editores-de-texto-de-gui">
+   3.3. Editores de texto de GUI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyterlab">
+     3.3.1. JupyterLab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   3.4. Material suplementario
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="editores-de-texto">
+<h1><span class="section-number">3. </span>Editores de texto<a class="headerlink" href="#editores-de-texto" title="Permalink to this headline">¶</a></h1>
+<div id="seccion4_2_1"/>
+<div class="section" id="que-es-un-editor-de-texto">
+<h2><span class="section-number">3.1. </span>¿Qué es un editor de texto?<a class="headerlink" href="#que-es-un-editor-de-texto" title="Permalink to this headline">¶</a></h2>
+<p>Es un programa que permite visualizar y manipular archivos de texto. Hay una gran variedad de estos programas, que pueden ser de interfaz de línea de comandos (CLI) o de interfaz gráfica (GUI). A continuación veremos dos editores de CLI y uno de GUI, pero ustedes pueden escoger y explorar otros editores.</p>
+<div id="seccion4_2_2"/>
+</div>
+<div class="section" id="editores-de-texto-de-cli">
+<h2><span class="section-number">3.2. </span>Editores de texto de CLI<a class="headerlink" href="#editores-de-texto-de-cli" title="Permalink to this headline">¶</a></h2>
+<div id="seccion4_2_2_1"/>
+<div class="section" id="gnu-nano">
+<h3><span class="section-number">3.2.1. </span>GNU Nano<a class="headerlink" href="#gnu-nano" title="Permalink to this headline">¶</a></h3>
+<p>GNU nano es un editor de texto de CLI pequeño y amigable disponible para SO basados en UNIX. Además de la edición básica de texto, tiene funciones de deshacer/rehacer, colorear por sintaxis, búsqueda y reemplazo interactivos, sangría automática, números de línea, entre otras características.</p>
+<p>Para llamar al programa desde la terminal se debe escribir la palabra <code class="docutils literal notranslate"><span class="pre">nano</span></code> seguida del nombre del archivo que se quiere visualizar o modificar. Como ejemplo, usaremos el archivo <code class="docutils literal notranslate"><span class="pre">markdown</span> <span class="pre">(.md)</span></code> de la anterior sección, pero ustedes pueden usar cualquier otro archivo de texto:</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Recuerda que debes abrir una terminal en la carpeta en la que está el archivo.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nano 1_Archivos_formatos_comunes_Bioinformatica.md
+</pre></div>
+</div>
+<p>Con esto accedemos al programa, que se visualiza de la siguiente forma:</p>
+<a class="reference internal image-reference" href="../../../_images/nano.png"><img alt="./img/nano.png" class="align-center" src="../../../_images/nano.png" style="width: 800px;" /></a>
+<p>En este programa se puede añadir o eliminar texto de forma predeterminada, a diferencia de otros programas que tienen diferentes modos de uso como vi. Además, dentro del programa hay algunas opciones útiles para la lectura y modificación de archivos de texto. Para utilizar estas opciones se deben usar shorchuts de teclado, en las que el símbolo <code class="docutils literal notranslate"><span class="pre">^</span></code> significa la tecla <code class="docutils literal notranslate"><span class="pre">Control</span></code> o <code class="docutils literal notranslate"><span class="pre">Command</span></code> y la <code class="docutils literal notranslate"><span class="pre">M</span></code> es la tecla <code class="docutils literal notranslate"><span class="pre">Alt</span></code>. De esta forma, si queremos buscar la palabra <em>FASTA</em> en este archivo usamos el shorcut <code class="docutils literal notranslate"><span class="pre">Control-W</span></code>, añadimos la palabra y presionamos enter y el cursor se dirige al inicio de la palabra buscada, como se muestra a continuación:</p>
+<a class="reference internal image-reference" href="../../../_images/nano2.png"><img alt="./img/nano2.png" class="align-center" src="../../../_images/nano2.png" style="width: 800px;" /></a>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Noten que en la búsqueda de una palabra se pueden añadir algunas opciones mediante shorcuts como sensibilidad a mayúsculas, reemplazar texto, entre otras.</p>
+<p>Como se observa en la captura de pantalla del menú principal de nano, hay otros shorcuts que se pueden usar para justificar, cortar, y copiar texto; dirigirse a una línea específica; deshacer o rehacer cambios; entre otros.</p>
+</div>
+<p>Además, cuando se llama a nano desde la terminal se pueden añadir opciones que realizen diferentes acciones como hacer un respaldo del archivo si se lo modifica (<code class="docutils literal notranslate"><span class="pre">-B</span></code>), convertir tabuladores a espacio (<code class="docutils literal notranslate"><span class="pre">-E</span></code>), entre otros.</p>
+<p>Para salir del programa se debe usar el shorcut <code class="docutils literal notranslate"><span class="pre">Control-X</span></code>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Si quieren conocer más sobre este editor de texto les dejamos el siguiente <a class="reference external" href="https://www.nano-editor.org/dist/latest/nano.html">link</a> de su documentación oficial.</p>
+</div>
+<div id="seccion4_2_2_2"/>
+</div>
+<div class="section" id="vi-vim-neovim-u-otra-variacion">
+<h3><span class="section-number">3.2.2. </span>Vi/vim/neovim u otra variación<a class="headerlink" href="#vi-vim-neovim-u-otra-variacion" title="Permalink to this headline">¶</a></h3>
+<p>Vi es un editor de texto de CLI altamente configurable que permite crear y modificar cualquier archivo de texto de forma eficiente. Existen muchas versiones de este programa con mejoras en diferentes funcionalidades, incluyendo Vim (vi improved), Neovim, entre otros. En las versiones actuales de SO basados en Unix se usa por defecto Vim, pero el programa se llama desde la terminal como vi. Para verificar la versión de este programa se puede usar el siguiente comando desde la terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vi --version 
+</pre></div>
+</div>
+<p>Al igual que nano, para usar este programa desde la terminal se debe escribir la palabra <code class="docutils literal notranslate"><span class="pre">vi</span></code> seguida del nombre del archivo que se quiere visualizar o modificar. Como ejemplo, usaremos el archivo <code class="docutils literal notranslate"><span class="pre">markdown</span> <span class="pre">(.md)</span></code>  de la anterior sección:</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Recuerda que debes abrir una terminal en la carpeta en la que está el archivo.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vi 1_Archivos_formatos_comunes_Bioinformatica.md
+</pre></div>
+</div>
+<p>Con esto accedemos al programa, que se visualiza de la siguiente forma:</p>
+<a class="reference internal image-reference" href="../../../_images/vi1.png"><img alt="./img/vi1.png" class="align-center" src="../../../_images/vi1.png" style="width: 800px;" /></a>
+<p>A diferencia de nano, en vi existen diferentes modos de uso y no se puede añadir o eliminar texto de forma predeterminada. El modo predeterminado de vi es el de comandos, en el que se pueden usar las siguientes opciones:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Comando</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">gg</span></code></p></td>
+<td class="text-align:center"><p>Mueve el cursor al principio del archivo</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">G</span></code></p></td>
+<td class="text-align:center"><p>Mueve el cursor al final del archivo</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td class="text-align:center"><p>Mueve el cursor al principio de una línea</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">$</span></code></p></td>
+<td class="text-align:center"><p>Mueve el cur$or al final de la línea</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">w</span></code></p></td>
+<td class="text-align:center"><p>Mueve el cursor una palabra hacia adelante</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">b</span></code></p></td>
+<td class="text-align:center"><p>Mueve el cursor una palabra hacia atrás</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">yy</span></code></p></td>
+<td class="text-align:center"><p>Copiar una línea</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">dd</span></code></p></td>
+<td class="text-align:center"><p>Cortar una línea</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">p</span></code></p></td>
+<td class="text-align:center"><p>Pegar</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">u</span></code></p></td>
+<td class="text-align:center"><p>Deshacer</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">ctrl+r</span></code></p></td>
+<td class="text-align:center"><p>Pegar</p></td>
+</tr>
+</tbody>
+</table>
+<p>Para añadir o eliminar texto se debe usar el modo de inserción, que se puede acceder con los siguientes shorcuts de teclado:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Tecla</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">i</span></code></p></td>
+<td class="text-align:center"><p>Insertar texto al inicio de la línea</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td class="text-align:center"><p>Insertar texto en la posición actual</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">o</span></code></p></td>
+<td class="text-align:center"><p>insertar texto en una nueva línea</p></td>
+</tr>
+</tbody>
+</table>
+<p>Para regresar al como de comandos se debe usar la tecla <code class="docutils literal notranslate"><span class="pre">Esc</span></code>.</p>
+<p>Por ejemplo, si queremos buscar la palabra <em>FASTA</em> en este archivo debemos estar en el modo comandos, añadimos el símbolo <code class="docutils literal notranslate"><span class="pre">:</span></code> que permite escribir comandos, seguido de <code class="docutils literal notranslate"><span class="pre">/</span></code> y la palabra que buscamos, como se muestra a continuación:</p>
+<a class="reference internal image-reference" href="../../../_images/vi2.png"><img alt="./img/vi2.png" class="align-center" src="../../../_images/vi2.png" style="width: 800px;" /></a>
+<p>Así, el cursor se dirige al inicio de la palabra buscada. Además, se pueden usar expresiones regulares y otros comandos para reemplazar texto u otras operaciones, pero estos conocimientos están fuera del alcance de este tutorial, que es una breve introducción a vi.</p>
+<p>Para salir del programa el modo comandos debe estar activo, y se pueden usar las siguintes opciones:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Comando</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">q</span></code></p></td>
+<td class="text-align:center"><p>Salir</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">q!</span></code></p></td>
+<td class="text-align:center"><p>Salir sin guardar datos / archivo</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+<td class="text-align:center"><p>Guardar y salir</p></td>
+</tr>
+</tbody>
+</table>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Muchos programadores usan vi no solo como editor de texto, sino como un ambiente de desarrollo integrado (IDE) para programar en diferentes lenguajes, ya que tiene las ventajas de usar pocos recursos computacionales y su flexibilidad para adapatarse a las necesidades del programador. Por tanto, vi es una herramienta muy potente que merece un curso completo, pero este no es el objetivo del curso actual.</p>
+<p>Si quieren conocer más sobre este editor de texto les dejamos el siguiente <a class="reference external" href="https://www.vim.org/docs.php">link</a> de su documentación oficial. Además, les dejamos el link a una <a class="reference external" href="https://vim.rtorr.com/">cheatsheet de vi</a> muy útil.</p>
+</div>
+<div id="seccion4_2_3"/>
+</div>
+</div>
+<div class="section" id="editores-de-texto-de-gui">
+<h2><span class="section-number">3.3. </span>Editores de texto de GUI<a class="headerlink" href="#editores-de-texto-de-gui" title="Permalink to this headline">¶</a></h2>
+<div id="seccion4_2_3_1"/>
+<div class="section" id="jupyterlab">
+<h3><span class="section-number">3.3.1. </span>JupyterLab<a class="headerlink" href="#jupyterlab" title="Permalink to this headline">¶</a></h3>
+<p>Como aprendimos en la sección sobre <a class="reference internal" href="../02_JupyterLab/0_Resumen.html"><span class="doc std std-doc">JupyterLab</span></a>, esta herramienta se puede usar para visualizar archivos <code class="docutils literal notranslate"><span class="pre">markdown</span></code>, notebooks en formato <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> con código escrito en diferentes lenguajes de programación, y cualquier otro archivo de texto. Por tanto, esta es otra opción para visualizar y modificar archivos de texto.</p>
+<p>Al igual que con nano y vi, visualizaremos el archivo <code class="docutils literal notranslate"><span class="pre">markdown</span> <span class="pre">(.md)</span></code> de la anterior sección con esta herramienta. Para esto, debemos iniciar un servidor de jupyter-lab desde la terminal, y abrir el archivo deseado en este programa, como se observa en la siguiente captura:</p>
+<a class="reference internal image-reference" href="../../../_images/jupyterlab.png"><img alt="./img/jupyterlab.png" class="align-center" src="../../../_images/jupyterlab.png" style="width: 800px;" /></a>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Si quieren conocer más sobre este editor de texto les dejamos el siguiente <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/index.html">link</a> de su documentación oficial.</p>
+</div>
+<div id="seccion4_2_4"/>
+</div>
+</div>
+<div class="section" id="material-suplementario">
+<h2><span class="section-number">3.4. </span>Material suplementario<a class="headerlink" href="#material-suplementario" title="Permalink to this headline">¶</a></h2>
+<p>Existen muchos editores de texto de GUI disponibles para diferentes SO, como <a class="reference external" href="https://notepad-plus-plus.org/">Notepad++</a>, <a class="reference external" href="https://www.sublimetext.com/">Sublime</a>, entre otros, pero estos tienen la desventaja de que poseen ciertas características disponibles solamente en las versiones con costo. Una muy buena alternativa con licencia open source es <a class="reference external" href="https://www.geany.org/">Geany</a>, disponible para todos los SO.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/04_Procesamiento_ficheros_regex_pipes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="1_Archivos_formatos_comunes_Bioinformatica.html" title="previous page"><span class="section-number">2. </span>Archivos y formatos comunes en Bioinformática</a>
+    <a class='right-next' id="next-link" href="3_Expresiones_regulares.html" title="next page"><span class="section-number">4. </span>Expresiones regulares (<em>regex</em>)</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

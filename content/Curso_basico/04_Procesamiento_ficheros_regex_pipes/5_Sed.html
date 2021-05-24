@@ -1,0 +1,963 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6. Sed &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="7. Cut, sort" href="6_Cut_sort.html" />
+    <link rel="prev" title="5. Grep" href="4_Grep.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/02_Bash/3_bash.html">
+   4. Ciclos y funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_avanzado/03_Git_GitHub/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_basico/04_Procesamiento_ficheros_regex_pipes/5_Sed.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_basico/04_Procesamiento_ficheros_regex_pipes/5_Sed.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#archivo-para-este-tutorial">
+   6.1. Archivo para este tutorial
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-sed">
+   6.2. ¿Qué es sed?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#opciones-de-sed">
+   6.3. Opciones de sed
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#informacion-general-del-programa-version-help">
+     6.3.1. Información general del programa:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       --version,
+      </span>
+      <span class="pre">
+       --help
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resumen-de-opciones-mas-comunes-e-f-i-n-r">
+     6.3.2. Resumen de opciones más comunes:
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -e,
+      </span>
+      <span class="pre">
+       -f,
+      </span>
+      <span class="pre">
+       -i,
+      </span>
+      <span class="pre">
+       -n,
+      </span>
+      <span class="pre">
+       -r
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estructura-y-funcionamiento-del-script-de-sed">
+   6.4. Estructura y funcionamiento del script de sed
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comando-mas-comun-de-sed-s">
+   6.5. Comando más común de sed:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     s
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#otros-comandos-de-sed-comunes-d-p-n-i-a-c">
+   6.6. Otros comandos de sed comunes:
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     d,
+    </span>
+    <span class="pre">
+     p,
+    </span>
+    <span class="pre">
+     n,
+    </span>
+    <span class="pre">
+     i,
+    </span>
+    <span class="pre">
+     a,
+    </span>
+    <span class="pre">
+     c,
+    </span>
+    <span class="pre">
+     =
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#especificacion-de-posiciones">
+   6.7. Especificación de posiciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-suplementario">
+   6.8. Material suplementario
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="sed">
+<h1><span class="section-number">6. </span>Sed<a class="headerlink" href="#sed" title="Permalink to this headline">¶</a></h1>
+<p>En esta parte del curso estudiaremos la herramienta sed. Al igual que las partes de grep y regex, este tutorial tiene un enfoque general, sin aplicaciones en Bioinformática (lo que veremos más adelante).</p>
+<div class="note admonition">
+<p class="admonition-title">Nota importante</p>
+<p>En la mayoría de secciones existen preguntas y pequeños ejercicios, maracados con la etiqueta <code class="docutils literal notranslate"><span class="pre">Pregunta</span></code>, cuyas respuestas deben ser realizadas como deber de esta parte del curso. Debes guardar las respuestas en el <strong>Jupuyer notebook</strong> que debes entrengar en este capítulo y correr los comandos en las preguntas que esto sea posible.</p>
+</div>
+<p>Luego de la fecha de entrega del deber enviaremos las respuestas a los ejercicios de todas las secciones.</p>
+<div class="warning admonition">
+<p class="admonition-title">Advertencia</p>
+<p>En este tutorial usaremos la herramienta <em>GNU sed</em>, que viene instalada por defecto en la mayoría de distribuciones de GNU/Linux. Puede que algunos de los comandos usados con esta herramienta no sean compatibles con otras versiones del programa usadas en MacOS, por lo que les recomendamos instalar <em>GNU sed</em>. En este <a class="reference external" href="https://stackoverflow.com/questions/30003570/how-to-use-gnu-sed-on-mac-os-10-10-brew-install-default-names-no-longer-su">blog</a> se discute este tema.</p>
+</div>
+<div id="seccion4_5_0"/>
+<div class="section" id="archivo-para-este-tutorial">
+<h2><span class="section-number">6.1. </span>Archivo para este tutorial<a class="headerlink" href="#archivo-para-este-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>En este tutorial usaremos un archivo que tiene la versión completa de la canción <em>Contrapunto para Humano y Computadora</em> de la banda <em>El Cuarteto de Nos</em>.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Este documento se encuentra en la carpeta <code class="docutils literal notranslate"><span class="pre">_files</span></code> dentro del directorio raíz del repositorio de Github, y tiene el nombre <code class="docutils literal notranslate"><span class="pre">Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt</span></code>.</p>
+</div>
+<div id="seccion4_5_1"/>
+</div>
+<div class="section" id="que-es-sed">
+<h2><span class="section-number">6.2. </span>¿Qué es sed?<a class="headerlink" href="#que-es-sed" title="Permalink to this headline">¶</a></h2>
+<p>Sed es un editor de flujos de datos (<em>streams</em>) que permite filtrar y transformar texto de flujos de entrada, que pueden ser archivos o <a class="reference external" href="https://www.computerhope.com/jargon/s/stdin.htm"><em>stdin</em></a> derivados de <em>piping</em> (que veremos en detalle en la siguiente sección), lo que lo distingue de otros tipos de editores de texto de CLI o GUI.</p>
+<p>La sintaxis general de esta herramienta es de la siguiente forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed <span class="o">[</span>-opcion<span class="o">(</span>es<span class="o">)</span>...<span class="o">]</span> <span class="o">[</span>script<span class="o">]</span> <span class="o">[</span>archivo<span class="o">(</span>s<span class="o">)]</span>
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Si no se provee ningún archivo de entrada se busca en los contenidos del <a class="reference external" href="https://www.computerhope.com/jargon/s/stdin.htm"><em>(stdin)</em></a>. El <em>script</em> es el primer parámetro que no es una opción, que <em>sed</em> considera como tal si ninguna de las otras opciones especifica que se ejecute un script (si no se especifican las opciones <code class="docutils literal notranslate"><span class="pre">-e</span></code> ni <code class="docutils literal notranslate"><span class="pre">-f</span></code>).</p>
+</div>
+<div id="seccion4_5_2"/>
+</div>
+<div class="section" id="opciones-de-sed">
+<h2><span class="section-number">6.3. </span>Opciones de sed<a class="headerlink" href="#opciones-de-sed" title="Permalink to this headline">¶</a></h2>
+<div id="seccion4_5_2_1"/>
+<div class="section" id="informacion-general-del-programa-version-help">
+<h3><span class="section-number">6.3.1. </span>Información general del programa: <code class="docutils literal notranslate"><span class="pre">--version,</span> <span class="pre">--help</span></code><a class="headerlink" href="#informacion-general-del-programa-version-help" title="Permalink to this headline">¶</a></h3>
+<p>El comando <code class="docutils literal notranslate"><span class="pre">--version</span></code> se usa para imprimir en la terminal el número y algunas características de la versión de sed instalada en el SO; mientras que <code class="docutils literal notranslate"><span class="pre">--help</span></code> sirve para imrpimir información general del uso y las opciones de sed.</p>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p><strong>¿Cuál versión de sed tienes en tu SO?</strong></p>
+</div>
+<div id="seccion4_5_2_2"/>
+</div>
+<div class="section" id="resumen-de-opciones-mas-comunes-e-f-i-n-r">
+<h3><span class="section-number">6.3.2. </span>Resumen de opciones más comunes: <code class="docutils literal notranslate"><span class="pre">-e,</span> <span class="pre">-f,</span> <span class="pre">-i,</span> <span class="pre">-n,</span> <span class="pre">-r</span></code><a class="headerlink" href="#resumen-de-opciones-mas-comunes-e-f-i-n-r" title="Permalink to this headline">¶</a></h3>
+<p>Las opciones más comunes de GNU sed son las siguientes:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Opción</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">SCRIPT</span></code> o <code class="docutils literal notranslate"><span class="pre">---expression=SCRIPT</span></code></p></td>
+<td class="text-align:center"><p>Agregar los comandos en SCRIPT al conjunto de comandos que se ejecutarán mientras se procesa la entrada</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">SCRIPTFILE</span></code> o <code class="docutils literal notranslate"><span class="pre">--file=SCRIPTFILE</span></code></p></td>
+<td class="text-align:center"><p>Agregar los comandos contenidos en el archivo SCRIPTFILE al conjunto de comandos que se ejecutarán mientras se procesa la entrada</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-i[SUFFIX]</span></code> o <code class="docutils literal notranslate"><span class="pre">--in-place[=SUFFIX]</span></code></p></td>
+<td class="text-align:center"><p>Esta opción especifica que los archivos deben editarse in situ. Sed hace esto creando un archivo temporal y enviando la salida a este archivo en lugar de al <em>stdout</em>. Si se proporciona un SUFFIX, se crea un nombre de archivo con esta extensión como respaldo</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> o <code class="docutils literal notranslate"><span class="pre">--quiet</span></code></p></td>
+<td class="text-align:center"><p>De forma predeterminada, sed imprime el espacio del patrón al final de cada ciclo a través del script. Esto deshabilita la impresión automática, y sed solo produce salida cuando se le indica explícitamente a través del comando p</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-r</span></code> o <code class="docutils literal notranslate"><span class="pre">--regexp-extended</span></code></p></td>
+<td class="text-align:center"><p>Se usan expresiones regulares extendidas en lugar de expresiones regulares básicas</p></td>
+</tr>
+</tbody>
+</table>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Hay otras opciones de esta herramienta, que pueden revisar con detalle en el <a class="reference external" href="https://www.gnu.org/software/sed/manual/sed.html#sed-scripts">link</a> de la documentación oficial de <em>GNU sed</em>.</p>
+</div>
+<div id="seccion4_5_3"/>
+</div>
+</div>
+<div class="section" id="estructura-y-funcionamiento-del-script-de-sed">
+<h2><span class="section-number">6.4. </span>Estructura y funcionamiento del script de sed<a class="headerlink" href="#estructura-y-funcionamiento-del-script-de-sed" title="Permalink to this headline">¶</a></h2>
+<p>Todos los comandos de <em>sed</em> tienen la siguiente estructura básica:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>ADDR<span class="o">]</span>X<span class="o">[</span>FLAGS<span class="o">]</span>
+</pre></div>
+</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p>[ADDR] es la especificación de una posición en la que el programa editará las entradas, que puede ser el número de línea, una regex, o un rango de líneas. Esto es opcional</p></li>
+<li><p>X es un comando de una sola letra</p></li>
+<li><p>[FLAGS] son operaciones opcionales que el comando puede realizar</p></li>
+</ul>
+<p>Es posible juntar varias de estas estructuras en una sola secuencia de comandos, de la siguiente forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>ADDR1<span class="o">]</span>X<span class="o">[</span>XFLAGS<span class="o">]</span>
+<span class="o">[</span>ADDR2<span class="o">]</span>Y<span class="o">[</span>YFLAGS<span class="o">]</span>
+<span class="o">[</span>ADDR3<span class="o">]</span>Z<span class="o">[</span>ZFLAGS<span class="o">]</span>
+</pre></div>
+</div>
+<p>o también</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>ADDR<span class="o">]{</span>X<span class="o">[</span>XFLAGS<span class="o">]</span><span class="p">;</span>Y<span class="o">[</span>YFLAGS<span class="o">]</span><span class="p">;</span>Z<span class="o">[</span>ZFLAGS<span class="o">]}</span>
+</pre></div>
+</div>
+<p>Para el funcionamiento de <em>sed</em>, se debe considerar que esta herrameinta posee dos <em>buffers</em> de datos: el <em>espacio de patrones</em> y <em>espacio hold</em>, que inicialmente están vacíos.</p>
+<p>Entonces, <em>sed</em> realiza un ciclo en cada línea del archivo. Primero, se lee una línea del flujo de entrada, se eliminan los caracteres <code class="docutils literal notranslate"><span class="pre">\n</span></code>, y esto se coloca en el <em>espacio de patrones</em>, donde los comandos son ejecutados. [ADDR] es como un condicional, el comando solo se ejecuta si la condición se verifica antes de que se ejecute el comando. Cuando se llega al final de la secuencia de comandos, a menos que la opción <code class="docutils literal notranslate"><span class="pre">-n</span></code> esté en uso, el contenido del <em>espacio del patrones</em> se imprime en el <em>stdout</em> y se vuelve a agregar el caracter <code class="docutils literal notranslate"><span class="pre">\n</span></code> si se eliminó. Luego, el siguiente ciclo comienza para la siguiente línea de entrada.</p>
+<p>Así, se observa que el <em>espacio de patrones</em> se elimina entre dos ciclos; mientras que el <em>espacio hold</em> se mantiene.</p>
+<a class="reference internal image-reference" href="../../../_images/sed_workflow.jpeg"><img alt="./img/anaconda.png" class="align-center" src="../../../_images/sed_workflow.jpeg" style="width: 650px;" /></a>
+<div id="seccion4_5_4"/>
+</div>
+<div class="section" id="comando-mas-comun-de-sed-s">
+<h2><span class="section-number">6.5. </span>Comando más común de sed: <code class="docutils literal notranslate"><span class="pre">s</span></code><a class="headerlink" href="#comando-mas-comun-de-sed-s" title="Permalink to this headline">¶</a></h2>
+<p>El comando de sustitución <code class="docutils literal notranslate"><span class="pre">s</span></code> es el más usado debido a que tiene muchas opciones y funcionalidades. La forma general de este comando es <code class="docutils literal notranslate"><span class="pre">s/REGEXP/REPLACEMENT/[FLAGS]</span></code>, en la que se busca la expresión regular <code class="docutils literal notranslate"><span class="pre">REGEXP</span></code> en el contenido del <em>espacio de patrones</em>. Si existe la coincidencia, se reemplaza el patrón con lo que se coloca en <code class="docutils literal notranslate"><span class="pre">REPLACEMENT</span></code>. Los caracteres <code class="docutils literal notranslate"><span class="pre">/</span></code> pueden ser reemplazados por cualquier otro carácter.</p>
+<p>Con este comando se pueden usar algunos <code class="docutils literal notranslate"><span class="pre">[FLAGS]</span></code>, y entre los más comunes se encuentran:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Flag</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">g</span></code></p></td>
+<td class="text-align:center"><p>Se aplica el reemplazo a todas las coincidencias con la regex, no solo a la primera</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">NUMBER</span></code></p></td>
+<td class="text-align:center"><p>Solo se reemplaza un el número especificado de coincidencias de la regex. Si <code class="docutils literal notranslate"><span class="pre">g</span></code> y <code class="docutils literal notranslate"><span class="pre">NUMBER</span></code> se combinan, se ignoran las coincidencias antes del <code class="docutils literal notranslate"><span class="pre">NUMBER</span></code>, y luego se reemplazan todas las coincidencias desde el número especificado en adelante</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">w</span> <span class="pre">FILENAME</span></code></p></td>
+<td class="text-align:center"><p>Si se realizó la sustitución, se escribe el resultado en el archivo <code class="docutils literal notranslate"><span class="pre">FILENAME</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">i</span></code> o <code class="docutils literal notranslate"><span class="pre">I</span></code></p></td>
+<td class="text-align:center"><p>Hace que sed coincida con la regex de forma que no distinga entre mayúsculas y minúsculas</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">m</span></code> o <code class="docutils literal notranslate"><span class="pre">M</span></code></p></td>
+<td class="text-align:center"><p>Activa el modo multilínea de regex, con lo que los símbolos <code class="docutils literal notranslate"><span class="pre">^</span></code> y <code class="docutils literal notranslate"><span class="pre">s</span></code> coinciden con el inicio y fin de línea respectivamente</p></td>
+</tr>
+</tbody>
+</table>
+<p>Además, el comando <code class="docutils literal notranslate"><span class="pre">s</span></code> permite realizar algunas operaciones para convertir texto a mayúsculas y minúsculas:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Código</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\L</span></code></p></td>
+<td class="text-align:center"><p>Convertir el texto a minúsculas hasta que se encuentre una <code class="docutils literal notranslate"><span class="pre">\U</span></code> o <code class="docutils literal notranslate"><span class="pre">\E</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\l</span></code></p></td>
+<td class="text-align:center"><p>Convertir el siguiente caracter a minúscula</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\U</span></code></p></td>
+<td class="text-align:center"><p>Convertir el texto a mayúsculas hasta que se encuentre una <code class="docutils literal notranslate"><span class="pre">\L</span></code> o <code class="docutils literal notranslate"><span class="pre">\E</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\u</span></code></p></td>
+<td class="text-align:center"><p>Convertir el siguiente caracter a mayúscula</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">\E</span></code></p></td>
+<td class="text-align:center"><p>Detener la conversión de minúsculas y mayúsculas iniciada por <code class="docutils literal notranslate"><span class="pre">\L</span></code> o <code class="docutils literal notranslate"><span class="pre">\U</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Por ejemplo, observamos que en el texto de trabajo se repite varias veces la palabra <strong>computadora</strong>, pero en algunos casos empieza con mayúscula y en otros casos no. Por tanto, para que todas estas palabras comiencen con minúsculas podemos usar el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed <span class="s1">&#39;s/Computadora/computadora/g&#39;</span> Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+</pre></div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Advertencia</p>
+<p>Si corremos el comando de esta forma el resultado se imprime en la consola. Si se quiere modificar el archivo de trabajo de forma directa se puede usar la opción <code class="docutils literal notranslate"><span class="pre">-i</span></code>, pero se debe tener cuidado con esto porque los cambios son irreversibles.</p>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p>Ahora, <strong>¿Qué comando de sed podemos usar para reemplazar la fecha del archivo con la fecha del día de hoy, utilizando una regex general para fechas como la que vimos en el tema <a class="reference internal" href="3_Expresiones_regulares.html"><span class="doc std std-doc">3 sobre regex</span></a>?</strong> Debes considerar que en el comando sed no funcionan las abreviaciones de expresiones de corchetes como \d, \w, etc.</p>
+<p><strong>¿Qué comando de sed usarías para reemplazar la línea que empieza con la letra <code class="docutils literal notranslate"><span class="pre">O</span></code> y termina con <code class="docutils literal notranslate"><span class="pre">ver</span></code> por <code class="docutils literal notranslate"><span class="pre">Quizá</span> <span class="pre">no</span> <span class="pre">quiere</span> <span class="pre">observar</span></code>?</strong></p>
+<p><strong>¿Qué comando de sed usarías para sustituir todas las coincidencias de la palabra <code class="docutils literal notranslate"><span class="pre">Verso</span></code> por <code class="docutils literal notranslate"><span class="pre">Estrofa</span></code>?</strong></p>
+<p><strong>¿Qué comando de sed usarías para reemplazar el segundo signo <code class="docutils literal notranslate"><span class="pre">\</span></code> por <code class="docutils literal notranslate"><span class="pre">-</span></code>?</strong></p>
+</div>
+<div id="seccion4_5_5"/>
+</div>
+<div class="section" id="otros-comandos-de-sed-comunes-d-p-n-i-a-c">
+<h2><span class="section-number">6.6. </span>Otros comandos de sed comunes: <code class="docutils literal notranslate"><span class="pre">d,</span> <span class="pre">p,</span> <span class="pre">n,</span> <span class="pre">i,</span> <span class="pre">a,</span> <span class="pre">c,</span> <span class="pre">=</span></code><a class="headerlink" href="#otros-comandos-de-sed-comunes-d-p-n-i-a-c" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Comando</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">d</span></code> (eliminación)</p></td>
+<td class="text-align:center"><p>Se elimina el <em>espacio del patrones</em>, y se inicia inmediatamente el siguiente ciclo</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">p</span></code> (impresión)</p></td>
+<td class="text-align:center"><p>Se imprime el <em>espacio del patrones</em></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">n</span></code> (siguiente)</p></td>
+<td class="text-align:center"><p>Si la impresión automática no está deshabilitada, se imprime el <em>espacio del patrones</em> y, a continuación, se reemplaza el <em>espacio del patrones</em> con la siguiente línea de la entrada. Si no hay más entradas, sed sale sin procesar más comandos</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">TEXT</span></code> (insertar)</p></td>
+<td class="text-align:center"><p>Se inserta <code class="docutils literal notranslate"><span class="pre">TEXT</span></code> antes de una línea</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">TEXT</span></code> (añadir)</p></td>
+<td class="text-align:center"><p>Se añade <code class="docutils literal notranslate"><span class="pre">TEXT</span></code> después de una línea</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">TEXT</span></code> (cambiar)</p></td>
+<td class="text-align:center"><p>Se reemplaza líneas con <code class="docutils literal notranslate"><span class="pre">TEXT</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Por ejemplo, si queremos eliminar las líneas que contienen el título y número de los versos, podemos usar el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -r <span class="s1">&#39;/\[/d&#39;</span> Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+</pre></div>
+</div>
+<p>Y si queremos imprimir las líneas de los versos podemos usar el mismo comando pero con <code class="docutils literal notranslate"><span class="pre">p</span></code> en lugar del <code class="docutils literal notranslate"><span class="pre">d</span></code> y añadir la opción <code class="docutils literal notranslate"><span class="pre">-n</span></code>, de la siguiente forma:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -r -n <span class="s1">&#39;/\[/p&#39;</span> Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+</pre></div>
+</div>
+<p>Haz la prueba por tu cuenta y verifica que el resultado sea el esperado. Además, si se desea añadir una línea antes de la línea de <code class="docutils literal notranslate"><span class="pre">Código</span></code> con la hora de modificación del archivo, se podría usar el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -r <span class="s1">&#39;/Código/i Hora modif: 9:00 AM&#39;</span> Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p><strong>¿Qué comando de sed usarías para eliminar las líneas de los títulos de los versos que correspondan a Roberto?</strong></p>
+<p><strong>¿Qué comando usarías para imprimir todas las líneas de la canción que sean preguntas, incluyendo ?</strong></p>
+<p><strong>¿Qué comando se podría usar para añadir una línea en blanco después del título de todos los versos?</strong></p>
+</div>
+<div id="seccion4_5_6"/>
+</div>
+<div class="section" id="especificacion-de-posiciones">
+<h2><span class="section-number">6.7. </span>Especificación de posiciones<a class="headerlink" href="#especificacion-de-posiciones" title="Permalink to this headline">¶</a></h2>
+<p>Con la herramienta <em>sed</em> se pueden especificar las posiciones de búsqueda de los patrones de las siguientes formas:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p><strong>Forma para especificar posción</strong></p></th>
+<th class="text-align:center head"><p><strong>Descripción</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">número</span> <span class="pre">de</span> <span class="pre">línea</span></code></p></td>
+<td class="text-align:center"><p>Especificar un número de línea que buscará coincidencias solo con esa línea de la entrada</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">primeralínea~paso</span></code></p></td>
+<td class="text-align:center"><p>Coincide con las líneas de cada paso que comienzan con la primera línea. Para seleccionar las líneas impares, se usa <code class="docutils literal notranslate"><span class="pre">1~2</span></code>; para elegir cada tercera línea comenzando con la segunda, se usa <code class="docutils literal notranslate"><span class="pre">2~3</span></code>; y para elegir una de cada cinco líneas a partir de la décima, se emplea <code class="docutils literal notranslate"><span class="pre">10~5</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+<td class="text-align:center"><p>Coincide con la última línea del último archivo de entrada, o la última línea de cada archivo cuando se especifican las opciones <code class="docutils literal notranslate"><span class="pre">-i</span></code> o <code class="docutils literal notranslate"><span class="pre">-s</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">/regex/</span></code></p></td>
+<td class="text-align:center"><p>Selecciona cualquier línea que coincida con la regex</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">primeralínea,</span> <span class="pre">últimalínea</span></code> (rango)</p></td>
+<td class="text-align:center"><p>Se seleccionan las líneas usando un rango separado por comas</p></td>
+</tr>
+</tbody>
+</table>
+<p>Por ejemplo, si queremos eliminar las líneas de la 1 a 3, podríamos usar el siguiente comando:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sed -r <span class="s1">&#39;1,3d&#39;</span> Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Pregunta</p>
+<p><strong>¿Qué comando de sed usarían para insertar una línea en blanco luego de la línea 20?</strong></p>
+<p><strong>¿Qué comando de sed se podría usar para sustituir la última línea del archivo por la palabra <code class="docutils literal notranslate"><span class="pre">FIN</span></code>?</strong></p>
+</div>
+<div id="seccion4_5_7"/>
+</div>
+<div class="section" id="material-suplementario">
+<h2><span class="section-number">6.8. </span>Material suplementario<a class="headerlink" href="#material-suplementario" title="Permalink to this headline">¶</a></h2>
+<p>La mayoría de los contenidos de esta parte se obtuvieron de la documentación oficial de GNU, que pueden acceder en el siguiente <a class="reference external" href="https://www.gnu.org/software/sed/manual/sed.html">link</a>. En los siguientes enlaces pueden encontrar información adicional sobre este tema:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.computerhope.com/unix/used.htm">https://www.computerhope.com/unix/used.htm</a></p></li>
+<li><p><a class="reference external" href="https://alexharv074.github.io/2019/04/16/a-sed-tutorial-and-reference.html">https://alexharv074.github.io/2019/04/16/a-sed-tutorial-and-reference.html</a></p></li>
+<li><p><a class="reference external" href="https://www.grymoire.com/Unix/Sed.html">https://www.grymoire.com/Unix/Sed.html</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_basico/04_Procesamiento_ficheros_regex_pipes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="4_Grep.html" title="previous page"><span class="section-number">5. </span>Grep</a>
+    <a class='right-next' id="next-link" href="6_Cut_sort.html" title="next page"><span class="section-number">7. </span>Cut, sort</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
