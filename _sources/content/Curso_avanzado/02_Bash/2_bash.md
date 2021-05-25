@@ -89,7 +89,7 @@ else
     Acciones si ninguna operación lógica es verdad
 fi 
 ```
-Ahora veamos como funciona un script de Bash utilizando sentencias `if`, para averiguar si un número es par o impar. Este número será el primer argumento del programa.
+Ahora veamos como funciona un script de Bash utilizando sentencias `if`, para averiguar si un número es par o impar. Este número será el primer argumento del programa. Como verás, en la cuarta línea del script usamos el código `let n=$1%2`. Lo que hacemos es declarar una operación algebraica con el primer argumento del programa. Es decir, al programa le daremos un número que evaluar si es par o no. Este se guarda bajo la variable `1`. Es un número reservado por Bash para guardar el primer argumento que se le da a un script. El segundo sería con `2`, el tercero con `3`, etc.
 ```bash
 #!/bin/bash
 # File: oddeven.sh
