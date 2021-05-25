@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. Bucles y funciones &#8212; GNU/Linux para Bioinformática</title>
+    <title>4. Bucles for y while &#8212; GNU/Linux para Bioinformática</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,7 +54,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="1. Resumen" href="../03_Git_GitHub/0_Resumen.html" />
+    <link rel="next" title="5. Funciones" href="4_bash.html" />
     <link rel="prev" title="3. Lógica, condicionales y arreglos" href="2_bash.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -410,7 +410,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. Bucles y funciones
+   4. Bucles for y while
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_bash.html">
+   5. Funciones
   </a>
  </li>
 </ul>
@@ -423,6 +428,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../03_Git_GitHub/0_Resumen.html">
    1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Git_GitHub/1_Git.html">
+   2. Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03_Git_GitHub/2_GitHub.html">
+   3. GitHub
   </a>
  </li>
 </ul>
@@ -513,12 +528,33 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#for-loops-sobre-secuencias-estructuras-de-datos">
-   4.1.
-   <em>
-    For loops
-   </em>
-   sobre secuencias/estructuras de datos
+  <a class="reference internal nav-link" href="#while-loops-1-evadir-el-infinito">
+   4.1. While loops 1: evadir el infinito
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#while-loops-2-validar-datos">
+   4.2. While loops 2: validar datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#while-loops-3-condicionales">
+   4.3. While loops 3: condicionales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops-1-son-solo-while-loops-especializados">
+   4.4. For loops 1: son solo while loops especializados
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-loops-2-recorrer-estructuras-de-datos">
+   4.5. For loops 2: recorrer estructuras de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deber-especial">
+   4.6. Deber especial
   </a>
  </li>
 </ul>
@@ -533,45 +569,235 @@
         
               <div>
                 
-  <div class="section" id="bucles-y-funciones">
-<h1><span class="section-number">4. </span>Bucles y funciones<a class="headerlink" href="#bucles-y-funciones" title="Permalink to this headline">¶</a></h1>
-<p>Los bucles, o <code class="docutils literal notranslate"><span class="pre">loops</span></code> en inglés, permiten repetir líneas de código iterando sobre una secuencia o estructura de datos, como los arreglos que vimos antes, o en base a condiciones/operaciones lógicas. En bash hay dos tipos de bucles: <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code>. Dentro de los bucles se pueden añadir estructuras de control condicional <code class="docutils literal notranslate"><span class="pre">if-else</span></code>, variables, operaciones aritméticas, funciones de bash, entre otras cosas.</p>
-<div class="section" id="for-loops-sobre-secuencias-estructuras-de-datos">
-<h2><span class="section-number">4.1. </span><em>For loops</em> sobre secuencias/estructuras de datos<a class="headerlink" href="#for-loops-sobre-secuencias-estructuras-de-datos" title="Permalink to this headline">¶</a></h2>
-<p>Se realizan acciones iterativas sobre cada elemento de una <code class="docutils literal notranslate"><span class="pre">secuencia</span> <span class="pre">o</span> <span class="pre">estructura</span> <span class="pre">de</span> <span class="pre">datos</span></code> (braces, arreglos, u otras). La estructura general del for loop es la siguente:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> índice <span class="k">in</span> brace o arreglo
+  <div class="section" id="bucles-for-y-while">
+<h1><span class="section-number">4. </span>Bucles for y while<a class="headerlink" href="#bucles-for-y-while" title="Permalink to this headline">¶</a></h1>
+<p>Los bucles, o <code class="docutils literal notranslate"><span class="pre">loops</span></code> en inglés, permiten repetir líneas de código iterando sobre una secuencia o estructura de datos, como los arreglos que vimos antes, o en base a condiciones/operaciones lógicas. Iterativo significa que se ejecutan en serie una cantidad de operaciones un número definido de veces, <strong>hasta satisfacer una condición</strong>. Esta condición puede ser lógica.</p>
+<p>En bash hay dos tipos de bucles: <code class="docutils literal notranslate"><span class="pre">for</span></code> y <code class="docutils literal notranslate"><span class="pre">while</span></code>. Dentro de los bucles se pueden añadir estructuras de control condicional <code class="docutils literal notranslate"><span class="pre">if-else</span></code>, variables, operaciones aritméticas, funciones de bash, entre otras cosas. Ya notarás que es muy importante especificarles a los bucles cuándo terminar. Si no, nunca terminan y la computadora entra en un bucle infinito.</p>
+<a class="reference internal image-reference" href="../../../_images/loop.jpg"><img alt="./img/loop.jpg" class="align-center" src="../../../_images/loop.jpg" style="width: 500px;" /></a>
+<p>Primero veremos los bucles while, que son un poco más difíciles de entender, pero al dominar while podrás entender for muy rápido. De hecho for es un tipo de while. Recuerda que trabajamos en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/taller_unix/9_bash
+</pre></div>
+</div>
+<div class="section" id="while-loops-1-evadir-el-infinito">
+<h2><span class="section-number">4.1. </span>While loops 1: evadir el infinito<a class="headerlink" href="#while-loops-1-evadir-el-infinito" title="Permalink to this headline">¶</a></h2>
+<p>La filosofía del while loop es: <em>ejecutar una acción siempre que una operación lógica sea verdad</em>. Después de cada vez que se ejecute el código dentro del while, la operación lógica será evaluada, para ver si ahora ya no es verdad. Cuando deja de ser verdad, el while para. La operación lógica es la condición de continuación de ejecución del while.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">[[</span> operación lógica <span class="o">]]</span>
+<span class="k">do</span>
+    Acciones que se ejecutan de forma iterativa 
+<span class="k">done</span> 
+</pre></div>
+</div>
+<p>Por ejemplo, hagamos un programa que imprima números desde el <code class="docutils literal notranslate"><span class="pre">-10</span></code> hasta el <code class="docutils literal notranslate"><span class="pre">10</span></code>, de 1 en 1. Para eso necesitaremos:</p>
+<ol class="simple">
+<li><p>Una variable que permita ejecutar la operación lógica. Puede ser un contador. El contador, <strong>en este caso</strong>, es solamente una variable que almacena <strong>cuántas veces se ha ejecutado el while loop</strong>. Debe actualizarse cada vez que corra el loop, sino tendremos un loop infinito.</p></li>
+<li><p>La operación lógica. Será necesario <strong>empezar en -10</strong> e ir subiendo de 1 en 1 el contador hasta llegar a 10. <strong>Si el contador es mayor a 10, deternemos el while loop</strong>. Entonces para que nuestra operación sea verdad mientras avanza el loop, decimos que <strong>mientras (while) el contador sea menor o igual a 10, entonces se ejecuta el código</strong>.</p></li>
+<li><p>La acción a ejecutar. En este caso hay que imprimir los números que incrementan en cada loop.</p></li>
+</ol>
+<p>Abre una terminal y crea el archivo <code class="docutils literal notranslate"><span class="pre">while_1.sh</span></code> y escribe el siguiente script.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: while_1.sh</span>
+<span class="nv">contador</span><span class="o">=</span>-10                    <span class="c1"># declaro contador e inicializo en -10</span>
+<span class="k">while</span> <span class="o">[[</span> <span class="nv">$contador</span> -le <span class="m">10</span> <span class="o">]]</span>    <span class="c1"># condición de continuación</span>
+<span class="k">do</span>                              <span class="c1"># empiezo el cuerpo del while</span>
+    <span class="nb">echo</span> -n <span class="s2">&quot;</span><span class="nv">$contador</span><span class="s2">  &quot;</span>       <span class="c1"># imprimo el contador</span>
+    <span class="nb">let</span> <span class="nv">contador</span><span class="o">=</span><span class="nv">$contador</span>+1    <span class="c1"># actualizo el contador</span>
+<span class="k">done</span>                            <span class="c1"># termino el cuerpo del while</span>
+<span class="nb">echo</span> listo! :D                  <span class="c1"># mensaje fuera del while</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/w.png"><img alt="./img/w.png" class="align-center" src="../../../_images/w.png" style="width: 800px;" /></a>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<ol class="simple">
+<li><p>Crea ahora un while loop que incremente de 5 en 5 el contador. ¿Qué es lo único que deberías cambiar?</p></li>
+<li><p>Piensa qué pasaría si la operación lógica la cambiásemos por <code class="docutils literal notranslate"><span class="pre">[[</span> <span class="pre">$contador</span> <span class="pre">-ge</span> <span class="pre">-10</span> <span class="pre">]]</span></code>. Puedes intentar correr en tu Terminal. Si se cuelga, solo ciérrala y abre otra.</p></li>
+<li><p>¿Qué tipos de condiciones de continuación de la ejecución de while podría haber?</p></li>
+<li><p>¿Qué hubiera pasado sin un contador?</p></li>
+<li><p>¿Qué hubiera pasado sin no actualizabamos el contador con <code class="docutils literal notranslate"><span class="pre">let</span></code>?</p></li>
+</ol>
+<p>Toma una captura de pantalla del proceso. Guarda la captura de pantalla en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio. Las preguntas no necesitas responderlas de manera escrita. Solo piénsalas. O crea un programa para probar tu entendimiento :D.</p>
+</div>
+</div>
+<div class="section" id="while-loops-2-validar-datos">
+<h2><span class="section-number">4.2. </span>While loops 2: validar datos<a class="headerlink" href="#while-loops-2-validar-datos" title="Permalink to this headline">¶</a></h2>
+<p>Ahora intentemos otro tipo de lógica. Ingresemos datos al while loop desde teclado y validemos la entrada de datos. Es decir, le vamos a impedir a usuario continuar si no ingresa el dato correcto. Vamos a omitir caracteres como las tílde porque pueden ser problemáticas. La idea es que el programa adivine mi idioma favorito. Permitiré que el usuario ingrese el idioma en 3 formatos diferentes. Cualquiera de ellos puede ser válido. Crea el archivo <code class="docutils literal notranslate"><span class="pre">while_2.sh</span></code> y copia el siguiente script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: while_2.sh</span>
+<span class="nb">echo</span> <span class="s2">&quot;Adivina mi idioma preferido.&quot;</span>
+<span class="nb">read</span> -p <span class="s2">&quot;Ingresa el idioma: &quot;</span> i
+<span class="k">while</span> <span class="o">[[</span> <span class="nv">$i</span> !<span class="o">=</span> <span class="s2">&quot;Aleman&quot;</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$i</span> !<span class="o">=</span> <span class="s2">&quot;ALEMAN&quot;</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$i</span> !<span class="o">=</span> <span class="s2">&quot;aleman&quot;</span> <span class="o">]]</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2"> no es mi idioma preferido :C&quot;</span>
+    <span class="nb">read</span> -p <span class="s2">&quot;Intenta de nuevo: &quot;</span> i
+<span class="k">done</span>
+<span class="nb">echo</span> <span class="s2">&quot;Has adivinado mi idioma favorito! :D.&quot;</span>
+</pre></div>
+</div>
+<p>Nota que usamos el operador <code class="docutils literal notranslate"><span class="pre">!=</span></code> para especificar al while que continúe mientras el usuario ingrese algo que no sea <em>Aleman</em> o sus variantes. No podemos usar <code class="docutils literal notranslate"><span class="pre">-ne</span></code> porque ese es solo para números. Además, usamos varias operaciones lógicas en el while, separadas por un <code class="docutils literal notranslate"><span class="pre">||</span></code>. Esto es porque cualquiera de las formas de escribir las palabra “alemán” están correctas para el algoritmo.</p>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Escribe el script en el archivo correspondiente. Toma una captura de pantalla del proceso. Guarda la captura de pantalla en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.</p>
+</div>
+</div>
+<div class="section" id="while-loops-3-condicionales">
+<h2><span class="section-number">4.3. </span>While loops 3: condicionales<a class="headerlink" href="#while-loops-3-condicionales" title="Permalink to this headline">¶</a></h2>
+<p>Ahora, vamos a usar sentencias <code class="docutils literal notranslate"><span class="pre">if</span></code> dentro del while loop. Vamos a generar un juego de <em>piedra, papel o tijeras</em> con sentencias <code class="docutils literal notranslate"><span class="pre">if</span></code> anidadas. Vamos a jugar contra Bash, ya que generaremos números aleatorios que representen la elección de Bash sobre piedra, papel o tijera. Luego, con varios <code class="docutils literal notranslate"><span class="pre">if</span></code>, comparamos nuestra elección con la de Bash y alguien ganará la partidad. El while loop permite al usuario decidir si va a jugar de nuevo.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: while_3.sh</span>
+<span class="nb">echo</span> <span class="s2">&quot;*** Piedra, papel o tijeras ***&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;-------------------------------&quot;</span>
+<span class="nv">i</span><span class="o">=</span><span class="s2">&quot;y&quot;</span>
+<span class="k">while</span> <span class="o">[[</span> <span class="nv">$i</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span> <span class="o">]]</span>
+<span class="k">do</span>
+    <span class="nv">player</span><span class="o">=</span><span class="m">0</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Escoge uno (escribe el número)&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;  1. Piedra&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;  2. Papel&quot;</span>
+    <span class="nb">echo</span> <span class="s2">&quot;  3. Tijeras&quot;</span>
+    <span class="nb">read</span> -p <span class="s2">&quot;&gt; &quot;</span> player
+    <span class="nv">consola</span><span class="o">=</span><span class="k">$((</span><span class="m">1</span> <span class="o">+</span> RANDOM <span class="o">%</span> <span class="m">3</span><span class="k">))</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="nv">$player</span> <span class="o">==</span> <span class="nv">$consola</span> <span class="o">]]</span>
+    <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Empate ._.&quot;</span>
+    <span class="k">elif</span> <span class="o">[[</span> <span class="nv">$player</span> <span class="o">==</span> <span class="m">1</span> <span class="o">]]</span> <span class="c1"># Piedra</span>
+    <span class="k">then</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="nv">$consola</span> <span class="o">==</span> <span class="m">2</span> <span class="o">]]</span> <span class="c1"># Papel</span>
+        <span class="k">then</span>
+            <span class="nb">echo</span> <span class="s2">&quot;Te ganó Bash :C&quot;</span>
+        <span class="k">elif</span> <span class="o">[[</span> <span class="nv">$consola</span> <span class="o">==</span> <span class="m">3</span> <span class="o">]]</span> <span class="c1"># Tijeras</span>
+        <span class="k">then</span>
+            <span class="nb">echo</span> <span class="s2">&quot;Le ganaste a Bash :D&quot;</span>
+        <span class="k">fi</span>
+    <span class="k">elif</span> <span class="o">[[</span> <span class="nv">$player</span> <span class="o">==</span> <span class="m">2</span> <span class="o">]]</span> <span class="c1"># Papel</span>
+    <span class="k">then</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="nv">$consola</span> <span class="o">==</span> <span class="m">1</span> <span class="o">]]</span> <span class="c1"># Piedra</span>
+        <span class="k">then</span>
+            <span class="nb">echo</span> <span class="s2">&quot;Le ganaste a Bash :D&quot;</span>
+        <span class="k">elif</span> <span class="o">[[</span> <span class="nv">$consola</span> <span class="o">==</span> <span class="m">3</span> <span class="o">]]</span> <span class="c1"># Tijeras</span>
+        <span class="k">then</span>
+            <span class="nb">echo</span> <span class="s2">&quot;Te ganó Bash :C&quot;</span>
+        <span class="k">fi</span>
+    <span class="k">elif</span> <span class="o">[[</span> <span class="nv">$player</span> <span class="o">==</span> <span class="m">3</span> <span class="o">]]</span> <span class="c1"># Tijeras</span>
+    <span class="k">then</span>
+        <span class="k">if</span> <span class="o">[[</span> <span class="nv">$consola</span> <span class="o">==</span> <span class="m">1</span> <span class="o">]]</span> <span class="c1"># Piedra</span>
+        <span class="k">then</span>
+            <span class="nb">echo</span> <span class="s2">&quot;Te ganó Bash :C&quot;</span>
+        <span class="k">elif</span> <span class="o">[[</span> <span class="nv">$consola</span> <span class="o">==</span> <span class="m">2</span> <span class="o">]]</span> <span class="c1"># Papel</span>
+        <span class="k">then</span>
+            <span class="nb">echo</span> <span class="s2">&quot;Le ganaste a Bash :D&quot;</span>
+        <span class="k">fi</span>
+    <span class="k">fi</span>
+    <span class="nb">read</span> -p <span class="s2">&quot;Deseas volver a jugar? (y/n): &quot;</span> i
+<span class="k">done</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/w1.png"><img alt="./img/w1.png" class="align-center" src="../../../_images/w1.png" style="width: 800px;" /></a>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Escribe el script en el archivo correspondiente. Toma una captura de pantalla del proceso. Guarda la captura de pantalla en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.</p>
+</div>
+</div>
+<div class="section" id="for-loops-1-son-solo-while-loops-especializados">
+<h2><span class="section-number">4.4. </span>For loops 1: son solo while loops especializados<a class="headerlink" href="#for-loops-1-son-solo-while-loops-especializados" title="Permalink to this headline">¶</a></h2>
+<p>Volvamos al script <code class="docutils literal notranslate"><span class="pre">while_1.sh</span></code>, pero reescribámoslo con la estructura de un for loop. Pero antes, la definición. Los for loops tienen la importante función de simplificar la ejecución de procesos un número definido de veces. El número puede darse por una variable que guarda un entero, como también una estructura de datos, como los arreglos. Los elementos del bucle son:</p>
+<ol class="simple">
+<li><p><strong>Índice</strong>: Es una variable que toma valores mientras el bucle avanza. La idea importante es ligar el índice del for a la estructura de datos que se recorre (un arreglo, por ejemplo) o al número de iteraciones.</p></li>
+<li><p><strong>Estructura a iterar / límite de iteraciones</strong>: Si iteramos sobre un arreglo, por ejemplo, el for loop va a ejecutar una acción por cada elemento del arreglo. Igualmente, si ajustamos el for loop para que ejecute su contenido <code class="docutils literal notranslate"><span class="pre">n</span></code> veces, entonces cambiará el índice hasta cumplir las <code class="docutils literal notranslate"><span class="pre">n</span></code> veces.</p></li>
+<li><p><strong>Acciones a ejecutar</strong>: Es lo que se hace en el for. Puede o no involucrar al índice.</p></li>
+</ol>
+<p>Si se piensa iterar en una estructura de datos, como un arreglo, entonces se usa la siguiente notación:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> índice <span class="k">in</span> estructura
 <span class="k">do</span>
     Acciones que se ejecutan de forma iterativa
 <span class="k">done</span> 
 </pre></div>
 </div>
-<p>La estructura general del for loop sobre estructuras con condicionales if-else es la siguente:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> índice <span class="k">in</span> brace o arreglo
+<p>En cambio, cuando se usa el límite de iteraciones, se usa la siguiente notación:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">((</span>índice <span class="p">;</span> regla con límite de iteraciones <span class="p">;</span> operación con índice<span class="o">))</span>
 <span class="k">do</span>
-    <span class="k">if</span> <span class="o">[[</span> operación lógica <span class="o">]]</span>
-    <span class="k">then</span>
-        Acciones que se ejecutan de forma iterativa 
-    <span class="k">fi</span>
+    Acciones que se ejecutan de forma iterativa
 <span class="k">done</span> 
 </pre></div>
 </div>
-<p>Creamos un</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash    </span>
-<span class="c1"># File: forloop.sh    </span>
-<span class="nv">min</span><span class="o">=</span><span class="m">1000</span>
-<span class="nb">echo</span> Ingrese la cantidad de numeros:
-<span class="nb">read</span> n
-<span class="k">for</span><span class="o">((</span><span class="nv">i</span><span class="o">=</span><span class="m">1</span><span class="p">;</span>i&lt;<span class="o">=</span>n<span class="p">;</span> i++<span class="o">))</span>
-<span class="k">do</span>    
-    <span class="nb">echo</span> Elemento <span class="nv">$i</span>:
-    <span class="nb">read</span> num
-    <span class="k">if</span> <span class="o">((</span> num &lt; min <span class="o">))</span>
-    <span class="k">then</span>
-        <span class="nb">let</span> <span class="nv">min</span><span class="o">=</span>num
-    <span class="k">fi</span>
-<span class="k">done</span>
-<span class="nb">echo</span>   El menor es: <span class="nv">$min</span>  
+<p>La única operación lógica que se evalúa en un for loop es que el índice sea menor o igual que el número máximo de elementos a recorrer, o mínimo, si va en reversa. También, si itera sobre un arreglo, el for termina cuando se ha recorrido todos los elementos del arreglo.</p>
+<p>El script <code class="docutils literal notranslate"><span class="pre">while_1.sh</span></code> en forma de for loop entonces sería algo así:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: for_1.sh</span>
+<span class="k">for</span> <span class="o">((</span><span class="nv">contador</span><span class="o">=</span>-10<span class="p">;</span>contador&lt;<span class="o">=</span><span class="m">10</span><span class="p">;</span>contador++<span class="o">))</span> <span class="c1"># declaro, limito y actualizo el contador</span>
+<span class="k">do</span>                              <span class="c1"># empiezo el cuerpo del for</span>
+    <span class="nb">echo</span> -n <span class="s2">&quot;</span><span class="nv">$contador</span><span class="s2">  &quot;</span>       <span class="c1"># imprimo el contador</span>
+<span class="k">done</span>                            <span class="c1"># termino el cuerpo del while</span>
+<span class="nb">echo</span> listo! :D                  <span class="c1"># mensaje fuera del while</span>
 </pre></div>
+</div>
+<a class="reference internal image-reference" href="../../../_images/f1.png"><img alt="./img/f1.png" class="align-center" src="../../../_images/f1.png" style="width: 800px;" /></a>
+<p>Es importante notar que while tiene muchísimos más usos de los que tiene for. Entonces es importante reservar los for loops para cuando <strong>sabemos el número de iteraciones a realizar</strong>, mientras que usamos el while cuando <strong>no necesariamente conocemos el número de iteraciones</strong>. Así entonces, las diferencias más importantes entre el while loop en <code class="docutils literal notranslate"><span class="pre">while_1.sh</span></code> y el for loop en <code class="docutils literal notranslate"><span class="pre">for_1.sh</span></code>, y entre los while y for loops en general, son las siguientes:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>While Loop</strong></p></th>
+<th class="head"><p><strong>For Loop</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>El índice <code class="docutils literal notranslate"><span class="pre">contador</span></code> se inicializa fuera del while.</p></td>
+<td><p>El índice <code class="docutils literal notranslate"><span class="pre">contador</span></code> se inicializa en la primera línea del for.</p></td>
+</tr>
+<tr class="row-odd"><td><p>El índice se aumenta en una unidad dentro del cuerpo del while.</p></td>
+<td><p>El índice se aumenta en una unidad en la primera línea del for.</p></td>
+</tr>
+<tr class="row-even"><td><p>No siempre se sabe cuándo acabará.</p></td>
+<td><p>Siempre se sabe el número de iteraciones.</p></td>
+</tr>
+<tr class="row-odd"><td><p><img width=300/></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Escribe el script en el archivo correspondiente. Toma una captura de pantalla del proceso. Guarda la captura de pantalla en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.</p>
+</div>
+</div>
+<div class="section" id="for-loops-2-recorrer-estructuras-de-datos">
+<h2><span class="section-number">4.5. </span>For loops 2: recorrer estructuras de datos<a class="headerlink" href="#for-loops-2-recorrer-estructuras-de-datos" title="Permalink to this headline">¶</a></h2>
+<p>Es posible realizar acciones sobre cada elemento de una <code class="docutils literal notranslate"><span class="pre">secuencia</span> <span class="pre">o</span> <span class="pre">estructura</span> <span class="pre">de</span> <span class="pre">datos</span></code> (braces, arreglos, u otras). A esto le llamamos iterar o recorrer la estructura de datos. Los bucles for pueden recorrer los arreglos de maneras muy eficientes. Por ejemplo, imaginemos que tenemos un arreglo como el siguiente:</p>
+<a class="reference internal image-reference" href="../../../_images/f2.png"><img alt="./img/f2.png" class="align-center" src="../../../_images/f2.png" style="width: 600px;" /></a>
+<p>Para usar la notación de arreglo en el for, para algún <em>arreglo</em>, es necesario especificar <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">in</span> <span class="pre">{arreglo[*]}</span></code> después de <code class="docutils literal notranslate"><span class="pre">for</span></code>. Esto quiere decir que <code class="docutils literal notranslate"><span class="pre">i</span></code> se convierte en cada uno de los elementos de <code class="docutils literal notranslate"><span class="pre">arreglo</span></code>. Esto se logra al colocar <code class="docutils literal notranslate"><span class="pre">[*]</span></code> a lado de <code class="docutils literal notranslate"><span class="pre">arreglo</span></code> y al colocar todo dentro de llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Como se ve en la imagen anterior, la dirección por defecto de este for es de izquierda a derecha. Este script imprimirá los elementos de <em>arreglo</em> de izquierda a derecha:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: for_2.sh</span>
+<span class="nb">echo</span> <span class="s2">&quot;Antes del bucle&quot;</span>
+<span class="nv">arreglo</span><span class="o">=(</span>a b c d e f g<span class="o">)</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="o">{</span>arreglo<span class="o">[</span>*<span class="o">]}</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&quot;i es igual a </span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+<span class="nb">echo</span> <span class="s2">&quot;Después del bucle&quot;</span>
+</pre></div>
+</div>
+<p>Ahora, es posible que se desee recorrer el arreglo de otra manera, por ejemplo, al revés. Es posible especificarle al for que vaya en retro, como se ilustra en esta imágen:</p>
+<a class="reference internal image-reference" href="../../../_images/f3.png"><img alt="./img/f3.png" class="align-center" src="../../../_images/f3.png" style="width: 600px;" /></a>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: for_3.sh</span>
+<span class="nb">echo</span> <span class="s2">&quot;Antes del bucle&quot;</span>
+<span class="nv">arreglo</span><span class="o">=(</span>a b c d e f g<span class="o">)</span>
+<span class="nb">let</span> <span class="nv">long</span><span class="o">=</span><span class="si">${#</span><span class="nv">arreglo</span><span class="p">[@]</span><span class="si">}</span>-1
+<span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span><span class="nv">$long</span><span class="p">;</span>i&gt;<span class="o">=</span><span class="m">0</span><span class="p">;</span>i--<span class="o">))</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&quot;El índice (</span><span class="nv">$i</span><span class="s2">) accede al elemento </span><span class="si">${</span><span class="nv">arreglo</span><span class="p">[i]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+<span class="nb">echo</span> <span class="s2">&quot;Después del bucle&quot;</span>
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Escribe los dos scripts en su archivo correspondiente. Toma una captura de pantalla del proceso. Guarda la captura de pantalla en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.</p>
+</div>
+</div>
+<div class="section" id="deber-especial">
+<h2><span class="section-number">4.6. </span>Deber especial<a class="headerlink" href="#deber-especial" title="Permalink to this headline">¶</a></h2>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Escoge alguno de los ejercicios de la sección sobre <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html"><span class="doc std std-doc">ejericios de procesamiento de ficheros</span></a> y arma un script llamado <code class="docutils literal notranslate"><span class="pre">deber_especial.sh</span></code> en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, donde recopiles varios comandos. Luego, ejecútalo y toma un screenshot del resultado.</p>
 </div>
 </div>
 </div>
@@ -602,7 +828,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="2_bash.html" title="previous page"><span class="section-number">3. </span>Lógica, condicionales y arreglos</a>
-    <a class='right-next' id="next-link" href="../03_Git_GitHub/0_Resumen.html" title="next page"><span class="section-number">1. </span>Resumen</a>
+    <a class='right-next' id="next-link" href="4_bash.html" title="next page"><span class="section-number">5. </span>Funciones</a>
 
         </div>
         

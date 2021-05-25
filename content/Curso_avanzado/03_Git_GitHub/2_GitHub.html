@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. GitHub &#8212; GNU/Linux para Bioinformática</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="2. Git" href="1_Git.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GNU/Linux para Bioinformática</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../README.html">
+   Inicio
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introducción a Unix y GNU/Linux
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/1_Conceptos_Unix_GNU_Linux.html">
+   2. Conceptos Unix y GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/2_Shell_bash_emulador_terminal.html">
+   3. Shell, bash, y emulador de terminal
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/01_Unix_GNU-Linux/3_Formas_instalacion_emulador_terminal_Bash.html">
+   4. Formas de instalar emulador de terminal de Bash
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Jupyter Lab
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/0_terminal_primera.html">
+   2. Organización de archivos duante el taller
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/1_anaconda.html">
+   3. Instalación de Anaconda, Jupyter Lab y Bash Kernel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/2_notebooks.html">
+   4. Creación de Jupyter Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/02_JupyterLab/3_vim.html">
+   5. Primer encuentro con Vim
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Manejo de Terminal
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/1_def.html">
+   2. Bash como shell de GNU/Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/2_terminal.html">
+   3. Terminal: Interacción con la Shell en Linux, MacOS y Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/3_comandos.html">
+   4. Comandos en la
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     shell
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/4_directorios.html">
+   5. Directorios y archivos en UNIX: Parte 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/5_wildcards.html">
+   6. Wildcards y Streams
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/6_directorios_2.html">
+   7. Directorios y archivos en UNIX: Parte 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/03_Manejo_terminal/8_variables_amb.html">
+   8. Variables de ambiente
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Procesamiento de ficheros, regex y pipes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/1_Archivos_formatos_comunes_Bioinformatica.html">
+   2. Archivos y formatos comunes en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/2_Editores_de_texto.html">
+   3. Editores de texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/3_Expresiones_regulares.html">
+   4. Expresiones regulares (
+   <em>
+    regex
+   </em>
+   )
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/4_Grep.html">
+   5. Grep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/5_Sed.html">
+   6. Sed
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/6_Cut_sort.html">
+   7. Cut, sort
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/7_Pipes.html">
+   8. Pipes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/04_Procesamiento_ficheros_regex_pipes/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Ejercicios para procesamiento ficheros en bioinformática
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/1_Preprocesamiento_pdb.html">
+   2. Preprocesamiento de archivo PDB antes de realizar dinámica molecular
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/2_Motivos_fasta.html">
+   3. Búsqueda de motivos en archivo fasta de una secuencia de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/3_Info_multifasta_genomas.html">
+   4. Extracción de información de archivo multifasta de genomas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/4_Info_multifasta_proteoma.html">
+   5. Extracción de información de archivo multifasta de secuencias de aminoácidos (proteoma)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/5_Info_fastq.html">
+   6. Extracción de información de archivos fastq
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/6_Info_microarray.html">
+   7. Extracción de información de archivo de experimento de microarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/7_Sitios_restric.html">
+   8. Búsqueda de sitios de restricción en archivos fasta de secuencias de nucleótidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/05_Ejercicios_procesamiento_ficheros_Bioinfo/8_Respuestas_ejercicios.html">
+   9. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Make
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/06_Make/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/06_Make/1_Make.html">
+   2. Make
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  SAMTools
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/1_inst.html">
+   2. Instalación de herramientas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/2_dwnl.html">
+   3. Descarga de secuencias
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Curso_basico/07_SAM_Tools/3_impl.html">
+   4. Implementación
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  AWK
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_AWK/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_AWK/1_Conceptos_generales_variables_internas_awk.html">
+   2. Conceptos generales, instalación y variables internas AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_AWK/2_Estructura_programas_sintax_awk.html">
+   3. Estructura de scripts y sintaxis AWK
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_AWK/3_Ejemplos_awk.html">
+   4. Ejemplos generales y con enfoque en Bioinformática
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_AWK/4_Respuestas_ejercicios.html">
+   5. Respuestas ejercicios deber
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Bash
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/1_bash.html">
+   2. Scripts en Bash
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/2_bash.html">
+   3. Lógica, condicionales y arreglos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/3_bash.html">
+   4. Bucles for y while
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02_Bash/4_bash.html">
+   5. Funciones
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Git y GitHub
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="0_Resumen.html">
+   1. Resumen
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_Git.html">
+   2. Git
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   3. GitHub
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/Curso_avanzado/03_Git_GitHub/2_GitHub.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git/issues/new?title=Issue%20on%20page%20%2Fcontent/Curso_avanzado/03_Git_GitHub/2_GitHub.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-github">
+   3.1. ¿Qué es GitHub?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creacion-de-cuenta-de-github-y-repositorio-vacio">
+   3.2. Creación de cuenta de GitHub y repositorio vacío
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definir-las-variables-de-ambiente-de-usuario-e-email">
+   3.3. Definir las variables de ambiente de usuario e email
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conectar-repositorio-local-de-git-con-repositorio-remoto-de-github">
+   3.4. Conectar repositorio local de Git con repositorio remoto de GitHub
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#actualizar-contenidos-del-repo-remoto-con-los-cambios-del-repo-local">
+   3.5. Actualizar contenidos del repo remoto con los cambios del repo local
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparar-dos-ramas-antes-de-hacer-merge-pull-requests">
+   3.6. Comparar dos ramas antes de hacer merge - pull requests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#actualizar-el-repo-local-con-los-cambios-hechos-en-el-repo-remoto">
+   3.7. Actualizar el repo local con los cambios hechos en el repo remoto
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clonar-repositorio-remoto-a-cuenta-personal-de-github-fork">
+   3.8. Clonar repositorio remoto a cuenta personal de GitHub - Fork
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clonar-repositorio-remoto-a-un-directorio-local">
+   3.9. Clonar repositorio remoto a un directorio local
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#actualizar-repo-local-obtenido-a-partir-de-un-fork-con-los-cambios-del-repo-original">
+   3.10. Actualizar repo local obtenido a partir de un fork con los cambios del repo original
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-sumplementario">
+   3.11. Material sumplementario
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="github">
+<h1><span class="section-number">3. </span>GitHub<a class="headerlink" href="#github" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="../../../_images/github.png"><img alt="./img/github.png" class="align-center" src="../../../_images/github.png" style="width: 400px;" /></a>
+<p>En esta parte estudiaremos GitHub, cómo conectar con un repo local de Git, y sus herramientas más importantes.</p>
+<div class="section" id="que-es-github">
+<h2><span class="section-number">3.1. </span>¿Qué es GitHub?<a class="headerlink" href="#que-es-github" title="Permalink to this headline">¶</a></h2>
+<p>Es un sitio web que provee repositorios de Git de forma remota, que pueden ser públicos o privados. Un <strong>repositorio remoto</strong> se almacena en un servidor externo y se puede acceder mediante conección a internet, lo que permite <strong>sincronizar cambios</strong> en los archivos de código entre varios usuarios con acceso al repositorio remoto.</p>
+<p>Además, GitHub funciona como una red social de geeks, en la que se comparten de forma libre proyectos y otros recursos de programación, investigación, recreación y de todo tipo.</p>
+</div>
+<div class="section" id="creacion-de-cuenta-de-github-y-repositorio-vacio">
+<h2><span class="section-number">3.2. </span>Creación de cuenta de GitHub y repositorio vacío<a class="headerlink" href="#creacion-de-cuenta-de-github-y-repositorio-vacio" title="Permalink to this headline">¶</a></h2>
+<p>Si todavía no posees una cuenta de GitHub, puedes seguir las instrucciones de este <a class="reference external" href="https://www.wikihow.com/Create-an-Account-on-GitHub">blog</a> para realizar este proceso, que es necesario para seguir con las siguientes partes del este tutorial.</p>
+<p>En tu cuenta de GitHub, debes crear un repositorio vacío, para lo que debes ir a la pantalla inicial de tu cuenta y usar el botón <code class="docutils literal notranslate"><span class="pre">New</span></code> de la sección de repositorios en la parte izquiera, opción que está señalada con un círculo rojo en la siguiente captura de pantalla:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github1.png"><img alt="./img/repo_github1.png" class="align-center" src="../../../_images/repo_github1.png" style="width: 750px;" /></a>
+<p>Después, debes poner un nombre y una descripción a tu repositorio, en este caso lo llamaremos <strong>repo_prueba</strong>, no seleccionaremos ninguna de las opciones, y finalmente se usa el botón <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">repository</span></code>, opción que está señalada con un círculo rojo en la siguiente captura de pantalla:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github2.png"><img alt="./img/repo_github2.png" class="align-center" src="../../../_images/repo_github2.png" style="width: 600px;" /></a>
+<p>Con esto, haz creado tu primer repositorio, con el que trabajaremos en este tutorial.</p>
+</div>
+<div class="section" id="definir-las-variables-de-ambiente-de-usuario-e-email">
+<h2><span class="section-number">3.3. </span>Definir las variables de ambiente de usuario e email<a class="headerlink" href="#definir-las-variables-de-ambiente-de-usuario-e-email" title="Permalink to this headline">¶</a></h2>
+<p>Luego de crear tu cuenta de GitHub y tu primer repositorio, debes establecer las variables de ambiente de Git de tu usuario y correo de la cuenta de GitHub, lo que se realiza con los siguiente comandos:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name <span class="s2">&quot;tu usuario&quot;</span>
+$ git config --global user.email <span class="s2">&quot;tu correo&quot;</span>
+</pre></div>
+</div>
+<p>Para comprobar que las variables fueron configuradas se usa el siguiente comando:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git config --list
+</pre></div>
+</div>
+<p>Como resultado, vas a obtener que las variables <code class="docutils literal notranslate"><span class="pre">user.email</span></code> y <code class="docutils literal notranslate"><span class="pre">user.name</span></code> fueron definidas con tus datos.</p>
+</div>
+<div class="section" id="conectar-repositorio-local-de-git-con-repositorio-remoto-de-github">
+<h2><span class="section-number">3.4. </span>Conectar repositorio local de Git con repositorio remoto de GitHub<a class="headerlink" href="#conectar-repositorio-local-de-git-con-repositorio-remoto-de-github" title="Permalink to this headline">¶</a></h2>
+<p>Para conectar un repositorio remoto de GitHub con uno local de Git se usa el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span></code> seguido del nombre que le asignamos al repositorio (por convención se usa <code class="docutils literal notranslate"><span class="pre">origin</span></code>), y la dirección URL del repo de GitHub:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git remote add origin https://github.com/asar1245/repo_prueba.git
+</pre></div>
+</div>
+<p>Para obtener la dirección URL del repo de GitHub puedes copiar el enlace que aparece luego de crear el repositorio, como se observa en la siguiente captura de pantalla:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github3.png"><img alt="./img/repo_github3.png" class="align-center" src="../../../_images/repo_github3.png" style="width: 750px;" /></a>
+<p>Para comprobar los repositorios remotos a los que está conectado tu repo local se usa el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+
+origin  https://github.com/asar1245/repo_prueba.git <span class="o">(</span>fetch<span class="o">)</span>
+origin  https://github.com/asar1245/repo_prueba.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+<p>Como se observa en el resultado del anterior comando, la conexión se estableció correctamente.</p>
+</div>
+<div class="section" id="actualizar-contenidos-del-repo-remoto-con-los-cambios-del-repo-local">
+<h2><span class="section-number">3.5. </span>Actualizar contenidos del repo remoto con los cambios del repo local<a class="headerlink" href="#actualizar-contenidos-del-repo-remoto-con-los-cambios-del-repo-local" title="Permalink to this headline">¶</a></h2>
+<p>Luego de establecer esta conexión, podemos actualizar el contenido del repo remoto con la información del repo local,incluyendo todos sus commits.</p>
+<p>Esto se realiza con el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>. La primera vez que se establece la conexión se puede usar la opción <em>-u</em> (con esto se establece <code class="docutils literal notranslate"><span class="pre">origin</span></code> por defecto y ya no se debe especificar en los futuros push) seguido del nombre asignado al repo remoto (en este caso <code class="docutils literal notranslate"><span class="pre">origin</span></code>), y el nombre de la rama del repo remoto (en este caso <code class="docutils literal notranslate"><span class="pre">master</span></code>).</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git push -u origin master
+
+Username <span class="k">for</span> <span class="s1">&#39;https://github.com&#39;</span>:tu usuario
+Password <span class="k">for</span> <span class="s1">&#39;tu correo&#39;</span>:
+</pre></div>
+</div>
+<p>Luego de correr este comando se solicita ingresar tu usuario y clave de GitHub. Por cuestiones de seguridad, ya no se recomienda ingresar la clave de la cuenta en esta parte, y en su lugar se sugiere ingresar un <code class="docutils literal notranslate"><span class="pre">access</span> <span class="pre">token</span></code>, que puedes generar siguiendo las instrucciones de este <a class="reference external" href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token">tutorial</a> de la página oficial de GitHub.</p>
+<p>Luego de realizar esto debiste obtener un resultado similar a este:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Enumerating objects: <span class="m">23</span>, <span class="k">done</span>.
+Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">23</span>/23<span class="o">)</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">4</span> threads
+Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">16</span>/16<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">23</span>/23<span class="o">)</span>, <span class="m">1</span>.89 KiB <span class="p">|</span> <span class="m">966</span>.00 KiB/s, <span class="k">done</span>.
+Total <span class="m">23</span> <span class="o">(</span>delta <span class="m">7</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
+remote: Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">7</span>/7<span class="o">)</span>, <span class="k">done</span>.
+To https://github.com/asar1245/repo_prueba.git
+ * <span class="o">[</span>new branch<span class="o">]</span>      master -&gt; master
+Branch <span class="s1">&#39;master&#39;</span> <span class="nb">set</span> up to track remote branch <span class="s1">&#39;master&#39;</span> from <span class="s1">&#39;origin&#39;</span>.
+</pre></div>
+</div>
+<p>Con esto tu repo remoto de GiHub se tuvo que actualizar con los contenidos del repo local, como se observa en la siguiente captura de pantalla:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github4.png"><img alt="./img/repo_github4.png" class="align-center" src="../../../_images/repo_github4.png" style="width: 750px;" /></a>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Toma una captura de pantalla de tu repo <code class="docutils literal notranslate"><span class="pre">repo_pueba</span></code> de tu cuenta de GitHub y envía este archivo como parte del deber de esta sección.</p>
+</div>
+</div>
+<div class="section" id="comparar-dos-ramas-antes-de-hacer-merge-pull-requests">
+<h2><span class="section-number">3.6. </span>Comparar dos ramas antes de hacer merge - pull requests<a class="headerlink" href="#comparar-dos-ramas-antes-de-hacer-merge-pull-requests" title="Permalink to this headline">¶</a></h2>
+<p>La herramienta de GitHub <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code> permite comparar de forma interactiva dos ramas diferentes antes de realizar un <strong>merge</strong> entre estas. De esta forma, un usuario puede preguntar a otro si quiere incorporar los cambios de una rama en otra.</p>
+<p>Para probar esta herramienta, eliminaremos <code class="docutils literal notranslate"><span class="pre">archivo1.sh</span></code> y modificaremos el contenido de <code class="docutils literal notranslate"><span class="pre">readme.txt</span></code> de la rama <em>nueva_rama</em>, haremos el commit respectivo y el push al repositorio remoto:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git checkout nueva_rama
+$ rm archivo1.sh
+$ <span class="nb">echo</span> <span class="s2">&quot;Nueva línea de readme&quot;</span> &gt;&gt; readme.txt
+$ git add .
+$ git commit -m <span class="s2">&quot;Actualización readme.txt y eliminación archivo1.sh&quot;</span>
+
+<span class="o">[</span>nueva_rama c1612b6<span class="o">]</span> Actualización readme.txt y eliminación archivo1.sh
+ <span class="m">2</span> files changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>, <span class="m">3</span> deletions<span class="o">(</span>-<span class="o">)</span>
+ delete mode <span class="m">100644</span> archivo1.sh
+
+ $ git push origin nueva_rama
+
+Username <span class="k">for</span> <span class="s1">&#39;https://github.com&#39;</span>: tu usuario
+Password <span class="k">for</span> <span class="s1">&#39;tu correo&#39;</span>: tu access token
+ Enumerating objects: <span class="m">5</span>, <span class="k">done</span>.
+Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">5</span>/5<span class="o">)</span>, <span class="k">done</span>.
+Delta compression using up to <span class="m">4</span> threads
+Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="k">done</span>.
+Writing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">3</span>/3<span class="o">)</span>, <span class="m">357</span> bytes <span class="p">|</span> <span class="m">357</span>.00 KiB/s, <span class="k">done</span>.
+Total <span class="m">3</span> <span class="o">(</span>delta <span class="m">1</span><span class="o">)</span>, reused <span class="m">0</span> <span class="o">(</span>delta <span class="m">0</span><span class="o">)</span>
+remote: Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">1</span>/1<span class="o">)</span>, completed with <span class="m">1</span> <span class="nb">local</span> object.
+remote: 
+remote: Create a pull request <span class="k">for</span> <span class="s1">&#39;nueva_rama&#39;</span> on GitHub by visiting:
+remote:      https://github.com/asar1245/repo_prueba/pull/new/nueva_rama
+remote: 
+To https://github.com/asar1245/repo_prueba.git
+ * <span class="o">[</span>new branch<span class="o">]</span>      nueva_rama -&gt; nueva_rama
+</pre></div>
+</div>
+<p>Al abrir tu repositorio de GitHub puedes verificar que ahora tienes dos ramas, como se observa en la siguiente captura de pantalla:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github5.png"><img alt="./img/repo_github5.png" class="align-center" src="../../../_images/repo_github5.png" style="width: 750px;" /></a>
+<p>Ahora, podemos usar la herramienta <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code> para comparar las dos ramas del repo remoto, como se muestra a continuación:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github6.png"><img alt="./img/repo_github6.png" class="align-center" src="../../../_images/repo_github6.png" style="width: 750px;" /></a>
+<p>Con esto se abre una ventana para añadir el nombre y comentarios del <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code>, así como las diferencias entre las dos ramas en la parte inferior, como se observa en la siguiente captura de pantalla:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github7.png"><img alt="./img/repo_github7.png" class="align-center" src="../../../_images/repo_github7.png" style="width: 750px;" /></a>
+<p>Debemos añadir un mensaje, y usar la opción <strong>Create pull request</strong>, con lo que se realizó esta acción.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Esta herramienta es útil para sugerir cambios en repositorios de otros desarrolladores debido a posibles errores.</p>
+</div>
+<p>Al crear el <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">request</span></code> se observa que hay conflictos, por lo que se debe usar la opción <strong>Resolve conflicts</strong>, y en este caso dejaremos los cambios de la rama externa y usaremos la opción <strong>Commit merge</strong>, como se observa a continuación:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github8.png"><img alt="./img/repo_github8.png" class="align-center" src="../../../_images/repo_github8.png" style="width: 750px;" /></a>
+<p>Finalmente, realizaremos el merge con las opciones <strong>Merge pull request</strong> y <strong>Confirm merge</strong>. Con esto se realizó el merge de forma exitosa, lo que puedes comprobar observando los contenidos del readme de la rama <code class="docutils literal notranslate"><span class="pre">master</span></code> en la parte de <code class="docutils literal notranslate"><span class="pre">Code</span></code>, como se muestra en la siguiente captura de pantalla:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github9.png"><img alt="./img/repo_github9.png" class="align-center" src="../../../_images/repo_github9.png" style="width: 750px;" /></a>
+</div>
+<div class="section" id="actualizar-el-repo-local-con-los-cambios-hechos-en-el-repo-remoto">
+<h2><span class="section-number">3.7. </span>Actualizar el repo local con los cambios hechos en el repo remoto<a class="headerlink" href="#actualizar-el-repo-local-con-los-cambios-hechos-en-el-repo-remoto" title="Permalink to this headline">¶</a></h2>
+<p>Cuando se realizan cambios en el repositorio remoto, es importante actualizar el repositorio local con estos cambios, lo que se realiza con el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git checkout master
+$ git pull
+$ cat readme.txt
+
+Esta línea se añadió en el documento de la nueva rama
+Nueva línea de readme
+</pre></div>
+</div>
+<p>Como se observa en el resultado del anterior comando, los contenidos del repo local se actualizaron de forma correcta.</p>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>El comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> agrupa en un solo comando los comandos <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fecth</span></code>, que permite descargar los contenidos del repo remoto,  y <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>, que actualiza el contenido del repo local con la información del repo remoto. Para más información sobre este tema pueden leer este <a class="reference external" href="https://www.atlassian.com/git/tutorials/syncing/git-fetch">blog</a></p>
+</div>
+</div>
+<div class="section" id="clonar-repositorio-remoto-a-cuenta-personal-de-github-fork">
+<h2><span class="section-number">3.8. </span>Clonar repositorio remoto a cuenta personal de GitHub - Fork<a class="headerlink" href="#clonar-repositorio-remoto-a-cuenta-personal-de-github-fork" title="Permalink to this headline">¶</a></h2>
+<p>El <code class="docutils literal notranslate"><span class="pre">Fork</span></code> es una herrmienta de GitHub que permite clonar un repositorio remoto de otros usuarios en nuestra cuenta, y poder modificar el código fuente. Depués, se pueden sugerir cambios del repositorio remoto de origen mediante <em>pull request</em>.</p>
+<p>Como ejemplo, deben clonar el respositorio del libro del curso a su cuenta de GitHub. Para esto, deben acceder al siguiente <a class="reference external" href="https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador">link</a>, y utilizar la opción <code class="docutils literal notranslate"><span class="pre">Fork</span></code>, como se muestra a continuación:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github10.png"><img alt="./img/repo_github10.png" class="align-center" src="../../../_images/repo_github10.png" style="width: 750px;" /></a>
+<p>Con esto, puedes constatar que se guardó una copia del repo del libro en los repositorios de tu cuenta de GitHub.</p>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Toma una captura de pantalla de tu repo del libro del curso en tu cuenta de GitHub (del que hiciste el <code class="docutils literal notranslate"><span class="pre">Fork</span></code>) y envía este archivo como parte del deber de esta sección.</p>
+</div>
+</div>
+<div class="section" id="clonar-repositorio-remoto-a-un-directorio-local">
+<h2><span class="section-number">3.9. </span>Clonar repositorio remoto a un directorio local<a class="headerlink" href="#clonar-repositorio-remoto-a-un-directorio-local" title="Permalink to this headline">¶</a></h2>
+<p>Luego de realizar el <code class="docutils literal notranslate"><span class="pre">Fork</span></code> de un repositorio a su cuenta de GitHub, pueden descargarlo a su computadora desde la terminal usando el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>. Como ejemplo, se usará el repo del libro del curso que clonaron en la sección anterior a su cuenta de GitHub. Para esto necesitan el link del repo, lo que pueden obtener como se muestra a continuación:</p>
+<a class="reference internal image-reference" href="../../../_images/repo_github11.png"><img alt="./img/repo_github11.png" class="align-center" src="../../../_images/repo_github11.png" style="width: 750px;" /></a>
+<p>Con esto corremos los comandos correspondientes:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
+$ git clone 
+$ git clone link de su repositorio
+
+Cloning into <span class="s1">&#39;unix.bioinfo.rsgecuador&#39;</span>...
+remote: Enumerating objects: <span class="m">620</span>, <span class="k">done</span>.
+remote: Counting objects: <span class="m">100</span>% <span class="o">(</span><span class="m">151</span>/151<span class="o">)</span>, <span class="k">done</span>.
+remote: Compressing objects: <span class="m">100</span>% <span class="o">(</span><span class="m">113</span>/113<span class="o">)</span>, <span class="k">done</span>.
+remote: Total <span class="m">620</span> <span class="o">(</span>delta <span class="m">87</span><span class="o">)</span>, reused <span class="m">82</span> <span class="o">(</span>delta <span class="m">37</span><span class="o">)</span>, pack-reused <span class="m">469</span>
+Receiving objects: <span class="m">100</span>% <span class="o">(</span><span class="m">620</span>/620<span class="o">)</span>, <span class="m">37</span>.43 MiB <span class="p">|</span> <span class="m">2</span>.24 MiB/s, <span class="k">done</span>.
+Resolving deltas: <span class="m">100</span>% <span class="o">(</span><span class="m">239</span>/239<span class="o">)</span>, <span class="k">done</span>.
+
+$ <span class="nb">cd</span> unix.bioinfo.rsgecuador/
+$ git status
+
+On branch gh-pages
+Your branch is up to date with <span class="s1">&#39;origin/gh-pages&#39;</span>.
+
+nothing to commit, working tree clean
+</pre></div>
+</div>
+<p>Clonar un repositorio tiene la ventaja de que mantiene el seguimiento del repositorio remoto asociado al repo local. Esto lo podemos comprobar con el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+</pre></div>
+</div>
+<p>De esta forma, podemos cambiar los contenidos del repo local y actualizar el repo remoto mediante commits y pulls, como vimos en las secciones anteriores.</p>
+</div>
+<div class="section" id="actualizar-repo-local-obtenido-a-partir-de-un-fork-con-los-cambios-del-repo-original">
+<h2><span class="section-number">3.10. </span>Actualizar repo local obtenido a partir de un fork con los cambios del repo original<a class="headerlink" href="#actualizar-repo-local-obtenido-a-partir-de-un-fork-con-los-cambios-del-repo-original" title="Permalink to this headline">¶</a></h2>
+<p>Si deseas actualizar los contenidos de tu repo local y remoto con los cambios hechos en el repo del que se hizo el <code class="docutils literal notranslate"><span class="pre">Fork</span></code>, lo puedes hacer añadiendo el URL del repo del que hiciste <code class="docutils literal notranslate"><span class="pre">Fork</span></code> con el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git remote add upstream https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador.git
+</pre></div>
+</div>
+<p>Después, debes usar el comando <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> o <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code>, y <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> para actualizar los contenidos del repo local con la información del repo remoto del que se hizo el <code class="docutils literal notranslate"><span class="pre">Fork</span></code>. En este caso optaremos por <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code>, y <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> para mostrar que su funcionalidad es igual a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ git fetch upstream
+
+From https://github.com/RSG-Ecuador/unix.bioinfo.rsgecuador
+ * <span class="o">[</span>new branch<span class="o">]</span>      gh-pages   -&gt; upstream/gh-pages
+ * <span class="o">[</span>new branch<span class="o">]</span>      mdonly     -&gt; upstream/mdonly
+
+$ git merge upstream/gh-pages
+
+Already up to date
+</pre></div>
+</div>
+<p>De esta forma, puedes actualizar los contenidos de tu repo local con las actualizaciones que se hagan en el repo remoto del que se hizo el <code class="docutils literal notranslate"><span class="pre">Fork</span></code>, actualizar el repo remoto de tu cuenta de GitHub con estos cambios, proponer <code class="docutils literal notranslate"><span class="pre">pull</span> <span class="pre">requests</span></code> o cualquiera de las otras acciones aprendidas en este tutorial.</p>
+</div>
+<div class="section" id="material-sumplementario">
+<h2><span class="section-number">3.11. </span>Material sumplementario<a class="headerlink" href="#material-sumplementario" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Kross, S. (2017). The unix workbench. Capítulo <em>Git and GitHub</em> (pp 154-209). Leanpub. <a class="reference external" href="https://leanpub.com/unix">https://leanpub.com/unix</a></p></li>
+<li><p><a class="reference external" href="https://www.freecodecamp.org/news/practical-git-and-git-workflows/">https://www.freecodecamp.org/news/practical-git-and-git-workflows/</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/Curso_avanzado/03_Git_GitHub"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="1_Git.html" title="previous page"><span class="section-number">2. </span>Git</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By RSG Ecuador<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
