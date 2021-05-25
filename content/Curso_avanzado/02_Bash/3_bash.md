@@ -201,15 +201,15 @@ Es posible realizar acciones sobre cada elemento de una `secuencia o estructura 
 ```
 Para usar la notación de arreglo en el for, para algún *arreglo*, es necesario especificar `i in {arreglo[*]}` después de `for`. Esto quiere decir que `i` se convierte en cada uno de los elementos de `arreglo`. Esto se logra al colocar `[*]` a lado de `arreglo` y al colocar todo dentro de llaves `{}`. Como se ve en la imagen anterior, la dirección por defecto de este for es de izquierda a derecha. Este script imprimirá los elementos de *arreglo* de izquierda a derecha:
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 # File: for_2.sh
-echo "Antes del bucle"
-arreglo=(a b c d e f g)
-for i in {arreglo[*]}
+echo "Antes del ciclo"
+array=(1 3 9 10)
+for i in ${array[@]}
 do
     echo "i es igual a $i"
 done
-echo "Después del bucle"
+echo "Después del ciclo"
 ```
 Ahora, es posible que se desee recorrer el arreglo de otra manera, por ejemplo, al revés. Es posible especificarle al for que vaya en retro, como se ilustra en esta imágen:
 ```{image} ./img/f3.png
