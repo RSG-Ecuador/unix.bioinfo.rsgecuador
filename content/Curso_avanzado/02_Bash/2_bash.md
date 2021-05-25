@@ -1,7 +1,6 @@
 # Lógica, condicionales y arreglos
 
 ## Lógica
-
 Los programas son capaces de ejecutar lógicas bastante complejas. La forma de hacerlo es concatenando **estructuras de control** o sentecias de control. Estas sentencias permiten controlar el flujo de ejecución de las instrucciones de un programa. La primera estructura que veremos son los condicionales. 
 
 Los condicionales le permiten a un programa decidir en función de la veracidad de una sentencia lógica. Una sentencia lógica puede clasificarse en 2 tipos de acuerdo a su veracidad: *verdadera* o *falsa*. Por ejemplo, al procesar un archivo de secuencias de ADN, un script puede analizar de un conjunto de lecturas solo las que cumplan con un criterio de calidad o un script podría decidir si extraer secuencias con un patrón específico. Los tipos de datos que guardan el estado de verdad de una sentencia se llaman **booleanos**. 

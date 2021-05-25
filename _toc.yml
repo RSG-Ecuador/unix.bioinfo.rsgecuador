@@ -78,7 +78,10 @@
   - file: content/Curso_avanzado/02_Bash/1_bash.md
   - file: content/Curso_avanzado/02_Bash/2_bash.md
   - file: content/Curso_avanzado/02_Bash/3_bash.md
+  - file: content/Curso_avanzado/02_Bash/4_bash.md
 - part: Git y GitHub
   numbered: true
   chapters:
   - file: content/Curso_avanzado/03_Git_GitHub/0_Resumen.md
+  - file: content/Curso_avanzado/03_Git_GitHub/1_Git.md
+  - file: content/Curso_avanzado/03_Git_GitHub/2_GitHub.md
