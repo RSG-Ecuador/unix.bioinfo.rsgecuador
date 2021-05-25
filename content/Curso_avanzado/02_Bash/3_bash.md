@@ -204,8 +204,8 @@ Para usar la notación de arreglo en el for, para algún *arreglo*, es necesario
 #!/usr/bin/env bash
 # File: for_2.sh
 echo "Antes del ciclo"
-array=(1 3 9 10)
-for i in ${array[@]}
+arreglo=(a b c d e f g)
+for i in ${arreglo[@]}
 do
     echo "i es igual a $i"
 done
