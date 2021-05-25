@@ -763,15 +763,15 @@
 <p>Es posible realizar acciones sobre cada elemento de una <code class="docutils literal notranslate"><span class="pre">secuencia</span> <span class="pre">o</span> <span class="pre">estructura</span> <span class="pre">de</span> <span class="pre">datos</span></code> (braces, arreglos, u otras). A esto le llamamos iterar o recorrer la estructura de datos. Los bucles for pueden recorrer los arreglos de maneras muy eficientes. Por ejemplo, imaginemos que tenemos un arreglo como el siguiente:</p>
 <a class="reference internal image-reference" href="../../../_images/f2.png"><img alt="./img/f2.png" class="align-center" src="../../../_images/f2.png" style="width: 600px;" /></a>
 <p>Para usar la notación de arreglo en el for, para algún <em>arreglo</em>, es necesario especificar <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">in</span> <span class="pre">{arreglo[*]}</span></code> después de <code class="docutils literal notranslate"><span class="pre">for</span></code>. Esto quiere decir que <code class="docutils literal notranslate"><span class="pre">i</span></code> se convierte en cada uno de los elementos de <code class="docutils literal notranslate"><span class="pre">arreglo</span></code>. Esto se logra al colocar <code class="docutils literal notranslate"><span class="pre">[*]</span></code> a lado de <code class="docutils literal notranslate"><span class="pre">arreglo</span></code> y al colocar todo dentro de llaves <code class="docutils literal notranslate"><span class="pre">{}</span></code>. Como se ve en la imagen anterior, la dirección por defecto de este for es de izquierda a derecha. Este script imprimirá los elementos de <em>arreglo</em> de izquierda a derecha:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># File: for_2.sh</span>
-<span class="nb">echo</span> <span class="s2">&quot;Antes del bucle&quot;</span>
-<span class="nv">arreglo</span><span class="o">=(</span>a b c d e f g<span class="o">)</span>
-<span class="k">for</span> i <span class="k">in</span> <span class="o">{</span>arreglo<span class="o">[</span>*<span class="o">]}</span>
+<span class="nb">echo</span> <span class="s2">&quot;Antes del ciclo&quot;</span>
+<span class="nv">array</span><span class="o">=(</span><span class="m">1</span> <span class="m">3</span> <span class="m">9</span> <span class="m">10</span><span class="o">)</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="si">${</span><span class="nv">array</span><span class="p">[@]</span><span class="si">}</span>
 <span class="k">do</span>
     <span class="nb">echo</span> <span class="s2">&quot;i es igual a </span><span class="nv">$i</span><span class="s2">&quot;</span>
 <span class="k">done</span>
-<span class="nb">echo</span> <span class="s2">&quot;Después del bucle&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Después del ciclo&quot;</span>
 </pre></div>
 </div>
 <p>Ahora, es posible que se desee recorrer el arreglo de otra manera, por ejemplo, al revés. Es posible especificarle al for que vaya en retro, como se ilustra en esta imágen:</p>
