@@ -23,3 +23,4 @@ Cuando tengas tu notebook listo con todas las respuestas haz una copia de este d
 
 ## Recursos adicionales con más ejercicios
 * <https://vinuesa.github.io/intro2linux/index.html>
+* <https://deepseqanalysis.readthedocs.io/en/latest/awk-sed-bash.html>
