@@ -199,7 +199,7 @@ Es posible realizar acciones sobre cada elemento de una `secuencia o estructura 
 :width: 600px
 :align: center
 ```
-Para usar la notación de arreglo en el for, para algún *arreglo*, es necesario especificar `i in {arreglo[*]}` después de `for`. Esto quiere decir que `i` se convierte en cada uno de los elementos de `arreglo`. Esto se logra al colocar `[*]` a lado de `arreglo` y al colocar todo dentro de llaves `{}`. Como se ve en la imagen anterior, la dirección por defecto de este for es de izquierda a derecha. Este script imprimirá los elementos de *arreglo* de izquierda a derecha:
+Para usar la notación de arreglo en el for, para algún *arreglo*, es necesario especificar `i in ${arreglo[@]}` después de `for`. Esto quiere decir que `i` se convierte en cada uno de los elementos de `arreglo`. Esto se logra al colocar `[@]` a lado de `arreglo` y al colocar todo dentro de llaves `{}`. Como se ve en la imagen anterior, la dirección por defecto de este for es de izquierda a derecha. Este script imprimirá los elementos de *arreglo* de izquierda a derecha:
 ```bash
 #!/usr/bin/env bash
 # File: for_2.sh
@@ -210,6 +210,11 @@ do
     echo "i es igual a $i"
 done
 echo "Después del ciclo"
+```
+```{image} ./img/f4.png
+:alt: ./img/f4.png
+:width: 400px
+:align: center
 ```
 Ahora, es posible que se desee recorrer el arreglo de otra manera, por ejemplo, al revés. Es posible especificarle al for que vaya en retro, como se ilustra en esta imágen:
 ```{image} ./img/f3.png
