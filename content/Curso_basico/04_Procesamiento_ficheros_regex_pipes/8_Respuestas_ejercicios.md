@@ -72,7 +72,7 @@
 1. No hay una sola respuesta, depende de tu SO
 
 **6.5**
-1. sed -r 's!\([0-9]\){2}[-\/.]\([0-9]\){2}[-\/.]\([0-9]\){2}!20/04/20!g' Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
+1. sed -r 's!([0-9]){2}[-\/.]\([0-9]\){2}[-\/.]\([0-9]\){2}!20/04/20!g' Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
 2. sed -r 's/^O[a-zA-Z ]*ver$/Quizá no quiere observar/m' Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
 3. sed -r 's/\bVerso/Estrofa/g' Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt
 4. sed -r 's|/|-|2' Contrapunto_para_Humano_y_Computadora_Cuarteto_de_Nos.txt

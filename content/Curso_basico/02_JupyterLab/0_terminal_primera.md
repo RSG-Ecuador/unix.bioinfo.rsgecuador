@@ -31,7 +31,10 @@ taller_unix
 ├─── 4_ficheros
 ├─── 5_ejercicios_ficheros
 ├─── 6_make
-└─── 7_sam_tools
+├─── 7_sam_tools
+├─── 8_awk
+├─── 9_bash
+└─── 10_git_github
 ```
 
 ```{admonition} Tip

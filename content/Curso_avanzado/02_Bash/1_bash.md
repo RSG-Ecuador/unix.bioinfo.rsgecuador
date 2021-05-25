@@ -248,7 +248,7 @@ Vas a notar que este script posee el nuevo comando `if`. Lo veremos en la próxi
 `-`         | Operador de resta entre dos números.
 `*`         | Operador de producto entre dos números. Hay que **escapar el caracter `\*` *antes de usarlo en la shell*** como operador de producto o Bash creerá que será usado como expresión regular. Si se usa en *bc* no hay problema.
 `%`         | Operador residuo entre dos números. Retorna el residuo de una división larga entre números.
-`bc`        | Pograma *bench calculator*. Toma strings de operaciones algebraicas y da el resultado.
+`bc`        | Programa *bench calculator*. Toma strings de operaciones algebraicas y da el resultado.
 `=`         | Operador de asignación
 `$`         | Caracter especial que revela contenido de una variable.
 `let`       | Comando que permite actualizar una variable con una operación algebraica.
