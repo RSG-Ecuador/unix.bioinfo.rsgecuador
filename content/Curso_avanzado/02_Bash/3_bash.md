@@ -78,7 +78,7 @@ Escribe el script en el archivo correspondiente. Toma una captura de pantalla de
 
 
 ## While loops 3: condicionales
-Ahora, vamos a usar sentencias `if` dentro del while loop. Vamos a generar un juego de *piedra, papel o tijeras* con sentencias `if` anidadas. Vamos a jugar contra Bash, ya que generaremos números aleatorios que representen la elección de Bash sobre piedra, papel o tijera. Luego, con varios `if`, comparamos nuestra elección con la de Bash y alguien ganará la partidad. El while loop permite al usuario decidir si va a jugar de nuevo.
+Ahora, vamos a usar sentencias `if` dentro del while loop. Vamos a generar un juego de *piedra, papel o tijeras* con sentencias `if` anidadas. Vamos a jugar contra Bash, ya que generaremos números aleatorios que representen la elección de Bash sobre piedra, papel o tijera. Luego, con varios `if`, comparamos nuestra elección con la de Bash y alguien ganará la partida. El while loop permite al usuario decidir si va a jugar de nuevo.
 ```bash
 #!/bin/bash
 # File: while_3.sh
