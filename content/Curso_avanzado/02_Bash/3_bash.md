@@ -63,7 +63,7 @@ Ahora intentemos otro tipo de lógica. Ingresemos datos al while loop desde tecl
 # File: while_2.sh
 echo "Adivina mi idioma preferido."
 read -p "Ingresa el idioma: " i
-while [[ $i != "Aleman" ]] || [[ $i != "ALEMAN" ]] || [[ $i != "aleman" ]]
+while [[ $i != "Aleman" ]] && [[ $i != "ALEMAN" ]] && [[ $i != "aleman" ]]
 do
     echo "$i no es mi idioma preferido :C"
     read -p "Intenta de nuevo: " i
