@@ -52,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="1. Resumen" href="../03_Git_GitHub/0_Resumen.html" />
@@ -531,7 +533,104 @@
                 
   <div class="section" id="funciones">
 <h1><span class="section-number">5. </span>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="../../../_images/suc1.gif"><img alt="./img/suc.gif" class="align-center" src="../../../_images/suc1.gif" style="width: 350px;" /></a>
+<p>Una función es un fragmento de código que tiene un nombre y que cumple una función específica. Como en matemática, una función es un mapa que transforma una cosa en otra. Por ejemplo, una función cuadrática puede escribirse de la forma:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = x^2\]</div>
+<p>Esta transformación cambia 2 a 4, 3 a 9, etc. Es una regla. Las funciones en programación se entienden de la misma manera, pero pueden operar con mucho más que solo números. Pueden ser strings, arreglos, objetos y varias otras funciones. La mayor ventaja es que se pueden reutilizar muchas veces dentro de un programa o desde la terminal. El principal propósito de una función es <em>encapsular</em> un programa que vamos a usar una y otra vez. Esto es para evitar que debamos escribir todo de nuevo cuando queramos reusar el programa. Para definir una función en Bash, primero se debe escribir la palabra clave <strong>function</strong> y luego se le da un nombre. La estructura general del una función es la siguente:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> nombre_función<span class="o">()</span> <span class="o">{</span>
+    Acciones. 
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Utilizando el comando <code class="docutils literal notranslate"><span class="pre">source</span></code> se pueden usar como comandos de Terminal. También es posible correrlos con el comando <code class="docutils literal notranslate"><span class="pre">bash</span></code>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ bash nombre_archivo_con_función.sh
+$ <span class="nb">source</span> nombre_archivo_con_función.sh
+</pre></div>
+</div>
+<p>Es importante saber que las funciones pueden operar como programas independientes, por lo que tienen sus propios accesos a argumentos de entrada con los caracteres especiales <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, etc. Por ejemplo, para la función cuadrática antes vista, en Bash se la debería escribir de esta manera:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Files: funcion1.sh</span>
+<span class="k">function</span> cuadratica_v1<span class="o">(){</span>
+    <span class="nb">echo</span> <span class="s2">&quot;El cuadrado de </span><span class="nv">$1</span><span class="s2"> es </span><span class="k">$((</span><span class="nv">$1</span><span class="o">**</span><span class="m">2</span><span class="k">))</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+<span class="k">function</span> cuadratica_v2<span class="o">(){</span>
+    <span class="nv">f</span><span class="o">=</span><span class="k">$((</span><span class="nv">$1</span><span class="o">**</span><span class="m">2</span><span class="k">))</span>
+<span class="o">}</span>
+<span class="k">function</span> suma_de_tres<span class="o">(){</span>
+    <span class="nv">suma</span><span class="o">=</span><span class="k">$((</span><span class="nv">$1</span> <span class="o">+</span> <span class="nv">$2</span> <span class="o">+</span> <span class="nv">$3</span><span class="k">))</span>
+<span class="o">}</span>
+
+cuadratica_v1 <span class="m">2</span>
+cuadratica_v2 <span class="m">3</span>
+<span class="nb">echo</span> <span class="s2">&quot;El cuadrado de 3 es </span><span class="nv">$f</span><span class="s2">&quot;</span>
+suma_de_tres <span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
+<span class="nb">echo</span> <span class="s2">&quot;La suma da </span><span class="nv">$suma</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> funcion1.sh
+</pre></div>
+</div>
+<p>Es importante saber que una función <strong>siempre debe ser declarada antes de ser usada</strong>. Sino Bash no sabrá que esta función existe. Es decir, no es posible hacer esto:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: funcion1.sh</span>
+cuadratica_v1 <span class="m">2</span>
+cuadratica_v2 <span class="m">3</span>
+<span class="nb">echo</span> <span class="s2">&quot;El cuadrado de 3 es </span><span class="nv">$f</span><span class="s2">&quot;</span>
+suma_de_tres <span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
+<span class="nb">echo</span> <span class="s2">&quot;La suma da </span><span class="nv">$suma</span><span class="s2">&quot;</span>
+
+<span class="k">function</span> cuadratica_v1<span class="o">(){</span>
+    <span class="nb">echo</span> <span class="s2">&quot;El cuadrado de </span><span class="nv">$1</span><span class="s2"> es </span><span class="k">$((</span><span class="nv">$1</span><span class="o">**</span><span class="m">2</span><span class="k">))</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+<span class="k">function</span> cuadratica_v2<span class="o">(){</span>
+    <span class="nv">f</span><span class="o">=</span><span class="k">$((</span><span class="nv">$1</span><span class="o">**</span><span class="m">2</span><span class="k">))</span>
+<span class="o">}</span>
+<span class="k">function</span> suma_de_tres<span class="o">(){</span>
+    <span class="nv">suma</span><span class="o">=</span><span class="k">$((</span><span class="nv">$1</span> <span class="o">+</span> <span class="nv">$2</span> <span class="o">+</span> <span class="nv">$3</span><span class="k">))</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Todas las variables en Bash son <code class="docutils literal notranslate"><span class="pre">globales</span></code> a menos que se especifique lo contrario. Es decir, se puede acceder a ellas desde cualquier lugar del script. En el ejemplo, se ha escrito <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;El</span> <span class="pre">cuadrado</span> <span class="pre">de</span> <span class="pre">3</span> <span class="pre">es</span> <span class="pre">$f&quot;</span></code>. Esta línea de código accede a una variable declarada dentro de la función <code class="docutils literal notranslate"><span class="pre">cuadratica_v2</span></code>. A veces esto puede ser problemático, otras veces puede ser necesario. Depende del uso que se le de a la función. Se puede usar la palabra <code class="docutils literal notranslate"><span class="pre">local</span></code> para especificar a Bash que una función tenga uso exclusivo de una variable, y que no se la pueda usar fuera:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: funcion2.sh</span>
+<span class="nv">variable1</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">variable2</span><span class="o">=</span><span class="m">2</span>
+<span class="k">function</span> variables_locales<span class="o">(){</span>
+    <span class="nb">local</span> <span class="nv">variable1</span><span class="o">=</span><span class="m">3</span>
+    <span class="nb">local</span> <span class="nv">variable2</span><span class="o">=</span><span class="m">4</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Las variables locales son </span><span class="nv">$variable1</span><span class="s2"> y </span><span class="nv">$variable2</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+
+variables_locales
+<span class="nb">echo</span> <span class="s2">&quot;Las variables globales son </span><span class="nv">$variable1</span><span class="s2"> y </span><span class="nv">$variable2</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> funcion2.sh
+</pre></div>
+</div>
+<p>Ahora, un ejemplo de una función para calcular la suma de un conjunto de números:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># File: funcion_suma.sh</span>
+<span class="k">function</span> funcion_suma<span class="o">()</span> <span class="o">{</span>
+    <span class="nv">sum</span><span class="o">=</span><span class="m">0</span>
+    <span class="k">for</span> element <span class="k">in</span> <span class="nv">$@</span>
+    <span class="k">do</span>
+        <span class="nb">let</span> <span class="nv">sum</span><span class="o">=</span>sum+<span class="nv">$element</span>
+    <span class="k">done</span>
+
+    <span class="nb">echo</span> <span class="nv">$sum</span>
+<span class="o">}</span>
+
+funcion_suma <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> funcion_suma.sh
+</pre></div>
+</div>
+<div class="hint admonition">
+<p class="admonition-title">Deber</p>
+<p>Escribir estos scripts, correr los archivos, tomar screenshot. Entregar scripts y screenshots.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
