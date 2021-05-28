@@ -625,7 +625,7 @@
 <span class="c1"># File: while_2.sh</span>
 <span class="nb">echo</span> <span class="s2">&quot;Adivina mi idioma preferido.&quot;</span>
 <span class="nb">read</span> -p <span class="s2">&quot;Ingresa el idioma: &quot;</span> i
-<span class="k">while</span> <span class="o">[[</span> <span class="nv">$i</span> !<span class="o">=</span> <span class="s2">&quot;Aleman&quot;</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$i</span> !<span class="o">=</span> <span class="s2">&quot;ALEMAN&quot;</span> <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="nv">$i</span> !<span class="o">=</span> <span class="s2">&quot;aleman&quot;</span> <span class="o">]]</span>
+<span class="k">while</span> <span class="o">[[</span> <span class="nv">$i</span> !<span class="o">=</span> <span class="s2">&quot;Aleman&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="nv">$i</span> !<span class="o">=</span> <span class="s2">&quot;ALEMAN&quot;</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="o">[[</span> <span class="nv">$i</span> !<span class="o">=</span> <span class="s2">&quot;aleman&quot;</span> <span class="o">]]</span>
 <span class="k">do</span>
     <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2"> no es mi idioma preferido :C&quot;</span>
     <span class="nb">read</span> -p <span class="s2">&quot;Intenta de nuevo: &quot;</span> i
