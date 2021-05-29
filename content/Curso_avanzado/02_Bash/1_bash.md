@@ -55,7 +55,7 @@ Esta convención puede ser reemplazada. Si no deseas cambiar los permisos del ar
 ```shell
 $ bash algebra.sh
 ```
-Vemos cómo claramente la expresión `4 / 3` devuelve el valor 1, cuando sabemos que equivale al fraccionario racional `1.333333...`. Esto ocurre porque la división entera aproxima el resultado: 
+Vemos cómo claramente la expresión `4 / 3` devuelve el valor 1, cuando sabemos que equivale al número `1.333333...`. Esto ocurre porque la división entera aproxima el resultado: 
 ```{math}
 \frac{4}{3} \sim 1
 ```
