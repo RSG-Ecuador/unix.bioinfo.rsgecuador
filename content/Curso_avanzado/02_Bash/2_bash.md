@@ -57,7 +57,7 @@ $ echo $?
 ```
 Las expresiones condicionales utilizan este tipo de variables para analizar si una propocición es verdadera o falsa, y dependiendo del resultado, ejecutar o no una acción. Las `sentencias lógicas` se declaran utilizando doble corchete o `double braces`, y aceptan **operadores lógicos** como AND y OR, o también **flags lógicas**. Existen varios flags útiles en Bash `revisar página 104` del libro de Sean Kross, como `-ge`, *greater or equal to*, que vemos a continuación.
 ```shell
-$ [[ 4 - 3 ]]
+$ [[ 4 -lt 3 ]]
 $ echo $?
 ```
 ```shell
