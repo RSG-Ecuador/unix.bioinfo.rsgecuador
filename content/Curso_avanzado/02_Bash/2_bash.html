@@ -623,7 +623,7 @@ $ <span class="nb">echo</span> <span class="nv">$?</span>
 </pre></div>
 </div>
 <p>Las expresiones condicionales utilizan este tipo de variables para analizar si una propocición es verdadera o falsa, y dependiendo del resultado, ejecutar o no una acción. Las <code class="docutils literal notranslate"><span class="pre">sentencias</span> <span class="pre">lógicas</span></code> se declaran utilizando doble corchete o <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">braces</span></code>, y aceptan <strong>operadores lógicos</strong> como AND y OR, o también <strong>flags lógicas</strong>. Existen varios flags útiles en Bash <code class="docutils literal notranslate"><span class="pre">revisar</span> <span class="pre">página</span> <span class="pre">104</span></code> del libro de Sean Kross, como <code class="docutils literal notranslate"><span class="pre">-ge</span></code>, <em>greater or equal to</em>, que vemos a continuación.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="o">[[</span> <span class="m">4</span> - <span class="m">3</span> <span class="o">]]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="o">[[</span> <span class="m">4</span> -lt <span class="m">3</span> <span class="o">]]</span>
 $ <span class="nb">echo</span> <span class="nv">$?</span>
 </pre></div>
 </div>
