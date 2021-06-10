@@ -35,7 +35,7 @@ Si usamos el comando `ls -la` se puede ver toda la información de los archivos 
 :width: 650px
 :align: center
 ```
-Lo que queremos es ejecutar este archivo, pero no será posible sin modificar los permisos. Es posible hacer esto con el comando `chmod +x` (que aprendimos antes), donde `x` significa *ejecutable*. Verás que la descripción cambia a **-rwxr-xr-x**. Es posible que también veas que el archivo cambia de color, de blanco a rojo. Esto hace posible usar `algebra.sh` como un archivo ejecutable, como se ve en la imágen a continuación. Los archivos ejecutables son scripts autorizados por el sistema operativo para correr los comandos escritos en ellos. 
+Lo que queremos es ejecutar este archivo, pero no será posible sin modificar los permisos. Es posible hacer esto con el comando `chmod +x` (que aprendimos antes), donde `x` significa *ejecutable*. Verás que la descripción cambia a **-rwxr-xr-x**. Es posible que también veas que el archivo cambia de color, de blanco a rojo. Esto hace posible usar `algebra.sh` como un archivo ejecutable, como se ve en la imagen a continuación. Los archivos ejecutables son scripts autorizados por el sistema operativo para correr los comandos escritos en ellos. 
 ```{image} ./img/b2.png
 :alt: ./img/b2.png
 :width: 650px
@@ -97,7 +97,7 @@ bash pi.sh
 :width: 500px
 :align: center
 ```
-Es posible darle presición a los números de output después de usar `bc` con el comando `scale` en el string después de `echo`.
+Es posible darle precisión a los números de output después de usar `bc` con el comando `scale` en el string después de `echo`.
 ```{admonition} Deber
 :class: hint
 Crea el script y córrelo. Toma una captura de pantalla del proceso. Guarda la captura de pantalla en `~/taller_unix/9_bash`, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.

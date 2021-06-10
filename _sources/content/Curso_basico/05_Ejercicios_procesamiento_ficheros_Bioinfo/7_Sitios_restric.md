@@ -4,7 +4,7 @@
 En este ejercicio se buscarán sitios d reconocimiento de enzimas de restricción en secuencias ITS de hongos. Para esto usaremos los archivos `.fasta` de la carpeta `ITS_region` que se encuentra en la carpeta `_files` dentro del directorio raíz del repositorio de GitHub   
    
    
-Para este ejercicio se debe conocer lo que es un mapa de restricción, que es un gráfico en el que se representan los sitios en los que diferentes enzimas de restricción poseen dianas en una molecula particular de ADN
+Para este ejercicio se debe conocer lo que es un mapa de restricción, que es un gráfico en el que se representan los sitios en los que diferentes enzimas de restricción poseen dianas en una molécula particular de ADN
 
 ```{image} ./img/map_plasmid.png
 :alt: ./img/map_plasmid.png

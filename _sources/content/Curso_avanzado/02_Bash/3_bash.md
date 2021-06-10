@@ -216,7 +216,7 @@ echo "Después del ciclo"
 :width: 400px
 :align: center
 ```
-Ahora, es posible que se desee recorrer el arreglo de otra manera, por ejemplo, al revés. Es posible especificarle al for que vaya en retro, como se ilustra en esta imágen:
+Ahora, es posible que se desee recorrer el arreglo de otra manera, por ejemplo, al revés. Es posible especificarle al for que vaya en retro, como se ilustra en esta imagen:
 ```{image} ./img/f3.png
 :alt: ./img/f3.png
 :width: 600px

@@ -7,7 +7,7 @@ El equipo de [iGEM Ecuador](https://www.facebook.com/iGEMECUADOR) en colaboraci�
 :align: left
 ```
     
-**Autores:** Juan Zurita, [Sebastián Ayala](https://asar1245.github.io/Sebastian-AyalaRuano/)
+**Autores:** [Juan Zurita](https://github.com/jezur), [Sebastián Ayala](https://asar1245.github.io/Sebastian-AyalaRuano/)
 
 Pueden acceder al libro de la clase en el siguiente link: https://rsg-ecuador.github.io/unix.bioinfo.rsgecuador/README.html
 
@@ -26,8 +26,6 @@ Este Boot Camp tiene como objetivo aprender sobre sistemas operativos basados en
 8. [AWK: Lenguaje de programación para procesamiento de archivos de texto](./content/Curso_avanzado/01_AWK/0_Resumen.md)
 9. [Bash: Shell y lenguaje de programación](./content/Curso_avanzado/02_Bash/0_Resumen.md)
 10. [Git y GitHub](./content/Curso_avanzado/03_Git_GitHub/0_Resumen.md)
-
-El curso básico comenzará el 26 de Abril y terminará el 9 de Mayo. Se tendrán clases pregrabadas enviadas por Google Classrom, foros de discusión de los temas del curso, y clases presenciales los Sábados en dos horarios elegibles: 9:00-12:00 y 15:00-18:00 (GMT-5). El material escrito lo iremos subiendo semanalmente a este repositorio. 
 
 ## Audiencia y requerimientos
 El curso está orientado a estudiantes de grado y posgrado e investigadores que quieran aprender sobre GNU/Linux, manejo de terminal, y AWK/Bash con enfoque en Bioinformática. Para el curso básico no se necesita tener acceso a una terminal de Bash, es parte del contenido del curso; mientras que para el curso avanzado asumimos que los estudiantes ya tienen acceso a un emulador de terminal de Bash por alguno de los métodos disponibles (máquina virtual, subsistema de Windows 10 para Linux, Dual boot, etc). 

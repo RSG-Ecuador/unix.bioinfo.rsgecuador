@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -590,8 +590,8 @@
 <h1><span class="section-number">5. </span>Directorios y archivos en UNIX: Parte 1<a class="headerlink" href="#directorios-y-archivos-en-unix-parte-1" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="arquitectura-unix">
 <h2><span class="section-number">5.1. </span>Arquitectura UNIX<a class="headerlink" href="#arquitectura-unix" title="Permalink to this headline">¶</a></h2>
-<p>Un <strong>directorio</strong> es una carpeta. Los sistemas operativos en general se organizan en directorios, subdirectorios y archivos. Entonces los directorios también son <strong>ubicaciones dentro de la memoria del computador</strong>, como ubicaciones en un mapa. Un <strong>archivo</strong> o <em>fichero</em> es un conjunto de <strong>información digital</strong> (bytes guardados en memoria) en algun formato como texto plano, PNG, markdown y miles de otros formatos.</p>
-<p>UNIX se organiza por un <strong>sistema de archivos</strong> en estructura de árbol invertido. Todo en Linux y sistemas UNIX es un archivo o un directorio. Esta jerarquía comienza con el directorio raíz (<em>root diectory</em>), indicado por <code class="docutils literal notranslate"><span class="pre">/</span></code>. Este directorio contine subdirectorios y archivos importantes con sotfware escencial para el funcionamiento del sistema operativo y software instalado o creado por el usuario. Para información detallada visita http://www.linfo.org/filesystem.html o también http://www.linfo.org/index.html. Un resumen rápido de los subdirectorios en <code class="docutils literal notranslate"><span class="pre">/</span></code> es:</p>
+<p>Un <strong>directorio</strong> es una carpeta. Los sistemas operativos en general se organizan en directorios, subdirectorios y archivos. Entonces los directorios también son <strong>ubicaciones dentro de la memoria del computador</strong>, como ubicaciones en un mapa. Un <strong>archivo</strong> o <em>fichero</em> es un conjunto de <strong>información digital</strong> (bytes guardados en memoria) en algún formato como texto plano, PNG, markdown y miles de otros formatos.</p>
+<p>UNIX se organiza por un <strong>sistema de archivos</strong> en estructura de árbol invertido. Todo en Linux y sistemas UNIX es un archivo o un directorio. Esta jerarquía comienza con el directorio raíz (<em>root diectory</em>), indicado por <code class="docutils literal notranslate"><span class="pre">/</span></code>. Este directorio contine subdirectorios y archivos importantes con sotfware esencial para el funcionamiento del sistema operativo y software instalado o creado por el usuario. Para información detallada visita http://www.linfo.org/filesystem.html o también http://www.linfo.org/index.html. Un resumen rápido de los subdirectorios en <code class="docutils literal notranslate"><span class="pre">/</span></code> es:</p>
 <center>
 <table class="colwidths-auto table">
 <thead>
@@ -601,10 +601,10 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/bin</span>&#160; </code></p></td>
-<td><p>Ejecutables para funcionamiento mínimo escencial del sistema operativo como arrancar, reparar, las shell como <code class="docutils literal notranslate"><span class="pre">Bash</span></code> o <code class="docutils literal notranslate"><span class="pre">ZSH</span></code> y comandos UNIX como <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">echo</span></code>, <code class="docutils literal notranslate"><span class="pre">mv</span></code>, <code class="docutils literal notranslate"><span class="pre">tar</span></code>, <code class="docutils literal notranslate"><span class="pre">vi</span></code> y varios otros.</p></td>
+<td><p>Ejecutables para funcionamiento mínimo esencial del sistema operativo como arrancar, reparar, las shell como <code class="docutils literal notranslate"><span class="pre">Bash</span></code> o <code class="docutils literal notranslate"><span class="pre">ZSH</span></code> y comandos UNIX como <code class="docutils literal notranslate"><span class="pre">ls</span></code>, <code class="docutils literal notranslate"><span class="pre">echo</span></code>, <code class="docutils literal notranslate"><span class="pre">mv</span></code>, <code class="docutils literal notranslate"><span class="pre">tar</span></code>, <code class="docutils literal notranslate"><span class="pre">vi</span></code> y varios otros.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/boot</span> </code></p></td>
-<td><p>Ejectuables necesarios para arracncar el sistema operativo.</p></td>
+<td><p>Ejecutables necesarios para arrancar el sistema operativo.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/dev</span>&#160; </code></p></td>
 <td><p>Dispositivos hardware y controladores.</p></td>
@@ -628,7 +628,7 @@
 <td><p>Paquetes opcionales de software.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/sbin</span> </code></p></td>
-<td><p>Executables para administación del sistema operativo disponibles para el usuario principal del computador o <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">user</span></code>. Es similar a <code class="docutils literal notranslate"><span class="pre">/bin</span></code>, pero un <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bin</span></code>.</p></td>
+<td><p>Ejecutables para administración del sistema operativo disponibles para el usuario principal del computador o <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">user</span></code>. Es similar a <code class="docutils literal notranslate"><span class="pre">/bin</span></code>, pero un <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">bin</span></code>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/srv</span>&#160; </code></p></td>
 <td><p>Datos para servicios del sistema, como data de servidores HTTP, entre otros.</p></td>
@@ -637,7 +637,7 @@
 <td><p>Archivos temporales. Los archivos se borran cuando el sistema reinicia.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/usr</span>&#160; </code></p></td>
-<td><p>Jerarquía secundaria. Actúa como root <code class="docutils literal notranslate"><span class="pre">/</span></code>, pero se usa más para customización creada por el usuario e instalación de software, para prevenir dañar los archivos en las otras carpetas del directorio raíz. Esta conitiene directios <code class="docutils literal notranslate"><span class="pre">/bin</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbin</span></code>, <code class="docutils literal notranslate"><span class="pre">/lib</span></code>, <code class="docutils literal notranslate"><span class="pre">/share</span></code> y otros.</p></td>
+<td><p>Jerarquía secundaria. Actúa como root <code class="docutils literal notranslate"><span class="pre">/</span></code>, pero se usa más para customización creada por el usuario e instalación de software, para prevenir dañar los archivos en las otras carpetas del directorio raíz. Esta contiene directorios <code class="docutils literal notranslate"><span class="pre">/bin</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbin</span></code>, <code class="docutils literal notranslate"><span class="pre">/lib</span></code>, <code class="docutils literal notranslate"><span class="pre">/share</span></code> y otros.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">/var</span>&#160; </code></p></td>
 <td><p>Datos variables, especialmente archivos generados en tiempo de ejecución. Esta información no se borra de manera automática.</p></td>
@@ -650,9 +650,9 @@
 $ ls
 </pre></div>
 </div>
-<p>Hay varios otros directorios importantes como se podrá ver. Estos deberán ser revsados por tu cuenta. Vamos a acceder al directorio <code class="docutils literal notranslate"><span class="pre">/</span></code> y vamos a mostrar su contenido. En el sistema operativo Linux se peude ver de esta manera:</p>
+<p>Hay varios otros directorios importantes como se podrá ver. Estos deberán ser revisados por tu cuenta. Vamos a acceder al directorio <code class="docutils literal notranslate"><span class="pre">/</span></code> y vamos a mostrar su contenido. En el sistema operativo Linux se puede ver de esta manera:</p>
 <a class="reference internal image-reference" href="../../../_images/root_ubuntu.png"><img alt="./img/root_ubuntu.png" class="align-center" src="../../../_images/root_ubuntu.png" style="width: 620px;" /></a>
-<p>En el sistema operativo MacOS varía un poco, debido a que Apple ha aplicado algunas adaptaciones para su sistema operativo, sin embargo, conserva los directorios escenciales como <code class="docutils literal notranslate"><span class="pre">/bin</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbin</span></code> y <code class="docutils literal notranslate"><span class="pre">/usr</span></code>. Se peude ver de esta manera:</p>
+<p>En el sistema operativo MacOS varía un poco, debido a que Apple ha aplicado algunas adaptaciones para su sistema operativo, sin embargo, conserva los directorios esenciales como <code class="docutils literal notranslate"><span class="pre">/bin</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbin</span></code> y <code class="docutils literal notranslate"><span class="pre">/usr</span></code>. Se puede ver de esta manera:</p>
 <a class="reference internal image-reference" href="../../../_images/root_mac.png"><img alt="./img/root_mac.png" class="align-center" src="../../../_images/root_mac.png" style="width: 700px;" /></a>
 </div>
 <div class="section" id="algunos-comandos-para-operar-con-directorios-y-archivos">
@@ -695,7 +695,7 @@ $ ls
 <td><p>Mover un archivo a un directorio.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">[desde]</span> <span class="pre">[hacia]</span></code></p></td>
-<td><p></p></td>
+<td><p>Copiar un archivo a un directorio.</p></td>
 </tr>
 <tr class="row-odd"><td><p><img width=500/></p></td>
 <td><p></p></td>
@@ -738,7 +738,7 @@ $ ls
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../../_images/mkdir2.png"><img alt="./img/mkdir2.png" class="align-center" src="../../../_images/mkdir2.png" style="width: 700px;" /></a>
-<p>En esta imagen, el comando <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code> revela, además del directorio escondido, dos nuveos directorios extra muy importantes: <code class="docutils literal notranslate"><span class="pre">./</span></code> y <code class="docutils literal notranslate"><span class="pre">../</span></code>. Estos directorios significan <em>directorio actual</em> y <em>directorio anterior</em>, respectivamente. Sirven para poder operar dentro del directorio actual o para salir del directorio actual, respectivamente. Salgamos del directorio hacia <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal</span></code> y creemos un archivo que vamos a mover hacia <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Será un archivo ejecutable de Python:</p>
+<p>En esta imagen, el comando <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code> revela, además del directorio escondido, dos nuevos directorios extra muy importantes: <code class="docutils literal notranslate"><span class="pre">./</span></code> y <code class="docutils literal notranslate"><span class="pre">../</span></code>. Estos directorios significan <em>directorio actual</em> y <em>directorio anterior</em>, respectivamente. Sirven para poder operar dentro del directorio actual o para salir del directorio actual, respectivamente. Salgamos del directorio hacia <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal</span></code> y creemos un archivo que vamos a mover hacia <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Será un archivo ejecutable de Python:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ..
 $ touch archivo_para_mover.py
 $ ls -l
@@ -799,7 +799,7 @@ $ ls -a
 </div>
 <div class="note admonition">
 <p class="admonition-title">Nota</p>
-<p>Significan lo mismo, ya que especifican el directorio de inicio y el final, pero la ruta relativa es más abreviada. Hay que identificar las cuándo es conveninete trabajar con uno de ellos en particular. Se usan los directorios absolutos usualmente cuando se quiere revelar la locación de un archivo, o cuando se necesita rastrear cambios de ubicación. Los directorios relativos son fáciles de ejecutar y evitan la necesidad de usar nuestra memoria al escribir comandos.</p>
+<p>Significan lo mismo, ya que especifican el directorio de inicio y el final, pero la ruta relativa es más abreviada. Hay que identificar las cuándo es conveniente trabajar con uno de ellos en particular. Se usan los directorios absolutos usualmente cuando se quiere revelar la locación de un archivo, o cuando se necesita rastrear cambios de ubicación. Los directorios relativos son fáciles de ejecutar y evitan la necesidad de usar nuestra memoria al escribir comandos.</p>
 </div>
 <div id="ejercicio3_terminal"/>
 </div>
@@ -816,7 +816,7 @@ $ <span class="nb">cd</span> prueba
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../../_images/mkdir9.png"><img alt="./img/mkdir9.png" class="align-center" src="../../../_images/mkdir9.png" style="width: 700px;" /></a>
-<p>Para ver nuestra jerajrquía de carpetas podemos usar el comando. Operamos desde <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Usamos <code class="docutils literal notranslate"><span class="pre">pwd</span></code> para descubrir la ruta actual:</p>
+<p>Para ver nuestra jerarquía de carpetas podemos usar el comando. Operamos desde <code class="docutils literal notranslate"><span class="pre">~/taller_unix/3_manejo_terminal/prueba</span></code>. Usamos <code class="docutils literal notranslate"><span class="pre">pwd</span></code> para descubrir la ruta actual:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls -R
 $ <span class="nb">pwd</span>
 </pre></div>

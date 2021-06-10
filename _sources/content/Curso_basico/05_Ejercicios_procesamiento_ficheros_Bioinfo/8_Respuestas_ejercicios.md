@@ -33,7 +33,7 @@ Pueden verificar que están en la carpeta `_files` con el comando `ls`.
 ls
 ```
 
-**1. Vamos a realizar una simulación de dinámica molecular de la proteína prM del virus del Dengue (PDB ID: 3c5x) para replicar las condiciones biológicas en las que esta proteína se encuentra y obtener una estructura estable. Para esto usaremos el archivo `3c5x.pdb` que se encuentra en la carpeta `_files` dentro del directorio raíz del repositorio de GitHub**
+**1. Vamos a realizar una simulación de dinámica molécular de la proteína prM del virus del Dengue (PDB ID: 3c5x) para replicar las condiciones biológicas en las que esta proteína se encuentra y obtener una estructura estable. Para esto usaremos el archivo `3c5x.pdb` que se encuentra en la carpeta `_files` dentro del directorio raíz del repositorio de GitHub**
 
 **1.1.** Los archivos del Protein Data Bank (PDB) tienen una nomenclatura por defecto para los aminoácidos. En esta nomenclatura, la cysteína se nombra como *CYS*. Sin embargo, en algunos programas de simulación como *Amber* la nomenclatura de los aminoácidos es diferente. Para que el programa pueda reconocer los aminoácidos de cisteína, estos se deben nombrar como *CYX* en lugar de *CYS*. Usando los conocimientos adquiridos en el curso, transformar el nombre de todos los aminoácidos de cisteína del archivo `3c5x.pdb` de *CYS* a *CYX* y guardar el nuevo archivo como `3c5x_cyx.pdb` en la carpeta `_files`.
 
@@ -430,7 +430,7 @@ sort -u genes_leucemia.txt | wc -l
 
 **7. En este ejercicio se buscarán sitios d reconocimiento de enzimas de restricción en secuencias ITS de hongos. Para esto usaremos los archivos `.fasta` de la carpeta `ITS_region` que se encuentra en la carpeta `_files` dentro del directorio raíz del repositorio de GitHub**
 
-Para este ejercicio se debe conocer lo que es un mapa de restricción, que es un gráfico en el que se representan los sitios en los que diferentes enzimas de restricción poseen dianas en una molecula particular de ADN
+Para este ejercicio se debe conocer lo que es un mapa de restricción, que es un gráfico en el que se representan los sitios en los que diferentes enzimas de restricción poseen dianas en una molécula particular de ADN
 
 ```{image} ./img/map_plasmid.png
 :alt: ./img/map_plasmid.png

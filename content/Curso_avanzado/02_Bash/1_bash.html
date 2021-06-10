@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -593,7 +593,7 @@ expr <span class="m">4</span> / <span class="m">3</span>
 </div>
 <p>Si usamos el comando <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-la</span></code> se puede ver toda la información de los archivos en la carpeta actual. Yo usó el comando <code class="docutils literal notranslate"><span class="pre">l</span></code> porque es una configruación personal. Puedes ver que <code class="docutils literal notranslate"><span class="pre">algebra.sh</span></code> posee la descripción <strong>-rw-r–r–</strong>. Esto significa que el sistema operativo ha otorgado permisos para que el archivo solamente se escriba y se lea.</p>
 <a class="reference internal image-reference" href="../../../_images/b1.png"><img alt="./img/b1.png" class="align-center" src="../../../_images/b1.png" style="width: 650px;" /></a>
-<p>Lo que queremos es ejecutar este archivo, pero no será posible sin modificar los permisos. Es posible hacer esto con el comando <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code> (que aprendimos antes), donde <code class="docutils literal notranslate"><span class="pre">x</span></code> significa <em>ejecutable</em>. Verás que la descripción cambia a <strong>-rwxr-xr-x</strong>. Es posible que también veas que el archivo cambia de color, de blanco a rojo. Esto hace posible usar <code class="docutils literal notranslate"><span class="pre">algebra.sh</span></code> como un archivo ejecutable, como se ve en la imágen a continuación. Los archivos ejecutables son scripts autorizados por el sistema operativo para correr los comandos escritos en ellos.</p>
+<p>Lo que queremos es ejecutar este archivo, pero no será posible sin modificar los permisos. Es posible hacer esto con el comando <code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span></code> (que aprendimos antes), donde <code class="docutils literal notranslate"><span class="pre">x</span></code> significa <em>ejecutable</em>. Verás que la descripción cambia a <strong>-rwxr-xr-x</strong>. Es posible que también veas que el archivo cambia de color, de blanco a rojo. Esto hace posible usar <code class="docutils literal notranslate"><span class="pre">algebra.sh</span></code> como un archivo ejecutable, como se ve en la imagen a continuación. Los archivos ejecutables son scripts autorizados por el sistema operativo para correr los comandos escritos en ellos.</p>
 <a class="reference internal image-reference" href="../../../_images/b2.png"><img alt="./img/b2.png" class="align-center" src="../../../_images/b2.png" style="width: 650px;" /></a>
 <p>Ahora, para ejecutar el script debemos llamarlo con <code class="docutils literal notranslate"><span class="pre">./algebra.sh</span></code>.</p>
 <a class="reference internal image-reference" href="../../../_images/b3.png"><img alt="./img/b3.png" class="align-center" src="../../../_images/b3.png" style="width: 500px;" /></a>
@@ -638,7 +638,7 @@ expr <span class="m">10</span> % <span class="m">5</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../../../_images/b4.png"><img alt="./img/b4.png" class="align-center" src="../../../_images/b4.png" style="width: 500px;" /></a>
-<p>Es posible darle presición a los números de output después de usar <code class="docutils literal notranslate"><span class="pre">bc</span></code> con el comando <code class="docutils literal notranslate"><span class="pre">scale</span></code> en el string después de <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
+<p>Es posible darle precisión a los números de output después de usar <code class="docutils literal notranslate"><span class="pre">bc</span></code> con el comando <code class="docutils literal notranslate"><span class="pre">scale</span></code> en el string después de <code class="docutils literal notranslate"><span class="pre">echo</span></code>.</p>
 <div class="hint admonition">
 <p class="admonition-title">Deber</p>
 <p>Crea el script y córrelo. Toma una captura de pantalla del proceso. Guarda la captura de pantalla en <code class="docutils literal notranslate"><span class="pre">~/taller_unix/9_bash</span></code>, o en otra carpeta si tu instalación de Linux dificulta que guardes en este directorio.</p>

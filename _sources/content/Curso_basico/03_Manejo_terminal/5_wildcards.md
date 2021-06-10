@@ -6,7 +6,7 @@ Los `caracteres` son unidades de información que se representan con símbolos. 
 
 ```{admonition} Nota
 :class: note
-Cada caracter se asocia a una combinación diferente de teclas en el teclado del computdor. 
+Cada caracter se asocia a una combinación diferente de teclas en el teclado del computador. 
 ```
 
 Los `strings` son arreglos de caracteres. Esto quiere decir que son caracteres en conjunto y con un orden en particular. Por ejemplo el string `pizza` tiene 4 diferentes caracteres: `i`, `p`, `z`, `a`. Diferentes combinaciones de caracteres pueden formar diferentes strings.
@@ -62,7 +62,7 @@ $ ls -l *.tex
 :align: center
 ```
 
-Buscar todos los archivos contengan la palabra `TESIS` pero con 3 caracteres desconocides antes:
+Buscar todos los archivos contengan la palabra `TESIS` pero con 3 caracteres desconocidos antes:
 ```shell
 $ ls -l ???TESIS*
 ```
@@ -122,7 +122,7 @@ Existen dos tipos de wildcards: `wildcards estándar` y `expresiones regulares`.
 
 
 ## Operadores de redirección de datos I/O
-Usualmente cuando trabajamos con datos, es necesario pasar el resultado de un comando a otro para hacer un procesamiento de datos apilado, como en un algortimo. Un `stream` o `corriente` esta heca de datos. Es una corriente de datos. Un ejemplo muy familiar es el teclado y la pantalla. El teclado tiene una interfaz en donde por cada tecla presionada, un caracter se guarda en un archivo. Se dice entonces que es una `corriente de entrada`. Cuando la pantalla nos muestra lo que estamos escribiendo entonces la data sale hacia nosotros y eso convierte a la pantalla en una `corriente de salida`. Los dispositivos que hacen este tipo de transmisión de datos se llaman dispositivos `I/O` (input y output). Los operadores que se encargan de esto se conocen como `operadores de redirección`. Tres importantes son: 
+Usualmente cuando trabajamos con datos, es necesario pasar el resultado de un comando a otro para hacer un procesamiento de datos apilado, como en un algortimo. Un `stream` o `corriente` esta hecha de datos. Es una corriente de datos. Un ejemplo muy familiar es el teclado y la pantalla. El teclado tiene una interfaz en donde por cada tecla presionada, un caracter se guarda en un archivo. Se dice entonces que es una `corriente de entrada`. Cuando la pantalla nos muestra lo que estamos escribiendo entonces la data sale hacia nosotros y eso convierte a la pantalla en una `corriente de salida`. Los dispositivos que hacen este tipo de transmisión de datos se llaman dispositivos `I/O` (input y output). Los operadores que se encargan de esto se conocen como `operadores de redirección`. Tres importantes son: 
 
 **Comando**                 | **Función**
 ---                         | ---

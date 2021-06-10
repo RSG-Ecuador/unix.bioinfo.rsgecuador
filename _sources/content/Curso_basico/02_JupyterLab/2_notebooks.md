@@ -1,7 +1,7 @@
 # Creación de Jupyter Notebooks
 
 ## ¿Cómo creo un *Jupyter Notebook*?
-Vamos a crear un notebook para el primer deber. Este será creado en la carpeta que ya creamos previamente `~/taller_unix/2_jupyter_lab`. Primero, asegurate de dirigirte al direcrotio `~/taller_unix`. Segundo, activa tu ambiente de anaconda llamado `bash`. Tercero, llama a Jupyter Lab. 
+Vamos a crear un notebook para el primer deber. Este será creado en la carpeta que ya creamos previamente `~/taller_unix/2_jupyter_lab`. Primero, asegúrate de dirigirte al directoio `~/taller_unix`. Segundo, activa tu ambiente de anaconda llamado `bash`. Tercero, llama a Jupyter Lab. 
 
 ```{admonition} Alerta
 :class: caution
@@ -15,7 +15,7 @@ $ conda activate bash
 $ jupyter lab
 ```
 
-Vas a ver la siguiente ventana en tu explorador. Aquí se ven todas las carpetas correpondientes al taller. Para crear un notebook en la carpeta `~/taller_unix/2_jupyter_lab`, damos click en `2_jupyter_lab` y seguimos la instrucción de abajo.
+Vas a ver la siguiente ventana en tu explorador. Aquí se ven todas las carpetas correspondientes al taller. Para crear un notebook en la carpeta `~/taller_unix/2_jupyter_lab`, damos click en `2_jupyter_lab` y seguimos la instrucción de abajo.
 ```{image} ./img/jupyter_activate.png
 :alt: ./img/jupyter_activate.png
 :width: 750px
@@ -38,7 +38,7 @@ Vas a ver la siguiente ventana en tu explorador. Aquí se ven todas las carpetas
     :width: 300px
     :align: center
     ```
-2. Es posible también crear un cuaderno desde el `Launcher`, un panel con todas las opciones de documentos que se pueden crear en Jupyter Lab. Basta con dar un click en el ícono del lenguaje de programación que se usará en el cuaderno. 
+2. Es posible también crear un cuaderno desde el `Launcher`, un panel con todas las opciones de documentos que se pueden crear en Jupyter Lab. Basta con dar un click en el icono del lenguaje de programación que se usará en el cuaderno. 
     ```{image} ./img/j_8.png
     :alt: ./img/j_8.png
     :width: 800px
@@ -78,10 +78,10 @@ Si deseas puedes cambiar el estilo de Jupyter Lab a uno oscuro.
 Hay varias partes importantes de un *jupyter notebook* que debes conocer:
 1. Celdas *Markdown*: Celdas donde puedes ingresar texto, imágenes, fórmulas, tablas y mucha más información que **documenta** el contenido de las céldas de código.
 2. Celdas de código: Celdas donde se coloca código y se lo corre para producir el resultado. Estas celdas interpretan el lenguaje de programación establecido por el kernel. 
-3. Kernel actual: Kernel utilizado por el notebook. Especifica el lenguaje de programación utilizado en las céldas de código.
+3. Kernel actual: Kernel utilizado por el notebook. Especifica el lenguaje de programación utilizado en las celdas de código.
 4. Barra de herramientas: Herramientas importantes como guardar, copiar, cortar,
-5. Contenido del directorio de trabajo actual: El ícono de carpeta muestra todo el contenido del directorio en donde se llamó a Jupyter Lab. Es el directorio de trabajo porque desde ahí Jupyter creará y accederá a los archivos y subdirectorios.
-6. Menú de opciones: Barra de opcciones que permite modificar y guardar archivos, cambiar acciones del kernel, configuraciones de Jupyter Lab, etc.
+5. Contenido del directorio de trabajo actual: El icono de carpeta muestra todo el contenido del directorio en donde se llamó a Jupyter Lab. Es el directorio de trabajo porque desde ahí Jupyter creará y accederá a los archivos y subdirectorios.
+6. Menú de opciones: Barra de opciones que permite modificar y guardar archivos, cambiar acciones del kernel, configuraciones de Jupyter Lab, etc.
 
 Estas se encuentran señaladas en la imagen. El resto son herramientas muy útiles. Hay varias otras funcionalidades que puedes explorar. 
 ```{image} ./img/j_9.png
@@ -90,7 +90,7 @@ Estas se encuentran señaladas en la imagen. El resto son herramientas muy útil
 :align: center
 ```
 
-El posible cambiar el tipo de celda al que se requiera ese momento. Por default se crea una nueva celda de código, pero es posible cambiarla a una celda de Markdown. Desde la barra de herramientas.
+El posible cambiar el tipo de celda al que se requiera ese momento. Por defecto se crea una nueva celda de código, pero es posible cambiarla a una celda de Markdown. Desde la barra de herramientas.
 ```{image} ./img/j_11.png
 :alt: ./img/j_11.png
 :width: 800px
@@ -109,7 +109,7 @@ Recuerda siempre guardar el progreso de tu notebook para evitar pérdida de dato
 
 
 ## `Markdown`
-Markdown es una simplificación para HTML usado en programación web. Markdown es la herramienta que permite que existan celdas que contengan datos, imágenes y texto para describir código. Usaremos Markdown durante los deberes. Existen varias guías que puedes usar. Algunas de ellas las enlisto abajo:
+Markdown es una simplificación para HTML usado en programación web. Markdown es la herramienta que permite que existan celdas que contengan datos, imágenes y texto para describir código. Usaremos Markdown durante los deberes. Existen varias guías que puedes usar. Algunas de ellas las son:
 - <https://www.markdownguide.org/>
 - <https://ia.net/writer/support/general/markdown-guide>
 
@@ -118,7 +118,7 @@ Las tres cosas que debes saber de Markdown para este taller son:
 2. Insertar imágenes
 3. Usar negritas, cursiva y comillas `(``)`
 
-La celda Markdown en la imágen anterior contiene el siguiente código. 
+La celda Markdown en la imagen anterior contiene el siguiente código. 
 ```markdown
 # Deber No. 1: Jupyter Lab
 ### Nombre: Juanes

@@ -26,7 +26,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -823,7 +823,7 @@
 <div id="seccion4_3_1"/>
 <div class="section" id="que-son-las-regex">
 <h2><span class="section-number">4.1. </span>¿Qué son las regex?<a class="headerlink" href="#que-son-las-regex" title="Permalink to this headline">¶</a></h2>
-<p>Una regex es una cadena de caracteres (string) especial que describe patrones de búsqueda sobre otros strings. Para el procesamiento de las regex se utilizan diferentes <em>engines</em>, que tienen pequeñas variaciones de una a plicación a otra. Generalmente, se usan para extraer información de texto en muchos de lenguajes de programación, editores de texto y herramientas de procesamiento de texto de terminal como grep y sed (lo que veremos en temas posteriores).</p>
+<p>Una regex es una cadena de caracteres (string) especial que describe patrones de búsqueda sobre otros strings. Para el procesamiento de las regex se utilizan diferentes <em>engines</em>, que tienen pequeñas variaciones de una aplicación a otra. Generalmente, se usan para extraer información de texto en muchos de lenguajes de programación, editores de texto y herramientas de procesamiento de texto de terminal como grep y sed (lo que veremos en temas posteriores).</p>
 <div id="seccion4_3_2"/>
 </div>
 <div class="section" id="engine-de-regex-y-texto-para-este-tutorial">
@@ -1086,7 +1086,7 @@ Sin alma ni corazón</p>
 <p class="admonition-title">Pregunta</p>
 <p>¿Qué flag podríamos usar para modificar este comportamiento?</p>
 </div>
-<p>El metacaracter punto debe ser usado con cautela, ya que puede crear coincidencias con errores. Por ejemplo, si queremos buscar fechas escritas en formato <strong>mm\dd\yy</strong>, pero con cualquier separador (guiones, espacioes, etc), podríamos usar la regex <code class="docutils literal notranslate"><span class="pre">\d\d.\d\d.\d\d</span></code>. Si pruebas esta regex se observa que encontró la fecha de modificación del texto, pero también el código <strong>00112233</strong>, lo que es un resultado no deseado.</p>
+<p>El metacaracter punto debe ser usado con cautela, ya que puede crear coincidencias con errores. Por ejemplo, si queremos buscar fechas escritas en formato <strong>mm\dd\yy</strong>, pero con cualquier separador (guiones, espacios, etc), podríamos usar la regex <code class="docutils literal notranslate"><span class="pre">\d\d.\d\d.\d\d</span></code>. Si pruebas esta regex se observa que encontró la fecha de modificación del texto, pero también el código <strong>00112233</strong>, lo que es un resultado no deseado.</p>
 <div class="hint admonition">
 <p class="admonition-title">Pregunta</p>
 <p>¿Se te ocurre una forma de mejorar esta regex para mapear solamente las fechas en formato **mm\dd\yy?</p>

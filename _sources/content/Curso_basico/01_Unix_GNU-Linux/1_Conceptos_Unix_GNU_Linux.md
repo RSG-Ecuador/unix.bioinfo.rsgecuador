@@ -49,7 +49,7 @@
 
 ## Distribuciones GNU/Linux
 * Tienen en común el **kernel Linux**, **software por defecto de GNU** y otras herramientas como editores de texto, etc.
-* Difieren en el software de instalación (apt, pacman, entre otros), aplicaciones de oficina, exploradores web, documetación, costo, calidad del software, soporte de la comuidad, facilidad de uso, entre otras. 
+* Difieren en el software de instalación (apt, pacman, entre otros), aplicaciones de oficina, exploradores web, documentación, costo, calidad del software, soporte de la comunidad, facilidad de uso, entre otras. 
 
 ```{image} ./img/Lin_distrib.png
 :alt: ./img/Lin_distrib.png

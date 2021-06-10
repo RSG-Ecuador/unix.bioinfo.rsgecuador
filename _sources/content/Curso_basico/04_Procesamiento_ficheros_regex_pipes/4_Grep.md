@@ -3,7 +3,7 @@ En esta parte del curso estudiaremos la herramienta grep. Al igual que la parte 
 
 ```{admonition} Nota importante
 :class: note
-En la mayoría de secciones existen preguntas y pequeños ejercicios, maracados con la etiqueta `Pregunta`, cuyas respuestas deben ser realizadas como deber de esta parte del curso. Debes guardar las respuestas en el **Jupuyer notebook** que debes entrengar en este capítulo y correr los comandos en las preguntas que esto sea posible.
+En la mayoría de secciones existen preguntas y pequeños ejercicios, maracados con la etiqueta `Pregunta`, cuyas respuestas deben ser realizadas como deber de esta parte del curso. Debes guardar las respuestas en el **Jupyter notebook** que debes entregar en este capítulo y correr los comandos en las preguntas que esto sea posible.
 ```
 Luego de la fecha de entrega del deber enviaremos las respuestas a los ejercicios de todas las secciones. 
 
@@ -80,7 +80,7 @@ Para evitar complicaciones, si usamos regex que incluyan patrones con el metacar
 <div id="seccion4_4_3_1"/>
 
 ### Información general del programa: `--version, --help`
-El comando `--version` o `-V` se usa para imprimir en la terminal el número y algunas características de la versión de grep instalada en el SO; mientras que `--help` sirve para imrpimir información general del uso y las opciones de grep. 
+El comando `--version` o `-V` se usa para imprimir en la terminal el número y algunas características de la versión de grep instalada en el SO; mientras que `--help` sirve para imprimir información general del uso y las opciones de grep. 
 
 ```{admonition} Pregunta
 :class: hint

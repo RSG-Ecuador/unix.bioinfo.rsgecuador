@@ -25,7 +25,7 @@ Luego de la fecha de entrega del deber enviaremos las respuestas a los ejercicio
 <div id="seccion4_3_1"/>
 
 ## ¿Qué son las regex?
-Una regex es una cadena de caracteres (string) especial que describe patrones de búsqueda sobre otros strings. Para el procesamiento de las regex se utilizan diferentes *engines*, que tienen pequeñas variaciones de una a plicación a otra. Generalmente, se usan para extraer información de texto en muchos de lenguajes de programación, editores de texto y herramientas de procesamiento de texto de terminal como grep y sed (lo que veremos en temas posteriores). 
+Una regex es una cadena de caracteres (string) especial que describe patrones de búsqueda sobre otros strings. Para el procesamiento de las regex se utilizan diferentes *engines*, que tienen pequeñas variaciones de una aplicación a otra. Generalmente, se usan para extraer información de texto en muchos de lenguajes de programación, editores de texto y herramientas de procesamiento de texto de terminal como grep y sed (lo que veremos en temas posteriores). 
 
 <div id="seccion4_3_2"/>
 
@@ -258,7 +258,7 @@ El metacaracter punto `.` coincide con un caracter simple, cualquiera que este s
 ```
 
 
-El metacaracter punto debe ser usado con cautela, ya que puede crear coincidencias con errores. Por ejemplo, si queremos buscar fechas escritas en formato **mm\dd\yy**, pero con cualquier separador (guiones, espacioes, etc), podríamos usar la regex `\d\d.\d\d.\d\d`. Si pruebas esta regex se observa que encontró la fecha de modificación del texto, pero también el código **00112233**, lo que es un resultado no deseado. 
+El metacaracter punto debe ser usado con cautela, ya que puede crear coincidencias con errores. Por ejemplo, si queremos buscar fechas escritas en formato **mm\dd\yy**, pero con cualquier separador (guiones, espacios, etc), podríamos usar la regex `\d\d.\d\d.\d\d`. Si pruebas esta regex se observa que encontró la fecha de modificación del texto, pero también el código **00112233**, lo que es un resultado no deseado. 
 
 ```{admonition} Pregunta
 :class: hint

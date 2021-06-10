@@ -1,5 +1,5 @@
 # Primer encuentro con Vim
-Vim es un editor de texto que sirve para manipular archivos *solamente desde línea de comando*, es decir, desde Terminal. A veces es muy util tener un editor por línea de comando ya que abrir un editor como Jupyter Lab requiere tiempo y abrirlo puede interrumpir el flujo de trabajo. Además, Jupyter se usa para notebooks y para proyectos de programación. `Vim` también puede ser utilizado para eso, pero es mucho más conveniente si se quiere realizar ediciones cortas a un script o algún archivo de texto.
+Vim es un editor de texto que sirve para manipular archivos *solamente desde línea de comando*, es decir, desde Terminal. A veces es muy útil tener un editor por línea de comando ya que abrir un editor como Jupyter Lab requiere tiempo y abrirlo puede interrumpir el flujo de trabajo. Además, Jupyter se usa para notebooks y para proyectos de programación. `Vim` también puede ser utilizado para eso, pero es mucho más conveniente si se quiere realizar ediciones cortas a un script o algún archivo de texto.
 
 ```{image} ./img/vim_1.png
 :alt: ./img/vim_1.png

@@ -3,7 +3,7 @@ En esta parte del curso estudiaremos las herramientas cut, y sort. Al igual que 
 
 ```{admonition} Nota importante
 :class: note
-En la mayoría de secciones existen preguntas y pequeños ejercicios, maracados con la etiqueta `Pregunta`, cuyas respuestas deben ser realizadas como deber de esta parte del curso. Debes guardar las respuestas en el **Jupuyer notebook** que debes entrengar en este capítulo y correr los comandos en las preguntas que esto sea posible.
+En la mayoría de secciones existen preguntas y pequeños ejercicios, maracados con la etiqueta `Pregunta`, cuyas respuestas deben ser realizadas como deber de esta parte del curso. Debes guardar las respuestas en el **Jupuyer notebook** que debes entregar en este capítulo y correr los comandos en las preguntas que esto sea posible.
 ```
 
 Luego de la fecha de entrega del deber enviaremos las respuestas a los ejercicios de todas las secciones. 
@@ -45,7 +45,7 @@ Este comando puede aceptar cero o más archivos como entrada. Si no se especific
 <div id="seccion4_6_1_1_1"/>
 
 ### Información general del programa: `--version, --help`
-El comando `--version` se usa para imprimir en la terminal el número y algunas características de la versión de cut instalada en el SO; mientras que `--help` sirve para imrpimir información general del uso y las opciones de cut. 
+El comando `--version` se usa para imprimir en la terminal el número y algunas características de la versión de cut instalada en el SO; mientras que `--help` sirve para imprimir información general del uso y las opciones de cut. 
 
 ```{admonition} Pregunta
 :class: hint
@@ -114,7 +114,7 @@ Por ejemplo, creemos un archivo desde la terminal y añadamos la palabra **niño
 <div id="seccion4_6_2"/>
 
 ## Comando sort
-Es un comando simple y útil que permite rearreglar las líneas de un archivo de texto de forma que queden ordenadas alfabeticamente o numéricamente. De forma general se aplican las siguientes reglas: 
+Es un comando simple y útil que permite rearreglar las líneas de un archivo de texto de forma que queden ordenadas alfabéticamente o numéricamente. De forma general se aplican las siguientes reglas: 
 
 * Las líneas que comienzan con un número aparecerán antes de las líneas que comienzan con una letra
 * Las líneas que comienzan con una letra que aparece antes en el alfabeto aparecerán antes de las líneas que comienzan con una letra que aparece después en el alfabeto

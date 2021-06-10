@@ -46,7 +46,7 @@ Noten que en la búsqueda de una palabra se pueden añadir algunas opciones medi
 Como se observa en la captura de pantalla del menú principal de nano, hay otros shorcuts que se pueden usar para justificar, cortar, y copiar texto; dirigirse a una línea específica; deshacer o rehacer cambios; entre otros.
 ```
 
-Además, cuando se llama a nano desde la terminal se pueden añadir opciones que realizen diferentes acciones como hacer un respaldo del archivo si se lo modifica (`-B`), convertir tabuladores a espacio (`-E`), entre otros.  
+Además, cuando se llama a nano desde la terminal se pueden añadir opciones que realicen diferentes acciones como hacer un respaldo del archivo si se lo modifica (`-B`), convertir tabuladores a espacio (`-E`), entre otros.  
 
 Para salir del programa se debe usar el shorcut `Control-X`.
 
@@ -119,7 +119,7 @@ Por ejemplo, si queremos buscar la palabra *FASTA* en este archivo debemos estar
 
 Así, el cursor se dirige al inicio de la palabra buscada. Además, se pueden usar expresiones regulares y otros comandos para reemplazar texto u otras operaciones, pero estos conocimientos están fuera del alcance de este tutorial, que es una breve introducción a vi. 
 
-Para salir del programa el modo comandos debe estar activo, y se pueden usar las siguintes opciones:
+Para salir del programa el modo comandos debe estar activo, y se pueden usar las siguientes opciones:
 
 |**Comando**| **Descripción** |
 |:---:|:---:|
@@ -129,7 +129,7 @@ Para salir del programa el modo comandos debe estar activo, y se pueden usar las
 
 ```{admonition} Tip
 :class: tip
-Muchos programadores usan vi no solo como editor de texto, sino como un ambiente de desarrollo integrado (IDE) para programar en diferentes lenguajes, ya que tiene las ventajas de usar pocos recursos computacionales y su flexibilidad para adapatarse a las necesidades del programador. Por tanto, vi es una herramienta muy potente que merece un curso completo, pero este no es el objetivo del curso actual.
+Muchos programadores usan vi no solo como editor de texto, sino como un ambiente de desarrollo integrado (IDE) para programar en diferentes lenguajes, ya que tiene las ventajas de usar pocos recursos computacionales y su flexibilidad para adaptarse a las necesidades del programador. Por tanto, vi es una herramienta muy potente que merece un curso completo, pero este no es el objetivo del curso actual.
 
 Si quieren conocer más sobre este editor de texto les dejamos el siguiente [link](https://www.vim.org/docs.php) de su documentación oficial. Además, les dejamos el link a una [cheatsheet de vi](https://vim.rtorr.com/) muy útil. 
 ```
