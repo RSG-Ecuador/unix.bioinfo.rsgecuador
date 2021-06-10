@@ -14,12 +14,11 @@ En tu deber debes replicar las operaciones con los comandos descritos aquí, tal
 `cat`                | Visualizar contenido de un archivo. Escribe el contenido del archivo de manera secuencial a la salida estándar, a la ventana de Terminal.
 `less`               | Leer contenido de un archivo sin interrumpir la pantalla de Terminal. Similar a `Vim` pero sin opción para escribir. **Se sale del modo visualización con** <kbd>q</kbd>.
 `gzip`               | Compresión de archivos. Genera un archivo de extensión `.gz`. 
-`tar`                | Genera un archivo de archivos. Permite tener un conjunto vaarios archivos y directorios. Útil para comprimir carpetas con subdirectorios y archivos. Genera archivos `.tar`. Se puede combinar con compresión gzip y generar archivos `tar.gz`
+`tar`                | Genera un archivo de archivos. Permite tener un conjunto varios archivos y directorios. Útil para comprimir carpetas con subdirectorios y archivos. Genera archivos `.tar`. Se puede combinar con compresión gzip y generar archivos `tar.gz`
 `zcat`               | Visualizar contenido de archivos con compresión `.gz`. **Se sale del modo visualización con** <kbd>q</kbd>.
 `zless`              | Igual que `less` pero para visualizar un archivo comprimido por `gzip`.
 `head`               | Visualizar primeras líneas de un archivo. 
 `tail`               | Visualizar últimas líneas de un archivo. 
-`type`               |
 `which`              | Indica el directorio donde se encuentra un particular comando o programa que se haya podido encontrar usando los directorios guardados en la variable de estado `PATH`.
 |<img width=450/>    | |
 
@@ -89,7 +88,7 @@ $ file ~/taller_unix/3_manejo_terminal/bacterias_generos.txt.gz
 
 ## Servidor Local
 
-El servidor local se refiere a tu computadora. Los servidores son computadoras que están diseñadas para procesar información y enviársela a otro computador a través de una red. Dos tipos de servidores bien conocidos son los servidores HPC y los servidores web. Ambos representan una red de computadoras que procesan información y se comunican con otras computadoras. Cada computadora entonces puede evaluarse con varios descriptores de estado, que explican cómo opera la computadora en un momento en particular. A continuacíon se presenta una lista de comandos importantes que sirven para monitorear la computadora y entender qué está procesando en tiempo real, la cantidad de memoria que ocupa, y otros interesantes.
+El servidor local se refiere a tu computadora. Los servidores son computadoras que están diseñadas para procesar información y enviársela a otro computador a través de una red. Dos tipos de servidores bien conocidos son los servidores HPC y los servidores web. Ambos representan una red de computadoras que procesan información y se comunican con otras computadoras. Cada computadora entonces puede evaluarse con varios descriptores de estado, que explican cómo opera la computadora en un momento en particular. A continuación se presenta una lista de comandos importantes que sirven para monitorear la computadora y entender qué está procesando en tiempo real, la cantidad de memoria que ocupa, y otros interesantes.
 
 **Comando**                 | **Función**
 ---                         | ---
@@ -98,7 +97,7 @@ El servidor local se refiere a tu computadora. Los servidores son computadoras q
 `uname`                     | Brinda información sobre hostname, kernel del computador y la arquitectura del procesador.
 `lsb_release`               | Especifica información sobre Linux Standard Base (LSB) de la distribución de Linux que se está usando en la computadora. 
 `df`                        | Guarda estadísticas sobre la cantidad de espacio de memoria libre en el sistema de archivos montado.
-`top`                       | Muestra todos los procesos que tiene activos el sistema operativo en tiempo de ejecucicón. Permite ver de manera dinámica en tiempo real cada proceso.
+`top`                       | Muestra todos los procesos que tiene activos el sistema operativo en tiempo de ejecución. Permite ver de manera dinámica en tiempo real cada proceso.
 `chmod`                     | Permite cambiar el modo de acceso a archivos y carpetas.
 |<img width=300/>           | |
 

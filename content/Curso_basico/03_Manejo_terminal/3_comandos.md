@@ -1,9 +1,9 @@
 # Comandos en la `shell`
-Ejecuta el siguiente comando en Terminal. ¿Cual es el resultado arrojado?
+Ejecuta el siguiente comando en Terminal. ¿Cuál es el resultado arrojado?
 ```shell
 $ ls
 ```
-Ahora escribe este. ¿Cual es la diferencia?
+Ahora escribe este. ¿Cuál es la diferencia?
 ```shell
 $ ls -la
 ```
@@ -19,7 +19,7 @@ Los comandos distinguen entre mayúsculas y minúsculas. **Comando** y **comando
 
 ```{admonition} Nota
 :class: note
-No te asustes por el resultado. ¿Cual es la diferencia entre las opciones `-r` y `-R`?
+No te asustes por el resultado. ¿Cuál es la diferencia entre las opciones `-r` y `-R`?
 ```
 
 
@@ -79,7 +79,7 @@ $ ls -l -a -h -t -r
 $ man
 What manual page do you want?
 ```
-El manual de comandos del sistema operativo se llama mediante el comando `man`, como se ve justo arriba. ¡Los argumentos de este comando son otros comandos! Ejecuta el siguiente comando en Terminal. Debería resultar en la siguiente imágen. Si deseas salir presiona `q`. Para navegar por el manual usa las flechas del teclado &larr; &uarr; &darr; &rarr; o el mouse.
+El manual de comandos del sistema operativo se llama mediante el comando `man`, como se ve justo arriba. ¡Los argumentos de este comando son otros comandos! Ejecuta el siguiente comando en Terminal. Debería resultar en la siguiente imagen. Si deseas salir presiona `q`. Para navegar por el manual usa las flechas del teclado &larr; &uarr; &darr; &rarr; o el mouse.
 ```shell
 $ man man
 ```
@@ -90,7 +90,7 @@ $ man man
 :align: center
 ```
 
-El manual debes usar siempre que quieras entender más sobre un comando a usar por la shell. Por ejemplo, para ver todas las posibes opciones que se pueden usar con el comando `ls`, ejecuta el comando:
+El manual debes usar siempre que quieras entender más sobre un comando a usar por la shell. Por ejemplo, para ver todas las posibles opciones que se pueden usar con el comando `ls`, ejecuta el comando:
 ```shell
 $ man ls 
 ```
@@ -111,7 +111,7 @@ Otro comando muy util para conseguir ayuda en sistemas Linux es `help`.
 En MacOS no funciona, sin embargo, `man` es suficiente.
 ```
 
-. En sistemas Linux, `help` es similar a `man`, ya que permite tener información sobre algún comando en específico, sus posibles opciones, sus argumentos. Por ejemplo, para obtener ayuda sobre cómo usar `help` usando el mismo `help` (excelente), escibre esto en Terminal y dale enter:
+En sistemas Linux, `help` es similar a `man`, ya que permite tener información sobre algún comando en específico, sus posibles opciones, sus argumentos. Por ejemplo, para obtener ayuda sobre cómo usar `help` usando el mismo `help` (excelente), escribe esto en Terminal y dale enter:
 
 ```shell
 $ help help

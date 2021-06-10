@@ -3,7 +3,7 @@ En esta parte del curso estudiaremos los pipes. Al igual que las anteriores part
 
 ```{admonition} Nota importante
 :class: note
-En la mayoría de secciones existen preguntas y pequeños ejercicios, maracados con la etiqueta `Pregunta`, cuyas respuestas deben ser realizadas como deber de esta parte del curso. Debes guardar las respuestas en el **Jupuyer notebook** que debes entrengar en este capítulo y correr los comandos en las preguntas que esto sea posible.
+En la mayoría de secciones existen preguntas y pequeños ejercicios, maracados con la etiqueta `Pregunta`, cuyas respuestas deben ser realizadas como deber de esta parte del curso. Debes guardar las respuestas en el **Jupuyer notebook** que debes entregar en este capítulo y correr los comandos en las preguntas que esto sea posible.
 ````
 
 Luego de la fecha de entrega del deber enviaremos las respuestas a los ejercicios de todas las secciones. 
@@ -17,7 +17,7 @@ En este tutorial usaremos los tres archivos que hemos usado en los temas anterio
 
 ## ¿Qué son los pipes?
 
-Los pipes (`|`) son una herramienta de interfaz de línea de comandos (CLI) de SO basados en Unix, que permite redireccionar el [*stdout*](https://www.computerhope.com/jargon/s/stdout.htm) de un comnando/programa/proceso al [*stdin*](https://www.computerhope.com/jargon/s/stdin.htm) de otro comnando/programa/proceso. De esta forma, se pueden usar dos o más comandos de forma que el resultado de un comando sirva como la entrada del siguiente, lo que se puede repetir de acuerdo a la cantidad de pipes. 
+Los pipes (`|`) son una herramienta de interfaz de línea de comandos (CLI) de SO basados en Unix, que permite redireccionar el [*stdout*](https://www.computerhope.com/jargon/s/stdout.htm) de un comando/programa/proceso al [*stdin*](https://www.computerhope.com/jargon/s/stdin.htm) de otro comando/programa/proceso. De esta forma, se pueden usar dos o más comandos de forma que el resultado de un comando sirva como la entrada del siguiente, lo que se puede repetir de acuerdo a la cantidad de pipes. 
 
 De esta forma, se crea una conexión directa entre los comandos/programas/procesos, lo que permite que los datos se transfieran entre estos de forma continua en lugar de tener que guardar esta información en archivos de texto temporales o imprimir en pantalla. 
 

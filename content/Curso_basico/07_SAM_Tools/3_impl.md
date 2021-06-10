@@ -1,6 +1,6 @@
 # Implementación
 
-El procesamiento de las sencuencias es sencillo:
+El procesamiento de las secuencias es sencillo:
 1. *Indexar el genoma de referencia* \[`bwa`\]: Permite nombrar partes importantes que se usen como referencia en el alineamiento.
 2. *Alinear las lecturas secuenciadas con el genoma de referencia* \[`bwa`\]: El propósito es claro. Hay que ubicar las secuencias obtenidas en el genoma. Este alineamiento se guarda en un archivo de formato SAM (Sequence Alignment Map), que es legible para humanos. 
 3. *Comprimir el archivo de alineamiento SAM* \[`samtools`\]: Convierte el archivo SAM a formato BAM (Binary Alignment Map), es un archivo binario, comprimido, que los algoritmos pueden manipular de mejor manera. 

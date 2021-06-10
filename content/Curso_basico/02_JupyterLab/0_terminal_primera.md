@@ -1,6 +1,6 @@
 # Organización de archivos duante el taller
 
-Antes de comenzar vamos a crear varias carpetas para ordenar el material que vas a crear durante todo el taller. Es importante organizar todo en carpetas bien establecidas para no perder archivos. Sin orden perder archivos es muy fácil, sobre todo si se trabaja desde la Terminal. Para empezar, abre una ventana de Terminal y escribe todos estos comandos. No incluyas el símbolo de `$`, ese es solo para especificar desde dónde empiezas a escrbir. Después de escribir cada comando dale <kbd>return</kbd>:
+Antes de comenzar vamos a crear varias carpetas para ordenar el material que vas a crear durante todo el taller. Es importante organizar todo en carpetas bien establecidas para no perder archivos. Sin orden perder archivos es muy fácil, sobre todo si se trabaja desde la Terminal. Para empezar, abre una ventana de Terminal y escribe todos estos comandos. No incluyas el símbolo de `$`, ese es solo para especificar desde dónde empiezas a escribir. Después de escribir cada comando dale <kbd>return</kbd>:
 
 ```shell
 $ cd ~
@@ -95,7 +95,7 @@ En la siguiente unidad vamos a ver qué significa cada uno de estos comandos que
     :width: 800px
     :align: center
     ```
-5. Creamos un arhivo de texto y examinamos el contenido de toda la carpeta. Incluso el contenido escondido.
+5. Creamos un archivo de texto y examinamos el contenido de toda la carpeta. Incluso el contenido escondido.
     ```shell
     $ touch mi_primer_archivo.txt
     $ ls -la

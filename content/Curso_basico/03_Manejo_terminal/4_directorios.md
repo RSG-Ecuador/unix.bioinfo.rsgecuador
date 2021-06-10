@@ -1,15 +1,15 @@
 # Directorios y archivos en UNIX: Parte 1
 ## Arquitectura UNIX
-Un **directorio** es una carpeta. Los sistemas operativos en general se organizan en directorios, subdirectorios y archivos. Entonces los directorios también son **ubicaciones dentro de la memoria del computador**, como ubicaciones en un mapa. Un **archivo** o *fichero* es un conjunto de **información digital** (bytes guardados en memoria) en algun formato como texto plano, PNG, markdown y miles de otros formatos.
+Un **directorio** es una carpeta. Los sistemas operativos en general se organizan en directorios, subdirectorios y archivos. Entonces los directorios también son **ubicaciones dentro de la memoria del computador**, como ubicaciones en un mapa. Un **archivo** o *fichero* es un conjunto de **información digital** (bytes guardados en memoria) en algún formato como texto plano, PNG, markdown y miles de otros formatos.
 
-UNIX se organiza por un **sistema de archivos** en estructura de árbol invertido. Todo en Linux y sistemas UNIX es un archivo o un directorio. Esta jerarquía comienza con el directorio raíz (*root diectory*), indicado por `/`. Este directorio contine subdirectorios y archivos importantes con sotfware escencial para el funcionamiento del sistema operativo y software instalado o creado por el usuario. Para información detallada visita http://www.linfo.org/filesystem.html o también http://www.linfo.org/index.html. Un resumen rápido de los subdirectorios en `/` es:
+UNIX se organiza por un **sistema de archivos** en estructura de árbol invertido. Todo en Linux y sistemas UNIX es un archivo o un directorio. Esta jerarquía comienza con el directorio raíz (*root diectory*), indicado por `/`. Este directorio contine subdirectorios y archivos importantes con sotfware esencial para el funcionamiento del sistema operativo y software instalado o creado por el usuario. Para información detallada visita http://www.linfo.org/filesystem.html o también http://www.linfo.org/index.html. Un resumen rápido de los subdirectorios en `/` es:
 
 <center>
 
 Directorio | Funcnión de archivos y subdirectorios
 ---        | --- 
-`/bin  `   | Ejecutables para funcionamiento mínimo escencial del sistema operativo como arrancar, reparar, las shell como `Bash` o `ZSH` y comandos UNIX como `ls`, `echo`, `mv`, `tar`, `vi` y varios otros.
-`/boot `   | Ejectuables necesarios para arracncar el sistema operativo.
+`/bin  `   | Ejecutables para funcionamiento mínimo esencial del sistema operativo como arrancar, reparar, las shell como `Bash` o `ZSH` y comandos UNIX como `ls`, `echo`, `mv`, `tar`, `vi` y varios otros.
+`/boot `   | Ejecutables necesarios para arrancar el sistema operativo.
 `/dev  `   | Dispositivos hardware y controladores.
 `/etc  `   | Configuración adicional de sistema.
 `/home  `  | Datos de usuario.
@@ -17,10 +17,10 @@ Directorio | Funcnión de archivos y subdirectorios
 `/media`   | Puntos de montaje para dispositivos removibles.
 `/mnt  `   | Puntos de montaje para sistemas de archivos temporales (particiones).
 `/opt  `   | Paquetes opcionales de software.
-`/sbin `   | Executables para administación del sistema operativo disponibles para el usuario principal del computador o `sudo user`. Es similar a `/bin`, pero un `sudo bin`.
+`/sbin `   | Ejecutables para administración del sistema operativo disponibles para el usuario principal del computador o `sudo user`. Es similar a `/bin`, pero un `sudo bin`.
 `/srv  `   | Datos para servicios del sistema, como data de servidores HTTP, entre otros.
 `/tmp  `   | Archivos temporales. Los archivos se borran cuando el sistema reinicia.
-`/usr  `   | Jerarquía secundaria. Actúa como root `/`, pero se usa más para customización creada por el usuario e instalación de software, para prevenir dañar los archivos en las otras carpetas del directorio raíz. Esta conitiene directios `/bin`, `/sbin`, `/lib`, `/share` y otros. 
+`/usr  `   | Jerarquía secundaria. Actúa como root `/`, pero se usa más para customización creada por el usuario e instalación de software, para prevenir dañar los archivos en las otras carpetas del directorio raíz. Esta contiene directorios `/bin`, `/sbin`, `/lib`, `/share` y otros. 
 `/var  `   | Datos variables, especialmente archivos generados en tiempo de ejecución. Esta información no se borra de manera automática.
 
 </center>
@@ -30,7 +30,7 @@ Para **acceder** a un directorio se usa el comando `cd`. El argumento de este co
 $ cd /
 $ ls
 ```
-Hay varios otros directorios importantes como se podrá ver. Estos deberán ser revsados por tu cuenta. Vamos a acceder al directorio `/` y vamos a mostrar su contenido. En el sistema operativo Linux se peude ver de esta manera:
+Hay varios otros directorios importantes como se podrá ver. Estos deberán ser revisados por tu cuenta. Vamos a acceder al directorio `/` y vamos a mostrar su contenido. En el sistema operativo Linux se puede ver de esta manera:
 
 ```{image} ./img/root_ubuntu.png
 :alt: ./img/root_ubuntu.png
@@ -38,7 +38,7 @@ Hay varios otros directorios importantes como se podrá ver. Estos deberán ser 
 :align: center
 ```
 
-En el sistema operativo MacOS varía un poco, debido a que Apple ha aplicado algunas adaptaciones para su sistema operativo, sin embargo, conserva los directorios escenciales como `/bin`, `/sbin` y `/usr`. Se peude ver de esta manera:
+En el sistema operativo MacOS varía un poco, debido a que Apple ha aplicado algunas adaptaciones para su sistema operativo, sin embargo, conserva los directorios esenciales como `/bin`, `/sbin` y `/usr`. Se puede ver de esta manera:
 
 ```{image} ./img/root_mac.png
 :alt: ./img/root_mac.png
@@ -59,7 +59,7 @@ En el sistema operativo MacOS varía un poco, debido a que Apple ha aplicado alg
 `rm - r [directorio]`           | Remover recursivamente. Se usa para remover directorios y subdirectorios.
 `rm - rf [directorio]`          | Remover recursivamente de manera forzada. Se usa para evitar que el sistema evite elminiar un directorio.
 `mv [desde] [hacia]`            | Mover un archivo a un directorio.
-`cp [desde] [hacia]`            | 
+`cp [desde] [hacia]`            | Copiar un archivo a un directorio.
 |<img width=500/>               | |
 
 ## Directorio de inicio / Home directory
@@ -112,7 +112,7 @@ $ pwd
 :align: center
 ```
 
-En esta imagen, el comando `ls -a` revela, además del directorio escondido, dos nuveos directorios extra muy importantes: `./` y `../`. Estos directorios significan *directorio actual* y *directorio anterior*, respectivamente. Sirven para poder operar dentro del directorio actual o para salir del directorio actual, respectivamente. Salgamos del directorio hacia `~/taller_unix/3_manejo_terminal` y creemos un archivo que vamos a mover hacia `~/taller_unix/3_manejo_terminal/prueba`. Será un archivo ejecutable de Python:
+En esta imagen, el comando `ls -a` revela, además del directorio escondido, dos nuevos directorios extra muy importantes: `./` y `../`. Estos directorios significan *directorio actual* y *directorio anterior*, respectivamente. Sirven para poder operar dentro del directorio actual o para salir del directorio actual, respectivamente. Salgamos del directorio hacia `~/taller_unix/3_manejo_terminal` y creemos un archivo que vamos a mover hacia `~/taller_unix/3_manejo_terminal/prueba`. Será un archivo ejecutable de Python:
 ```shell
 $ cd ..
 $ touch archivo_para_mover.py
@@ -214,7 +214,7 @@ $ mv /Users/j/taller_unix/3_manejo_terminal/archivo_para_mover.py /Users/j/talle
 
 ```{admonition} Nota
 :class: Note
-Significan lo mismo, ya que especifican el directorio de inicio y el final, pero la ruta relativa es más abreviada. Hay que identificar las cuándo es conveninete trabajar con uno de ellos en particular. Se usan los directorios absolutos usualmente cuando se quiere revelar la locación de un archivo, o cuando se necesita rastrear cambios de ubicación. Los directorios relativos son fáciles de ejecutar y evitan la necesidad de usar nuestra memoria al escribir comandos.
+Significan lo mismo, ya que especifican el directorio de inicio y el final, pero la ruta relativa es más abreviada. Hay que identificar las cuándo es conveniente trabajar con uno de ellos en particular. Se usan los directorios absolutos usualmente cuando se quiere revelar la locación de un archivo, o cuando se necesita rastrear cambios de ubicación. Los directorios relativos son fáciles de ejecutar y evitan la necesidad de usar nuestra memoria al escribir comandos.
 ```
 <div id="ejercicio3_terminal"/>
 
@@ -236,7 +236,7 @@ $ cd prueba
 :align: center
 ```
 
-Para ver nuestra jerajrquía de carpetas podemos usar el comando. Operamos desde `~/taller_unix/3_manejo_terminal/prueba`. Usamos `pwd` para descubrir la ruta actual:
+Para ver nuestra jerarquía de carpetas podemos usar el comando. Operamos desde `~/taller_unix/3_manejo_terminal/prueba`. Usamos `pwd` para descubrir la ruta actual:
 ```shell
 $ ls -R
 $ pwd
